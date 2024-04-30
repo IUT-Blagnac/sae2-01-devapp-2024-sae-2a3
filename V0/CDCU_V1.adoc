@@ -1,0 +1,22 @@
+= Cahier Des Charges Utilisateur
+=
+:toc-title: Sommaire
+:toc: auto
+
+*Par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_
+
+*Version : 1*
+*Date : 30/05/2024*
+*Équipe : 2A3*
+*Projet : SAE GPO/DEV (S2.01/S2.05)*
+
+
+== I. Présentation générale
+
+== II. Rôle de l' application
+
+== III. Installation utilisation
+
+== IV. Fonctionnement - chaque étudiant identifie sa partie
+
+== V. Résultats produits avec jeux d'essai commentés
