@@ -1,0 +1,36 @@
+= Documentation utilisateur - DailyBank - Version 0
+=
+:toc-title: Sommaire
+:toc: auto
+
+*Par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_
+
+== I. Présentation générale
+La banque de détail DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Cette application sera déployée dans les 100 agences du réseau DailyBank.
+
+== II. Rôle de l' application
+L'application DailyBank permettra de gérer les comptes bancaires de dépôt des clients. Elle permettra de réaliser les opérations suivantes :
+
+* Consulter le solde d'un compte
+* Effectuer des virements entre deux comptes
+* Déposer ou retirer de l'argent sur un compte
+* Suivre l'historique des transactions
+
+L'application permettra également aux clients de gérer leurs profils et de contacter le service client.
+
+== III. Installation utilisation
+L'application DailyBank sera disponible en téléchargement sur l'App Store et Google Play. Une fois l'application installée, les clients pourront se connecter en utilisant leur numéro de client et leur mot de passe.
+
+L'application est conçue pour être intuitive et facile à utiliser. Les clients pourront effectuer toutes les opérations bancaires courantes en quelques clics.
+
+== IV. Fonctionnement - chaque étudiant identifie sa partie
+L'application DailyBank se compose de plusieurs modules :
+
+* Module de gestion des comptes clients
+* Module de gestion des transactions
+* Module de gestion des profils clients
+* Module de gestion du service client
+
+Chaque module est responsable d'une fonctionnalité spécifique de l'application. Les modules communiquent entre eux pour fournir une expérience utilisateur fluide.
+
+== V. Résultats produits avec jeux d'essai commentés
