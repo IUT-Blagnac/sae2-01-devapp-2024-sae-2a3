@@ -2,7 +2,7 @@
 
 == Présentation de l'équipe et rôles respectifs
 
-https://github.com/ZIAK-AKIMBO[AMERI Mohamme] +
+https://github.com/ZIAK-AKIMBO[AMERI Mohammed] +
 https://github.com/Darulo13[CIARDI Rudy] +
 https://github.com/Mialiso[RAZAFINIRINA Mialisoa] +
 https://github.com/madblurryface[SHULHINA Daria]
