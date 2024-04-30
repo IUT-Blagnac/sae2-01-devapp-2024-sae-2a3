@@ -3,20 +3,25 @@
 :toc-title: Sommaire
 :toc: auto
 
-*Par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_
+*Par :*;;
+Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_
 
-*Version : 1*
-*Date : 30/05/2024*
-*Équipe : 2A3*
+*Version : 1* +
+*Date : 30/05/2024* +
+*Équipe : 2A3* +
 *Projet : SAE GPO/DEV (S2.01/S2.05)*
 
 
-== I. Présentation générale
+== I. Exposé introductif : Présentation de l’organisation
 
-== II. Rôle de l' application
+== II. L’étude de l’existant
 
-== III. Installation utilisation
+== III. L’analyse des besoins
 
-== IV. Fonctionnement - chaque étudiant identifie sa partie
+== IV. Les contraintes
 
-== V. Résultats produits avec jeux d'essai commentés
+== V. La description de la solution
+
+== VI. La définition de la procédure de mise en œuvre
+
+== VII. Annexes
