@@ -24,7 +24,7 @@ Dans le cadre de sa stratégie de modernisation, DailyBank souhaite remplacer se
 
 Ce cahier des charges détaille les objectifs et les exigences de DailyBank pour le développement de cette nouvelle application, qui sera déployée dans ses 100 agences à travers le pays. Il s'agit d'une étape importante dans la transformation numérique de DailyBank, visant à maintenir sa position en tant que leader de la banque de détail en Europe.
 
-image::logo_dailybank.png[Logo DailyBank]
+image::../logo_dailybank.png[Logo DailyBank]
 
 == II. L’étude de l’existant
 Dans l'étude de l'existant, nous constatons que la version V0 de l'application "Daily Bank" offre des fonctionnalités de base pour la gestion des comptes clients au sein des agences de la banque DailyBank. Les guichetiers ont la capacité de modifier les informations des clients, notamment leur adresse et leur numéro de téléphone. De plus, ils peuvent créer de nouveaux clients dans le système et consulter les informations relatives aux comptes existants. Finalement, les guichetiers peuvent aussi effectuer des opérations de débit sur les comptes des clients.
