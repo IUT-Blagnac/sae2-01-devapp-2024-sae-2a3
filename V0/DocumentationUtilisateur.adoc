@@ -34,52 +34,22 @@ L'application DailyBank se compose de plusieurs modules :
 Chaque module est responsable d'une fonctionnalité spécifique de l'application. Les modules communiquent entre eux pour fournir une expérience utilisateur fluide.
 
 == V. Résultats produits avec jeux d'essai commentés
-==== Consulter le solde d'un compte
-Vérifier que le client peut consulter le solde de son compte :
+*Consulter le solde d'un compte* : nous vérifions que le client peut consulter le solde de son compte.
 
-1. Le client se connecte à l'application.
-2. Le client sélectionne le compte dont il souhaite consulter le solde.
-3. Le solde du compte est affiché à l'écran.
+Le client se connecte à l'application puis sélectionne le compte qu'il souhaite consulter. L'écran devrait afficher le solde correct du compte.
 
-Le solde du compte est affiché correctement.
+*Effectuer des virements entre deux comptes* : nous vérifions que le client peut effectuer des virements entre ses deux comptes.
 
-==== Effectuer des virements entre deux comptes
-Vérifier que le client peut effectuer un virement entre deux de ses comptes :
+Le client est autorisé dans l'application, puis sélectionne le compte et le compte du destinataire pour le virement. Saisissez le montant du transfert et confirmez le transfert. Le virement doit être effectué correctement et le solde des deux comptes doit être mis à jour.
 
-1. Le client se connecte à l'application.
-2. Le client sélectionne le compte source et le compte destinataire du virement.
-3. Le client saisit le montant du virement.
-4. Le client confirme le virement.
-5. Le virement est effectué.
+*Déposer de l'argent sur un compte* : nous vérifions que le client peut déposer de l'argent sur son compte.
 
-Le virement est effectué correctement et le solde des deux comptes est mis à jour.
+Le client entre dans le programme et sélectionne le compte sur lequel il souhaite déposer de l'argent. Saisit le montant du dépôt et confirme le dépôt. Le dépôt doit être correct et le solde du compte à jour.
 
-==== Déposer ou retirer de l'argent sur un compte
-Vérifier que le client peut déposer de l'argent sur son compte :
+*Retirer de l'argent sur un compte* : nous vérifions si le client peut retirer de l'argent de son compte.
 
-1. Le client se connecte à l'application.
-2. Le client sélectionne le compte sur lequel il souhaite déposer de l'argent.
-3. Le client saisit le montant du dépôt.
-4. Le client confirme le dépôt.
-5. Le dépôt est effectué.
+Le client entre dans le programme et sélectionne le compte sur lequel il souhaite retirer de l'argent. Saisissez le montant du retrait et confirmez le retrait. Le retrait s'est effectué correctement et le solde du compte a été mis à jour.
 
-Le dépôt est effectué correctement et le solde du compte est mis à jour.
+*Suivre l'historique des transactions* : nous vérifions que le client peut consulter l'historique des transactions dans son compte :
 
-Vérifier que le client peut retirer de l'argent sur son compte :
-
-1. Le client se connecte à l'application.
-2. Le client sélectionne le compte sur lequel il souhaite retirer de l'argent.
-3. Le client saisit le montant du retrait.
-4. Le client confirme le retrait.
-5. Le retrait est effectué.
-
-Le retrait est effectué correctement et le solde du compte est mis à jour.
-
-==== Suivre l'historique des transactions
-Vérifier que le client peut consulter l'historique des transactions sur son compte :
-
-1. Le client se connecte à l'application.
-2. Le client sélectionne le compte dont il souhaite consulter l'historique des transactions.
-3. L'historique des transactions est affiché à l'écran.
-
-L'historique des transactions est affiché correctement.
+Le client entre dans le programme, puis sélectionne le compte pour lequel il souhaite consulter l'historique des transactions. L'historique des transactions doit être affiché à l'écran.
