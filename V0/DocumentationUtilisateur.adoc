@@ -34,3 +34,52 @@ L'application DailyBank se compose de plusieurs modules :
 Chaque module est responsable d'une fonctionnalité spécifique de l'application. Les modules communiquent entre eux pour fournir une expérience utilisateur fluide.
 
 == V. Résultats produits avec jeux d'essai commentés
+==== Consulter le solde d'un compte
+Vérifier que le client peut consulter le solde de son compte :
+
+1. Le client se connecte à l'application.
+2. Le client sélectionne le compte dont il souhaite consulter le solde.
+3. Le solde du compte est affiché à l'écran.
+
+Le solde du compte est affiché correctement.
+
+==== Effectuer des virements entre deux comptes
+Vérifier que le client peut effectuer un virement entre deux de ses comptes :
+
+1. Le client se connecte à l'application.
+2. Le client sélectionne le compte source et le compte destinataire du virement.
+3. Le client saisit le montant du virement.
+4. Le client confirme le virement.
+5. Le virement est effectué.
+
+Le virement est effectué correctement et le solde des deux comptes est mis à jour.
+
+==== Déposer ou retirer de l'argent sur un compte
+Vérifier que le client peut déposer de l'argent sur son compte :
+
+1. Le client se connecte à l'application.
+2. Le client sélectionne le compte sur lequel il souhaite déposer de l'argent.
+3. Le client saisit le montant du dépôt.
+4. Le client confirme le dépôt.
+5. Le dépôt est effectué.
+
+Le dépôt est effectué correctement et le solde du compte est mis à jour.
+
+Vérifier que le client peut retirer de l'argent sur son compte :
+
+1. Le client se connecte à l'application.
+2. Le client sélectionne le compte sur lequel il souhaite retirer de l'argent.
+3. Le client saisit le montant du retrait.
+4. Le client confirme le retrait.
+5. Le retrait est effectué.
+
+Le retrait est effectué correctement et le solde du compte est mis à jour.
+
+==== Suivre l'historique des transactions
+Vérifier que le client peut consulter l'historique des transactions sur son compte :
+
+1. Le client se connecte à l'application.
+2. Le client sélectionne le compte dont il souhaite consulter l'historique des transactions.
+3. L'historique des transactions est affiché à l'écran.
+
+L'historique des transactions est affiché correctement.
