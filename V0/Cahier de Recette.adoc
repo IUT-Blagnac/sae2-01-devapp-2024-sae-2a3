@@ -3,10 +3,10 @@
 :toc-title: Sommaire
 
 :Entreprise: DailyBank
-:Equipe:  
+:Equipe:
 
-Créé par : 
-Créé pour :  
+*Créé par : Équipe 2A3, AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria* +
+*Créé pour : DailyBank*
 
  
 
@@ -15,7 +15,7 @@ Créé pour :
 == I. Introduction
 === 1. Objet :
 [.text-justify]
-Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour ...
+Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour la banque DailyBank.
 
 
 == II. Pre-Requis :
@@ -50,14 +50,14 @@ Ordinateur sous Windows ou OS équivalent.
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_C.1 ^|Cliquer sur le bouton "Nouveau client". ^|La fenêtre de création des clients s'ouvre. ^| aucune ^|OK
-^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau client est créé. ^|aucune ^|OK
+^|All_G_C.1 ^|Cliquer sur le bouton "Nouveau client". ^|La fenêtre de création des clients s'ouvre. ^| aucune ^|NOK
+^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau client est créé. ^|aucune ^|NOK
 
 
 5+|
 
-5+|Commentaire :
-Compléter et si on ne valide pas, ...
+5+|Commentaire : REVOIR AVEC 
+*créer*.
 |====
 
 
@@ -70,9 +70,9 @@ Compléter et si on ne valide pas, ...
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_C.3 ^|Cliquer sur le bouton "Modifier client". ^|La fenêtre de modification des données du clients s'ouvre. ^|Le client est sélectionné ^|OK
-^|All_G_C.4 ^|Modifier les champs souhaités et confirmer. ^|Retour sur les informations du client. Le client est modifié. ^|La fenêtre modifier client est active ^|OK
-^|All_G_C.5 ^|Modifier les champs souhaités et annuler. ^|Retour sur les informations du client. Le client est inchangé. ^|La fenêtre modifier client est active ^|OK
+^|All_G_C.3 ^|Cliquer sur le bouton "Modifier client". ^|La fenêtre de modification des données du clients s'ouvre. ^|Le client est sélectionné ^|NOK
+^|All_G_C.4 ^|Modifier les champs souhaités et confirmer. ^|Retour sur les informations du client. Le client est modifié. ^|La fenêtre modifier client est active ^|NOK
+^|All_G_C.5 ^|Modifier les champs souhaités et annuler. ^|Retour sur les informations du client. Le client est inchangé. ^|La fenêtre modifier client est active ^|NOK
 
 |====
 
@@ -89,9 +89,8 @@ Compléter et si on ne valide pas, ...
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-...
+^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|NOK
+^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|NOK
 
 |====
 
@@ -107,15 +106,15 @@ Compléter et si on ne valide pas, ...
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Débit". ^|La page des débit du compte s’affiche. ^| Un compte actif est sélectionné ^|OK
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Débit". ^|La page des débit du compte s’affiche. ^| Un compte actif est sélectionné ^|NOK
 ^|All_G_COP.2  ^|Rentrer un montant 50 dans le champ "Montant". ^|Le nouveau solde est +50euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros
- ^|OK
+ ^|NOK
 ^|All_G_COP.3  ^|Rentrer un montant 150 dans le champ "Montant". ^|Le nouveau solde est -50 euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros, le découvert
 autorisé est de -100 euros.
- ^|OK
+ ^|NOK
 ^|All_G_COP.4  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
 autorisé est de -100 euros.
- ^|OK
+ ^|NOK
   
  
 
@@ -141,7 +140,7 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|C_G_C.1    ^|Sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné ... ^| ...
+^|C_G_C.1    ^|Sélectionner le bouton "Inactif" et confirmer. ^|Rend inactif le client  ^|Un client actif est sélectionné  ^| NOK
 
 5+|
 
