@@ -29,6 +29,12 @@ image::../logo_dailybank.png[Logo DailyBank]
 == II. L’étude de l’existant
 Dans l'étude de l'existant, nous constatons que la version V0 de l'application "Daily Bank" offre des fonctionnalités de base pour la gestion des comptes clients au sein des agences de la banque DailyBank. Les guichetiers ont la capacité de modifier les informations des clients, notamment leur adresse et leur numéro de téléphone. De plus, ils peuvent créer de nouveaux clients dans le système et consulter les informations relatives aux comptes existants. Finalement, les guichetiers peuvent aussi effectuer des opérations de débit sur les comptes des clients.
 
+image::../V0Screens/page d'accueil.png[title="page d'accueil"]
+image::../V0Screens/page de connexion.png[title=page de connexion]
+image::../V0Screens/page de gestion des clients.png[title=page de gestion des clients]
+image::../V0Screens/page gestion des comptes.png[title=page gestion des comptes]
+image::../V0Screens/page gestion des opérations.png[title=page gestion des opérations]
+
 Cependant, cette version présente certaines limitations. Elle ne permet pas aux guichetiers de créditer des comptes, de créer de nouveaux comptes, d'effectuer des virements ou de clôturer des comptes, ce qui limite leurs fonctionnalités. De plus, les chefs d'agence ne disposent pas d'outils pour gérer les employés ou pour effectuer d'autres tâches administratives importantes.
 
 En résumé, bien que l'application "Daily Bank" remplisse certaines fonctions de base, elle ne répond pas pleinement aux besoins opérationnels de la banque. Des améliorations sont nécessaires pour permettre une gestion efficace des comptes clients et des opérations bancaires au sein des agences de DailyBank.
