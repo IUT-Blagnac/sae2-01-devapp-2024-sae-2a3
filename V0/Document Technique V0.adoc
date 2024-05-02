@@ -1,4 +1,4 @@
-= Cahier De Recette - DailyBankApp
+= Document Technique - DailyBankApp
 :toc:
 :toc-title: Sommaire
 
@@ -8,5 +8,12 @@
 *Créé par : Équipe 2A3, AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria* +
 *Créé pour : DailyBank*
 
-== I
+== I Présentation De L'Application
 
+== II Architecture
+
+== III Présentation Et Explication Des Diagrammes
+=== 1 Use Case
+=== 2 Diagramme De Classes
+
+== IV Élément De Codes Significatifs Commentés 
