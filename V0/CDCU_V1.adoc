@@ -17,6 +17,12 @@ toc::[]
 
 '''
 
+Dans le cadre de notre cours de développement d'application (SAE S2.01) et de gestion de projet (SAE S2.05), nous nous lançons dans un projet passionnant. Notre objectif est de créer une nouvelle application pour la banque DailyBank. Cette application remplacera plusieurs outils obsolètes actuellement utilisés par la banque pour gérer les comptes clients.
+
+Pour mener à bien ce projet, nous devrons travailler en équipe, en utilisant nos compétences en développement d'application et en gestion de projet. Nous devrons collaborer étroitement pour comprendre les besoins de DailyBank, concevoir et développer l'application, ainsi que rédiger les documents qui lui sont liés.
+
+Ce projet nous offre une occasion unique d'appliquer nos connaissances théoriques à un contexte réel et de développer des compétences précieuses en matière de développement logiciel et de gestion de projet. Nous sommes impatients de relever ce défi ensemble et de livrer une solution de qualité à notre client.
+
 == I. Présentation de l’organisation
 DailyBank est une banque de détail en pleine évolution, cherchant à répondre aux besoins changeants de ses clients dans un monde numérique en constante évolution. Avec l'essor des applications financières, DailyBank reconnaît l'importance cruciale d'une présence numérique forte pour rester compétitif sur le marché bancaire européen.
 
@@ -24,16 +30,18 @@ Dans le cadre de sa stratégie de modernisation, DailyBank souhaite remplacer se
 
 Ce cahier des charges détaille les objectifs et les exigences de DailyBank pour le développement de cette nouvelle application, qui sera déployée dans ses 100 agences à travers le pays. Il s'agit d'une étape importante dans la transformation numérique de DailyBank, visant à maintenir sa position en tant que leader de la banque de détail en Europe.
 
-image::../logo_dailybank.png[Logo DailyBank]
+image::../logo_dailybank.png[title="Logo DailyBank"]
 
 == II. L’étude de l’existant
 Dans l'étude de l'existant, nous constatons que la version V0 de l'application "Daily Bank" offre des fonctionnalités de base pour la gestion des comptes clients au sein des agences de la banque DailyBank. Les guichetiers ont la capacité de modifier les informations des clients, notamment leur adresse et leur numéro de téléphone. De plus, ils peuvent créer de nouveaux clients dans le système et consulter les informations relatives aux comptes existants. Finalement, les guichetiers peuvent aussi effectuer des opérations de débit sur les comptes des clients.
 
 image::../V0Screens/page d'accueil.png[title="page d'accueil"]
-image::../V0Screens/page de connexion.png[title=page de connexion]
-image::../V0Screens/page de gestion des clients.png[title=page de gestion des clients]
-image::../V0Screens/page gestion des comptes.png[title=page gestion des comptes]
-image::../V0Screens/page gestion des opérations.png[title=page gestion des opérations]
+image::../V0Screens/page de connexion.png[title="page de connexion"]
+image::../V0Screens/page de gestion des clients.png[title="page de gestion des clients"]
+image::../V0Screens/page gestion des comptes.png[title="page gestion des comptes"]
+image::../V0Screens/page gestion des opérations.png[title="page gestion des opérations"]
+
+'''
 
 Cependant, cette version présente certaines limitations. Elle ne permet pas aux guichetiers de créditer des comptes, de créer de nouveaux comptes, d'effectuer des virements ou de clôturer des comptes, ce qui limite leurs fonctionnalités. De plus, les chefs d'agence ne disposent pas d'outils pour gérer les employés ou pour effectuer d'autres tâches administratives importantes.
 
