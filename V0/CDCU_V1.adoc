@@ -1,7 +1,7 @@
 = Cahier Des Charges Utilisateur
 =
 :toc-title: Sommaire
-:toc: auto
+:toc: macro 
 
 *Par :*;;
 Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_
@@ -11,6 +11,11 @@
 *Équipe : 2A3* +
 *Projet : SAE GPO/DEV (S2.01/S2.05)*
 
+'''
+
+toc::[]
+
+'''
 
 == I. Présentation de l’organisation
 DailyBank est une banque de détail en pleine évolution, cherchant à répondre aux besoins changeants de ses clients dans un monde numérique en constante évolution. Avec l'essor des applications financières, DailyBank reconnaît l'importance cruciale d'une présence numérique forte pour rester compétitif sur le marché bancaire européen.
