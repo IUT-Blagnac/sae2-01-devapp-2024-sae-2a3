@@ -17,7 +17,7 @@ toc::[]
 
 '''
 
-Dans le cadre de notre cours de développement d'application (SAE S2.01) et de gestion de projet (SAE S2.05), nous nous lançons dans un projet passionnant. Notre objectif est de créer une nouvelle application pour la banque DailyBank. Cette application remplacera plusieurs outils obsolètes actuellement utilisés par la banque pour gérer les comptes clients.
+Dans le cadre de notre cours de développement d'application (SAE S2.01) et de gestion de projet (SAE S2.05) nous nous lançons dans ce projet. Notre objectif est d'améliorer une application obsolètes actuellement utilisés par la banque DailyBank pour gérer ses comptes clients et employés.
 
 Pour mener à bien ce projet, nous devrons travailler en équipe, en utilisant nos compétences en développement d'application et en gestion de projet. Nous devrons collaborer étroitement pour comprendre les besoins de DailyBank, concevoir et développer l'application, ainsi que rédiger les documents qui lui sont liés.
 
