@@ -83,7 +83,24 @@ Ces contraintes seront prises en compte à chaque étape du projet pour assurer 
 
 == V. La description de la solution
 
-A rédiger
+
+La solution proposée pour le projet de développement de l'application de gestion des comptes clients de DailyBank comprend plusieurs éléments clés.
+
+Tout d'abord, un diagramme des cas d'utilisation sera fourni pour visualiser clairement les différentes actions que les utilisateurs pourront effectuer avec l'application, telles que la création de compte, les opérations de crédit et de débit, etc.
+
+image::Use Case V2 DailyBank.png[title="Diagramme des cas d'utilisation de l'application"]
+
+'''
+
+Les nouvelles fonctionnalités nécessaires pour l'application incluent la capacité de créditer et de débiter les comptes, ainsi que de créer de nouveaux comptes. De plus, il est important d'ajouter la possibilité d'effectuer des virements entre comptes et de clôturer les comptes existants.
+
+Dans le cadre de l'amélioration de l'expérience utilisateur, il est également essentiel de permettre la gestion complète des employés par les chefs d'agence, y compris la création, la modification et la suppression des comptes des guichetiers et des chefs d'agence.
+
+En ce qui concerne les fonctionnalités avancées, l'application devra être capable de générer des relevés mensuels en format PDF et de gérer les prélèvements automatiques pour les clients.
+
+La nouvelle application doit fonctionner rapidement et sans problème, même lorsque de nombreuses personnes l'utilisent en même temps. Elle doit également être sécurisée, ce qui signifie qu'elle doit protéger les informations confidentielles des clients et empêcher les hackers d'y accéder. Pour garantir cela, des mesures spéciales seront prises pour s'assurer que seules les personnes autorisées peuvent accéder à l'application et que les données sont stockées en toute sécurité. En résumé, la nouvelle application doit être rapide, fiable et sécurisée pour répondre aux besoins des utilisateurs et protéger les informations sensibles.
+
+Pour déployer l'application dans les agences de DailyBank, nous l'installerons progressivement dans chaque agence, en fournissant une formation adaptée au personnel sur la façon d'utiliser l'application pour des tâches telles que la création de comptes et les opérations bancaires. Des supports de formation simples seront fournis, et un soutien continu sera assuré pour garantir une utilisation efficace de l'application après le déploiement initial.
 
 == VI. La définition de la procédure de mise en œuvre
 
