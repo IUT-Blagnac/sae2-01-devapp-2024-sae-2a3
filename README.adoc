@@ -2,10 +2,10 @@
 
 == Présentation de l'équipe et rôles respectifs
 
-https://github.com/ZIAK-AKIMBO[AMERI Mohammed] +
-https://github.com/Darulo13[CIARDI Rudy] +
-https://github.com/Mialiso[RAZAFINIRINA Mialisoa] +
-https://github.com/madblurryface[SHULHINA Daria]
+https://github.com/ZIAK-AKIMBO[AMERI Mohammed] : Chef de projet et Développeur informatique +
+https://github.com/Darulo13[CIARDI Rudy] : Développeur informatique +
+https://github.com/Mialiso[RAZAFINIRINA Mialisoa] : Développeuse informatique +
+https://github.com/madblurryface[SHULHINA Daria] : Développeuse informatique
 
 == Répartition des tâches et état d'avancement
 [options="header,footer"]
