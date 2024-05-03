@@ -44,7 +44,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |===
 | Date    | Nom         |  Lien                             | Retour
 | Sem.18  | CDC V1      |                                   |           
-|         |Gantt V1 Prévu|                                  |
+|         |Gantt V1 Prévu| [Gantt V1] (https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/e5091f5e61da7de8a8d1a056abceb32e9b004bc2/V0/Gantt%20V1.pdf)                                 |
 | 07/05  | CdC V2final|                                     |  
 |         | Doc. Tec. V0 |        |    
 |         | Doc User V0    |        |
