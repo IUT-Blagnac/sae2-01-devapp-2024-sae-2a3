@@ -46,8 +46,8 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 | Sem.18| CDC V1        |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CDCU_V1.adoc[lien]|           
 |       |Gantt V1 Prévu |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Gantt%20V1.pdf[lien]|
 | 07/05 | CdC V2final   |                                     |  
-|       | Doc. Tec. V0  |        |    
-|       | Doc User V0   |        |
+|       | Doc. Tec. V0  |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Document%20Technique%20V0.adoc[lien]        |    
+|       | Doc User V0   |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateur.adoc[lien]      |
 |       | Recette V0    |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Cahier%20de%20Recette%20V0.adoc[lien]| 
 | 31/05 | Gantt V1  réalisé    |       | 
 |       | Doc. Util. V1 |         |         
