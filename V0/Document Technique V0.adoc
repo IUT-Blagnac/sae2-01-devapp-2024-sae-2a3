@@ -15,7 +15,7 @@ Dans le cadre de ce SAE 2.01, notre objectif est de développer une application 
 Pour permettre le bon fonctionnement de l'application, elle devra permettre au guichetier de créer un nouveau compte, effectuer des débits, des accréditations par virement de compte à compte ou par une personne physique, consulter son compte, clôturer un compte. Afin de fournir au chef d'agence la possibilité de gérer des comptes, l'application devra permettre au chef d'agence de créer, consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...) et supprimer des comptes. Le chef d'agence pourra aussi effectuer un débit exceptionnel, simuler un emprunt et une assurance d'emprunt.
 
 === Fonctionnalité supplémentaires : 
-Sachant que l'application est une application dédiée au banque de délai, elle devra générer un relevé mensuel d'un compte en PDF et gérer des prélèvements automatiques.  
+Sachant que l'application est une application dédiée au banque de détail, elle devra générer un relevé mensuel d'un compte en PDF et gérer des prélèvements automatiques.  
 
 == II Architecture (Rudy)
 
