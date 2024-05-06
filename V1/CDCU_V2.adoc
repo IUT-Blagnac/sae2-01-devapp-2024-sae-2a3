@@ -104,7 +104,7 @@ Pour déployer l'application dans les agences de DailyBank, nous l'installerons 
 
 Pour réussir ce projet, nous nous organiserons de la manière suivante :
 
-Le chef de projet est *AMERI Mohammed*. Ses missions principales incluent la coordination des équipes, la gestion des ressources, la rédaction du cahier des charges utilisateur, ainsi que la supervision générale du projet.
+Le chef de projet est *AMERI Mohammed*. Ses missions principales incluent la coordination des équipes, la gestion des ressources, la vérification du cahier des charges utilisateur finale, ainsi que la supervision générale du projet.
 
 La colaboratrice responsable du GAUNTT est *RAZAFINIRINA Mialisoa*, elle s'est occupée de réaliser un planning détaillé des tâches à réaliser, avec une répartition claire des responsabilités. Un diagramme de Gantt sera utilisé pour visualiser les étapes clés du projet et les délais associés à chaque tâche.
 
@@ -121,8 +121,6 @@ La communication au sein du groupe se fera de manière transparente et réguliè
 L'avancement du projet sera régulièrement contrôlé par le chef de projet, qui supervisera également la résolution des éventuels problèmes rencontrés en cours de route.
 
 L'évaluation du travail réalisé se fera à travers des revues régulières de l'avancement du projet, ainsi que par la validation des livrables à chaque étape clé.
-
-
 
 
 == VII. Annexes
