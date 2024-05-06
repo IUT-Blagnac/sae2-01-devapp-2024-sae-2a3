@@ -14,13 +14,13 @@ Dans le cadre de ce SAE 2.01, notre objectif est de développer une application 
 === Fonctionnalités principales : 
 Pour permettre le bon fonctionnement de l'application, elle devra permettre au guichetier de créer un nouveau compte, effectuer des débits, des accréditations par virement de compte à compte ou par une personne physique, consulter son compte, clôturer un compte. Afin de fournir au chef d'agence la possibilité de gérer des comptes, l'application devra permettre au chef d'agence de créer, consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...) et supprimer des comptes. Le chef d'agence pourra aussi effectuer un débit exceptionnel, simuler un emprunt et une assurance d'emprunt.
 
-=== Fonctionnalité supplémentaires : 
+=== Fonctionnalités supplémentaires : 
 Sachant que l'application est une application dédiée au banque de détail, elle devra générer un relevé mensuel d'un compte en PDF et gérer des prélèvements automatiques.  
 
 == II Architecture (Rudy)
 
 == III Présentation Et Explication Des Diagrammes
 === 1 Use Case
-=== 2 Diagramme De Classes
+=== 2 Diagramme De Classes (Mialy)
 
 == IV Élément De Codes Significatifs Commentés 
