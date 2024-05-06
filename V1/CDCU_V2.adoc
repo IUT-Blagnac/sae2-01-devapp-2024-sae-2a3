@@ -19,9 +19,9 @@ toc::[]
 
 Dans le cadre de notre cours de développement d'application (SAE S2.01) et de gestion de projet (SAE S2.05) nous nous lançons dans ce projet. Notre objectif est d'améliorer une application obsolètes actuellement utilisés par la banque DailyBank pour gérer ses comptes clients et employés.
 
-Pour mener à bien ce projet, nous devrons travailler en équipe, en utilisant nos compétences en développement d'application et en gestion de projet. Nous devrons collaborer étroitement pour comprendre les besoins de DailyBank, concevoir et développer l'application, ainsi que rédiger les documents qui lui sont liés.
+Notre objectif est de moderniser l'application utilisée par la banque DailyBank pour gérer ses comptes clients et employés. En travaillant ensemble, nous utiliserons nos compétences en développement et en gestion de projet pour comprendre les besoins de DailyBank, concevoir et développer l'application, et fournir une solution améliorée. Ce projet nous permettra d'appliquer nos connaissances pratiques et de développer de nouvelles compétences précieuses.
 
-Ce projet nous offre une occasion unique d'appliquer nos connaissances théoriques à un contexte réel et de développer des compétences précieuses en matière de développement logiciel et de gestion de projet. Nous sommes impatients de relever ce défi ensemble et de livrer une solution de qualité à notre client.
+Dans ce document nous répondrons à la problématique suivante, Comment pouvons-nous améliorer l'application de gestion des comptes clients de la banque DailyBank afin de répondre aux besoins changeants des utilisateurs et d'assurer une expérience bancaire optimale ?
 
 == I. Présentation de l’organisation
 DailyBank est une banque de détail en pleine évolution, cherchant à répondre aux besoins changeants de ses clients dans un monde numérique en constante évolution. Avec l'essor des applications financières, DailyBank reconnaît l'importance cruciale d'une présence numérique forte pour rester compétitif sur le marché bancaire européen.
