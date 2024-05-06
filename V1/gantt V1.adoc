@@ -1,0 +1,13 @@
+= Gauntt simplifié
+
+*Par :*;;
+Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_
+
+*Version : 1* +
+*Date : 06/05/2024* +
+*Équipe : 2A3* +
+*Projet : SAE GPO/DEV (S2.01/S2.05)*
+
+'''
+
+
