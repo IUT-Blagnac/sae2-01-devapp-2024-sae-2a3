@@ -10,7 +10,12 @@
 
 '''
 image::/V1/Gantt pictures/1.png[link=https://www.canva.com/design/DAGEeU5EkSs/NiDmP93T9Z3YP0gqJADD4g/edit?utm_content=DAGEeU5EkSs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
+'''
 image::/V1/Gantt pictures/2.png[link=https://www.canva.com/design/DAGEeU5EkSs/NiDmP93T9Z3YP0gqJADD4g/edit?utm_content=DAGEeU5EkSs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
+'''
 image::/V1/Gantt pictures/3.png[link=https://www.canva.com/design/DAGEeU5EkSs/NiDmP93T9Z3YP0gqJADD4g/edit?utm_content=DAGEeU5EkSs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
+'''
 image::/V1/Gantt pictures/4.png[link=https://www.canva.com/design/DAGEeU5EkSs/NiDmP93T9Z3YP0gqJADD4g/edit?utm_content=DAGEeU5EkSs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
+'''
 image::/V1/Gantt pictures/5.png[link=https://www.canva.com/design/DAGEeU5EkSs/NiDmP93T9Z3YP0gqJADD4g/edit?utm_content=DAGEeU5EkSs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
+'''
