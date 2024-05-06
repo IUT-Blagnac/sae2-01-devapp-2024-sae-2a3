@@ -8,9 +8,9 @@
 *Créé par : Équipe 2A3, AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria* +
 *Créé pour : DailyBank*
 
-== I Présentation De L'Application
+== I Présentation De L'Application (Mialy)
 
-== II Architecture
+== II Architecture (Rudy)
 
 == III Présentation Et Explication Des Diagrammes
 === 1 Use Case
