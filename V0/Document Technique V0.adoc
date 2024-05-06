@@ -9,6 +9,7 @@
 *Créé pour : DailyBank*
 
 == I Présentation De L'Application (Mialy)
+Dans le cadre de ce SAE2.01, nous devons développer un application qui permettra au banque de détail à s'orienter vers une expérience utilisateur "digitale". L'application devra permettre d'améliorer les outils existants obsolètes afin d'effectuer correcetment tout type d'action en restant sur une stratégie de réseaux physique et en s'assurant de l'efficacité et surtout la sécurité. Pour permettre le bon fonctionnement de l'application, elle devra permettre au guichetier de créer un nouveau compte, effectuer des débits, des créditations par virement de compte à compte ou par une personne physique, consulter son compte et clôturer un compte. Afin de fournir au chef d'agence la possibilité de gérer des comptes, l'application devra permettre au chef d'agance de créer, consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...) et supprimer des comptes. Le chef d'agance pourra également effectuer un débits exceptionnel, simuler un emprunt et une assurance d'emprunt. Sachant que l'application est une application de banque, elle devra générer un relevé mensuel d'un compte en PDF et gérer des prélèvements automatiques. 
 
 == II Architecture (Rudy)
 
