@@ -35,11 +35,11 @@ image::../logo_dailybank.png[title="Logo DailyBank"]
 == II. L’étude de l’existant
 Dans l'étude de l'existant, nous constatons que la version V0 de l'application "Daily Bank" offre des fonctionnalités de base pour la gestion des comptes clients au sein des agences de la banque DailyBank. Les guichetiers ont la capacité de modifier les informations des clients, notamment leur adresse et leur numéro de téléphone. De plus, ils peuvent créer de nouveaux clients dans le système et consulter les informations relatives aux comptes existants. Finalement, les guichetiers peuvent aussi effectuer des opérations de débit sur les comptes des clients.
 
-image::../V0Screens/page d'accueil.png[title="page d'accueil"]
-image::../V0Screens/page de connexion.png[title="page de connexion"]
-image::../V0Screens/page de gestion des clients.png[title="page de gestion des clients"]
-image::../V0Screens/page gestion des comptes.png[title="page gestion des comptes"]
-image::../V0Screens/page gestion des opérations.png[title="page gestion des opérations"]
+image::/V0Screens/page d'accueil.png[title="page d'accueil"]
+image::/V0Screens/page de connexion.png[title="page de connexion"]
+image::/V0Screens/page de gestion des clients.png[title="page de gestion des clients"]
+image::/V0Screens/page gestion des comptes.png[title="page gestion des comptes"]
+image::/V0Screens/page gestion des opérations.png[title="page gestion des opérations"]
 
 '''
 
@@ -71,13 +71,11 @@ Les besoins pour l'application de gestion des comptes clients de la banque Daily
 
 Les contraintes du projet sont les limitations et les conditions auxquelles nous devons nous conformer lors du développement de l'application pour la banque DailyBank. Ces contraintes comprennent Contraintes organisationnelles, Contraintes techniques, Contraintes humaines, Contraintes financières.
 
-Les contraintes organisationnelles font référence aux limites liées à la disponibilité des personnes impliquées dans le projet ainsi qu'à l'accès aux locaux nécessaires pour mener à bien les différentes étapes du développement de l'application.
+Les contraintes organisationnelles pour le projet incluent la disponibilité limitée des membres de l'équipe, notamment en raison de la fermeture de l'IUT après 19h et les weekends, ainsi que le temps limité et assez court pour mener à bien le développement de l'application.
 
-Les contraintes techniques concernent les limitations imposées par les bases de données déjà existantes, les logiciels utilisés par l'organisation, ainsi que toute autre contrainte liée à l'infrastructure technologique en place. Il est important de prendre en compte ces contraintes pour assurer la compatibilité et l'intégration réussie de la nouvelle application.
+Les contraintes techniques du projet sont définies par le choix préalable du langage de programmation Java et du système de gestion de base de données Oracle. Cela implique que l'équipe doit posséder des compétences spécifiques dans ces domaines et que l'application doit être compatible avec les versions de Java et d'Oracle utilisées par DailyBank.
 
-Les contraintes humaines se réfèrent aux compétences disponibles au sein de l'équipe chargée du projet. Il est essentiel de s'assurer que les membres de l'équipe possèdent les compétences nécessaires pour développer, tester et déployer l'application de manière efficace.
-
-Enfin, les contraintes financières sont déterminées par le budget alloué au projet. Il est important de respecter ce budget afin de garantir la viabilité financière du projet et d'éviter les dépassements de coûts imprévus.
+En ce qui concerne les contraintes humaines, l'équipe doit s'appuyer sur les compétences de développement d'application globales acquises par le groupe, en tenant compte des capacités et des limitations individuelles de chaque membre.
 
 Ces contraintes seront prises en compte à chaque étape du projet pour assurer le succès de l'application et répondre aux attentes de la banque DailyBank.
 
@@ -88,7 +86,7 @@ La solution proposée pour le projet de développement de l'application de gesti
 
 Tout d'abord, un diagramme des cas d'utilisation sera fourni pour visualiser clairement les différentes actions que les utilisateurs pourront effectuer avec l'application, telles que la création de compte, les opérations de crédit et de débit, etc.
 
-image::Use Case V2 DailyBank.png[title="Diagramme des cas d'utilisation de l'application"]
+image::/V0/Use Case V2 DailyBank.png[title="Diagramme des cas d'utilisation de l'application"]
 
 '''
 
