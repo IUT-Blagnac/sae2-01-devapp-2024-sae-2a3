@@ -13,8 +13,11 @@
 
 
 
-== I. Introduction
-=== 1. Objet :
+== Introduction
+[.text-justify]
+
+
+== I. Présentation du context
 [.text-justify]
 Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour la banque DailyBank.
 
