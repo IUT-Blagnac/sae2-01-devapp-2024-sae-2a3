@@ -46,7 +46,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 | Sem.18| CDC V1        |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CDCU_V1.adoc[lien]|Bel effort pour la présentation de l'existant. Attention dans la définition de la procédure, un seul membre d'équipe n'est pas responsable de toute la doc. Chaque développeur doit réaliser la doc de son dev. Vous décrivez les contraintes mais ne les listez pas alors qu'elles sont identifiables (ex: contrainte technique, quel langugae ?). Retravaillez la mise en contexte pour raffiner le dit contexte, les objectifs, les problématique.    
 |       |Gantt V1 Prévu |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Gantt%20V1.pdf[lien]|En une seule page, OK. GANTT général du projet, mais maintenant affinez les taches pour la V1 (docuemtnation par partie etc ...). N'oubliez pas les autres taches (tests, gestion etc ...). Attribuez les taches, ce qui semble partiellement fait déjà dans les issues du GIT.
 | 07/05 | CdC V2final   | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CDCU_V2.adoc[lien]                                   |  
-|       | Doc. Tec. V0  |       |    
+|       | Doc. Tec. V0  |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentTechniqueV0.adoc[lien]       |    
 |       | Doc User V0   |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateur.adoc[lien]      |
 |       | Recette V0    |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Cahier%20de%20Recette%20V0.adoc[lien]| 
 | 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Gantt%20V1.pdf[lien]      | 
