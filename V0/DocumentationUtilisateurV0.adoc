@@ -31,9 +31,11 @@ L'application DailyBank permettra de gérer les comptes bancaires de dépôt des
 L'application permettra également aux clients de gérer leurs profils et de contacter le service client.
 
 == III. Installation utilisation
-L'applicationsera installée sur les ordinateurs des guichetiers et des chefs d'agence de DailyBank. Une fois l'application installée, les clients pourront se connecter en utilisant leur login et leur mot de passe.
+L'applicationsera installée sur les ordinateurs des guichetiers et des chefs d'agence de DailyBank. 
 
-== IV. Fonctionnement - chaque étudiant identifie sa partie
+Une fois l'application installée, les clients pourront se connecter en utilisant leur login et leur mot de passe.
+
+== IV. Fonctionnement 
 L'application DailyBank se compose de plusieurs modules. Dans la version existante, un guichetier peut :
 
 * Modifier informations client (adresse, téléphone, …)
@@ -45,25 +47,121 @@ Un chef d’agence peut :
 
 * Rendre inactif un client
 
-Chaque module est responsable d'une fonctionnalité spécifique de l'application. Les modules communiquent entre eux pour fournir une expérience utilisateur fluide.
+Chaque module est responsable d'une fonctionnalité spécifique de l'application. 
+
+Les modules communiquent entre eux pour fournir une expérience utilisateur fluide.
 
 == V. Résultats produits avec jeux d'essai commentés
-*Consulter le solde d'un compte* : nous vérifions que le client peut consulter le solde de son compte.
+=== Connexion
 
-Le client se connecte à l'application puis sélectionne le compte qu'il souhaite consulter. L'écran devrait afficher le solde correct du compte.
+Lors de l’ouverture de l’application, vous tomberez sur cette interface :
 
-*Effectuer des virements entre deux comptes* : nous vérifions que le client peut effectuer des virements entre ses deux comptes.
+image::../V0Screens/page de connexion1.png["page de connexion"]
 
-Le client est autorisé dans l'application, puis sélectionne le compte et le compte du destinataire pour le virement. Saisissez le montant du transfert et confirmez le transfert. Le virement doit être effectué correctement et le solde des deux comptes doit être mis à jour.
+Appuyez sur le bouton ``Connexion`` ou sur ``Utilisateur > Connexion`` pour vous connecter à votre compte.
 
-*Déposer de l'argent sur un compte* : nous vérifions que le client peut déposer de l'argent sur son compte.
+Renseignez ici votre identifiant et votre mot de passe pour accéder à votre compte :
 
-Le client entre dans le programme et sélectionne le compte sur lequel il souhaite déposer de l'argent. Saisit le montant du dépôt et confirme le dépôt. Le dépôt doit être correct et le solde du compte à jour.
+image::../V0Screens/page de connexion.png["identifiant et mot de passe"]
 
-*Retirer de l'argent sur un compte* : nous vérifions si le client peut retirer de l'argent de son compte.
+=== Page d'accueil
 
-Le client entre dans le programme et sélectionne le compte sur lequel il souhaite retirer de l'argent. Saisissez le montant du retrait et confirmez le retrait. Le retrait s'est effectué correctement et le solde du compte a été mis à jour.
+Une fois connecté, vous arriverez sur cette fenêtre. Vous verrez les informations de votre agence, ainsi que les informations de l'utilisateur connecté.
 
-*Suivre l'historique des transactions* : nous vérifions que le client peut consulter l'historique des transactions dans son compte :
+image::../V0Screens/page d'accueil.png["page d'accueil"]
 
-Le client entre dans le programme, puis sélectionne le compte pour lequel il souhaite consulter l'historique des transactions. L'historique des transactions doit être affiché à l'écran.
+=== Déconnexion
+
+Depuis la page d'accueil, appuyez sur ``Deconnexion``, sinon, appuyez sur ``Deconnexion`` depuis le menu ``Utilisateur``.
+
+=== Gérer les clients
+
+Dans le menu, cliquez sur ``Gestion > Clients``.
+
+Une fenêtre va s'ouvrir :
+
+image::../V0Screens/page de gestion des clients.png["page de gestion client"]
+
+Sur cette fenêtre, renseignez le Numéro du client cherché, son nom ou son prénom puis cliquez sur ``Rechercher``,
+Si vous souhaiter afficher tout les clients, ne renseignez aucun champ et appuyez directement sur ``Rechercher``.
+
+*Créer un client*
+
+Depuis l'écran de gestion de clients, cliquez sur ``Nouveau client``.
+
+image::../V0Screens/page gestion d'un noveau client.png["page de gestion client"]
+
+Vous pouvez ici créer un nouveau client en saisissant ces données.
+
+Cliquez sur ``Modifier`` pour valider ou sur ``Annuler`` pour revenir en arrière.
+
+*Modifier un client*
+
+Depuis l'écran de gestion de clients, cliquez sur ``Modifier client``.
+
+image::../V0Screens/page gestion d'un client.png["page de modification client"]
+
+Vous pouvez ici changer les données d’un client. +
+A noter que seul un chef d’agence peut modifier l’activité du client.
+
+Cliquez sur ``Modifier`` pour valider ou sur ``Annuler`` pour revenir en arrière.
+
+Rendre "inactif" un client
+
+Pour rendre "inactif" un client, assurez vous d'être connecté en tant que chef d’agence.
+
+image::../V0Screens/page de suppresion client.png["page de suppresion client"]
+
+Sélectionnez un client (assurez vous qu'il soit affiché en gris) puis cliquez  sur ``Désactiver client``.
+
+=== Gérer comptes bancaires
+
+Depuis l'écran de gestion client, cliquez sur ``Comptes clients``.
+
+Vous arrivez sur cet écran
+
+image::../V0Screens/page gestion des comptes.png["page de gestion comptes"]
+
+*Nouveau compte*
+
+Depuis l'écran précédent, cliquez sur ``Nouveau compte``.
+
+image::../V0Screens/page gestion d'un compte.png["page de création de compte"]
+
+Renseignez les informations du compte, puis cliquez sur ``Ajouter`` ou ``Annuler``.
+
+*Clotûrer compte*
+
+Sélectionnez un compte puis cliquez sur ``Supprimer`` pour clôturer le compte.
+
+image::../V0Screens/page d'erreur de suppression de compte.png["erreur suppression compte"]
+
+*A noter que le solde du compte doit être égal à 0*
+
+=== Gérer les opérations
+
+Depuis la page de gestion des comptes, sélectionnez un compte et cliquez sur ``Voir opérations``.
+
+image::../V0Screens/page gestion des opérations.png["gestion des opérations"]
+
+A noter que l'interface de crédit et débit ont la même interface graphique. De ce fait, les procédures pour les deux opérations sont identiques.
+
+*Enregistrer opération*
+
+Vous avez la possibilité de choisir le type d'opération (crédit/débit) et d'indiquer le montant.
+
+image::../V0Screens/page gestion d'une opération.png["page d'enregistrement de débit/crédit"]
+
+Une fois fait, cliquez sur ``Effectuer débit/crédit`` ou ``Annuler débit/crédit``.
+
+*Enregistrer virement*
+
+Dans l’onglet prélèvement, indiquez le numéro de compte destinataire ainsi que le montant de la transaction.
+
+image::../V0Screens/page de virement.png["page de virement"]
+
+=== Gérer les employés
+
+De la même manière que l’onglet de gestion des clients, vous pouvez gérer les employés en tant que chef d'agence.
+
+image::../V0Screens/page de gestion des employes.png["page de gestion des employés"]
