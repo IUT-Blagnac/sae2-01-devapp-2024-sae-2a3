@@ -17,12 +17,11 @@ toc::[]
 
 == Introduction
 [.text-justify]
-
+Les applications financières transforment le paysage bancaire, exigeant des banques de détail une adaptation rapide pour répondre aux attentes des consommateurs en matière d'expérience utilisateur digitale. En Europe, la croissance de la banque mobile met en évidence cette nécessité d'innovation. Les acteurs traditionnels doivent donc se réinventer pour éviter d'être distancés par les nouveaux entrants et relever les défis de sécurité et de satisfaction client.
 
 == I. Présentation du context
 [.text-justify]
-Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour la banque DailyBank.
-
+Cette étude examine plus particulièrement le cas de DailyBank, une banque de détail désireuse de développer une application JAVA-Oracle de gestion des comptes clients pour moderniser ses services. Dans ce cadre, nous proposons d'analyser les objectifs, les défis et les solutions potentielles pour répondre aux besoins de DailyBank et améliorer son efficacité opérationnelle.
 
 == II. Pre-Requis :
 [.text-justify]
