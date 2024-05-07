@@ -14,7 +14,7 @@ toc::[]
 
 '''
 
-== I Présentation de l'application (Mialy)
+== I Présentation de l'application 
 Dans le cadre de ce SAE 2.01, notre objectif est de développer une application qui permettra au banque de détail à s'orienter vers une expérience utilisateur "digitale". Cette application vise à améliorer et à moderniser plusieurs outils obsolètes et les processus bancaires existants afin d'effectuer correctement tout type d'action en restant sur une stratégie de réseaux physique et en s'assurant de l'efficacité et surtout de la sécurité. 
 
 === Fonctionnalités principales : 
@@ -35,8 +35,9 @@ Sachant que l'application est une application dédiée au banque de détail, ell
 
 == III Présentation Et Explication Des Diagrammes
 === 1 Use Case
-=== 2 Diagramme De Classes (Mialy)
+=== 2 Diagramme de classes 
 
+image::../V0/DC.JPG[title="Diagramme de classe (DC)"]
 
 * AgenceBancaire : représente une agence et détient des attributs tels que : le nom de l'agence, son adresse (localisation), un chef d'agence et une liste d'employés travaillant dans cette agence.
 * Employé : il s'agit d'une classe représentant les employés d'une banque. Ces employés peuvent être soit des guichetiers, soit un chef d'Agence.
