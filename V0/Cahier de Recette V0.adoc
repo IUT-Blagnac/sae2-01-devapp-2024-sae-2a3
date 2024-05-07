@@ -1,17 +1,19 @@
 
 = Cahier De Recette - DailyBankApp
-:toc:
 :toc-title: Sommaire
+:toc: macro
 
-:Entreprise: DailyBank
-:Equipe:
+*Version :* 0 +
+*Date :* 07/05/2024 +
+*Créé par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_ +
+*Créé pour :* DailyBank +
+*Projet :* SAE DEV/GPO (S2.01/S2.05)
 
-*Créé par : Équipe 2A3, AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria* +
-*Créé pour : DailyBank*
+'''
 
- 
+toc::[]
 
-
+'''
 
 == Introduction
 [.text-justify]
