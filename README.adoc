@@ -49,8 +49,8 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |       | Doc. Tec. V0  |       |    
 |       | Doc User V0   |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateur.adoc[lien]      |
 |       | Recette V0    |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Cahier%20de%20Recette%20V0.adoc[lien]| 
-| 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/gantt V1.adoc[lien]      | 
-|       | Gantt V1  simplifié    |       | 
+| 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Gantt%V1.pdf[lien]      | 
+|       | Gantt V1  simplifié  | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/gantt%V1.adoc[lien]      | 
 |       | Doc. Util. V1 |         |         
 |       | Doc. Tec. V1 |                |     
 |       | Code V1    |                     | 
