@@ -34,8 +34,12 @@ Sachant que l'application est une application dédiée au banque de détail, ell
 == II Architecture (Rudy)
 
 == III Présentation Et Explication Des Diagrammes
-=== 1 Use Case
-=== 2 Diagramme de classes 
+=== 1. Use Case
+
+image::/V0/UseCaseV2DailyBank.png[title="Use Case DailyBank"]
+
+
+=== 2. Diagramme de classes 
 
 image::../V0/DC.JPG[title="Diagramme de classe probable"]
 
