@@ -12,7 +12,13 @@
 Dans le cadre de ce SAE 2.01, notre objectif est de développer une application qui permettra au banque de détail à s'orienter vers une expérience utilisateur "digitale". Cette application vise à améliorer et à moderniser plusieurs outils obsolètes et les processus bancaires existants afin d'effectuer correctement tout type d'action en restant sur une stratégie de réseaux physique et en s'assurant de l'efficacité et surtout de la sécurité. 
 
 === Fonctionnalités principales : 
-Pour permettre le bon fonctionnement de l'application, elle devra permettre au guichetier de créer un nouveau compte, effectuer des débits, des accréditations par virement de compte à compte ou par une personne physique, consulter son compte, clôturer un compte. Afin de fournir au chef d'agence la possibilité de gérer des comptes, l'application devra permettre au chef d'agence de créer, consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...) et supprimer des comptes. Le chef d'agence pourra aussi effectuer un débit exceptionnel, simuler un emprunt et une assurance d'emprunt.
+Pour permettre le bon fonctionnement de l'application, elle devra permettre au guichetier au chef d'agence de réaliser des actions tel que : 
+- Créer un nouveau compte
+- Effectuer des débits 
+- Effectuer des accréditations par virement de compte à compte ou par une personne physique
+- Consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...)
+- Clôturer un compte
+En plus de ces actions, l'application Daily Bank devra fournir au chef d'agence la possibilité de gérer des comptes, effectuer un débit exceptionnel et simuler un emprunt et une assurance d'emprunt.
 
 === Fonctionnalités supplémentaires : 
 Sachant que l'application est une application dédiée au banque de détail, elle devra générer un relevé mensuel d'un compte en PDF et gérer des prélèvements automatiques.  
