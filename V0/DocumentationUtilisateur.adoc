@@ -1,10 +1,19 @@
-= Documentation utilisateur - DailyBank - Version 0
+= Documentation utilisateur - DailyBank
 =
 :toc-title: Sommaire
-:toc: auto
+:toc: macro
 
+*Version :* 0 +
 *Date :* 07/05/2024 +
-*Par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_
+*Créé par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_ +
+*Créé pour :* DailyBank +
+*Projet :* SAE DEV/GPO (S2.01/S2.05)
+
+'''
+
+toc::[]
+
+'''
 
 == I. Présentation générale
 Bienvenue dans le guide utilisateur de l’application à destination des employés de DailyBank.
