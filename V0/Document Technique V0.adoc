@@ -13,11 +13,11 @@ Dans le cadre de ce SAE 2.01, notre objectif est de développer une application 
 
 === Fonctionnalités principales : 
 Pour permettre le bon fonctionnement de l'application, elle devra permettre au guichetier au chef d'agence de réaliser des actions tel que : 
-- Créer un nouveau compte
-- Effectuer des débits 
-- Effectuer des accréditations par virement de compte à compte ou par une personne physique
-- Consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...)
-- Clôturer un compte
+* Créer un nouveau compte
+* Effectuer des débits 
+* Effectuer des accréditations par virement de compte à compte ou par une personne physique
+* Consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...)
+* Clôturer un compte
 En plus de ces actions, l'application Daily Bank devra fournir au chef d'agence la possibilité de gérer des comptes, effectuer un débit exceptionnel et simuler un emprunt et une assurance d'emprunt.
 
 === Fonctionnalités supplémentaires : 
