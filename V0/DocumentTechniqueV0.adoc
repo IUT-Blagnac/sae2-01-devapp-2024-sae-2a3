@@ -31,7 +31,7 @@ En plus de ces actions, l'application Daily Bank devra fournir au chef d'agence 
 === Fonctionnalités supplémentaires : 
 Sachant que l'application est une application dédiée au banque de détail, elle devra générer un relevé mensuel d'un compte en PDF et gérer des prélèvements automatiques.  
 
-== II Architecture (Rudy)
+== II Architecture 
 
 *Les packages : dans src/main/java :*
 
