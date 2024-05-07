@@ -1,12 +1,18 @@
 = Document Technique - DailyBankApp
-:toc:
 :toc-title: Sommaire
+:toc: macro
 
-:Entreprise: DailyBank
-:Equipe:
+*Version :* 0 +
+*Date :* 07/05/2024 +
+*Créé par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_ +
+*Créé pour :* DailyBank +
+*Projet :* SAE DEV/GPO (S2.01/S2.05)
 
-*Créé par : Équipe 2A3, AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria* +
-*Créé pour : DailyBank*
+'''
+
+toc::[]
+
+'''
 
 == I Présentation De L'Application (Mialy)
 Dans le cadre de ce SAE 2.01, notre objectif est de développer une application qui permettra au banque de détail à s'orienter vers une expérience utilisateur "digitale". Cette application vise à améliorer et à moderniser plusieurs outils obsolètes et les processus bancaires existants afin d'effectuer correctement tout type d'action en restant sur une stratégie de réseaux physique et en s'assurant de l'efficacité et surtout de la sécurité. 
