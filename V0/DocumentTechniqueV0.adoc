@@ -37,7 +37,7 @@ Sachant que l'application est une application dédiée au banque de détail, ell
 === 1 Use Case
 === 2 Diagramme de classes 
 
-image::../V0/DC.JPG[title="Diagramme de classe (DC)"]
+image::../V0/DC.JPG[title="Diagramme de classe probable"]
 
 * AgenceBancaire : représente une agence et détient des attributs tels que : le nom de l'agence, son adresse (localisation), un chef d'agence et une liste d'employés travaillant dans cette agence.
 * Employé : il s'agit d'une classe représentant les employés d'une banque. Ces employés peuvent être soit des guichetiers, soit un chef d'Agence.
