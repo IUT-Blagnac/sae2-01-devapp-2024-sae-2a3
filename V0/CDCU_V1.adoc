@@ -86,7 +86,7 @@ La solution proposée pour le projet de développement de l'application de gesti
 
 Tout d'abord, un diagramme des cas d'utilisation sera fourni pour visualiser clairement les différentes actions que les utilisateurs pourront effectuer avec l'application, telles que la création de compte, les opérations de crédit et de débit, etc.
 
-image::Use Case V2 DailyBank.png[title="Diagramme des cas d'utilisation de l'application"]
+image::UseCaseV2DailyBank.png[title="Diagramme des cas d'utilisation de l'application"]
 
 '''
 
