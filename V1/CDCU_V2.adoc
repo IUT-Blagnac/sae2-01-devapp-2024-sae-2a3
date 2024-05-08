@@ -86,7 +86,7 @@ La solution proposée pour le projet de développement de l'application de gesti
 
 Tout d'abord, un diagramme des cas d'utilisation sera fourni pour visualiser clairement les différentes actions que les utilisateurs pourront effectuer avec l'application, telles que la création de compte, les opérations de crédit et de débit, etc.
 
-image::/V0/Use Case V2 DailyBank.png[title="Diagramme des cas d'utilisation de l'application"]
+image::/V0/UseCaseV2DailyBank.png[title="Diagramme des cas d'utilisation de l'application"]
 
 '''
 
@@ -125,8 +125,8 @@ L'évaluation du travail réalisé se fera à travers des revues régulières de
 
 == VII. Annexes
 
-Gantt du projet : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Cahier%20de%20Recette%20V0.adoc[lien] +
-Documentation Utilisateur : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateur.adoc[lien] +
-Documentation Technique : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Document%20Technique%20V0.adoc[lien] +
-Cahier des Recette : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Cahier%20de%20Recette%20V0.adoc[lien]
+Gantt du projet : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CahierDeRecetteV0.adoc[lien] +
+Documentation Utilisateur : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateurV0.adoc[lien] +
+Documentation Technique : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentTechniqueV0.adoc[lien] +
+Cahier des Recette : https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CahierDeRecetteV0.adoc[lien]
 
