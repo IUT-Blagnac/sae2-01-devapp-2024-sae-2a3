@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.data.Employe;
 import model.orm.exception.DataAccessException;
@@ -80,4 +81,19 @@ public class Access_BD_Employe {
 			throw new DataAccessException(Table.Employe, Order.SELECT, "Erreur accès", e);
 		}
 	}
+
+    public void updateEmploye(Employe result) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateEmploye'");
+    }
+
+    public void insertEmploye(Employe employe) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'insertEmploye'");
+    }
+
+    public ArrayList<Employe> getEmployes(int idAg, int _numCompte, String _debutNom, String _debutPrenom) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getEmployes'");
+    }
 }

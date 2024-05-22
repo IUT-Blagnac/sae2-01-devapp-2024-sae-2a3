@@ -16,6 +16,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Employe;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
@@ -56,7 +57,11 @@ public class ComptesManagement {
 		}
 	}
 
-	public void doComptesManagementDialog() {
+	public ComptesManagement(Stage cmStage2, DailyBankState dailyBankState2, Employe c) {
+        //TODO Auto-generated constructor stub
+    }
+
+    public void doComptesManagementDialog() {
 		this.cmViewController.displayDialog();
 	}
 
