@@ -51,18 +51,18 @@ public class EmployeEditorPaneViewController {
 
 		this.editionMode = mode;
 		if (employe == null) {
-			this.employeEdite = new Employe(0, "", "", "", "", "", "N", this.dailyBankState.getEmployeActuel().idAg);
+			this.employeEdite = new Employe(0, "", "", "", "", "N", this.dailyBankState.getEmployeActuel().idAg);
 		} else {
 			this.employeEdite = new Employe(employe);
 		}
 		this.employeResultat = null;
 		switch (mode) {
 		case CREATION:
-			this.txtIdcli.setDisable(true);
+			this.txtIdEmp.setDisable(true);
 			this.txtNom.setDisable(false);
 			this.txtPrenom.setDisable(false);
-			this.txtTel.setDisable(false);
-			this.txtMail.setDisable(false);
+			// this.txtTel.setDisable(false);
+			// this.txtMail.setDisable(false);
 			this.rbActif.setSelected(true);
 			this.rbInactif.setSelected(false);
 			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
@@ -77,11 +77,11 @@ public class EmployeEditorPaneViewController {
 			this.butCancel.setText("Annuler");
 			break;
 		case MODIFICATION:
-			this.txtIdcli.setDisable(true);
+			this.txtIdEmp.setDisable(true);
 			this.txtNom.setDisable(false);
 			this.txtPrenom.setDisable(false);
-			this.txtTel.setDisable(false);
-			this.txtMail.setDisable(false);
+			// this.txtTel.setDisable(false);
+			// this.txtMail.setDisable(false);
 			this.rbActif.setSelected(true);
 			this.rbInactif.setSelected(false);
 			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
@@ -111,18 +111,18 @@ public class EmployeEditorPaneViewController {
 			// rien pour l'instant
 		}
 		// initialisation du contenu des champs
-		this.txtIdcli.setText("" + this.employeEdite.idNumCli);
+		this.txtIdEmp.setText("" + this.employeEdite.idEmploye);
 		this.txtNom.setText(this.employeEdite.nom);
 		this.txtPrenom.setText(this.employeEdite.prenom);
-		this.txtAdr.setText(this.employeEdite.adressePostale);
-		this.txtMail.setText(this.employeEdite.email);
-		this.txtTel.setText(this.employeEdite.telephone);
+		this.txtDroit.setText(this.employeEdite.droitsAccess);
+		this.txtLogin.setText(this.employeEdite.login);
+		this.txtMDP.setText(this.employeEdite.motPasse);
 
-		if (ConstantesIHM.estInactif(this.employeEdite)) {
-			this.rbInactif.setSelected(true);
-		} else {
-			this.rbInactif.setSelected(false);
-		}
+		// if (ConstantesIHM.estInactif(this.employeEdite)) {
+		// 	this.rbInactif.setSelected(true);
+		// } else {
+		// 	this.rbInactif.setSelected(false);
+		// }
 
 		this.employeResultat = null;
 
@@ -142,17 +142,17 @@ public class EmployeEditorPaneViewController {
 	@FXML
 	private Label lblMessage;
 	@FXML
-	private TextField txtIdcli;
+	private TextField txtIdEmp;
 	@FXML
 	private TextField txtNom;
 	@FXML
 	private TextField txtPrenom;
 	@FXML
-	private TextField txtAdr;
+	private TextField txtDroit;
 	@FXML
-	private TextField txtTel;
+	private TextField txtLogin;
 	@FXML
-	private TextField txtMail;
+	private TextField txtMDP;
 	@FXML
 	private RadioButton rbActif;
 	@FXML
@@ -196,14 +196,14 @@ public class EmployeEditorPaneViewController {
 	private boolean isSaisieValide() {
 		this.employeEdite.nom = this.txtNom.getText().trim();
 		this.employeEdite.prenom = this.txtPrenom.getText().trim();
-		this.employeEdite.adressePostale = this.txtAdr.getText().trim();
-		this.employeEdite.telephone = this.txtTel.getText().trim();
-		this.employeEdite.email = this.txtMail.getText().trim();
-		if (this.rbActif.isSelected()) {
-			this.employeEdite.estInactif = ConstantesIHM.EMPLOYE_ACTIF;
-		} else {
-			this.employeEdite.estInactif = ConstantesIHM.EMPLOYE_INACTIF;
-		}
+		this.employeEdite.droitsAccess = this.txtDroit.getText().trim();
+		this.employeEdite.login = this.txtLogin.getText().trim();
+		this.employeEdite.motPasse = this.txtMDP.getText().trim();
+		// if (this.rbActif.isSelected()) {
+		// 	this.employeEdite.estInactif = ConstantesIHM.EMPLOYE_ACTIF;
+		// } else {
+		// 	this.employeEdite.estInactif = ConstantesIHM.EMPLOYE_INACTIF;
+		// }
 
 		if (this.employeEdite.nom.isEmpty()) {
 			AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le nom ne doit pas être vide",
@@ -218,21 +218,21 @@ public class EmployeEditorPaneViewController {
 			return false;
 		}
 
-		String regex = "(0)[1-9][0-9]{8}";
-		if (!Pattern.matches(regex, this.employeEdite.telephone) || this.employeEdite.telephone.length() > 10) {
-			AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le téléphone n'est pas valable",
-					AlertType.WARNING);
-			this.txtTel.requestFocus();
-			return false;
-		}
-		regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-				+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-		if (!Pattern.matches(regex, this.employeEdite.email) || this.employeEdite.email.length() > 20) {
-			AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le mail n'est pas valable",
-					AlertType.WARNING);
-			this.txtMail.requestFocus();
-			return false;
-		}
+		// String regex = "(0)[1-9][0-9]{8}";
+		// if (!Pattern.matches(regex, this.employeEdite.telephone) || this.employeEdite.telephone.length() > 10) {
+		// 	AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le téléphone n'est pas valable",
+		// 			AlertType.WARNING);
+		// 	this.txtTel.requestFocus();
+		// 	return false;
+		// }
+		// regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+		// 		+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+		// if (!Pattern.matches(regex, this.employeEdite.email) || this.employeEdite.email.length() > 20) {
+		// 	AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le mail n'est pas valable",
+		// 			AlertType.WARNING);
+		// 	this.txtMail.requestFocus();
+		// 	return false;
+		// }
 
 		return true;
 	}

@@ -173,9 +173,4 @@ public class EmployesManagementViewController {
 			this.btnComptesClient.setDisable(true);
 		}
 	}
-
-	public void initContext(Stage cmStage, EmployesManagement employeManagement, DailyBankState _dbstate) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'initContext'");
-	}
 }

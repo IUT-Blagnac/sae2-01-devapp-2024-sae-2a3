@@ -18,13 +18,13 @@ import model.orm.Access_BD_Employe;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
-public class EmployeManagement {
+public class EmployesManagement {
 
 	private Stage cmStage;
 	private DailyBankState dailyBankState;
 	private EmployesManagementViewController cmViewController;
 
-	public EmployeManagement(Stage _parentStage, DailyBankState _dbstate) {
+	public EmployesManagement(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
 			FXMLLoader loader = new FXMLLoader(EmployesManagementViewController.class.getResource("employesmanagement.fxml"));
