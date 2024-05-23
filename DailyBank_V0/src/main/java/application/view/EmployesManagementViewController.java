@@ -85,27 +85,27 @@ public class EmployesManagementViewController {
 
 	@FXML
 	private void doRechercher() {
-		int numCompte;
+		int idEmploye;
 		try {
 			String nc = this.txtNum.getText();
 			if (nc.equals("")) {
-				numCompte = -1;
+				idEmploye = -1;
 			} else {
-				numCompte = Integer.parseInt(nc);
-				if (numCompte < 0) {
+				idEmploye = Integer.parseInt(nc);
+				if (idEmploye < 0) {
 					this.txtNum.setText("");
-					numCompte = -1;
+					idEmploye = -1;
 				}
 			}
 		} catch (NumberFormatException nfe) {
 			this.txtNum.setText("");
-			numCompte = -1;
+			idEmploye = -1;
 		}
 
 		String debutNom = this.txtNom.getText();
 		String debutPrenom = this.txtPrenom.getText();
 
-		if (numCompte != -1) {
+		if (idEmploye != -1) {
 			this.txtNom.setText("");
 			this.txtPrenom.setText("");
 		} else {
@@ -115,11 +115,11 @@ public class EmployesManagementViewController {
 		}
 		
 		ArrayList<Employe> listeEmp;
-		//listeEmp = this.cmDialogController.getlisteComptes(numCompte, debutNom, debutPrenom);
+		listeEmp = this.cmDialogController.getlisteEmployes(idEmploye, debutNom, debutPrenom);
 
-		// this.oListEmployes.clear();
-		// this.oListEmployes.addAll(listeEmp);
-		// this.validateComponentState();
+		this.oListEmployes.clear();
+		this.oListEmployes.addAll(listeEmp);
+		this.validateComponentState();
 	}
 
 	@FXML
@@ -155,10 +155,8 @@ public class EmployesManagementViewController {
 		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			this.btnModifEmploye.setDisable(false);
-			this.btnComptesEmploye.setDisable(false);
 		} else {
 			this.btnModifEmploye.setDisable(true);
-			this.btnComptesEmploye.setDisable(true);
 		}
 	}
 }

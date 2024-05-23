@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.Client;
 import model.data.Employe;
 import model.orm.Access_BD_Client;
 import model.orm.Access_BD_Employe;
@@ -116,5 +117,29 @@ public class EmployesManagement {
 			}
 		}
 		return result;
+	}
+
+	public ArrayList<Employe> getlisteEmployes(int _idEmploye, String _debutNom, String _debutPrenom) {
+		ArrayList<Employe> listeEmp = new ArrayList<>();
+		try {
+			// Recherche des clients en BD. cf. AccessClient > getClients(.)
+			// numCompte != -1 => recherche sur numCompte
+			// numCompte == -1 et debutNom non vide => recherche nom/prenom
+			// numCompte == -1 et debutNom vide => recherche tous les clients
+
+			Access_BD_Employe ac = new Access_BD_Employe();
+			listeEmp = ac.getEmployes(this.dailyBankState.getEmployeActuel().idAg, _idEmploye, _debutNom, _debutPrenom);
+
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+			ed.doExceptionDialog();
+			this.cmStage.close();
+			listeEmp = new ArrayList<>();
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+			ed.doExceptionDialog();
+			listeEmp = new ArrayList<>();
+		}
+		return listeEmp;
 	}
 }

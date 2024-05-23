@@ -92,9 +92,68 @@ public class Access_BD_Employe {
         throw new UnsupportedOperationException("Unimplemented method 'insertEmploye'");
     }
 
-    public Employe getEmployes(int idAg, int _numCompte, String _debutNom, String _debutPrenom) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getEmployes'");
+    public ArrayList<Employe> getEmployes(int idAg, int idEmp, String debutNom, String debutPrenom) 
+				throws DataAccessException, DatabaseConnexionException {
+
+        ArrayList<Employe> alResult = new ArrayList<>();
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			PreparedStatement pst;
+			String query = "SELECT * FROM Employe WHERE idAg = ?";;
+
+			if (idAg != -1) {
+
+				if(idEmp == -1){
+					pst = con.prepareStatement(query);
+					pst.setInt(1, idAg);
+				}else{
+					query += " AND idEmploye = ?";
+					query += " ORDER BY nom";
+					pst = con.prepareStatement(query);
+					pst.setInt(1, idAg);
+					pst.setInt(2, idEmp);
+				}
+
+			}else if (!debutNom.isEmpty() || !debutPrenom.isEmpty()) {
+					query += " AND UPPER(nom) LIKE ? AND UPPER(prenom) LIKE ?";
+					pst = con.prepareStatement(query);
+					pst.setInt(1, idAg);
+					pst.setString(2, debutNom.toUpperCase() + "%");
+					pst.setString(3, debutPrenom.toUpperCase() + "%");
+			} else {
+				query = "SELECT * FROM Employe";
+				if (!debutNom.isEmpty() || !debutPrenom.isEmpty()) {
+					query += " WHERE UPPER(nom) LIKE ? AND UPPER(prenom) LIKE ?";
+					pst = con.prepareStatement(query);
+					pst.setString(1, debutNom.toUpperCase() + "%");
+					pst.setString(2, debutPrenom.toUpperCase() + "%");
+				} else {
+					pst = con.prepareStatement(query);
+				}
+			}
+
+			System.err.println(query);
+
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				int idEmploye = rs.getInt("idEmploye");
+				String nom = rs.getString("nom");
+				String prenom = rs.getString("prenom");
+				String droitsAccess = rs.getString("droitsAccess");
+				String login = rs.getString("login");
+				String motPasse = rs.getString("motPasse");
+				int idAgEmploye = rs.getInt("idAg");
+
+				alResult.add(new Employe(idEmploye, nom, prenom, droitsAccess, login, motPasse, idAgEmploye));
+			}
+			rs.close();
+			pst.close();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.SELECT, "Erreur accès", e);
+		}
+
+		return alResult;
     }
 
 	public void deleteEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
