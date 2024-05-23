@@ -127,50 +127,50 @@ public class EmployesManagementViewController {
 	}
 
 	@FXML
-	private void doComptesClient() {
-		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
+	private void doComptesEmploye() {
+		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
-			Client client = this.oListClients.get(selectedIndice);
-			this.cmDialogController.gererComptesClient(client);
+			Employe employe = this.oListEmployes.get(selectedIndice);
+			this.cmDialogController.gererComptesEmploye(employe);
 		}
 	}
 
 	@FXML
-	private void doModifierClient() {
+	private void doModifierEmploye() {
 
-		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
+		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
-			Client cliMod = this.oListClients.get(selectedIndice);
-			Client result = this.cmDialogController.modifierClient(cliMod);
+			Employe empMod = this.oListEmployes.get(selectedIndice);
+			Employe result = this.cmDialogController.modifierEmploye(empMod);
 			if (result != null) {
-				this.oListClients.set(selectedIndice, result);
+				this.oListEmployes.set(selectedIndice, result);
 			}
 		}
 	}
 
 	@FXML
-	private void doDesactiverClient() {
+	private void doDesactiverEmploye() {
 	}
 
 	@FXML
-	private void doNouveauClient() {
-		Client client;
-		client = this.cmDialogController.nouveauClient();
-		if (client != null) {
-			this.oListClients.add(client);
+	private void doNouveauEmploye() {
+		Employe employe;
+		employe = this.cmDialogController.nouveauEmploye();
+		if (employe != null) {
+			this.oListEmployes.add(employe);
 		}
 	}
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		this.btnDesactClient.setDisable(true);
-		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
+		this.btnDesactEmploye.setDisable(true);
+		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
-			this.btnModifClient.setDisable(false);
-			this.btnComptesClient.setDisable(false);
+			this.btnModifEmploye.setDisable(false);
+			this.btnComptesEmploye.setDisable(false);
 		} else {
-			this.btnModifClient.setDisable(true);
-			this.btnComptesClient.setDisable(true);
+			this.btnModifEmploye.setDisable(true);
+			this.btnComptesEmploye.setDisable(true);
 		}
 	}
 }
