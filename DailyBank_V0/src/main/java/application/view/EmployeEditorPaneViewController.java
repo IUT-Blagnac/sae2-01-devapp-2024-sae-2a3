@@ -61,8 +61,6 @@ public class EmployeEditorPaneViewController {
 			this.txtIdEmp.setDisable(true);
 			this.txtNom.setDisable(false);
 			this.txtPrenom.setDisable(false);
-			// this.txtTel.setDisable(false);
-			// this.txtMail.setDisable(false);
 			this.rbActif.setSelected(true);
 			this.rbInactif.setSelected(false);
 			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
@@ -80,8 +78,6 @@ public class EmployeEditorPaneViewController {
 			this.txtIdEmp.setDisable(true);
 			this.txtNom.setDisable(false);
 			this.txtPrenom.setDisable(false);
-			// this.txtTel.setDisable(false);
-			// this.txtMail.setDisable(false);
 			this.rbActif.setSelected(true);
 			this.rbInactif.setSelected(false);
 			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
@@ -96,9 +92,7 @@ public class EmployeEditorPaneViewController {
 			this.butCancel.setText("Annuler");
 			break;
 		case SUPPRESSION:
-			// ce mode n'est pas utilisé pour les Employes :
-			// la suppression d'un employe n'existe pas il faut que le chef d'agence
-			// bascule son état "Actif" à "Inactif"
+
 			ApplicationException ae = new ApplicationException(Table.NONE, Order.OTHER, "SUPPRESSION EMPLOYE NON PREVUE",
 					null);
 			ExceptionDialog ed = new ExceptionDialog(this.containingStage, this.dailyBankState, ae);
@@ -117,12 +111,6 @@ public class EmployeEditorPaneViewController {
 		this.txtDroit.setText(this.employeEdite.droitsAccess);
 		this.txtLogin.setText(this.employeEdite.login);
 		this.txtMDP.setText(this.employeEdite.motPasse);
-
-		// if (ConstantesIHM.estInactif(this.employeEdite)) {
-		// 	this.rbInactif.setSelected(true);
-		// } else {
-		// 	this.rbInactif.setSelected(false);
-		// }
 
 		this.employeResultat = null;
 
@@ -199,11 +187,6 @@ public class EmployeEditorPaneViewController {
 		this.employeEdite.droitsAccess = this.txtDroit.getText().trim();
 		this.employeEdite.login = this.txtLogin.getText().trim();
 		this.employeEdite.motPasse = this.txtMDP.getText().trim();
-		// if (this.rbActif.isSelected()) {
-		// 	this.employeEdite.estInactif = ConstantesIHM.EMPLOYE_ACTIF;
-		// } else {
-		// 	this.employeEdite.estInactif = ConstantesIHM.EMPLOYE_INACTIF;
-		// }
 
 		if (this.employeEdite.nom.isEmpty()) {
 			AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le nom ne doit pas être vide",
@@ -217,23 +200,6 @@ public class EmployeEditorPaneViewController {
 			this.txtPrenom.requestFocus();
 			return false;
 		}
-
-		// String regex = "(0)[1-9][0-9]{8}";
-		// if (!Pattern.matches(regex, this.employeEdite.telephone) || this.employeEdite.telephone.length() > 10) {
-		// 	AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le téléphone n'est pas valable",
-		// 			AlertType.WARNING);
-		// 	this.txtTel.requestFocus();
-		// 	return false;
-		// }
-		// regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-		// 		+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-		// if (!Pattern.matches(regex, this.employeEdite.email) || this.employeEdite.email.length() > 20) {
-		// 	AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le mail n'est pas valable",
-		// 			AlertType.WARNING);
-		// 	this.txtMail.requestFocus();
-		// 	return false;
-		// }
-
 		return true;
 	}
 }

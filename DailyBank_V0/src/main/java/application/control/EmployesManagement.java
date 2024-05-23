@@ -98,25 +98,22 @@ public class EmployesManagement {
 		return employe;
 	}
 
-	public Employe desactiverEmploye(Employe c) {
-		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
-		Employe result = cep.doEmployeEditorDialog(c, EditionMode.MODIFICATION);
-		if (result != null) {
-			try {
-				Access_BD_Employe ac = new Access_BD_Employe();
-				ac.deleteEmploye(result);
-			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
-				ed.doExceptionDialog();
-				result = null;
-				this.cmStage.close();
-			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
-				ed.doExceptionDialog();
-				result = null;
-			}
+	public Employe supprimerEmploye(Employe c) {
+		try {
+			Access_BD_Employe ac = new Access_BD_Employe();
+			ac.deleteEmploye(c);
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+			ed.doExceptionDialog();
+			c = null;
+			this.cmStage.close();
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+			ed.doExceptionDialog();
+			c = null;
 		}
-		return result;
+		
+		return c;
 	}
 
 	public ArrayList<Employe> getlisteEmployes(int _idEmploye, String _debutNom, String _debutPrenom) {
