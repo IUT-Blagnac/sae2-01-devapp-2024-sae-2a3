@@ -61,15 +61,6 @@ public class EmployeEditorPaneViewController {
 			this.txtIdEmp.setDisable(true);
 			this.txtNom.setDisable(false);
 			this.txtPrenom.setDisable(false);
-			this.rbActif.setSelected(true);
-			this.rbInactif.setSelected(false);
-			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
-				this.rbActif.setDisable(false);
-				this.rbInactif.setDisable(false);
-			} else {
-				this.rbActif.setDisable(true);
-				this.rbInactif.setDisable(true);
-			}
 			this.lblMessage.setText("Informations sur le nouvel employe");
 			this.butOk.setText("Ajouter");
 			this.butCancel.setText("Annuler");
@@ -78,15 +69,6 @@ public class EmployeEditorPaneViewController {
 			this.txtIdEmp.setDisable(true);
 			this.txtNom.setDisable(false);
 			this.txtPrenom.setDisable(false);
-			this.rbActif.setSelected(true);
-			this.rbInactif.setSelected(false);
-			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
-				this.rbActif.setDisable(false);
-				this.rbInactif.setDisable(false);
-			} else {
-				this.rbActif.setDisable(true);
-				this.rbInactif.setDisable(true);
-			}
 			this.lblMessage.setText("Informations employe");
 			this.butOk.setText("Modifier");
 			this.butCancel.setText("Annuler");
@@ -141,12 +123,6 @@ public class EmployeEditorPaneViewController {
 	private TextField txtLogin;
 	@FXML
 	private TextField txtMDP;
-	@FXML
-	private RadioButton rbActif;
-	@FXML
-	private RadioButton rbInactif;
-	@FXML
-	private ToggleGroup actifInactif;
 	@FXML
 	private Button butOk;
 	@FXML

@@ -82,17 +82,7 @@ public class Access_BD_Employe {
 		}
 	}
 
-    public void updateEmploye(Employe result) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateEmploye'");
-    }
-
-    public void insertEmploye(Employe employe) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertEmploye'");
-    }
-
-    public ArrayList<Employe> getEmployes(int idAg, int idEmp, String debutNom, String debutPrenom) 
+	public ArrayList<Employe> getEmployes(int idAg, int idEmp, String debutNom, String debutPrenom) 
 				throws DataAccessException, DatabaseConnexionException {
 
         ArrayList<Employe> alResult = new ArrayList<>();
@@ -154,6 +144,46 @@ public class Access_BD_Employe {
 		}
 
 		return alResult;
+    }
+
+    public void updateEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "UPDATE Employe SET " + 
+						"nom = ?, " + 
+						"prenom = ?, " + 
+						"droitsAccess = ?, " + 
+						"login = ?, " + 
+						"motPasse = ? " + 
+						"WHERE idEmploye = ?";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, employe.nom);
+			pst.setString(2, employe.prenom);
+			pst.setString(3, employe.droitsAccess);
+			pst.setString(4, employe.login);
+			pst.setString(5, employe.motPasse);
+			pst.setInt(6, employe.idEmploye);
+
+			System.err.println(query);
+
+			int result = pst.executeUpdate();
+			pst.close();
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.UPDATE,
+						"Update anormal (update de moins ou plus d'une ligne)", null, result);
+			}
+			con.commit();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.UPDATE, "Erreur accès", e);
+		}
+	}
+
+    public void insertEmploye(Employe employe) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'insertEmploye'");
     }
 
 	public void deleteEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {

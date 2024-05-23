@@ -57,10 +57,6 @@ public class ComptesManagement {
 		}
 	}
 
-	public ComptesManagement(Stage cmStage2, DailyBankState dailyBankState2, Employe c) {
-        //TODO Auto-generated constructor stub
-    }
-
     public void doComptesManagementDialog() {
 		this.cmViewController.displayDialog();
 	}

@@ -57,21 +57,21 @@ public class EmployesManagement {
 	public Employe modifierEmploye(Employe c) {
 		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
 		Employe result = cep.doEmployeEditorDialog(c, EditionMode.MODIFICATION);
-		// if (result != null) {
-		// 	try {
-		// 		Access_BD_Employe ac = new Access_BD_Employe();
-		// 		ac.updateEmploye(result);
-		// 	} catch (DatabaseConnexionException e) {
-		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
-		// 		ed.doExceptionDialog();
-		// 		result = null;
-		// 		this.cmStage.close();
-		// 	} catch (ApplicationException ae) {
-		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
-		// 		ed.doExceptionDialog();
-		// 		result = null;
-		// 	}
-		// }
+		if (result != null) {
+			try {
+				Access_BD_Employe ac = new Access_BD_Employe();
+				ac.updateEmploye(result);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				result = null;
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				result = null;
+			}
+		}
 		return result;
 	}
 
