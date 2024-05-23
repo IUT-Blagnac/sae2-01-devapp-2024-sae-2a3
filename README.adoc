@@ -12,9 +12,9 @@ https://github.com/madblurryface[SHULHINA Daria] : Développeuse informatique
 |===
 | Version | Rôle          | Use Case                  | Cas                   | Mohammed | Rudy  | Mialisoa | Daria
 | 1       | Chef d’Agence | CRUD employé              | C                     |          |       |          | D
-| 1       | Chef d’Agence | CRUD employé              | R                     |          | D     |          | 
-| 1       | Chef d’Agence | CRUD employé              | U                     |          |       | D        | 
-| 1       | Chef d’Agence | CRUD employé              | D                     | D        |       |          | 
+| 1       | Chef d’Agence | CRUD employé              | R                     |          | F     |          | 
+| 1       | Chef d’Agence | CRUD employé              | U                     |          |       | F        | 
+| 1       | Chef d’Agence | CRUD employé              | D                     | F        |       |          | 
 | 1       | Guichetier    | Compte                    | Créer                 |          |       | D        | 
 | 1       | Guichetier    | Compte                    | Créditer/Débiter      |          |       |          | D
 | 1       | Guichetier    | Compte                    | Effectuer un virement | D        |       |          | 
