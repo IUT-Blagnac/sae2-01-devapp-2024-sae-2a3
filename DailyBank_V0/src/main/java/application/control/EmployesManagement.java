@@ -56,10 +56,54 @@ public class EmployesManagement {
 	public Employe modifierEmploye(Employe c) {
 		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
 		Employe result = cep.doEmployeEditorDialog(c, EditionMode.MODIFICATION);
+		// if (result != null) {
+		// 	try {
+		// 		Access_BD_Employe ac = new Access_BD_Employe();
+		// 		ac.updateEmploye(result);
+		// 	} catch (DatabaseConnexionException e) {
+		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+		// 		ed.doExceptionDialog();
+		// 		result = null;
+		// 		this.cmStage.close();
+		// 	} catch (ApplicationException ae) {
+		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+		// 		ed.doExceptionDialog();
+		// 		result = null;
+		// 	}
+		// }
+		return result;
+	}
+
+	public Employe nouveauEmploye() {
+		Employe employe;
+		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
+		employe = cep.doEmployeEditorDialog(null, EditionMode.CREATION);
+		// if (employe != null) {
+		// 	try {
+		// 		Access_BD_Employe ac = new Access_BD_Employe();
+
+		// 		ac.insertEmploye(employe);
+		// 	} catch (DatabaseConnexionException e) {
+		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+		// 		ed.doExceptionDialog();
+		// 		this.cmStage.close();
+		// 		employe = null;
+		// 	} catch (ApplicationException ae) {
+		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+		// 		ed.doExceptionDialog();
+		// 		employe = null;
+		// 	}
+		// }
+		return employe;
+	}
+
+	public Employe desactiverEmploye(Employe c) {
+		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
+		Employe result = cep.doEmployeEditorDialog(c, EditionMode.MODIFICATION);
 		if (result != null) {
 			try {
 				Access_BD_Employe ac = new Access_BD_Employe();
-				ac.updateEmploye(result);
+				ac.deleteEmploye(result);
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
@@ -72,57 +116,5 @@ public class EmployesManagement {
 			}
 		}
 		return result;
-	}
-
-	public Employe nouveauEmploye() {
-		Employe employe;
-		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
-		employe = cep.doEmployeEditorDialog(null, EditionMode.CREATION);
-		if (employe != null) {
-			try {
-				Access_BD_Employe ac = new Access_BD_Employe();
-
-				ac.insertEmploye(employe);
-			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
-				ed.doExceptionDialog();
-				this.cmStage.close();
-				employe = null;
-			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
-				ed.doExceptionDialog();
-				employe = null;
-			}
-		}
-		return employe;
-	}
-
-	public void gererComptesEmploye(Employe c) {
-		ComptesManagement cm = new ComptesManagement(this.cmStage, this.dailyBankState, c);
-		cm.doComptesManagementDialog();
-	}
-
-	public ArrayList<Employe> getlisteComptes(int _numCompte, String _debutNom, String _debutPrenom) {
-		ArrayList<Employe> listeCli = new ArrayList<>();
-		try {
-			// Recherche des employes en BD. cf. AccessEmploye > getEmployes(.)
-			// numCompte != -1 => recherche sur numCompte
-			// numCompte == -1 et debutNom non vide => recherche nom/prenom
-			// numCompte == -1 et debutNom vide => recherche tous les employes
-
-			Access_BD_Employe ac = new Access_BD_Employe();
-			listeCli = ac.getEmployes(this.dailyBankState.getEmployeActuel().idAg, _numCompte, _debutNom, _debutPrenom);
-
-		} catch (DatabaseConnexionException e) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
-			ed.doExceptionDialog();
-			this.cmStage.close();
-			listeCli = new ArrayList<>();
-		} catch (ApplicationException ae) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
-			ed.doExceptionDialog();
-			listeCli = new ArrayList<>();
-		}
-		return listeCli;
 	}
 }

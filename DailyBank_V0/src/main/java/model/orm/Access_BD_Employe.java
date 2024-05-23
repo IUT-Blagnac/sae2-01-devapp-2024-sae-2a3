@@ -92,8 +92,40 @@ public class Access_BD_Employe {
         throw new UnsupportedOperationException("Unimplemented method 'insertEmploye'");
     }
 
-    public ArrayList<Employe> getEmployes(int idAg, int _numCompte, String _debutNom, String _debutPrenom) {
+    public Employe getEmployes(int idAg, int _numCompte, String _debutNom, String _debutPrenom) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getEmployes'");
     }
+
+	public void deleteEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+		try {
+			// Obtenir une connexion à la base de données
+			Connection con = LogToDatabase.getConnexion();
+			
+			// Préparer la requête SQL DELETE
+			String query = "DELETE FROM Employe WHERE idEmploye = ?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, employe.idEmploye);
+			
+			// Exécuter la requête
+			int rowCount = pst.executeUpdate();
+			
+			// Vérifier le nombre de lignes affectées
+			if (rowCount == 0) {
+				// Aucune ligne n'a été supprimée
+				pst.close();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.DELETE, "Aucune ligne supprimée", null, 0);
+			} else if (rowCount > 1) {
+				// Plus d'une ligne a été supprimée, ce qui est anormal
+				pst.close();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.DELETE, "Plus d'une ligne supprimée", null, rowCount);
+			}
+			
+			// Fermer le PreparedStatement
+			pst.close();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.DELETE, "Erreur accès", e);
+		}
+	}
+	
 }

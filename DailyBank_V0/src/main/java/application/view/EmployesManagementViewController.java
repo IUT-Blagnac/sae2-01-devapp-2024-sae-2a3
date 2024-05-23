@@ -113,26 +113,13 @@ public class EmployesManagementViewController {
 				this.txtPrenom.setText("");
 			}
 		}
+		
+		ArrayList<Employe> listeEmp;
+		//listeEmp = this.cmDialogController.getlisteComptes(numCompte, debutNom, debutPrenom);
 
-		// Recherche des employes en BD. cf. AccessEmploye > getEmployes(.)
-		// numCompte != -1 => recherche sur numCompte
-		// numCompte != -1 et debutNom non vide => recherche nom/prenom
-		// numCompte != -1 et debutNom vide => recherche tous les employes
-		ArrayList<Employe> listeCli;
-		listeCli = this.cmDialogController.getlisteComptes(numCompte, debutNom, debutPrenom);
-
-		this.oListEmployes.clear();
-		this.oListEmployes.addAll(listeCli);
-		this.validateComponentState();
-	}
-
-	@FXML
-	private void doComptesEmploye() {
-		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
-		if (selectedIndice >= 0) {
-			Employe employe = this.oListEmployes.get(selectedIndice);
-			this.cmDialogController.gererComptesEmploye(employe);
-		}
+		// this.oListEmployes.clear();
+		// this.oListEmployes.addAll(listeEmp);
+		// this.validateComponentState();
 	}
 
 	@FXML
@@ -150,6 +137,7 @@ public class EmployesManagementViewController {
 
 	@FXML
 	private void doDesactiverEmploye() {
+
 	}
 
 	@FXML
