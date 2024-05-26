@@ -15,6 +15,9 @@ public class Operation {
 	public int idNumCompte;
 	public String idTypeOp;
 
+	public int idNumCompteDebit;
+	public int idNumCompteCredit;
+
 	public Operation(int idOperation, double montant, Date dateOp, Date dateValeur, int idNumCompte, String idTypeOp) {
 		super();
 		this.idOperation = idOperation;
@@ -24,6 +27,18 @@ public class Operation {
 		this.idNumCompte = idNumCompte;
 		this.idTypeOp = idTypeOp;
 	}
+
+	public Operation(int idOperation, double montant, Date dateOp, Date dateValeur, int idNumCompteDebit, int idNumCompteCredit, String idTypeOp) {
+		super();
+		this.idOperation = idOperation;
+		this.montant = montant;
+		this.dateOp = dateOp;
+		this.dateValeur = dateValeur;
+		this.idNumCompteDebit = idNumCompteDebit;
+		this.idNumCompteCredit = idNumCompteCredit;
+		this.idTypeOp = idTypeOp;
+	}
+
 
 	public Operation(Operation o) {
 		this(o.idOperation, o.montant, o.dateOp, o.dateValeur, o.idNumCompte, o.idTypeOp);
@@ -38,7 +53,7 @@ public class Operation {
 		return this.dateOp + " : " + String.format("%25s", this.idTypeOp) + " "
 				+ String.format("%10.02f", this.montant);
 
-//		return "Operation [idOperation=" + idOperation + ", montant=" + montant + ", dateOp=" + dateOp + ", dateValeur="
-//				+ dateValeur + ", idNumCompte=" + idNumCompte + ", idTypeOp=" + idTypeOp + "]";
+		// return "Operation [idOperation=" + idOperation + ", montant=" + montant + ", dateOp=" + dateOp + ", dateValeur="
+		// 		+ dateValeur + ", idNumCompte=" + idNumCompte + ", idTypeOp=" + idTypeOp + "]";
 	}
 }

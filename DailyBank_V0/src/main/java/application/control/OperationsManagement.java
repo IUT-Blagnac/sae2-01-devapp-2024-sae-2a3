@@ -28,6 +28,7 @@ public class OperationsManagement {
 	private OperationsManagementViewController omViewController;
 	private Client clientDuCompte;
 	private CompteCourant compteConcerne;
+	private CompteCourant compteVirement;
 
 	public OperationsManagement(Stage _parentStage, DailyBankState _dbstate, Client client, CompteCourant compte) {
 
@@ -87,6 +88,7 @@ public class OperationsManagement {
 	}
 
 	public PairsOfValue<CompteCourant, ArrayList<Operation>> operationsEtSoldeDunCompte() {
+		
 		ArrayList<Operation> listeOP = new ArrayList<>();
 
 		try {
@@ -110,5 +112,54 @@ public class OperationsManagement {
 		}
 		System.out.println(this.compteConcerne.solde);
 		return new PairsOfValue<>(this.compteConcerne, listeOP);
+	}
+
+	public Operation enregistrerCredit() {
+
+		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
+		if (op != null) {
+			try {
+				Access_BD_Operation ao = new Access_BD_Operation();
+
+				ao.insertCredit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.omStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.omStage.close();
+				op = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.omStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				op = null;
+			}
+		}
+		return op;
+	}
+
+	public Operation enregistrerVirement() {
+
+		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
+		if (op != null) {
+			try {
+				Access_BD_Operation ao = new Access_BD_Operation();
+
+				// ao.insertVirement(this.compteConcerne.idNumCompte, 1,op.montant, op.idTypeOp);
+				ao.insertVirement(this.compteConcerne.idNumCompte, op.idNumCompteCredit, op.montant, op.idTypeOp);
+
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.omStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.omStage.close();
+				op = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.omStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				op = null;
+			}
+		}
+		return op;
 	}
 }

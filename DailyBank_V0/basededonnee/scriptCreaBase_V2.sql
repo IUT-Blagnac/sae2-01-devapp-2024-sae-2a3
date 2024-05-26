@@ -452,6 +452,39 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE PROCEDURE Crediter (
+    vidNumCompte CompteCourant.idNumCompte%TYPE,
+    vMontantCredit Operation.montant%TYPE,
+    vTypeOp TypeOperation.idTypeOp%TYPE,
+    retour OUT NUMBER
+	)
+IS
+    vSolde CompteCourant.solde%TYPE;
+BEGIN
+    -- Récupérer le solde actuel du compte
+    SELECT solde INTO vSolde FROM CompteCourant WHERE idNumCompte = vidNumCompte;
+
+    -- Calculer le nouveau solde après le crédit
+    vSolde := vSolde + vMontantCredit;
+
+    -- Insérer l'opération de crédit
+    INSERT INTO Operation (idOperation, montant, dateValeur, idNumCompte, idTypeOp)
+    VALUES (seq_id_operation.NEXTVAL, vMontantCredit, SYSDATE, vidNumCompte, vTypeOp);
+
+    -- Mettre à jour le solde du compte
+    UPDATE CompteCourant
+    SET solde = vSolde
+    WHERE idNumCompte = vidNumCompte;
+
+    COMMIT;
+    retour := 0;
+EXCEPTION
+    WHEN OTHERS THEN
+        retour := -1; -- En cas d'erreur, retourner un code d'erreur
+        ROLLBACK; -- Annuler les modifications en cas d'erreur
+END;
+/
+
 -- TEST CreerOperation
 
 -- on regarde le compte 1 de Gabi avant d'appeler la procedure CreerOperation
@@ -556,6 +589,8 @@ BEGIN
 	IF retour = 0 THEN -- le débit sur le 1er compte s'est bien passé...
 	      CreerOperation(vIdNumCompteCred, vMontantOp, 'Virement Compte à Compte', retour);
 		  COMMIT;
+	ELSE
+		retour := -1;
 	END IF;
 	
 END;

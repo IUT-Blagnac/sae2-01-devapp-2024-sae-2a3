@@ -166,7 +166,7 @@ public class Access_BD_Operation {
 		}
 	}
 
-	/*
+	/**
 	 * Fonction utilitaire qui retourne un ordre sql "to_date" pour mettre une date
 	 * dans une requête sql
 	 *
@@ -185,4 +185,106 @@ public class Access_BD_Operation {
 		return sd;
 	}
 
+
+	/**
+	 * Enregistrement d'un crédit.
+	 *
+	 * Se fait par procédure stockée :
+	 * - Enregistre l'opération 
+	 * - Met à jour le solde du compte. 
+	 *
+	 * @param idNumCompte compte crédité
+	 * @param montant     montant crédité
+	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
+	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
+	 *                                    formée ou autre)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 */
+	public void insertCredit(int idNumCompte, double montant, String typeOp)
+        	throws DatabaseConnexionException, DataAccessException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			CallableStatement call;
+
+			// Utilisez la procédure stockée appropriée pour créditer le compte
+			String q = "{call Crediter (?, ?, ?, ?)}";
+			call = con.prepareCall(q);
+			
+			// Paramètres in
+			call.setInt(1, idNumCompte);
+			call.setDouble(2, montant);
+			call.setString(3, typeOp);
+			// Paramètre out pour récupérer le résultat de la procédure stockée
+			call.registerOutParameter(4, java.sql.Types.INTEGER);
+
+			call.execute();
+
+			// Récupérez le résultat de la procédure stockée
+			int res = call.getInt(4);
+
+			if (res != 0) { // Erreur applicative
+				throw new DataAccessException(Table.Operation, Order.INSERT,
+						"Erreur lors du crédit", null);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
+		}
+	}
+
+
+	/**
+	 * Enregistrement d'un virement.
+	 *
+	 * Se fait par procédure stockée : 
+	 * - Vérifie que le débitAutorisé n'est pas dépassé 
+	 * - Enregistre l'opération 
+	 * - Met à jour le solde des comptes.
+	 *
+	 * @param idNumCompteD compte débité
+	 * @param idNumCompteC compte crédité
+	 * @param montant     montant viré
+	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
+	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
+	 *                                    formée ou autre)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
+	 */
+	public void insertVirement(int idNumCompteD, int idNumCompteC, double montant, String typeOp)
+        	throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
+		Connection con = null;
+		CallableStatement callVirer = null;
+
+		try {
+			con = LogToDatabase.getConnexion();
+			con.setAutoCommit(false);
+
+			String qVirer = "{call Virer (?, ?, ?, ?)}";
+			callVirer = con.prepareCall(qVirer);
+			callVirer.setInt(1, idNumCompteD);
+			callVirer.setInt(2, idNumCompteC);
+			callVirer.setDouble(3, montant);
+			callVirer.registerOutParameter(4, java.sql.Types.INTEGER);
+
+			callVirer.execute();
+			int resVirer = callVirer.getInt(4);
+
+			if (resVirer != 0) {
+				con.rollback();
+				throw new ManagementRuleViolation(Table.Operation, Order.INSERT,
+						"Erreur de règle de gestion lors du virement", null);
+			}
+
+			con.commit();
+
+		} catch (SQLException e) {
+			if (con != null) {
+				try {
+					con.rollback();
+				} catch (SQLException ex) {
+					throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur lors du rollback", ex);
+				}
+			}
+			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
+		}
+	}
 }

@@ -25,7 +25,7 @@ public class OperationEditorPane {
 					OperationEditorPaneViewController.class.getResource("operationeditorpane.fxml"));
 			BorderPane root = loader.load();
 
-			Scene scene = new Scene(root, 500 + 20, 250 + 10);
+			Scene scene = new Scene(root, 520, 350);
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
 			this.oepStage = new Stage();
@@ -45,6 +45,6 @@ public class OperationEditorPane {
 	}
 
 	public Operation doOperationEditorDialog(CompteCourant cpte, CategorieOperation cm) {
-		return this.oepViewController.displayDialog(cpte, cm);
+        return this.oepViewController.displayDialog(cpte, cm);
 	}
 }

@@ -3,13 +3,11 @@ package application.view;
 import java.util.Locale;
 
 import application.DailyBankState;
-import application.tools.AlertUtilities;
 import application.tools.CategorieOperation;
 import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -18,6 +16,10 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.orm.Access_BD_Operation;
+import model.orm.exception.DataAccessException;
+import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.ManagementRuleViolation;
 
 public class OperationEditorPaneViewController {
 
@@ -58,6 +60,10 @@ public class OperationEditorPaneViewController {
 			this.btnOk.setText("Effectuer Débit");
 			this.btnCancel.setText("Annuler débit");
 
+			// Afficher le label et le textfield pour le compte destinataire du virement
+			this.lblCompteDestinataire.setVisible(false);
+			this.txtCompteDestinataire.setVisible(false);
+
 			ObservableList<String> listTypesOpesPossibles = FXCollections.observableArrayList();
 			listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_DEBIT_GUICHET);
 
@@ -65,10 +71,41 @@ public class OperationEditorPaneViewController {
 			this.cbTypeOpe.getSelectionModel().select(0);
 			break;
 		case CREDIT:
-			AlertUtilities.showAlert(this.containingStage, "Non implémenté", "Modif de compte n'est pas implémenté", null,
-					AlertType.ERROR);
-			return null;
-		// break;
+			String infoCredit = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde);
+			this.lblMessage.setText(infoCredit);
+
+			this.btnOk.setText("Effectuer Crédit");
+			this.btnCancel.setText("Annuler crédit");
+
+			// Afficher le label et le textfield pour le compte destinataire du virement
+			this.lblCompteDestinataire.setVisible(false);
+			this.txtCompteDestinataire.setVisible(false);
+
+			ObservableList<String> listTypesOpesPossiblesCredit = FXCollections.observableArrayList();
+			listTypesOpesPossiblesCredit.addAll(ConstantesIHM.OPERATIONS_CREDIT_GUICHET); // Ajouter les opérations de crédit possibles
+
+			this.cbTypeOpe.setItems(listTypesOpesPossiblesCredit);
+			this.cbTypeOpe.getSelectionModel().select(0);
+			break;
+		case VIREMENT:
+			String infoVirement = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+				+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde);
+			this.lblMessage.setText(infoVirement);
+		
+			this.btnOk.setText("Effectuer Virement");
+			this.btnCancel.setText("Annuler virement");
+		
+			// Afficher le label et le textfield
+			this.lblCompteDestinataire.setVisible(true);
+			this.txtCompteDestinataire.setVisible(true);
+			this.cbTypeOpe.setVisible(false);
+			this.lblTypeOpe.setVisible(false);
+		
+			// Effacer le contenu du textfield pour permettre à l'utilisateur de saisir l'id du compte destinataire
+			this.txtCompteDestinataire.setText("");
+		
+			break;
 		}
 
 		// Paramétrages spécifiques pour les chefs d'agences
@@ -97,7 +134,13 @@ public class OperationEditorPaneViewController {
 	@FXML
 	private Label lblMontant;
 	@FXML
+	private Label lblTypeOpe;
+	@FXML
 	private ComboBox<String> cbTypeOpe;
+	@FXML
+    private Label lblCompteDestinataire;
+	@FXML
+    private TextField txtCompteDestinataire;
 	@FXML
 	private TextField txtMontant;
 	@FXML
@@ -150,14 +193,78 @@ public class OperationEditorPaneViewController {
 				this.txtMontant.requestFocus();
 				return;
 			}
-			String typeOp = this.cbTypeOpe.getValue();
-			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+			String typeOpDebit = this.cbTypeOpe.getValue();
+			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOpDebit);
 			this.containingStage.close();
 			break;
 		case CREDIT:
-			// ce genre d'operation n'est pas encore géré
-			this.operationResultat = null;
+			// Règles de validation d'un crédit :
+			// - Le montant doit être un nombre valide et positif
+			double montantCredit;
+
+			this.txtMontant.getStyleClass().remove("borderred");
+			this.lblMontant.getStyleClass().remove("borderred");
+			this.lblMessage.getStyleClass().remove("borderred");
+
+			try {
+				montantCredit = Double.parseDouble(this.txtMontant.getText().trim());
+				if (montantCredit <= 0)
+					throw new NumberFormatException();
+			} catch (NumberFormatException nfe) {
+				this.txtMontant.getStyleClass().add("borderred");
+				this.lblMontant.getStyleClass().add("borderred");
+				this.txtMontant.requestFocus();
+				return;
+			}
+
+			String typeOpCredit = this.cbTypeOpe.getValue();
+			// Créer l'objet Operation pour le crédit
+			this.operationResultat = new Operation(-1, montantCredit, null, null, this.compteEdite.idNumCli, typeOpCredit);
+			// Fermer la fenêtre de dialogue
+			this.containingStage.close(); 
+			break;
+		case VIREMENT:
+			// Règles de validation d'un virement :
+			// - Le montant doit être un nombre valide et positif
+			double montantVirement;
+		
+			this.txtMontant.getStyleClass().remove("borderred");
+			this.lblMontant.getStyleClass().remove("borderred");
+			this.lblMessage.getStyleClass().remove("borderred");
+		
+			try {
+				montantVirement = Double.parseDouble(this.txtMontant.getText().trim());
+				if (montantVirement <= 0)
+					throw new NumberFormatException();
+			} catch (NumberFormatException nfe) {
+				this.txtMontant.getStyleClass().add("borderred");
+				this.lblMontant.getStyleClass().add("borderred");
+				this.txtMontant.requestFocus();
+				return;
+			}
+		
+			// Récupérer l'id du compte destinataire depuis la TextField
+			String compteDestinataire = this.txtCompteDestinataire.getText();
+			if (compteDestinataire == null || compteDestinataire.isEmpty()) {
+				// Afficher un message d'erreur si aucun compte n'est sélectionné
+				System.out.println("Erreur : Compte destinataire non sélectionné.");
+				return;
+			}
+
+			int idCompteDestinataire;
+			try {
+				idCompteDestinataire = Integer.parseInt(compteDestinataire);
+			} catch (NumberFormatException e) {
+				// Gérer le cas où la chaîne de caractères ne peut pas être convertie en un entier
+				System.out.println("Erreur : Numéro de compte destinataire invalide.");
+				return;
+			}
+			
+			// Créer l'objet Operation pour le crédit
+			this.operationResultat = new Operation(-1, montantVirement, null, null, this.compteEdite.idNumCli, idCompteDestinataire, "Virement Compte à Compte");
+			// Fermer la fenêtre de dialogue
 			this.containingStage.close();
+			
 			break;
 		}
 	}
