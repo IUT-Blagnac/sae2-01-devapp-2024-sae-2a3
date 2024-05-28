@@ -79,22 +79,6 @@ public class EmployesManagement {
 		Employe employe;
 		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
 		employe = cep.doEmployeEditorDialog(null, EditionMode.CREATION);
-		// if (employe != null) {
-		// 	try {
-		// 		Access_BD_Employe ac = new Access_BD_Employe();
-
-		// 		ac.insertEmploye(employe);
-		// 	} catch (DatabaseConnexionException e) {
-		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
-		// 		ed.doExceptionDialog();
-		// 		this.cmStage.close();
-		// 		employe = null;
-		// 	} catch (ApplicationException ae) {
-		// 		ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
-		// 		ed.doExceptionDialog();
-		// 		employe = null;
-		// 	}
-		// }
 		return employe;
 	}
 
@@ -119,11 +103,6 @@ public class EmployesManagement {
 	public ArrayList<Employe> getlisteEmployes(int _idEmploye, String _debutNom, String _debutPrenom) {
 		ArrayList<Employe> listeEmp = new ArrayList<>();
 		try {
-			// Recherche des clients en BD. cf. AccessClient > getClients(.)
-			// numCompte != -1 => recherche sur numCompte
-			// numCompte == -1 et debutNom non vide => recherche nom/prenom
-			// numCompte == -1 et debutNom vide => recherche tous les clients
-
 			Access_BD_Employe ac = new Access_BD_Employe();
 			listeEmp = ac.getEmployes(this.dailyBankState.getEmployeActuel().idAg, _idEmploye, _debutNom, _debutPrenom);
 
