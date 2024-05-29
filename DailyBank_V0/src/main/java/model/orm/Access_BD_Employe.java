@@ -181,10 +181,58 @@ public class Access_BD_Employe {
 		}
 	}
 
-    public void insertEmploye(Employe employe) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertEmploye'");
-    }
+    /**
+	 * Insertion d'un employé.
+	 * @param employe IN/OUT Tous les attributs IN sauf idNumEmp en OUT
+	 * @throws RowNotFoundOrTooManyRowsException La requête insère 0 ou plus de 1 ligne
+	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée ou autre)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 */
+    public void insertEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+		try {
+
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "INSERT INTO EMPLOYE VALUES (" + "seq_id_employe.NEXTVAL" + ", " + "?" + ", " + "?" + ", "
+					+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")"; 
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, employe.nom);
+			pst.setString(2, employe.prenom);
+			pst.setString(3, employe.droitsAccess);
+			pst.setString(4, employe.login);
+			pst.setString(5, employe.motPasse);
+			pst.setInt(6, employe.idAg);
+
+			System.err.println(query);
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.INSERT,
+						"Insert anormal (insert de moins ou plus d'une ligne)", null, result);
+			}
+
+			query = "SELECT seq_id_employe.CURRVAL from DUAL";
+
+			System.err.println(query);
+			PreparedStatement pst2 = con.prepareStatement(query);
+
+			ResultSet rs = pst2.executeQuery();
+			rs.next();
+			int numEmpBase = rs.getInt(1);
+
+			con.commit();
+			rs.close();
+			pst2.close();
+
+			employe.idEmploye = numEmpBase;
+
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.INSERT, "Erreur accès", e);
+		}
+	}
 
 	public void deleteEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
 		try {

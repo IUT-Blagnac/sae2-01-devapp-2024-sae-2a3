@@ -79,6 +79,22 @@ public class EmployesManagement {
 		Employe employe;
 		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
 		employe = cep.doEmployeEditorDialog(null, EditionMode.CREATION);
+		if (employe != null) {
+			try {
+				Access_BD_Employe ac = new Access_BD_Employe();
+
+				ac.insertEmploye(employe);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.cmStage.close();
+				employe = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				employe = null;
+			}
+		}
 		return employe;
 	}
 
