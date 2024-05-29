@@ -5,7 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import javafx.scene.control.Alert.AlertType;
+import application.tools.AlertUtilities;
 import model.data.CompteCourant;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
@@ -202,6 +203,52 @@ public class Access_BD_CompteCourant {
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, 
 			"Erreur accès", e);
+		}
+	}
+
+	/**
+	 * Insertion d'un nouveau compte 
+	 * 
+	 * @param compteC le compte courant à insérer 
+	 * @throws DataAccessException pour les probleme lies au acces donnees
+	 * @throws DatabaseConnexionException pour l'erreur de connexion à la base de donnees
+	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1 ligne
+	 * @throws ManagementRuleViolation 
+	 * 
+	 */
+	public void insertCompte(CompteCourant compteC) throws DataAccessException, DatabaseConnexionException, RowNotFoundOrTooManyRowsException, ManagementRuleViolation {
+		try{
+			Connection con = LogToDatabase.getConnexion(); 
+
+			String query = "INSERT INTO CompteCourant VALUES ("+ "seq_id_compte.NEXTVAL" + ", "+"?" + ", " + "?" +", " +"?" + ", " + "?" + ")";
+
+			PreparedStatement pst = con.prepareStatement(query); 
+            pst.setInt(1, compteC.debitAutorise);
+            pst.setDouble(2, compteC.solde);
+			pst.setInt(3, compteC.idNumCli);
+            pst.setString(4, compteC.estCloture);
+            
+
+			int result = pst.executeUpdate(); 
+			pst.close(); 
+			if (compteC.solde <= 0){
+				throw new ManagementRuleViolation(Table.CompteCourant, Order.INSERT, "Erreur de règle de gestion : montant initial doit être supérieur à 200", null); 
+			}
+			if(result != 1){
+				con.rollback(); 
+				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.INSERT, "Insertion anormale (insert de moins ou plus d'une ligne)", null, result);
+			}
+			query = "SELECT seq_id_compte.CURRVAL from DUAL"; 
+			PreparedStatement pst2 = con.prepareStatement(query);
+			ResultSet rs = pst2.executeQuery();
+			rs.next();
+			int numCompteBase = rs.getInt(1);
+			con.commit(); 
+			rs.close();
+			pst2.close();
+			compteC.idNumCompte = numCompteBase; 
+		}catch(SQLException e){
+			throw new DataAccessException(Table.CompteCourant, Order.INSERT, "Erreur acces", e); 
 		}
 	}
 }

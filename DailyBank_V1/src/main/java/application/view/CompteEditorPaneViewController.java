@@ -171,6 +171,9 @@ public class CompteEditorPaneViewController {
 			if (this.isSaisieValide()) {
 				this.compteResultat = this.compteEdite;
 				this.containingStage.close();
+			}else{
+				AlertUtilities.showAlert(this.containingStage, "Manipulation echoué", null, "solde négatif ou null", AlertType.WARNING);
+				con.rollback();
 			}
 			break;
 		case MODIFICATION:

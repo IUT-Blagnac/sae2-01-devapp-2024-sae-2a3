@@ -73,21 +73,19 @@ public class ComptesManagement {
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
 		if (compte != null) {
 			try {
-				// Temporaire jusqu'à implémentation
-				compte = null;
-				AlertUtilities.showAlert(this.cmStage, "En cours de développement", "Non implémenté",
-						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
 
-				if (Math.random() < -1) {
-					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
-				}
+				Access_BD_CompteCourant acc = new Access_BD_CompteCourant(); 
+				acc.insertCompte(compte); 
+
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
 				this.cmStage.close();
+				compte = null;
 			} catch (ApplicationException ae) {
 				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
 				ed.doExceptionDialog();
+				compte = null;
 			}
 		}
 		return compte;
