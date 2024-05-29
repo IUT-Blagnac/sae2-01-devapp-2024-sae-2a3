@@ -223,7 +223,7 @@ public class Access_BD_CompteCourant {
 			String query = "INSERT INTO CompteCourant VALUES ("+ "seq_id_compte.NEXTVAL" + ", "+"?" + ", " + "?" +", " +"?" + ", " + "?" + ")";
 
 			PreparedStatement pst = con.prepareStatement(query); 
-            pst.setInt(1, compteC.debitAutorise);
+            pst.setInt(1, -compteC.debitAutorise);
             pst.setDouble(2, compteC.solde);
 			pst.setInt(3, compteC.idNumCli);
             pst.setString(4, compteC.estCloture);
@@ -232,7 +232,7 @@ public class Access_BD_CompteCourant {
 			int result = pst.executeUpdate(); 
 			pst.close(); 
 			if (compteC.solde <= 0){
-				throw new ManagementRuleViolation(Table.CompteCourant, Order.INSERT, "Erreur de règle de gestion : montant initial doit être supérieur à 200", null); 
+				throw new ManagementRuleViolation(Table.CompteCourant, Order.INSERT, "Erreur de règle de gestion : montant initial doit être supérieur à 0", null); 
 			}
 			if(result != 1){
 				con.rollback(); 

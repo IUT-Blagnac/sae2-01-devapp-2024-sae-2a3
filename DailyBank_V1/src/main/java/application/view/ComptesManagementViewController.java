@@ -111,14 +111,17 @@ public class ComptesManagementViewController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			if(cpt.solde==0) {
+			if(cpt.solde == 0) {
 				this.cmDialogController.cloturerCompte(cpt);
-			}
-			else {
+			} else if (cpt.solde > 0){
 				Alert al = new Alert(AlertType.WARNING);
 				al.setHeaderText("Votre compte n'est pas vide");
 				al.show();
-			}
+			} else if (cpt.solde < 0){
+				Alert al = new Alert(AlertType.WARNING);
+				al.setHeaderText("Remboursez votre decouvert");
+				al.show();
+			} 
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -131,6 +134,8 @@ public class ComptesManagementViewController {
 		if (compte != null) {
 			this.oListCompteCourant.add(compte);
 		}
+		this.loadList();
+		this.validateComponentState();
 	}
 
 	private void loadList() {

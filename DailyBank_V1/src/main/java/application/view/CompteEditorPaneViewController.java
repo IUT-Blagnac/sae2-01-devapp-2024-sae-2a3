@@ -166,32 +166,58 @@ public class CompteEditorPaneViewController {
 
 	@FXML
 	private void doAjouter() {
-		switch (this.editionMode) {
-		case CREATION:
-			if (this.isSaisieValide()) {
-				this.compteResultat = this.compteEdite;
-				this.containingStage.close();
-			}else{
-				AlertUtilities.showAlert(this.containingStage, "Manipulation echoué", null, "solde négatif ou null", AlertType.WARNING);
-				con.rollback();
-			}
-			break;
-		case MODIFICATION:
-			if (this.isSaisieValide()) {
-				this.compteResultat = this.compteEdite;
-				this.containingStage.close();
-			}
-			break;
-		case SUPPRESSION:
-			this.compteResultat = this.compteEdite;
-			this.containingStage.close();
-			break;
+		if (!isSaisieValide()) {
+			// La validation a échoué, une alerte a déjà été affichée
+			return;
 		}
-
+		
+		switch (this.editionMode) {
+			case CREATION:
+				if(Double.parseDouble(txtSolde.getText()) > 0) {
+					this.compteResultat = this.compteEdite;
+					this.containingStage.close();
+				}else {
+					AlertUtilities.showAlert(this.containingStage, "Erreur", "Le solde soit etre positif",null , AlertType.ERROR);
+				}
+				break;
+			case MODIFICATION:
+				try {
+					this.compteResultat = this.compteEdite;
+					// Appel à la méthode de mise à jour dans la base de données ici
+					this.containingStage.close();
+				} catch (Exception e) {
+					AlertUtilities.showAlert(this.containingStage, "Erreur", "Une erreur s'est produite lors de la modification du compte",
+							e.getMessage(), AlertType.ERROR);
+				}
+				break;
+			case SUPPRESSION:
+				try {
+					this.compteResultat = this.compteEdite;
+					// Appel à la méthode de suppression dans la base de données ici
+					this.containingStage.close();
+				} catch (Exception e) {
+					AlertUtilities.showAlert(this.containingStage, "Erreur", "Une erreur s'est produite lors de la suppression du compte",
+							e.getMessage(), AlertType.ERROR);
+				}
+				break;
+		}
 	}
 
 	private boolean isSaisieValide() {
+		
+		// Convertir le texte en double pour vérifier le solde
+		double solde = Double.parseDouble(txtSolde.getText());
 
+		// Vérifier que le solde n'est pas négatif
+		if (solde < 0) {
+			// Afficher une alerte si le solde est négatif
+			AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", "Le solde ne peut pas être négatif",
+					null, AlertType.WARNING);
+			return false;
+		}
+	
+		// Tous les contrôles sont passés, la saisie est valide
 		return true;
 	}
+
 }
