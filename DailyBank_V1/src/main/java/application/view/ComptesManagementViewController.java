@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -105,6 +108,20 @@ public class ComptesManagementViewController {
 
 	@FXML
 	private void doSupprimerCompte() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			if(cpt.solde==0) {
+				this.cmDialogController.cloturerCompte(cpt);
+			}
+			else {
+				Alert al = new Alert(AlertType.WARNING);
+				al.setHeaderText("Votre compte n'est pas vide");
+				al.show();
+			}
+		}
+		this.loadList();
+		this.validateComponentState();
 	}
 
 	@FXML
@@ -124,13 +141,21 @@ public class ComptesManagementViewController {
 	}
 
 	private void validateComponentState() {
-		// Non implémenté => désactivé
+		// 	// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);
 		this.btnSupprCompte.setDisable(true);
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+
 		if (selectedIndice >= 0) {
 			this.btnVoirOpes.setDisable(false);
+			this.btnModifierCompte.setDisable(false);
+			this.btnSupprCompte.setDisable(false);
+			CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
+				if(ConstantesIHM.estCloture(compte)) {
+					this.btnSupprCompte.setDisable(true);
+					this.btnModifierCompte.setDisable(true);
+				}
 		} else {
 			this.btnVoirOpes.setDisable(true);
 		}

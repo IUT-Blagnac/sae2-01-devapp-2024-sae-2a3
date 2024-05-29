@@ -7,6 +7,7 @@ import application.DailyBankState;
 import application.control.OperationsManagement;
 import application.tools.NoSelectionModel;
 import application.tools.PairsOfValue;
+import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -119,6 +120,13 @@ public class OperationsManagementViewController {
 		// Non implémenté => désactivé
 		this.btnCredit.setDisable(false);
 		this.btnDebit.setDisable(false);
+		this.btnVirement.setDisable(false);
+
+		if(ConstantesIHM.estCloture(compteConcerne)) {
+			this.btnCredit.setDisable(true);
+			this.btnDebit.setDisable(true);
+			this.btnVirement.setDisable(true);
+		}
 	}
 
 	private void updateInfoCompteClient() {

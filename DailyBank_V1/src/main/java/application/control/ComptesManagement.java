@@ -78,11 +78,6 @@ public class ComptesManagement {
 				AlertUtilities.showAlert(this.cmStage, "En cours de développement", "Non implémenté",
 						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
 
-				// TODO : enregistrement du nouveau compte en BDD (la BDD donne de nouvel id
-				// dans "compte")
-
-				// if JAMAIS vrai
-				// existe pour compiler les catchs dessous
 				if (Math.random() < -1) {
 					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
 				}
@@ -115,5 +110,24 @@ public class ComptesManagement {
 			listeCpt = new ArrayList<>();
 		}
 		return listeCpt;
+	}
+
+	public void cloturerCompte(CompteCourant compte) {
+		if(compte!=null) {
+			try {
+				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				ac.cloturerCompte(compte);
+				if(Math.random()<-1){
+					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
+				}
+			}catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+			}	
+		}
 	}
 }
