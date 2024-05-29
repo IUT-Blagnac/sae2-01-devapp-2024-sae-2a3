@@ -90,6 +90,9 @@ image::/V0/UseCaseV2DailyBank.png[title="Use Case DailyBank"]
 *Version V1 :* 
 
 * Ajout de fonctionnalités au guichetier tel que 
+** créer un nouveau compte client
+
+image::/V0Screens/Use case creaCompteclient.jpg[title=""]
 ** créditer un compte, 
 ** réaliser un virement d'un compte à un autre,
 ** clôturer un compte.
