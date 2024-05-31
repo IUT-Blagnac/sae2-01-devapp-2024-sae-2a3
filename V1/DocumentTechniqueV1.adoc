@@ -75,6 +75,8 @@ Sachant que l'application est une application dédiée au banque de détail, ell
 
 image::/V0/UseCaseV2DailyBank.png[title="Use Case DailyBank"]
 
+** Le chef d'agence peut toujours faire les mêmes choses q'un guichetier.
+
 *Version V0 :* 
 
 * Création d'un guichetier qui peut :
@@ -92,17 +94,30 @@ image::/V0/UseCaseV2DailyBank.png[title="Use Case DailyBank"]
 * Ajout de fonctionnalités au guichetier tel que 
 ** créer un nouveau compte client
 
-image::/V0Screens/Use case creaCompteclient.jpg[title="Fait par Daria"]
-** créditer un compte, 
-** réaliser un virement d'un compte à un autre,
-** clôturer un compte.
+image::/V0Screens/Use case creaCompteclient.jpg[title="Fait par Mialisoa"]
 
+** créditer un compte 
+
+image::/V0Screens/Use case créditCompte.jpg[title="Fait par Rudy"]
+** réaliser un virement d'un compte à un autre
+
+image::/V0Screens/Use case virementCpt-Cpt.jpg[title="Fait par Mohammed"]
+** clôturer un compte
+
+image::/V0Screens/Use case clôtureCompte.jpg[title="Fait par Daria"]
 * Ajout de fontionnalités au chef d'agence tel que :
-** toujours faire pareil q'un guichetier,
-** créer un nouveau employé, 
-** consulter un employer, 
-** mettre à jour un employé,
-** supprimer un employé.
+** créer un nouveau employé
+
+image::/V0Screens/Use case créaEmployé.jpg[title="Fait par Daria"]
+** consulter un employer
+
+image::/V0Screens/Use case consulteEmployé.jpg[title="Fait par Rudy"]
+** mettre à jour un employé
+
+image::/V0Screens/Use case metjourEmployé.jpg[title="Fait par Mialisoa"]
+** supprimer un employé
+
+image::/V0Screens/Use case suprEmployé.jpg[title="Fait par Mohammed"]
 
 *Version V2 :*
 
@@ -114,7 +129,6 @@ image::/V0Screens/Use case creaCompteclient.jpg[title="Fait par Daria"]
 ** supprimer un prélevement.
 
 * Autre ajout de fonctionnalité pour le chef d'agence tel que :
-** toujours faire pareil q'un guichetier,
 ** débiter exceptionnellement un compte
 ** simuler un emprunt
 ** simuler une assurance
