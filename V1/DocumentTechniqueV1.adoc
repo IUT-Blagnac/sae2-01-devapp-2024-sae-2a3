@@ -139,35 +139,37 @@ image::/V0Screens/Use case suprEmployé.jpg[title="Fait par Mohammed"]
 * DC Application : 
 
 image::../V1/DC/applicationDC.png[title="Diagramme de classe application"]
-Dans ce diagramme de classes, nous pouvons voir la classe DailyBankApp et la classe DailyBankState avec les attributs et les méthodes pour chaque classe. 
+Dans ce diagramme de classes, nous pouvons voir deux classes principales : la classe DailyBankApp et la classe DailyBankState avec ses attributs et ses méthodes.
 
-* DC des classes controleurs de dialogue et d'accés aux données : 
+* DC des classes contrôleurs de dialogue et d'accés aux données : 
 
 image::../V1/DC/controlDC.png[title="Diagramme de classe control"]
-Dans ce diagramme, nous pouvons voir tous les classes liées au gestion de dialogue et l'accés au données.
+Dans ce diagramme, nous pouvons voir tous les classes liées à la gestion du dialogue et l'accés au données. Ces classes sont responsable de la communication entre l'utilisateur et de l'interaction avec la BD.
 
 * DC des classes outils 
 
 image::../V1/DC/toolsDC.png[title="Diagramme de classe tools"]
+Ce diagramme nous montre les classes et énumérations qui fournissent des fonctionnalités auxiliaires à l'application. 
 
 * DC des classes controleurs associées aux vues fxml
 
-image::../V1/DC/viewDC.png[titre="Diagramme de classe view"]
-Sur ce diagramme, nous pouvons apercevoir tous les classes qui contribuent au controle des vues fxml 
+image::../V1/DC/viewDC.png[title="Diagramme de classe view"]
+Sur ce diagramme, nous pouvons apercevoir tous les classes qui contribuent au contrôle des vues FXML. 
 
 * DC data : 
 
 image::../V1/DC/dataDC.png[title="Diagramme de classe data"]
-Concernant ce diagramme, nous avons tous les classes qui sont liées aux tables de la base de donnée (AgenceBancaire, Client, CompteCourant, Employe, Operation et TypeOperation). 
+Ce diagramme présente tous les classes liées aux tables de la base de donnée (AgenceBancaire, Client, CompteCourant, Employe, Operation et TypeOperation). 
 
 * DC des classes d'accés physique à la BD 
 
 image::../V1/DC/ormDC.png[title="Diagramme de classe orm"]
-Dans ce diagramme, nous avons les classes qui permet d'accédés à la base de données. Dans chaque classe, nous pouvons apercevoir plusieurs méthodes pour accédes aux tables de la BD. 
+Dans ce diagramme, nous avons les classes qui permet d'accéder à la base de données. Chque classe contient plusieurs méthodes pour interagir avec les tables de la base de données. Cela inclut mes méthodes tel que la création, la consultation, les mise à jour et suppression des données. 
 
 * DC des exceptions 
 
 image::../V1/DC/exceptionDC.png[titre="Diagramme de classe exception"]
+Ce diagramme nous montre les différents classes d'exception utilisées dans l'application. 
 
 
 
