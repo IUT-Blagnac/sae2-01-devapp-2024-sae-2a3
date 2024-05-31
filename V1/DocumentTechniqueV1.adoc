@@ -136,11 +136,34 @@ image::/V0Screens/Use case suprEmployé.jpg[title="Fait par Mohammed"]
 
 === 2. Diagramme de classes 
 
-image::../V0/DC.JPG[title="Diagramme de classe probable"]
+* DC Application : 
 
-* AgenceBancaire : représente une agence et détient des attributs tels que : le nom de l'agence, son adresse (localisation), un chef d'agence et une liste d'employés travaillant dans cette agence.
-* Employé : il s'agit d'une classe représentant les employés d'une banque. Ces employés peuvent être soit des guichetiers, soit un chef d'Agence.
-* Client : est une classe qui contient toutes les informations relatives à un client de la banque. 
-* Compte : représente un compte détenu par un client de la banque.
+image::../V1/DC/applicationDC.png[title="Diagramme de classe application"]
+Dans ce diagramme de classes, nous pouvons voir la classe DailyBankApp et la classe DailyBankState avec les attributs et les méthodes pour chaque classe. 
+
+* DC des classes controlleurs de dialogue : 
+
+image::../V1/DC/controlDC.png[titre="Diagramme de classe control"]
+
+* DC des classes outils 
+
+image::../V1/DC/toolsDC.png[titre="Diagramme de classe tools"]
+
+* DC des classes controleurs associées aux vues fxml
+
+image::../V1/DC/viewDC.png[titre="Diagramme de classe view"]
+
+* DC data : 
+
+image::../V1/DC/dataDC.png[titre="Diagramme de classe data"]
+
+* DC des classes d'accés physique à la BD 
+
+image::../V1/DC/ormDC.png[titre="Diagramme de classe orm"]
+
+* DC des exceptions 
+
+image::../V1/DC/exceptionDC.png[titre="Diagramme de classe exception"]
+
 
 == IV Élément De Codes Significatifs Commentés 
