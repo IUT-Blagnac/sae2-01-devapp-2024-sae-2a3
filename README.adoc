@@ -51,10 +51,10 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |       | Recette V0    |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CahierDeRecetteV0.adoc[lien]| 
 | 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt_V1_Realise.pdf[lien]      | 
 |       | Gantt V1  simplifié  | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/gantt%20V1.adoc[lien]      | 
-|       | Doc. Util. V1 |         |         
+|       | Doc. Util. V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V1.adoc[lien]         |         
 |       | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/a8de91827044421857a2b17d0f87e1ad0a53711e/V1/DocumentTechniqueV1.adoc[lien]      |     
 |       | Code V1    |                     | 
-|       | Recette V1 |                      | 
+|       | Recette V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV1.adoc[lien]                      | 
 |       | Gantt V2 prévu |    | 
 | 14/06 | Gantt V2  réalisé    |       | 
 |       | Doc. Util. V2 |         |         
