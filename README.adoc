@@ -49,7 +49,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |       | Doc. Tec. V0  |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentTechniqueV0.adoc[lien]       |    
 |       | Doc User V0   |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateurV0.adoc[lien]      |Il manque toute la partie pré requis / installatioon / lancement de l'application, avec les credentials nécessaires à la connexion. A reprendre. Assurez vous pour les prochaines versions de respecter la structuration du document ainsi que cette 1ere base qui va dans le bon sens. 
 |       | Recette V0    |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CahierDeRecetteV0.adoc[lien]| 
-| 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/GanttV1.pdf[lien]      | 
+| 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt_V1_Realise.pdf[lien]      | 
 |       | Gantt V1  simplifié  | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/gantt%20V1.adoc[lien]      | 
 |       | Doc. Util. V1 |         |         
 |       | Doc. Tec. V1 |                |     
