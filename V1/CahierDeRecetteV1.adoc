@@ -110,13 +110,13 @@ Ordinateur sous Windows ou OS équivalent.
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
 ^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-^|All_G_CB.2 ^|* ^|* ^|* ^|OK
+^|All_G_CB.2 ^|*Sélectionner le bouton "Modifier compte" ^|La page de création s'affiche ^|aucune ^|OK
 
 |====
 
 |====
 
->|Cas de test 4+|Test-01-02-02
+>|Cas de test 4+|Test-01-02-03
 >|Titre 4+|Clôturer un compte
 >|Objectif 4+| Vérifier qu'il est possible de clôturer un compte 
 
@@ -124,8 +124,7 @@ Ordinateur sous Windows ou OS équivalent.
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-^|All_G_CB.2 ^|* ^|* ^|* ^|OK
+^|All_G_CB.2 ^|Sélectionner le bouton "VSupprimer compte". ^|Le compte est supprimé ^|Le solde du compte est égal à 0 ^|OK
 
 |====
 
@@ -162,7 +161,7 @@ autorisé est de -100 euros.
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Débit". ^|La page des débit du compte s’affiche. ^| Un compte actif est sélectionné ^|OK
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Crédit". ^|La page des crédit du compte s’affiche. ^| Un compte actif est sélectionné ^|OK
 ^|All_G_COP.2  ^|Rentrer un montant 50 dans le champ "Montant". ^|Le nouveau solde est +50euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros
  ^|OK
 ^|All_G_COP.3  ^|Rentrer un montant 150 dans le champ "Montant". ^|Le nouveau solde est -50 euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros, le découvert
@@ -171,8 +170,6 @@ autorisé est de -100 euros.
 ^|All_G_COP.4  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
 autorisé est de -100 euros.
  ^|OK
-
-^|All_G_COP.4  ^|* ^|* ^|* ^|OK
   
 |====
 
@@ -185,9 +182,15 @@ autorisé est de -100 euros.
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-^|All_G_CB.2 ^|* ^|* ^|* ^|OK
+^|All_G_CB.1 ^|Cliquer sur le bouton "Enregistrement Virement". ^|La page des virement des comptes s’affiche. ^|Un client actif est sélectionné ^|OK
+^|All_G_COP.2  ^|Rentrer un montant 50 dans le champ "Montant". ^|Le nouveau solde est +50euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros
+ ^|OK
+^|All_G_COP.3  ^|Rentrer un montant 150 dans le champ "Montant". ^|Le nouveau solde est -50 euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
+^|All_G_COP.4  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
 
 |====
 
@@ -225,11 +228,9 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 >|Objectif 4+| Vérifier qu'il est possible de créer un nouveau employé
 
 5+|
-
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-^|All_G_CB.2 ^|* ^|* ^|* ^|OK
+^|All_G_C.1 ^|Cliquer sur le bouton "Nouveau employe". ^|La fenêtre de création des employe s'ouvre. ^| aucune ^|OK
+^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau employe est créé. ^|aucune ^|OK
 
 |====
 
@@ -242,9 +243,7 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-^|All_G_CB.2 ^|* ^|* ^|* ^|OK
+^|All_G_CB.1 ^|Cliquer sur le bouton "Rechercher". ^|Les employé s’affiche. ^|aucune ^|OK
 
 |====
 
@@ -257,9 +256,8 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-^|All_G_CB.2 ^|* ^|* ^|* ^|OK
+^|All_G_C.1 ^|Cliquer sur le bouton "Modifier employé". ^|La fenêtre de modification des employé s'ouvre. ^| Un employé actif est sélectionné ^|OK
+^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|L'employé est modifié. ^|aucune ^|OK
 
 |====
 
@@ -272,8 +270,6 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
-^|All_G_CB.2 ^|* ^|* ^|* ^|OK
+^|All_G_CB.1 ^|Cliquer sur le bouton "Supprimer employé". ^|L'employé est supprimé ^|Un employé actif est sélectionné ^|OK
 
 |====
