@@ -32,9 +32,38 @@ L'application DailyBank permettra de gérer les comptes bancaires de dépôt des
 L'application permettra également aux clients de gérer leurs profils et de contacter le service client.
 
 == III. Installation utilisation
-L'applicationsera installée sur les ordinateurs des guichetiers et des chefs d'agence de DailyBank. 
+L’application sera installée sur les ordinateurs des guichetiers et des chefs d’agence de DailyBank.
 
-Une fois l'application installée, les clients pourront se connecter en utilisant leur login et leur mot de passe.
+=== Pré-requis
+Avant l’installation de l’application, assurez-vous que les ordinateurs répondent aux pré-requis suivants :
+
+* Système d'exploitation : Windows 10 ou plus récent.
+* Connexion Internet : Connexion stable pour les mises à jour et la synchronisation des données.
+* Logiciels requis : Java Runtime Environment (JRE) version 8 ou supérieure, Oracle Database client.
+
+=== Installation
+. Téléchargement : Téléchargez le fichier d’installation depuis le serveur interne de DailyBank.
+. Exécution : Double-cliquez sur le fichier téléchargé pour lancer l’assistant d’installation.
+. Suivi des Instructions : Suivez les instructions à l’écran pour compléter l’installation. Assurez-vous de spécifier les informations spécifiques à l'agence telles que l'identifiant de l'agence et les paramètres réseau.
+
+=== Lancement de l’Application
+. Ouverture de l’Application : Une fois installée, lancez l'application via l'icône créée sur le bureau ou dans le menu Démarrer.
+. Configuration Initiale : Lors du premier lancement, entrez les informations d’identification de l’agence et configurez les paramètres réseau.
+. Formation : Les guichetiers et les chefs d’agence doivent suivre une formation sur l’utilisation de l’application. Cette formation comprendra des sessions pratiques pour se familiariser avec les fonctionnalités de gestion des comptes, traitement des transactions, et consultation des historiques de compte.
+
+=== Connexion des Clients
+Une fois l'application installée et configurée, les clients pourront se connecter en utilisant les credentials suivants :
+
+* Login : Le numéro de compte ou l'adresse e-mail enregistrée.
+* Mot de Passe : Le mot de passe initial envoyé par e-mail, à modifier lors de la première connexion pour des raisons de sécurité.
+
+=== Fonctionnalités de l’Application
+* Connexion Sécurisée : Les clients devront entrer leurs identifiants personnels pour accéder à leur compte. Des mesures de sécurité, telles que l'authentification à deux facteurs, sont en place pour protéger les informations des clients.
+* Gestion des Comptes : Les clients pourront consulter leurs soldes, les détails de leurs transactions, et effectuer des opérations bancaires telles que les virements et les paiements.
+* Notifications en Temps Réel : Les clients recevront des notifications pour les transactions importantes, les mises à jour de sécurité, et les promotions personnalisées directement sur l'application.
+* Support Client Intégré : En cas de problème ou de question, les clients pourront contacter le support technique via un chat intégré à l'application ou par téléphone.
+
+Veuillez vous assurer pour les prochaines versions de respecter la structuration du document ainsi que cette première base qui va dans le bon sens.
 
 == IV. Fonctionnement 
 L'application DailyBank se compose de plusieurs modules. Dans la version existante, un guichetier peut :
