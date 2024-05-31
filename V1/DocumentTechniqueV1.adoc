@@ -168,7 +168,7 @@ Dans ce diagramme, nous avons les classes qui permet d'accéder à la base de do
 
 * DC des exceptions 
 
-image::../V1/DC/exceptionDC.png[titre="Diagramme de classe exception"]
+image::../V1/DC/exceptionDC.png[title="Diagramme de classe exception"]
 Ce diagramme nous montre les différents classes d'exception utilisées dans l'application. 
 
 
