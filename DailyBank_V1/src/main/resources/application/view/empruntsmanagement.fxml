@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.OperationsManagementViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.EmpruntsManagementViewController">
    <right>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -29,22 +29,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btnDebit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDebit" text="Enregistrer Débit" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets bottom="10.0" top="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button fx:id="btnCredit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doCredit" text="Enregistrer Crédit" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets bottom="10.0" top="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button fx:id="btnVirement" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doVirement" text="Enregistrer Virement" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets bottom="10.0" top="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button fx:id="btnVoirEmprunt" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doVoirEmprunt" text="Voir Emprunts" GridPane.rowIndex="4">
+                        <Button fx:id="btnSimEmprunt" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSimEmprunt" text="Simuler un Emprunt" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>

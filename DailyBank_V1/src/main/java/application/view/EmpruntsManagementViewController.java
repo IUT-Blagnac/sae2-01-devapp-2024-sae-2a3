@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import application.DailyBankState;
+import application.control.EmpruntsManagement;
 import application.control.OperationsManagement;
+import application.tools.ConstantesIHM;
 import application.tools.NoSelectionModel;
 import application.tools.PairsOfValue;
-import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,13 +21,12 @@ import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
 
-public class OperationsManagementViewController {
-
-	// Etat courant de l'application
+public class EmpruntsManagementViewController {
+    // Etat courant de l'application
 	private DailyBankState dailyBankState;
 
 	// Contrôleur de Dialogue associé à OperationsManagementController
-	private OperationsManagement omDialogController;
+	private EmpruntsManagement emDialogController;
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage containingStage;
@@ -37,11 +37,11 @@ public class OperationsManagementViewController {
 	private ObservableList<Operation> oListOperations;
 
 	// Manipulation de la fenêtre
-	public void initContext(Stage _containingStage, OperationsManagement _om, DailyBankState _dbstate, Client client,
+	public void initContext(Stage _containingStage, EmpruntsManagement _em, DailyBankState _dbstate, Client client,
 			CompteCourant compte) {
 		this.containingStage = _containingStage;
 		this.dailyBankState = _dbstate;
-		this.omDialogController = _om;
+		this.emDialogController = _em;
 		this.clientDuCompte = client;
 		this.compteConcerne = compte;
 		this.configure();
@@ -77,13 +77,7 @@ public class OperationsManagementViewController {
 	@FXML
 	private ListView<Operation> lvOperations;
 	@FXML
-	private Button btnDebit;
-	@FXML
-	private Button btnCredit;
-	@FXML
-	private Button btnVirement;
-	@FXML
-	private Button btnVoirEmprunt;
+	private Button btnSimEmprunt;
 
 	@FXML
 	private void doCancel() {
@@ -91,51 +85,20 @@ public class OperationsManagementViewController {
 	}
 
 	@FXML
-	private void doDebit() {
-
-		Operation op = this.omDialogController.enregistrerDebit();
+	private void doSimEmprunt() {
+		Operation op = this.emDialogController.simulerVirement();
 		if (op != null) {
 			this.updateInfoCompteClient();
 			this.validateComponentState();
 		}
 	}
-
-	@FXML
-	private void doCredit() {
-		Operation op = this.omDialogController.enregistrerCredit();
-		if (op != null) {
-			this.updateInfoCompteClient();
-			this.validateComponentState();
-		}
-	}
-
-	@FXML
-	private void doVirement() {
-		Operation op = this.omDialogController.enregistrerVirement();
-		if (op != null) {
-			this.updateInfoCompteClient();
-			this.validateComponentState();
-		}
-	}
-
-	@FXML
-	private void doVoirEmprunt() {
-		this.omDialogController.gererEmpruntsDUnCompte(compteConcerne);
-		this.validateComponentState();
-	}
-	
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		this.btnCredit.setDisable(false);
-		this.btnDebit.setDisable(false);
-		this.btnVirement.setDisable(false);
-		this.btnVoirEmprunt.setDisable(false);
+		this.btnSimEmprunt.setDisable(false);
 
 		if(ConstantesIHM.estCloture(compteConcerne)) {
-			this.btnCredit.setDisable(true);
-			this.btnDebit.setDisable(true);
-			this.btnVirement.setDisable(true);
+			this.btnSimEmprunt.setDisable(true);
 		}
 	}
 
@@ -143,7 +106,7 @@ public class OperationsManagementViewController {
 
 		PairsOfValue<CompteCourant, ArrayList<Operation>> opesEtCompte;
 
-		opesEtCompte = this.omDialogController.operationsEtSoldeDunCompte();
+		opesEtCompte = this.emDialogController.operationsEtSoldeDunCompte();
 
 		ArrayList<Operation> listeOP;
 		this.compteConcerne = opesEtCompte.getLeft();

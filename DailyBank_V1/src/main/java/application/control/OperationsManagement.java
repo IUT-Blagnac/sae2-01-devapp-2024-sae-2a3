@@ -63,6 +63,12 @@ public class OperationsManagement {
 		this.omViewController.displayDialog();
 	}
 
+	public void gererEmpruntsDUnCompte(CompteCourant cpt) {
+		EmpruntsManagement om = new EmpruntsManagement(this.omStage, this.dailyBankState,
+				this.clientDuCompte, cpt);
+		om.doEmpruntsManagementDialog();
+	}
+
 	public Operation enregistrerDebit() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
