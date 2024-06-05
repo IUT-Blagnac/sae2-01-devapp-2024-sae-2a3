@@ -1,5 +1,7 @@
 package application.control;
 
+import java.io.IOException;
+
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.CategorieOperation;
@@ -19,32 +21,26 @@ public class EmpruntEditorPane {
 	private EmpruntEditorPaneViewController oepViewController;
 
 	public EmpruntEditorPane(Stage _parentStage, DailyBankState _dbstate) {
-
-		try {
-			FXMLLoader loader = new FXMLLoader(
-					OperationEditorPaneViewController.class.getResource("emprunteditorpane.fxml"));
-			BorderPane root = loader.load();
-
-			Scene scene = new Scene(root, 520, 350);
+        try {
+			FXMLLoader loader = new FXMLLoader(OperationEditorPaneViewController.class.getResource("emprunteditorpane.fxml"));
+			Scene scene = new Scene(loader.load());
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
-			this.oepStage = new Stage();
-			this.oepStage.initModality(Modality.WINDOW_MODAL);
-			this.oepStage.initOwner(_parentStage);
-			StageManagement.manageCenteringStage(_parentStage, this.oepStage);
-			this.oepStage.setScene(scene);
-			this.oepStage.setTitle("Enregistrement d'une emprunt");
-			this.oepStage.setResizable(false);
+            this.oepStage = new Stage();
+            this.oepStage.initModality(Modality.WINDOW_MODAL);
+            this.oepStage.initOwner(_parentStage);
+            this.oepStage.setScene(scene);
+            this.oepStage.setTitle("Simulation d'emprunt");
 
-			this.oepViewController = loader.getController();
-			this.oepViewController.initContext(this.oepStage, _dbstate);
+            this.oepViewController = loader.getController();
+            this.oepViewController.initContext(this.oepStage, _dbstate);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public Operation doEmpruntEditorDialog(CompteCourant cpte, CategorieOperation cm) {
-        return this.oepViewController.displayDialog(cpte, cm);
-	}
+    public void doEmpruntSimulationDialog() {
+        this.oepStage.showAndWait();
+    }
 }

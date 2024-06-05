@@ -82,8 +82,7 @@ public class OperationsManagementViewController {
 	private Button btnCredit;
 	@FXML
 	private Button btnVirement;
-	@FXML
-	private Button btnVoirEmprunt;
+
 
 	@FXML
 	private void doCancel() {
@@ -118,19 +117,11 @@ public class OperationsManagementViewController {
 		}
 	}
 
-	@FXML
-	private void doVoirEmprunt() {
-		this.omDialogController.gererEmpruntsDUnCompte(compteConcerne);
-		this.validateComponentState();
-	}
-	
-
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnCredit.setDisable(false);
 		this.btnDebit.setDisable(false);
 		this.btnVirement.setDisable(false);
-		this.btnVoirEmprunt.setDisable(false);
 
 		if(ConstantesIHM.estCloture(compteConcerne)) {
 			this.btnCredit.setDisable(true);

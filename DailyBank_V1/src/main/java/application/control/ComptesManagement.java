@@ -128,4 +128,9 @@ public class ComptesManagement {
 			}	
 		}
 	}
+	
+	public void simuEmprunt() {
+		EmpruntEditorPane em = new EmpruntEditorPane(this.cmStage, this.dailyBankState);
+		em.doEmpruntSimulationDialog();
+	}
 }

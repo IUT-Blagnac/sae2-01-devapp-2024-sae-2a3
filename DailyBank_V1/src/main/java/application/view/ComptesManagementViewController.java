@@ -85,6 +85,9 @@ public class ComptesManagementViewController {
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
+	@FXML
+	private Button btnSimulerEmprunt;
+	
 
 	@FXML
 	private void doCancel() {
@@ -138,6 +141,12 @@ public class ComptesManagementViewController {
 		this.validateComponentState();
 	}
 
+	@FXML
+	private void doSimulerEmprunt() {
+		this.cmDialogController.simuEmprunt();
+		this.validateComponentState();
+	}
+
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -156,10 +165,16 @@ public class ComptesManagementViewController {
 			this.btnVoirOpes.setDisable(false);
 			this.btnModifierCompte.setDisable(false);
 			this.btnSupprCompte.setDisable(false);
+			if (this.dailyBankState.isChefDAgence()) {
+				this.btnSimulerEmprunt.setDisable(false);
+			} else {
+				this.btnSimulerEmprunt.setDisable(true);
+			}
 			CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
 				if(ConstantesIHM.estCloture(compte)) {
 					this.btnSupprCompte.setDisable(true);
 					this.btnModifierCompte.setDisable(true);
+					this.btnSimulerEmprunt.setDisable(true);
 				}
 		} else {
 			this.btnVoirOpes.setDisable(true);
