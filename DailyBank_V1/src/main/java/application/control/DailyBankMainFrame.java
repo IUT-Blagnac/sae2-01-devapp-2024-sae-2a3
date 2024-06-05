@@ -13,7 +13,8 @@ import model.orm.exception.DatabaseConnexionException;
 
 /**
  * Classe de controleur de Dialogue de la fenêtre principale.
- *
+ * @see DailyBankMainFrameController
+ * @author IUT Blagnac
  */
 
 public class DailyBankMainFrame extends Application {
@@ -26,6 +27,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Méthode de démarrage (JavaFX).
+	 * @author IUT Blagnac
 	 */
 	@Override
 	public void start(Stage primaryStage) {
@@ -88,6 +90,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Méthode principale de lancement de l'application.
+	 * @author IUT Blagnac
 	 */
 	public static void runApp() {
 		Application.launch();
@@ -95,6 +98,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Réaliser la déconnexion de l'application.
+	 * @author IUT Blagnac
 	 */
 	public void deconnexionEmploye() {
 		this.dailyBankState.setEmployeActuel(null);
@@ -108,6 +112,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Lancer la connexion de l'utilisateur (login/mdp employé).
+	 * @author IUT Blagnac
 	 */
 	public void loginDunEmploye() {
 		LoginDialog ld = new LoginDialog(this.dbmfStage, this.dailyBankState);
@@ -116,12 +121,16 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Lancer la gestion des clients (liste des clients).
+	 * @author IUT Blagnac
 	 */
 	public void gestionClients() {
 		ClientsManagement cm = new ClientsManagement(this.dbmfStage, this.dailyBankState);
 		cm.doClientManagementDialog();
 	}
 
+	/**
+	 * Ouvre la fenêtre de gestion des employés.
+	 */
 	public void gestionEmployes() {
 		EmployesManagement cm = new EmployesManagement(this.dbmfStage, this.dailyBankState);
 		cm.doEmployeManagementDialog();

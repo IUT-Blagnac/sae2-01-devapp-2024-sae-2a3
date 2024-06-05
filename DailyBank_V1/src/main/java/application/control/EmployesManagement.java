@@ -19,12 +19,30 @@ import model.orm.Access_BD_Employe;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
+/**
+ * Classe responsable de la gestion de la fenêtre de gestion des employés dans
+ * l'application DailyBank.
+ * 
+ * @see EmployesManagementController
+ * @see Access_BD_Employe
+ * @author AMERI Mohammed 
+ * @author CIARDI Rudy 
+ * @author RAZAFINIRINA Mialisoa 
+ * @author SHULHINA Daria
+ */
 public class EmployesManagement {
 
 	private Stage cmStage;
 	private DailyBankState dailyBankState;
 	private EmployesManagementViewController cmViewController;
 
+	/**
+	 * Constructeur de la classe EmployesManagement.
+	 *
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate     État courant de l'application
+	 * @author AMERI Mohammed 
+	 */
 	public EmployesManagement(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
@@ -50,10 +68,22 @@ public class EmployesManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des employés.
+	 * 
+	 * @author AMERI Mohammed 
+	 */
 	public void doEmployeManagementDialog() {
 		this.cmViewController.displayDialog();
 	}
 
+	/**
+	 * Modifie un employé existant.
+	 *
+	 * @param c L'employé à modifier
+	 * @return L'employé modifié
+	 * @author RAZAFINIRINA Mialisoa 
+	 */
 	public Employe modifierEmploye(Employe c) {
 		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
 		Employe result = cep.doEmployeEditorDialog(c, EditionMode.MODIFICATION);
@@ -75,6 +105,12 @@ public class EmployesManagement {
 		return result;
 	}
 
+	/**
+	 * Crée un nouvel employé.
+	 *
+	 * @return Le nouvel employé créé
+	 * @author SHULHINA Daria
+	 */
 	public Employe nouveauEmploye() {
 		Employe employe;
 		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
@@ -98,6 +134,12 @@ public class EmployesManagement {
 		return employe;
 	}
 
+	/**
+	 * Supprime un employé existant.
+	 *
+	 * @param c L'employé à supprimer
+	 * @author AMERI Mohammed 
+	 */
 	public Employe supprimerEmploye(Employe c) {
 		try {
 			Access_BD_Employe ac = new Access_BD_Employe();
@@ -116,6 +158,15 @@ public class EmployesManagement {
 		return c;
 	}
 
+	/**
+	 * Obtient la liste des employés en fonction des critères de recherche.
+	 *
+	 * @param _idEmploye      Le numéro de l'employé (ou -1 pour tous les employés)
+	 * @param _debutNom    Le début du nom de l'employé
+	 * @param _debutPrenom Le début du prénom de l'employé
+	 * @return La liste des employés correspondant aux critères de recherche
+	 * @author CIARDI Rudy
+	 */
 	public ArrayList<Employe> getlisteEmployes(int _idEmploye, String _debutNom, String _debutPrenom) {
 		ArrayList<Employe> listeEmp = new ArrayList<>();
 		try {
