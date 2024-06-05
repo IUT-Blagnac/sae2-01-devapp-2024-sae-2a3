@@ -51,13 +51,16 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |       | Doc. Tec. V0  |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentTechniqueV0.adoc[lien]       |    
 |       | Doc User V0   |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateurV0.adoc[lien]      |Il manque toute la partie pré requis / installatioon / lancement de l'application, avec les credentials nécessaires à la connexion. A reprendre. Assurez vous pour les prochaines versions de respecter la structuration du document ainsi que cette 1ere base qui va dans le bon sens. 
 |       | Recette V0    |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CahierDeRecetteV0.adoc[lien]| 
-| 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt_V1_Realise.pdf[lien]      | 
+| 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt_V1_Realise.pdf[lien]      |  Essayez d’améliorer l’affichage
 |       | Gantt V1  simplifié  | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/gantt%20V1.adoc[lien]      | 
-|       | Doc. Util. V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V1.adoc[lien]         |         
+|       | Doc. Util. V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V1.adoc[lien]         | La date de “release” du document est elle la bonne dans la page de garde ? 
+Présentation générale a etoffer (un utilisateur doit en savoir plus s’il n’a pas eu accès au reste de la doc projet). reprenez le guide d’installation pour faire quelquechose de plus “step by step”. Il y a besoin de configruer le réseau ? bizarre … La description textuelles des fonctiosn est beaucoup trop succinte, il faut rentrer dans le détail. Il manque tous les cas d’erreurs et l’explication de comment en sortir, ainsi que les sécurités / subtilités fonctionnelles que l’utilisateur doti connaitre pour ne pas être surpris par le comportement de l’application.
+GPO: La structure du du GIT est a reprendre, trop desordonnée. Choisissez un axe et restructurer suivant ce dernier. Il y a un clair “delta” entre votre planif GANTT et les issues de GIT qui démontre que le KanBan du GIT n’est pas maintenu à jour. Où est la colonne “to do” ? il doit rester des choses à faire …
+        
 |       | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/a8de91827044421857a2b17d0f87e1ad0a53711e/V1/DocumentTechniqueV1.adoc[lien]      |     
 |       | Code V1    |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/tree/main/DailyBank_V1[lien]                   | 
 |       | Recette V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV1.adoc[lien]                      | 
-|       | Gantt V2 prévu | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/4fe8b7097ae01b2377c41310ddbd49ba78448d9d/V1/Gantt_V2_pr%C3%A9vu.pdf[lien]    | 
+|       | Gantt V2 prévu | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/4fe8b7097ae01b2377c41310ddbd49ba78448d9d/V1/Gantt_V2_pr%C3%A9vu.pdf[lien]    |  Version moins lisible que la V1 sous project, possible d’améliorer le rendu ?
 | 14/06 | Gantt V2  réalisé    |       | 
 |       | Doc. Util. V2 |         |         
 |       | Doc. Tec. V2 |                |     
