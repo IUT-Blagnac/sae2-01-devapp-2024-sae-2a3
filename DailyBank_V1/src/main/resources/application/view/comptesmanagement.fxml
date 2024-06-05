@@ -77,7 +77,7 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnSimulerEmprunt" mnemonicParsing="false" onAction="#doSimulerEmprunt" prefHeight="31.0" prefWidth="214.0" text="Simuler emprunt/assurance">
+                  <Button fx:id="btnSimulerEmprunt" mnemonicParsing="false" onAction="#doSimulerEmprunt" prefHeight="31.0" prefWidth="214.0" text="Emprunt/Assurance">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </HBox.margin>

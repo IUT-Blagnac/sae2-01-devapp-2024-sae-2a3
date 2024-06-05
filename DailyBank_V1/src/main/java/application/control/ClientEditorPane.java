@@ -30,7 +30,7 @@ public class ClientEditorPane {
 
 			this.cepStage = new Stage();
 			this.cepStage.initModality(Modality.WINDOW_MODAL);
-			this.cepStage.initOwner(_parentStage);
+			
 			StageManagement.manageCenteringStage(_parentStage, this.cepStage);
 			this.cepStage.setScene(scene);
 			this.cepStage.setTitle("Gestion d'un client");

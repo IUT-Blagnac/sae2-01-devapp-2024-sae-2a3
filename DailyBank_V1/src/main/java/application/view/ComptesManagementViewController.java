@@ -174,7 +174,6 @@ public class ComptesManagementViewController {
 				if(ConstantesIHM.estCloture(compte)) {
 					this.btnSupprCompte.setDisable(true);
 					this.btnModifierCompte.setDisable(true);
-					this.btnSimulerEmprunt.setDisable(true);
 				}
 		} else {
 			this.btnVoirOpes.setDisable(true);

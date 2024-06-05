@@ -17,8 +17,8 @@ import model.data.CompteCourant;
 import model.data.Operation;
 
 public class EmpruntEditorPane {
-    private Stage oepStage;
-	private EmpruntEditorPaneViewController oepViewController;
+    private Stage empStage;
+	private EmpruntEditorPaneViewController empViewController;
 
 	public EmpruntEditorPane(Stage _parentStage, DailyBankState _dbstate) {
         try {
@@ -26,14 +26,15 @@ public class EmpruntEditorPane {
 			Scene scene = new Scene(loader.load());
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
-            this.oepStage = new Stage();
-            this.oepStage.initModality(Modality.WINDOW_MODAL);
-            this.oepStage.initOwner(_parentStage);
-            this.oepStage.setScene(scene);
-            this.oepStage.setTitle("Simulation d'emprunt");
+            this.empStage = new Stage();
+            this.empStage.initModality(Modality.WINDOW_MODAL);
+            this.empStage.initOwner(_parentStage);
+            this.empStage.setScene(scene);
+            this.empStage.setTitle("Simulation d'emprunt/assurance");
+            this.empStage.setResizable(false);
 
-            this.oepViewController = loader.getController();
-            this.oepViewController.initContext(this.oepStage, _dbstate);
+            this.empViewController = loader.getController();
+            this.empViewController.initContext(this.empStage, _dbstate);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,6 +42,6 @@ public class EmpruntEditorPane {
     }
 
     public void doEmpruntSimulationDialog() {
-        this.oepStage.showAndWait();
+        this.empStage.showAndWait();
     }
 }
