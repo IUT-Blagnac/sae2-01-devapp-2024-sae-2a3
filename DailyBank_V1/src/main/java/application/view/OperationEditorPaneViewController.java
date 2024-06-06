@@ -182,7 +182,7 @@ public class OperationEditorPaneViewController {
 				this.txtMontant.requestFocus();
 				return;
 			}
-			if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
+			if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise && !this.dailyBankState.isChefDAgence()) {
 				info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
 						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
 						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
@@ -193,6 +193,7 @@ public class OperationEditorPaneViewController {
 				this.txtMontant.requestFocus();
 				return;
 			}
+			
 			String typeOpDebit = this.cbTypeOpe.getValue();
 			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOpDebit);
 			this.containingStage.close();

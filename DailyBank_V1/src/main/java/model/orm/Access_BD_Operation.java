@@ -180,7 +180,6 @@ public class Access_BD_Operation {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
-	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
 	 */
 	public void insertDebitExceptionnel(int idNumCompte, double montant, String typeOp)
 			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {

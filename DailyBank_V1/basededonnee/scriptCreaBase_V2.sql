@@ -369,8 +369,9 @@ SELECT * FROM CompteCourant ORDER BY idNumCompte;
 
 COMMIT;
 
+--------------------------------------------
 --------Debit_exceptionnel------------------
-
+--------------------------------------------
 CREATE OR REPLACE PROCEDURE Debit_Exceptionnel	(
 	vidNumCompte CompteCourant.idNumCompte%TYPE,
 	vMontantDebit Operation.montant%TYPE,
@@ -414,7 +415,7 @@ BEGIN
 	
 END;
 /
-COMMIT;
+
 ---------------------------------------------------
 ---------  CLOTURER COMPTE ------------------------
 ---------------------------------------------------
