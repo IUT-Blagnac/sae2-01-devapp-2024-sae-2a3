@@ -20,7 +20,7 @@ https://github.com/madblurryface[SHULHINA Daria] : Développeuse informatique
 | 1       | Guichetier    | Compte                    | Effectuer un virement | F        |       |          | 
 | 1       | Guichetier    | Compte                    | Clôturer              |          |       |          | F 
 | 2       | Guichetier    | Compte                    | Modifier              |          |       |          | D
-| 2       | Guichetier    | Compte                    | Supprimer compte      | D        |       |          | 
+| 2       | Guichetier    | Compte                    | Supprimer compte      | F        |       |          | 
 | 2       | Chef d’Agence | Client                    | Supprimer client      | D        |       |          |
 | 2       | Chef d’Agence | Compte                    | Débit exceptionnel    |          |       | D        | 
 | 2       | Chef d’Agence | Emprunt                   | Simuler emprunt       | F        |       |          | 
