@@ -251,4 +251,69 @@ public class Access_BD_CompteCourant {
 			throw new DataAccessException(Table.CompteCourant, Order.INSERT, "Erreur acces", e); 
 		}
 	}
+
+	/**
+     * Suppression d'un compte clôturé en vérifiant la date de la dernière opération
+     *
+     * @param idNumCompte id du compte à supprimer
+     * @throws DataAccessException        Erreur d'accès aux données
+     * @throws DatabaseConnexionException Erreur de connexion
+     * @throws ManagementRuleViolation    Si le compte n'est pas clôturé ou s'il n'y a pas de date de dernière opération
+	 * @throws RowNotFoundOrTooManyRowsException 
+     */
+    public void supprimerCompte(int idNumCompte) throws DataAccessException, DatabaseConnexionException, ManagementRuleViolation, RowNotFoundOrTooManyRowsException {
+        try {
+            Connection con = LogToDatabase.getConnexion();
+
+            // Vérifier que le compte est clôturé
+            String query = "SELECT estCloture FROM CompteCourant WHERE idNumCompte = ?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, idNumCompte);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String estCloture = rs.getString("estCloture");
+                if (!"O".equals(estCloture)) {
+                    throw new ManagementRuleViolation(Table.CompteCourant, Order.DELETE, "Le compte n'est pas clôturé", null);
+                }
+            } else {
+                throw new ManagementRuleViolation(Table.CompteCourant, Order.DELETE, "Compte non trouvé", null);
+            }
+            rs.close();
+            pst.close();
+
+            // Récupérer la date de la dernière opération
+            query = "SELECT MAX(dateOp) as derniereDateOp FROM Operation WHERE idNumCompte = ?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, idNumCompte);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                java.sql.Date derniereDateOp = rs.getDate("derniereDateOp");
+                if (derniereDateOp != null) {
+                    // Supprimer les opérations du compte
+                    query = "DELETE FROM Operation WHERE idNumCompte = ?";
+                    PreparedStatement pstDelOp = con.prepareStatement(query);
+                    pstDelOp.setInt(1, idNumCompte);
+                    pstDelOp.executeUpdate();
+                    pstDelOp.close();
+
+                    // Supprimer le compte
+                    query = "DELETE FROM CompteCourant WHERE idNumCompte = ?";
+                    PreparedStatement pstDelCompte = con.prepareStatement(query);
+                    pstDelCompte.setInt(1, idNumCompte);
+                    int result = pstDelCompte.executeUpdate();
+                    pstDelCompte.close();
+
+                    if (result != 1) {
+                        con.rollback();
+                        throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.DELETE, "Suppression anormale (suppression de moins ou plus d'une ligne)", null, result);
+                    }
+                    con.commit();
+                }
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            throw new DataAccessException(Table.CompteCourant, Order.DELETE, "Erreur accès", e);
+        }
+    }
 }

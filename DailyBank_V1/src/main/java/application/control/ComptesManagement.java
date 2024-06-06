@@ -20,6 +20,7 @@ import model.data.Employe;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.ManagementRuleViolation;
 import model.orm.exception.Order;
 import model.orm.exception.Table;
 
@@ -128,6 +129,27 @@ public class ComptesManagement {
 			}	
 		}
 	}
+
+	public void supprimerCompte(CompteCourant compte) {
+        if (compte != null) {
+            try {
+                Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+                ac.supprimerCompte(compte.idNumCompte);
+                AlertUtilities.showAlert(this.cmStage, "Suppression réussie", "Le compte a été supprimé avec succès.", null, AlertType.INFORMATION);
+            } catch (ManagementRuleViolation e) {
+                AlertUtilities.showAlert(this.cmStage, "Erreur de suppression", e.getMessage(), null, AlertType.WARNING);
+            } catch (DatabaseConnexionException e) {
+                ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+                ed.doExceptionDialog();
+                this.cmStage.close();
+            } catch (ApplicationException ae) {
+                ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+                ed.doExceptionDialog();
+            }
+        } else {
+            AlertUtilities.showAlert(this.cmStage, "Erreur de sélection", "Aucun compte sélectionné pour suppression.", null, AlertType.WARNING);
+        }
+    }
 	
 	public void simuEmprunt() {
 		EmpruntEditorPane em = new EmpruntEditorPane(this.cmStage, this.dailyBankState);

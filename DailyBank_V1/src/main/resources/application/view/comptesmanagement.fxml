@@ -42,16 +42,23 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnModifierCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierCompte" text="Modifier compte" GridPane.rowIndex="3">
+                        
+                        <Button fx:id="btnSupprimerCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerCompte" text="Supprimer compte" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnSupprCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerCompte" text="Cloturer compte" GridPane.rowIndex="4">
+                        <Button fx:id="btnCloturerCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doCloturerCompte" text="Cloturer compte" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
+                        <Button fx:id="btnModifierCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierCompte" text="Modifier compte" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </Button>
+
                         <Button mnemonicParsing="false" text="Button" visible="false" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
