@@ -21,6 +21,14 @@ import model.orm.Access_BD_Operation;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
+/**
+ * Classe de contrôleur pour la gestion des opérations.
+ * 
+ * @see OperationsManagementViewController
+ * @see Access_BD_CompteCourant
+ * @see Access_BD_Operation
+ * @author IUT Blagnac
+ */
 public class OperationsManagement {
 
 	private Stage omStage;
@@ -30,6 +38,15 @@ public class OperationsManagement {
 	private CompteCourant compteConcerne;
 	private CompteCourant compteVirement;
 
+	/**
+	 * Constructeur de la classe OperationsManagement.
+	 * 
+	 * @param _parentStage Le stage parent
+	 * @param _dbstate     L'état courant de l'application
+	 * @param client       Le client associé au compte
+	 * @param compte       Le compte courant concerné
+	 * @author IUT Blagnac
+	 */
 	public OperationsManagement(Stage _parentStage, DailyBankState _dbstate, Client client, CompteCourant compte) {
 
 		this.clientDuCompte = client;
@@ -59,10 +76,22 @@ public class OperationsManagement {
 		}
 	}
 
+	/**
+	 * Affiche la boîte de dialogue de gestion des opérations.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	public void doOperationsManagementDialog() {
 		this.omViewController.displayDialog();
 	}
 
+	/**
+	 * Enregistre une opération de débit.
+	 * 
+	 * @return L'opération enregistrée, ou null si aucune opération n'a été
+	 *         enregistrée
+	 * @author IUT Blagnac
+	 */
 	public Operation enregistrerDebit() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
@@ -86,7 +115,13 @@ public class OperationsManagement {
 		}
 		return op;
 	}
-
+	/**
+	 * Récupère les opérations et le solde d'un compte.
+	 * 
+	 * @return Une paire contenant le compte courant et la liste des opérations
+	 *         associées
+	 * @author IUT Blagnac
+	 */
 	public PairsOfValue<CompteCourant, ArrayList<Operation>> operationsEtSoldeDunCompte() {
 		
 		ArrayList<Operation> listeOP = new ArrayList<>();
@@ -114,6 +149,13 @@ public class OperationsManagement {
 		return new PairsOfValue<>(this.compteConcerne, listeOP);
 	}
 
+	/**
+	 * Enregistre une opération de crédit.
+	 * 
+	 * @return L'opération enregistrée, ou null si aucune opération n'a été
+	 *         enregistrée
+	 * @author IUT Blagnac
+	 */
 	public Operation enregistrerCredit() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
@@ -138,6 +180,13 @@ public class OperationsManagement {
 		return op;
 	}
 
+	/**
+	 * Enregistre un virement.
+	 * 
+	 * @return L'opération enregistrée, ou null si aucune opération n'a été
+	 *         enregistrée
+	 * @author IUT Blagnac
+	 */
 	public Operation enregistrerVirement() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);

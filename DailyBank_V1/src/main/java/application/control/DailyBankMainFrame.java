@@ -13,7 +13,7 @@ import model.orm.exception.DatabaseConnexionException;
 
 /**
  * Classe de controleur de Dialogue de la fenêtre principale.
- * @see DailyBankMainFrameController
+ * @see DailyBankMainFrameViewController
  * @author IUT Blagnac
  */
 
@@ -27,6 +27,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Méthode de démarrage (JavaFX).
+	 * 
 	 * @author IUT Blagnac
 	 */
 	@Override
@@ -90,6 +91,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Méthode principale de lancement de l'application.
+	 * 
 	 * @author IUT Blagnac
 	 */
 	public static void runApp() {
@@ -98,6 +100,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Réaliser la déconnexion de l'application.
+	 * 
 	 * @author IUT Blagnac
 	 */
 	public void deconnexionEmploye() {
@@ -112,6 +115,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Lancer la connexion de l'utilisateur (login/mdp employé).
+	 * 
 	 * @author IUT Blagnac
 	 */
 	public void loginDunEmploye() {
@@ -121,6 +125,7 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Lancer la gestion des clients (liste des clients).
+	 * 
 	 * @author IUT Blagnac
 	 */
 	public void gestionClients() {
@@ -130,9 +135,21 @@ public class DailyBankMainFrame extends Application {
 
 	/**
 	 * Ouvre la fenêtre de gestion des employés.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	public void gestionEmployes() {
 		EmployesManagement cm = new EmployesManagement(this.dbmfStage, this.dailyBankState);
 		cm.doEmployeManagementDialog();
+	}
+
+	/**
+	 * Ouvre la fenêtre de gestion des prélévements automatiques.
+	 *
+	 * @author SHULHINA Daria
+	 */
+	public void gestionPrelevement() {
+		PrelevementManagement pm = new PrelevementManagement(this.dbmfStage, this.dailyBankState);
+		pm.doPrelevementManagementDialog();
 	}
 }

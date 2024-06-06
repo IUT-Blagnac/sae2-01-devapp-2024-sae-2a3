@@ -19,6 +19,8 @@ import model.orm.exception.Table;
 
 /**
  * Classe d'accès aux Operation en BD Oracle.
+ * 
+ * @author IUT Blagnac
  */
 public class Access_BD_Operation {
 
@@ -33,6 +35,7 @@ public class Access_BD_Operation {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public ArrayList<Operation> getOperations(int idNumCompte) throws DataAccessException, DatabaseConnexionException {
 
@@ -74,6 +77,7 @@ public class Access_BD_Operation {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public Operation getOperation(int idOperation)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -134,6 +138,7 @@ public class Access_BD_Operation {
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
 	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
+	 * @author IUT Blagnac
 	 */
 	public void insertDebit(int idNumCompte, double montant, String typeOp)
 			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
@@ -174,6 +179,7 @@ public class Access_BD_Operation {
 	 *
 	 * @return Une chaine : TO_DATE ('j/m/a', 'DD/MM/YYYY') 'j/m/a' : jour mois an
 	 * de d ex : TO_DATE ('25/01/2019', 'DD/MM/YYYY')
+	 * @author IUT Blagnac
 	 */
 	private String dateToString(Date d) {
 		String sd;
@@ -199,6 +205,7 @@ public class Access_BD_Operation {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public void insertCredit(int idNumCompte, double montant, String typeOp)
         	throws DatabaseConnexionException, DataAccessException {
@@ -248,6 +255,7 @@ public class Access_BD_Operation {
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
 	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
+	 * @author IUT Blagnac
 	 */
 	public void insertVirement(int idNumCompteD, int idNumCompteC, double montant, String typeOp)
         	throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {

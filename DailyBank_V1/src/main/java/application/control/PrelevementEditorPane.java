@@ -4,8 +4,8 @@ import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
-import application.view.PrelevementEditorController;
-import application.view.PrelevementManagementController;
+import application.view.PrelevementEditorViewController;
+import application.view.PrelevementManagementViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -17,12 +17,13 @@ import model.data.Prelevement;
  * Classe responsable de la gestion de la fenêtre d'édition d'un prélèvemebt
  * automatique dans l'application DailyBank.
  * 
- * @see PrelevementEditorController
+ * @see PrelevementEditorViewController
+ * @author SHULHINA Daria
  */
 public class PrelevementEditorPane {
 
 	private Stage cmStage;
-	private PrelevementEditorController cepViewController;
+	private PrelevementEditorViewController cepViewController;
 	private DailyBankState dailyBankState;
 
 	/**
@@ -30,12 +31,13 @@ public class PrelevementEditorPane {
 	 *
 	 * @param _parentStage Fenêtre parente
 	 * @param _dbstate     État courant de l'application
+	 * @author SHULHINA Daria
 	 */
 	public PrelevementEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					PrelevementManagementController.class.getResource("prelevementeditor.fxml"));
+					PrelevementManagementViewController.class.getResource("prelevementeditor.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -63,6 +65,7 @@ public class PrelevementEditorPane {
 	 * @param pm Le prélèvement à éditer
 	 * @param em Le mode d'édition (ajout ou modification)
 	 * @return Le prélèvement modifié
+	 * @author SHULHINA Daria
 	 */
 	public Prelevement doPrelevementEditorDialog(Prelevement pm, EditionMode em) {
 		return this.cepViewController.displayDialog(pm, em);

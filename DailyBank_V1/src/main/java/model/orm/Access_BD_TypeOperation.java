@@ -14,6 +14,8 @@ import model.orm.exception.Table;
 
 /**
  * Classe d'accès aux TypeOperation en BD Oracle.
+ * 
+ * @author IUT Blagnac
  */
 public class Access_BD_TypeOperation {
 
@@ -27,6 +29,7 @@ public class Access_BD_TypeOperation {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public ArrayList<TypeOperation> getTypeOperations() throws DataAccessException, DatabaseConnexionException {
 

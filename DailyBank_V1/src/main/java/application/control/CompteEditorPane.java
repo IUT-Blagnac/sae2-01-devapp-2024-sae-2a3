@@ -17,7 +17,7 @@ import model.data.CompteCourant;
  * Classe responsable de la gestion de la fenêtre d'édition des comptes dans
  * l'application DailyBank.
  * 
- * @see CompteEditorPaneController
+ * @see CompteEditorPaneViewController
  * @author IUT Blagnac
  */
 public class CompteEditorPane {

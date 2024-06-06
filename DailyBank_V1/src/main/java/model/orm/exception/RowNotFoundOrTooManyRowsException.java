@@ -32,6 +32,9 @@ public class RowNotFoundOrTooManyRowsException extends ApplicationException {
 		this.rowsConcerned = rowsConcerned;
 	}
 
+	/** 
+	 * @return String
+	 */
 	@Override
 	public String getMessage() {
 		return super.getMessageAlone() + " (" + this.tablename + " - " + this.order + " - " + "(" + this.rowsConcerned

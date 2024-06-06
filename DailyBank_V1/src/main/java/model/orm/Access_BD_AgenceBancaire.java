@@ -13,7 +13,7 @@ import model.orm.exception.Order;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
 import model.orm.exception.Table;
 
-/*
+/**
  * Attention :
  * -----------
  * Classe programmée avec des objets de type Statement prenant en paramètre de leurs méthodes la chaine de caractères ("en dur") de la requête.
@@ -24,7 +24,8 @@ import model.orm.exception.Table;
 
 /**
  * Classe d'accès aux AgenceBancaire en BD Oracle.
- *
+ * 
+ * @author IUT Blagnac
  */
 public class Access_BD_AgenceBancaire {
 
@@ -35,6 +36,7 @@ public class Access_BD_AgenceBancaire {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public ArrayList<AgenceBancaire> getAgenceBancaires() throws DataAccessException, DatabaseConnexionException {
 
@@ -73,6 +75,7 @@ public class Access_BD_AgenceBancaire {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public AgenceBancaire getAgenceBancaire(int idAg)
 			throws DataAccessException, DatabaseConnexionException, RowNotFoundOrTooManyRowsException {

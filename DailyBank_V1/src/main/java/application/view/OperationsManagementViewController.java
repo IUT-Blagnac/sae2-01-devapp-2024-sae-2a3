@@ -20,6 +20,12 @@ import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * Contrôleur pour la gestion des opérations.
+ * 
+ * @see OperationsManagement
+ * @author IUT Blagnac
+ */
 public class OperationsManagementViewController {
 
 	// Etat courant de l'application
@@ -37,6 +43,17 @@ public class OperationsManagementViewController {
 	private ObservableList<Operation> oListOperations;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _om              Le contrôleur de dialogue associé
+	 * @param _dbstate         L'état courant de l'application
+	 * @param client           Le client associé au compte
+	 * @param compte           Le compte courant concerné
+	 * @author IUT Blagnac
+	 */
 	public void initContext(Stage _containingStage, OperationsManagement _om, DailyBankState _dbstate, Client client,
 			CompteCourant compte) {
 		this.containingStage = _containingStage;
@@ -47,6 +64,11 @@ public class OperationsManagementViewController {
 		this.configure();
 	}
 
+	/**
+	 * Configure les composants de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -57,11 +79,24 @@ public class OperationsManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Affiche la boîte de dialogue des opérations.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	public void displayDialog() {
 		this.containingStage.showAndWait();
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+	 * @author IUT Blagnac
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -83,11 +118,21 @@ public class OperationsManagementViewController {
 	@FXML
 	private Button btnVirement;
 
+	/**
+	 * Ferme la fenêtre (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doCancel() {
 		this.containingStage.close();
 	}
 
+	/**
+	 * Enregistre un débit (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doDebit() {
 
@@ -98,6 +143,11 @@ public class OperationsManagementViewController {
 		}
 	}
 
+	/**
+	 * Enregistre un crédit (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doCredit() {
 		Operation op = this.omDialogController.enregistrerCredit();
@@ -107,6 +157,11 @@ public class OperationsManagementViewController {
 		}
 	}
 
+	/**
+	 * Enregistre un virement (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doVirement() {
 		Operation op = this.omDialogController.enregistrerVirement();
@@ -116,6 +171,11 @@ public class OperationsManagementViewController {
 		}
 	}
 
+	/**
+	 * Valide l'état des composants de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnCredit.setDisable(false);
@@ -129,6 +189,11 @@ public class OperationsManagementViewController {
 		}
 	}
 
+	/**
+	 * Met à jour les informations du compte client.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void updateInfoCompteClient() {
 
 		PairsOfValue<CompteCourant, ArrayList<Operation>> opesEtCompte;

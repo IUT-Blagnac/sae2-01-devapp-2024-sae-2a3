@@ -19,6 +19,14 @@ import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * Contrôleur pour la fenêtre de gestion des Comptes.
+ * 
+ * @see ComptesManagement
+ * @author IUT Blagnac
+ * @author SHULHINA Daria
+ * @author RAZAFINIRINA Mialisoa
+ */
 public class ComptesManagementViewController {
 
 	// Etat courant de l'application
@@ -35,6 +43,16 @@ public class ComptesManagementViewController {
 	private ObservableList<CompteCourant> oListCompteCourant;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialise la fenêtre de gestion des Comptes
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _cm              Le contrôleur de dialogue associé
+	 * @param _dbstate         L'état courant de l'application
+	 * @param client           Le client dont on veut gérer les comptes
+	 * @author IUT Blagnac
+	 */
 	public void initContext(Stage _containingStage, ComptesManagement _cm, DailyBankState _dbstate, Client client) {
 		this.cmDialogController = _cm;
 		this.containingStage = _containingStage;
@@ -43,6 +61,11 @@ public class ComptesManagementViewController {
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre de gestion des Comptes
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void configure() {
 		String info;
 
@@ -62,11 +85,24 @@ public class ComptesManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des Comptes
+	 * 
+	 * @author IUT Blagnac
+	 */
 	public void displayDialog() {
 		this.containingStage.showAndWait();
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+	 * @author IUT Blagnac
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -86,11 +122,21 @@ public class ComptesManagementViewController {
 	@FXML
 	private Button btnSupprCompte;
 
+	/**
+	 * Ferme la fenêtre de gestion des Comptes (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doCancel() {
 		this.containingStage.close();
 	}
 
+	/**
+	 * Ouvre la fenêtre d'affichage des opérations du compte (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doVoirOperations() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
@@ -102,10 +148,30 @@ public class ComptesManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Ouvre la fenêtre de recherche de comptes (bouton FXML).
+	 * 
+	 * @author SHULHINA Daria
+	 */
 	@FXML
 	private void doModifierCompte() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cptMod = this.oListCompteCourant.get(selectedIndice);
+			CompteCourant result = this.cmDialogController.modifierCompte(cptMod);
+			if (result != null) {
+				this.oListCompteCourant.set(selectedIndice, result);
+			}
+		}
+		this.loadList();
+		this.validateComponentState();
 	}
 
+	/**
+	 * Ouvre la fenêtre de recherche de comptes (bouton FXML).
+	 * 
+	 * @author SHULHINA Daria
+	 */
 	@FXML
 	private void doSupprimerCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
@@ -127,6 +193,11 @@ public class ComptesManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Ouvre la fenêtre de création d'un nouveau compte (bouton FXML).
+	 * 
+	 * @author RAZAFINIRINA Mialisoa
+	 */
 	@FXML
 	private void doNouveauCompte() {
 		CompteCourant compte;
@@ -138,6 +209,11 @@ public class ComptesManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Affiche la liste des comptes du client.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -145,6 +221,11 @@ public class ComptesManagementViewController {
 		this.oListCompteCourant.addAll(listeCpt);
 	}
 
+	/**
+	 * Active/Désactie les boutons en fonction de l'état du compte selectionné
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void validateComponentState() {
 		// 	// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);

@@ -3,6 +3,7 @@ package model.data;
 /**
  * Classe Prelevement
  * 
+ * @author SHULHINA Daria
  */
 public class Prelevement {
 

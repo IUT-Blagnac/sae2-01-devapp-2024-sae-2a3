@@ -21,8 +21,9 @@ import model.data.Prelevement;
  * Contrôleur pour la gestion des prélèvements automatiques.
  * 
  * @see PrelevementManagement
+ * @author SHULHINA Daria
  */
-public class PrelevementManagementController {
+public class PrelevementManagementViewController {
 
 	// Etat courant de l'application
 	private DailyBankState dailyBankState;

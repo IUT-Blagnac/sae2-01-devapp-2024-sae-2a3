@@ -16,6 +16,7 @@ import model.orm.exception.Table;
 /**
  * Classe d'accès aux Prelevement en BD Oracle.
  * 
+ * @author SHULHINA Daria
  */
 public class Access_BD_Prelevement {
 
@@ -33,6 +34,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author SHULHINA Daria
 	 */
 	public ArrayList<Prelevement> getPrelevements(int idAg, int idNumCompte)
 			throws DataAccessException, DatabaseConnexionException {
@@ -80,6 +82,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author SHULHINA Daria
 	 */
 	public void insertPrelevement(Prelevement pre)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -139,6 +142,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author SHULHINA Daria
 	 */
 	public void modifierPrelevement(Prelevement pre)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -179,6 +183,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author SHULHINA Daria
 	 */
 	public void supprimerPrelevement(Prelevement pre)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -217,6 +222,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author SHULHINA Daria
 	 */
 	public int verifierPrelemevent(int idCpt, int idAg)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {

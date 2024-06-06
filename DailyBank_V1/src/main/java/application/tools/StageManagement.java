@@ -10,6 +10,7 @@ import javafx.stage.Stage;
  * fonction de la position et de la taille de la fenêtre sur laquelle se
  * centrer.
  *
+ * @author IUT Blagnac
  */
 public class StageManagement {
 
@@ -18,6 +19,7 @@ public class StageManagement {
 	 *
 	 * @param parent  Stage on which primary is centered on
 	 * @param primary Stage to be centered (with regards to parent)
+	 * @author IUT Blagnac
 	 */
 	public static void manageCenteringStage(Stage parent, Stage primary) {
 

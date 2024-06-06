@@ -10,6 +10,8 @@ package application.tools;
  * ou annuler. - SUPPRESSION : l'employé va supprimer une donnée La fenêtre
  * affichera au départ la donnée à supprimer. Pas de saisie possible. L'employé
  * pourra valider ou annuler.
+ * 
+ * @author IUT Blagnac
  */
 public enum EditionMode {
 	CREATION, MODIFICATION, SUPPRESSION

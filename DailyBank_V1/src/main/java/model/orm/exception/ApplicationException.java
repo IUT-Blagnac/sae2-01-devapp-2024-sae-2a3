@@ -27,6 +27,9 @@ public class ApplicationException extends Exception {
 		System.err.println("" + this.getClass().getName() + " -> " + this.getMessage());
 	}
 
+	/** 
+	 * @return String
+	 */
 	@Override
 	public String getMessage() {
 		return super.getMessage() + " (" + this.tablename + " - " + this.order + " - " + this.getCause() + ")";

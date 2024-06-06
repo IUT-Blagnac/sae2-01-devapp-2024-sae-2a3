@@ -23,7 +23,7 @@ import model.orm.exception.DatabaseConnexionException;
  * Classe responsable de la gestion de la fenêtre de gestion des employés dans
  * l'application DailyBank.
  * 
- * @see EmployesManagementController
+ * @see EmployesManagementViewController
  * @see Access_BD_Employe
  * @author AMERI Mohammed 
  * @author CIARDI Rudy 

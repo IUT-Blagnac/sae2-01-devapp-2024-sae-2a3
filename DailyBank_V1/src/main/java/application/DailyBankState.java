@@ -13,6 +13,8 @@ import model.orm.exception.RowNotFoundOrTooManyRowsException;
  * Classe décrivant l'état courant de l'application : - Employé connecté -
  * Agence bancaire de l'employé connecté - L'employé connecté est il chef
  * d'agence ou pas
+ * 
+ * @author IUT Blagnac
  */
 
 public class DailyBankState {
@@ -24,6 +26,7 @@ public class DailyBankState {
 	 * Employé connecté.
 	 *
 	 * @return l'employé connecté (ou null si personne connecté)
+	 * @author IUT Blagnac
 	 */
 	public Employe getEmployeActuel() {
 		return this.empAct;
@@ -33,6 +36,7 @@ public class DailyBankState {
 	 * Agence bancaire où travaille l'employé connecté.
 	 *
 	 * @return l'agence bancaire (ou null si personne connecté)
+	 * @author IUT Blagnac
 	 */
 	public AgenceBancaire getAgenceActuelle() {
 		return this.agAct;
@@ -42,6 +46,7 @@ public class DailyBankState {
 	 * Staut de l'employé connecté
 	 *
 	 * @return true si chef d'agence, false sinon (ou personne connecté)
+	 * @author IUT Blagnac
 	 */
 	public boolean isChefDAgence() {
 		return this.isChefDAgence;
@@ -51,6 +56,7 @@ public class DailyBankState {
 	 * Permet de modifier l'employé connecté.
 	 *
 	 * @param employeActif nouvel employé (null si personne connecté)
+	 * @author IUT Blagnac
 	 */
 	public void setEmployeActuel(Employe employeActif) {
 
@@ -79,11 +85,12 @@ public class DailyBankState {
 		}
 	}
 
-	/*
+	/**
 	 * Permet de modifier le statut de l'employé connecté.
 	 *
 	 * @param droitsAccess ConstantesIHM.AGENCE_CHEF ou
 	 * ConstantesIHM.AGENCE_GUICHETIER
+	 * @author IUT Blagnac
 	 */
 	private boolean definirChefDAgence(String droitsAccess) {
 		boolean ca;

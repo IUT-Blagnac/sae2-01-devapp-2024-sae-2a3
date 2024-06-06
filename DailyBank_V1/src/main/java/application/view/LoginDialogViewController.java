@@ -13,6 +13,8 @@ import model.data.Employe;
 /**
  * Controller JavaFX de la view logindialog.
  *
+ * @see LoginDialog
+ * @author IUT Blagnac
  */
 public class LoginDialogViewController {
 
@@ -37,6 +39,7 @@ public class LoginDialogViewController {
 	 * @param _ld              Contrôleur de Dialogue qui réalisera les opérations
 	 *                         de navigation ou calcul
 	 * @param _dbstate         Etat courant de l'application
+	 * @author IUT Blagnac
 	 */
 	public void initContext(Stage _containingStage, LoginDialog _ld, DailyBankState _dbstate) {
 		this.containingStage = _containingStage;
@@ -47,24 +50,29 @@ public class LoginDialogViewController {
 
 	/**
 	 * Affichage de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	public void displayDialog() {
 		this.containingStage.showAndWait();
 	}
 
-	/*
+	/**
 	 * Configuration de LoginDialogController. Fermeture par la croix.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
-	/*
+	/**
 	 * Méthode de fermeture de la fenêtre par la croix.
 	 *
 	 * @param e Evénement associé (inutilisé pour le moment)
 	 *
 	 * @return null toujours (inutilisé)
+	 * @author IUT Blagnac
 	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
@@ -82,8 +90,10 @@ public class LoginDialogViewController {
 
 	// Actions
 
-	/*
+	/**
 	 * Action quitter (annuler le login et fermer la fenêtre)
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doCancel() {
@@ -91,11 +101,13 @@ public class LoginDialogViewController {
 		this.containingStage.close();
 	}
 
-	/*
+	/**
 	 * Action login.
 	 *
 	 * Vérifier que login/password non vides. Lancer la recherche par le contrôleur
 	 * de dialogue Si employé trouvé : fermer la fenêtre (sinon continuer)
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doOK() {
@@ -114,10 +126,11 @@ public class LoginDialogViewController {
 		}
 	}
 
-	/*
+	/**
 	 * Affichage d'un message d'erreur
 	 *
 	 * @param texte Texte à afficher
+	 * @author IUT Blagnac
 	 */
 	private void afficheErreur(String texte) {
 		this.lblMessage.setText(texte);

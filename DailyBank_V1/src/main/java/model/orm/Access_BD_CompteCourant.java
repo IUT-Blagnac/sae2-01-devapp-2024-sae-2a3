@@ -19,6 +19,8 @@ import model.orm.exception.Table;
  *
  * Classe d'accès aux CompteCourant en BD Oracle.
  *
+ * @author IUT Blagnac
+ * @author SHULHINA Daria
  */
 public class Access_BD_CompteCourant {
 
@@ -33,6 +35,7 @@ public class Access_BD_CompteCourant {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public ArrayList<CompteCourant> getCompteCourants(int idNumCli)
 			throws DataAccessException, DatabaseConnexionException {
@@ -76,6 +79,7 @@ public class Access_BD_CompteCourant {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public CompteCourant getCompteCourant(int idNumCompte)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -135,6 +139,7 @@ public class Access_BD_CompteCourant {
 	 * @throws ManagementRuleViolation           Erreur sur le solde courant par
 	 *                                           rapport au débitAutorisé (solde <
 	 *                                           débitAutorisé)
+	 * @author IUT Blagnac
 	 */
 	public void updateCompteCourant(CompteCourant cc) throws RowNotFoundOrTooManyRowsException, DataAccessException,
 			DatabaseConnexionException, ManagementRuleViolation {
@@ -171,7 +176,16 @@ public class Access_BD_CompteCourant {
 		}
 	}
 
-
+	/**
+	 * Clôture d'un CompteCourant.
+	 * 
+	 * @param cc Le compte à clôturer
+	 * @throws RowNotFoundOrTooManyRowsException
+	 * @throws DataAccessException
+	 * @throws DatabaseConnexionException
+	 * @throws ManagementRuleViolation
+	 * @author SHULHINA Daria
+	 */
 	public void cloturerCompte(CompteCourant cc) 
 	throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException, ManagementRuleViolation {
 		try {

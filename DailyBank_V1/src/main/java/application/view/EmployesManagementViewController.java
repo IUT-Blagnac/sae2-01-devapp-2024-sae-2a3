@@ -19,6 +19,15 @@ import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.Employe;
 
+/**
+ * Contrôleur pour la fenêtre de gestion des Employés.
+ * 
+ * @see EmployesManagement
+ * @author AMERI Mohammed 
+ * @author CIARDI Rudy 
+ * @author RAZAFINIRINA Mialisoa 
+ * @author SHULHINA Daria
+ */
 public class EmployesManagementViewController {
 
 	// Etat courant de l'application
@@ -34,6 +43,15 @@ public class EmployesManagementViewController {
 	private ObservableList<Employe> oListEmployes;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _cm              Le contrôleur de dialogue associé
+	 * @param _dbstate         L'état courant de l'application
+	 * @author AMERI Mohammed 
+	 */
 	public void initContext(Stage _containingStage, EmployesManagement _cm, DailyBankState _dbstate) {
 		this.cmDialogController = _cm;
 		this.containingStage = _containingStage;
@@ -41,6 +59,11 @@ public class EmployesManagementViewController {
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre de gestion des Employés
+	 * 
+ 	 * @author SHULHINA Daria
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -52,11 +75,24 @@ public class EmployesManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des Employés
+	 * 
+ 	 * @author CIARDI Rudy 
+	 */
 	public void displayDialog() {
 		this.containingStage.showAndWait();
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+ 	 * @author RAZAFINIRINA Mialisoa 
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -83,6 +119,11 @@ public class EmployesManagementViewController {
 		this.containingStage.close();
 	}
 
+	/**
+	 * Ferme la fenêtre de gestion des Employés (bouton FXML).
+	 * 
+	 * @author CIARDI Rudy
+	 */
 	@FXML
 	private void doRechercher() {
 		int idEmploye;
@@ -122,6 +163,11 @@ public class EmployesManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Modifie un employé (bouton FXML).
+	 * 
+	 * @author RAZAFINIRINA Mialisoa 
+	 */
 	@FXML
 	private void doModifierEmploye() {
 
@@ -135,6 +181,11 @@ public class EmployesManagementViewController {
 		}
 	}
 
+	/**
+	 * Supprime un employé (bouton FXML).
+	 * 
+	 * @author AMERI Mohammed 
+	 */
 	@FXML
 	private void doSupprimerEmploye() {
 		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
@@ -151,6 +202,11 @@ public class EmployesManagementViewController {
 		doRechercher();
 	}
 
+	/**
+	 * Crée un nouvel employé (bouton FXML).
+	 * 
+	 * @author SHULHINA Daria
+	 */
 	@FXML
 	private void doNouveauEmploye() {
 		Employe employe;

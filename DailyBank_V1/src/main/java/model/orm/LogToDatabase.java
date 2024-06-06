@@ -16,6 +16,7 @@ import model.orm.exception.DatabaseConnexionException;
 /**
  * Classe qui gère la connexion à la BD
  *
+ * @author IUT Blagnac
  */
 public class LogToDatabase {
 
@@ -57,6 +58,7 @@ public class LogToDatabase {
 	 *
 	 * @return Une connexion à la base de donnée SANS commit automatique
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public static Connection getConnexion() throws DatabaseConnexionException {
 
@@ -100,6 +102,7 @@ public class LogToDatabase {
 	 * libération mémoire temporaires des drivers, ...).
 	 *
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public static void closeConnexion() throws DatabaseConnexionException {
 

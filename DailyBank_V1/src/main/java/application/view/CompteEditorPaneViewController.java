@@ -3,6 +3,7 @@ package application.view;
 import java.util.Locale;
 
 import application.DailyBankState;
+import application.control.ClientEditorPane;
 import application.tools.AlertUtilities;
 import application.tools.ConstantesIHM;
 import application.tools.EditionMode;
@@ -17,6 +18,14 @@ import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * Contrôleur pour l'édition des informations client dans une fenêtre.
+ * 
+ * @see ClientEditorPane
+ * @author IUT Blagnac
+ * @author AMERI Mohammed 
+ * @author SHULHINA Daria
+ */
 public class CompteEditorPaneViewController {
 
 	// Etat courant de l'application
@@ -32,12 +41,25 @@ public class CompteEditorPaneViewController {
 	private CompteCourant compteResultat;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialise le contrôleur de la fenêtre.
+	 * 
+	 * @param _containingStage
+	 * @param _dbstate
+	 * @author IUT Blagnac
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.containingStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre de gestion des Clients
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -45,6 +67,15 @@ public class CompteEditorPaneViewController {
 		this.txtSolde.focusedProperty().addListener((t, o, n) -> this.focusSolde(t, o, n));
 	}
 
+	/**
+	 * Affiche la boîte de dialogue d'édition des informations client.
+	 * 
+	 * @param client Le client à éditer (null pour une création)
+	 * @param mode   Le mode d'édition
+	 * @return Le client créé/modifié
+	 * @author AMERI Mohammed 
+	 * @author SHULHINA Daria
+	 */
 	public CompteCourant displayDialog(Client client, CompteCourant cpte, EditionMode mode) {
 		this.clientDuCompte = client;
 		this.editionMode = mode;
@@ -97,12 +128,28 @@ public class CompteEditorPaneViewController {
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+	 * @author IUT Blagnac
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
 		return null;
 	}
 
+	/**
+	 * Gestion du focus sur le champ txtDecAutorise.
+	 * 
+	 * @param txtField         Le champ en cours de saisie
+	 * @param oldPropertyValue La valeur précédente du focus
+	 * @param newPropertyValue La nouvelle valeur du focus
+	 * @author IUT Blagnac
+	 */
 	private Object focusDecouvert(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {
@@ -120,6 +167,14 @@ public class CompteEditorPaneViewController {
 		return null;
 	}
 
+	/**
+	 * Gestion du focus sur le champ txtSolde.
+	 * 
+	 * @param txtField         Le champ en cours de saisie
+	 * @param oldPropertyValue La valeur précédente du focus
+	 * @param newPropertyValue La nouvelle valeur du focus
+	 * @author IUT Blagnac
+	 */
 	private Object focusSolde(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {
@@ -158,6 +213,11 @@ public class CompteEditorPaneViewController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * Gestion de l'appui sur le bouton Annuler (FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doCancel() {
 		this.compteResultat = null;
@@ -203,6 +263,13 @@ public class CompteEditorPaneViewController {
 		}
 	}
 
+	/**
+	 * Vérifie que la saisie est valide.
+	 * - Le solde du compte doit être supérieur au découvert autorisé
+	 * 
+	 * @return true si la saisie est valide, false sinon
+	 * @author IUT Blagnac
+	 */
 	private boolean isSaisieValide() {
 		
 		// Convertir le texte en double pour vérifier le solde

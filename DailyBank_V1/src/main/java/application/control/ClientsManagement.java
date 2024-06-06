@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.DailyBankApp;
 import application.DailyBankState;
+import application.tools.ConstantesIHM;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.ClientsManagementViewController;
@@ -21,9 +22,10 @@ import model.orm.exception.DatabaseConnexionException;
  * Classe responsable de la gestion de la fenêtre de gestion des clients dans
  * l'application DailyBank.
  * 
- * @see ClientsManagementController
+ * @see ClientsManagementViewController
  * @see Access_BD_Client
  * @author IUT Blagnac
+ * @author SHULHINA Daria
  */
 public class ClientsManagement {
 
@@ -101,6 +103,58 @@ public class ClientsManagement {
 	}
 
 	/**
+	 * Vérifie si les comptes d'un client sont tous clôturés
+	 *
+	 * @param c Le client sur lequel effectuer la vérification
+	 * @return Le nombre de comptes ouverts du client, -1 en cas d'erreur
+	 * @author KRILL Maxence
+	 */
+	public int verifierCloturer(Client c) {
+		int comptesOuverts = -1;
+		if (c != null) {
+			try {
+				Access_BD_Client ac = new Access_BD_Client();
+				comptesOuverts = ac.verifierCloturer(c.idNumCli);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+			}
+		}
+		return comptesOuverts;
+	}
+
+	/**
+	 * Désactive un client.
+	 *
+	 * @param cliMod Le client à désactiver.
+	 * @return Le client désactivé.
+	 * @author SHULHINA Daria
+	 */
+	public Client clientInactif(Client cliMod) {
+		cliMod.estInactif = ConstantesIHM.CLIENT_INACTIF;
+		if (cliMod != null) {
+			try {
+				Access_BD_Client ac = new Access_BD_Client();
+				ac.updateClient(cliMod);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				cliMod = null;
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				cliMod = null;
+			}
+		}
+		return cliMod;
+	}
+
+	/**
 	 * Crée un nouveau client.
 	 *
 	 * @return Le nouveau client créé
@@ -133,6 +187,7 @@ public class ClientsManagement {
 	 * Gère les comptes d'un client.
 	 *
 	 * @param c Le client dont les comptes doivent être gérés
+	 * @author IUT Blagnac
 	 */
 	public void gererComptesClient(Client c) {
 		ComptesManagement cm = new ComptesManagement(this.cmStage, this.dailyBankState, c);
@@ -146,6 +201,7 @@ public class ClientsManagement {
 	 * @param _debutNom    Le début du nom du client
 	 * @param _debutPrenom Le début du prénom du client
 	 * @return La liste des clients correspondant aux critères de recherche
+	 * @author IUT Blagnac
 	 */
 	public ArrayList<Client> getlisteComptes(int _numCompte, String _debutNom, String _debutPrenom) {
 		ArrayList<Client> listeCli = new ArrayList<>();

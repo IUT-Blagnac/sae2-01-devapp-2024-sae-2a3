@@ -17,8 +17,9 @@ import model.data.Prelevement;
  * Contrôleur pour l'édition des informations client dans une fenêtre.
  * 
  * @see PrelevementEditor
+ * @author SHULHINA Daria
  */
-public class PrelevementEditorController {
+public class PrelevementEditorViewController {
 	private DailyBankState dailyBankState;
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this

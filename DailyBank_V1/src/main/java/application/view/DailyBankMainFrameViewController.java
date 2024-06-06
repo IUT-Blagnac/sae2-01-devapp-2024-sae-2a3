@@ -16,8 +16,11 @@ import model.data.AgenceBancaire;
 import model.data.Employe;
 
 /**
- * Controller JavaFX de la view dailybankmainframe.
- *
+ * Contrôleur pour la fenêtre principale de l'application.
+ * 
+ * @see DailyBankMainFrame
+ * @author IUT Blagnac
+ * @author SHULHINA Daria
  */
 public class DailyBankMainFrameViewController {
 
@@ -42,6 +45,7 @@ public class DailyBankMainFrameViewController {
 	 * @param _dbmf            Contrôleur de Dialogue qui réalisera les opérations
 	 *                         de navigation ou calcul
 	 * @param _dbstate         Etat courant de l'application
+	 * @author IUT Blagnac
 	 */
 	public void initContext(Stage _containingStage, DailyBankMainFrame _dbmf, DailyBankState _dbstate) {
 		this.dbmfDialogController = _dbmf;
@@ -53,15 +57,19 @@ public class DailyBankMainFrameViewController {
 
 	/**
 	 * Affichage de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	public void displayDialog() {
 		this.containingStage.show();
 		this.btnConn.requestFocus();
 	}
 
-	/*
+	/**
 	 * Configuration de DailyBankMainFrameController. Fermeture par la croix,
 	 * bindings des boutons connexion/déconnexion.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
@@ -69,12 +77,12 @@ public class DailyBankMainFrameViewController {
 		this.btnDeconn.managedProperty().bind(this.btnDeconn.visibleProperty());
 	}
 
-	/*
+	/**
 	 * Méthode de fermeture de la fenêtre par la croix.
 	 *
 	 * @param e Evénement associé (inutilisé pour le moment)
-	 *
 	 * @return null toujours (inutilisé)
+	 * @author IUT Blagnac
 	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doQuit();
@@ -108,9 +116,11 @@ public class DailyBankMainFrameViewController {
 
 	// Actions
 
-	/*
+	/**
 	 * Action menu quitter. Demander une confirmation puis fermer la fenêtre (donc
 	 * l'application car fenêtre principale).
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doQuit() {
@@ -122,8 +132,10 @@ public class DailyBankMainFrameViewController {
 		}
 	}
 
-	/*
+	/**
 	 * Action menu aide. Affichage d'une alerte simplement avec information.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doActionAide() {
@@ -132,9 +144,11 @@ public class DailyBankMainFrameViewController {
 		this.btnConn.requestFocus();
 	}
 
-	/*
+	/**
 	 * Action login. Demande au contrôleur de dialogue de lancer le login puis maj
 	 * de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doLogin() {
@@ -143,9 +157,11 @@ public class DailyBankMainFrameViewController {
 		this.validateComponentState();
 	}
 
-	/*
+	/**
 	 * Action déconnexion. Demande au contrôleur de dialogue de réaliser la
 	 * déconnexion puis maj de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doDisconnect() {
@@ -154,12 +170,14 @@ public class DailyBankMainFrameViewController {
 		this.btnConn.requestFocus();
 	}
 
-	/*
+	/**
 	 * Mise à jour de la fenêtre Les champs d'affichage de la banque et de l'employé
 	 * sont mis à jour. Les boutons de connexion/déconnexion et les menus sont mis à
 	 * jour. Si un employé est connecté : les champs sont remplis et les
 	 * boutons/menus activés, sauf connexion. Si aucun employé n'est connecté : les
 	 * champs sont vidés et les boutons/menus désactivés, sauf connexion.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	private void validateComponentState() {
 		Employe e = this.dailyBankState.getEmployeActuel();
@@ -194,27 +212,43 @@ public class DailyBankMainFrameViewController {
 		}
 	}
 
-	/*
+	/**
 	 * Action menu client. Demande au contrôleur de dialogue de lancer la gestion
 	 * client
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doClientOption() {
 		this.dbmfDialogController.gestionClients();
 	}
 
-	/*
+	/**
 	 * Action menu Employé. Not Yet Implemented. Pour le moment : une alerte
 	 * d'information
+	 * 
+	 * @author IUT Blagnac
 	 */
 	@FXML
 	private void doEmployeOption() {
 		this.dbmfDialogController.gestionEmployes();
 	}
 
-	/*
+	/**
+	 * Demande au contrôleur de dialogue de lancer la gestion des emprunts.
+	 * 
+	 * @author SHULHINA Daria
+	 */
+	@FXML
+	private void doPrelevementOption() {
+		this.dbmfDialogController.gestionPrelevement();
+	}
+
+	/**
 	 * Se déconnecter de la bd oracle. Demande au contrôleur de dialogue de se
 	 * déconnecter.
+	 * 
+	 * @author IUT Blagnac
 	 */
 	private void quitterBD() {
 		this.dbmfDialogController.deconnexionEmploye();

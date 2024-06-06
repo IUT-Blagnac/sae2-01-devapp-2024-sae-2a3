@@ -27,7 +27,7 @@ import model.orm.exception.Table;
  * Classe responsable de la gestion de la fenêtre de gestion des comptes dans
  * l'application DailyBank.
  * 
- * @see ComptesManagementController
+ * @see ComptesManagementViewController
  * @see Access_BD_CompteCourant
  * @author IUT Blagnac
  * @author SHULHINA Daria

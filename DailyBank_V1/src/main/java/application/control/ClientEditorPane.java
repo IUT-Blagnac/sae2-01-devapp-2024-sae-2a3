@@ -17,7 +17,7 @@ import model.data.Client;
  * Classe responsable de la gestion de la fenêtre d'édition d'un client dans
  * l'application DailyBank.
  * 
- * @see ClientEditorPaneController
+ * @see ClientEditorPaneViewController
  * @author IUT Blagnac
  */
 public class ClientEditorPane {

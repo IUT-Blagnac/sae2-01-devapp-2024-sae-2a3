@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 /**
  * Utilitaire pour afficher une fenêtre de message ou de confirmation.
  *
+ * @author IUT Blagnac
  */
 
 public class AlertUtilities {
@@ -25,6 +26,7 @@ public class AlertUtilities {
 	 * @param _at      Type d'alerte (icône associé) (constante définie par
 	 *                 AlertType)
 	 * @return true si dialogue confirmé, false sinon
+	 * @author IUT Blagnac
 	 */
 	public static boolean confirmYesCancel(Stage _fen, String _title, String _message, String _content, AlertType _at) {
 
@@ -55,6 +57,7 @@ public class AlertUtilities {
 	 * @param _content Détail d'information
 	 * @param _at      Type d'alerte (icône associé) (constante définie par
 	 *                 AlertType)
+	 * @author IUT Blagnac
 	 */
 	public static void showAlert(Stage _fen, String _title, String _message, String _content, AlertType _at) {
 

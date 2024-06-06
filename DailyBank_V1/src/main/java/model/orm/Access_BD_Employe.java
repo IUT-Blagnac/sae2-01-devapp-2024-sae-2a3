@@ -15,6 +15,12 @@ import model.orm.exception.Table;
 
 /**
  * Classe d'accès aux Employe en BD Oracle.
+ * 
+ * @author IUT Blagnac
+ * @author AMERI Mohammed 
+ * @author CIARDI Rudy 
+ * @author RAZAFINIRINA Mialisoa 
+ * @author SHULHINA Daria
  */
 public class Access_BD_Employe {
 
@@ -31,6 +37,7 @@ public class Access_BD_Employe {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author IUT Blagnac
 	 */
 	public Employe getEmploye(String login, String password)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -82,6 +89,25 @@ public class Access_BD_Employe {
 		}
 	}
 
+	/**
+	 * Recherche des employés paramétrée (tous/un seul par id/par nom-prénom).
+	 *
+	 * On recherche :
+	 * - un employé précis si idNumCli <> -1
+	 * - des employés par début nom/prénom si debutNom donné
+	 * - tous les employés de idAg sinon
+	 *
+	 * @param idAg        id de l'agence dont on cherche les employés
+	 * @param idNumEmp    Vaut -1 si il n'est pas spécifié sinon numéro recherché
+	 * @param debutNom    Vaut "" si il n'est pas spécifié sinon sera le nom/prenom
+	 *                    recherchés
+	 * @param debutPrenom cf. @param debutNom
+	 * @return Le ou les employés recherchés, liste vide si non trouvé
+	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
+	 *                                    formée ou autre)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author CIARDI Rudy 
+	 */
 	public ArrayList<Employe> getEmployes(int idAg, int idEmp, String debutNom, String debutPrenom) 
 				throws DataAccessException, DatabaseConnexionException {
 
@@ -146,6 +172,21 @@ public class Access_BD_Employe {
 		return alResult;
     }
 
+	/**
+	 * Mise à jour d'un employé.
+	 *
+	 * employe.idNumEmp est la clé primaire et doit exister tous les autres champs
+	 * sont des mises à jour. employe.idAg non mis à jour (un employe ne change
+	 * d'agence que par delete/insert)
+	 *
+	 * @param employe IN employe.idNumEmp (clé primaire) doit exister
+	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1
+	 *                                           ligne
+	 * @throws DataAccessException               Erreur d'accès aux données (requête
+	 *                                           mal formée ou autre)
+	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author RAZAFINIRINA Mialisoa
+	 */
     public void updateEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
@@ -183,10 +224,14 @@ public class Access_BD_Employe {
 
     /**
 	 * Insertion d'un employé.
+	 *
 	 * @param employe IN/OUT Tous les attributs IN sauf idNumEmp en OUT
-	 * @throws RowNotFoundOrTooManyRowsException La requête insère 0 ou plus de 1 ligne
-	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée ou autre)
-	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @throws RowNotFoundOrTooManyRowsException La requête insère 0 ou plus de 1
+	 *                                           ligne
+	 * @throws DataAccessException               Erreur d'accès aux données (requête
+	 *                                           mal formée ou autre)
+	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author SHULHINA Daria 
 	 */
     public void insertEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
 		try {
@@ -234,6 +279,19 @@ public class Access_BD_Employe {
 		}
 	}
 
+	/**
+	 * Suppression d'un employé.
+	 *
+	 * Permet de supprimer un employé
+	 *
+	 * @param employe IN employe.idNumEmp (clé primaire) doit exister
+	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1
+	 *                                           ligne
+	 * @throws DataAccessException               Erreur d'accès aux données (requête
+	 *                                           mal formée ou autre)
+	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author AMERI Mohammed 
+	 */
 	public void deleteEmploye(Employe employe) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
 		try {
 			// Obtenir une connexion à la base de données

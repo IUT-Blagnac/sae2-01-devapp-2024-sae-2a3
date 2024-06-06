@@ -17,7 +17,7 @@ import model.data.Employe;
  * Classe responsable de la gestion de la fenêtre d'édition d'un employé dans
  * l'application DailyBank.
  * 
- * @see EmployeEditorPaneController
+ * @see EmployeEditorPaneViewController
  * @author AMERI Mohammed
  */
 public class EmployeEditorPane {
