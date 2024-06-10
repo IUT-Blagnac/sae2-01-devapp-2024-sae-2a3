@@ -83,6 +83,7 @@ public class OperationsManagementViewController {
 	@FXML
 	private Button btnVirement;
 
+
 	@FXML
 	private void doCancel() {
 		this.containingStage.close();

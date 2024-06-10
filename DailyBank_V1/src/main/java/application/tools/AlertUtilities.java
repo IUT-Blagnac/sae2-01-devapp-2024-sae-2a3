@@ -70,4 +70,15 @@ public class AlertUtilities {
 
 		alert.showAndWait();
 	}
+
+	public static boolean showAlertConfirmation(Stage owner, String title, String message) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.initOwner(owner);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
+    }
 }

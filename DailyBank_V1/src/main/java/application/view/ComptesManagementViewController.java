@@ -1,9 +1,11 @@
 package application.view;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.AlertUtilities;
 import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +20,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Operation;
+import model.orm.Access_BD_CompteCourant;
+import model.orm.Access_BD_Operation;
+import model.orm.exception.ApplicationException;
+import model.orm.exception.DatabaseConnexionException;
 
 public class ComptesManagementViewController {
 
@@ -84,7 +91,12 @@ public class ComptesManagementViewController {
 	@FXML
 	private Button btnModifierCompte;
 	@FXML
-	private Button btnSupprCompte;
+	private Button btnCloturerCompte;
+	@FXML
+	private Button btnSupprimerCompte;
+	@FXML
+	private Button btnSimulerEmprunt;
+	
 
 	@FXML
 	private void doCancel() {
@@ -107,7 +119,7 @@ public class ComptesManagementViewController {
 	}
 
 	@FXML
-	private void doSupprimerCompte() {
+	private void doCloturerCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
@@ -128,6 +140,57 @@ public class ComptesManagementViewController {
 	}
 
 	@FXML
+	private void doSupprimerCompte() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			if (ConstantesIHM.estCloture(cpt)) {
+				// Chercher la dernière opération
+				Date derniereOperation = null;
+				try {
+					// lecture BD de la liste des opérations du compte de l'utilisateur
+					Access_BD_Operation ao = new Access_BD_Operation();
+					ArrayList<Operation> listeOP = ao.getOperations(cpt.idNumCompte);
+					if (!listeOP.isEmpty()) {
+						derniereOperation = listeOP.get(0).dateOp; // Initialiser à la première opération
+						for (Operation op : listeOP) {
+							if (op.dateOp.after(derniereOperation)) {
+								derniereOperation = op.dateOp;
+							}
+						}
+					}
+				} catch (ApplicationException e) {
+					AlertUtilities.showAlert(this.containingStage, "Erreur", "Erreur lors de la récupération des opérations.", e.getMessage(), Alert.AlertType.ERROR);
+					return;
+				}
+				
+				if (derniereOperation != null) {
+					String message = "Confirmez-vous la suppression du compte clôturé avec la dernière opération réalisée le : " + derniereOperation.toString() + " ?";
+					boolean confirmation = AlertUtilities.showAlertConfirmation(this.containingStage, "Suppression de compte", message);
+					if (confirmation) {
+						this.cmDialogController.supprimerCompte(cpt);
+						this.oListCompteCourant.remove(cpt);
+					}
+				} else {
+					String message = "Confirmez-vous la suppression du compte clôturé avec aucune opération ?";
+					boolean confirmation = AlertUtilities.showAlertConfirmation(this.containingStage, "Suppression de compte", message);
+					if (confirmation) {
+						this.cmDialogController.supprimerCompte(cpt);
+						this.oListCompteCourant.remove(cpt);
+					}				
+				}
+			} else {
+				AlertUtilities.showAlert(this.containingStage, "Suppression impossible", "Le compte doit être clôturé avant d'être supprimé.", null, Alert.AlertType.WARNING);
+			}
+		} else {
+			AlertUtilities.showAlert(this.containingStage, "Erreur de sélection", "Aucun compte sélectionné pour suppression.", null, Alert.AlertType.WARNING);
+		}
+		this.loadList();
+		this.validateComponentState();
+	}
+
+
+	@FXML
 	private void doNouveauCompte() {
 		CompteCourant compte;
 		compte = this.cmDialogController.creerNouveauCompte();
@@ -135,6 +198,12 @@ public class ComptesManagementViewController {
 			this.oListCompteCourant.add(compte);
 		}
 		this.loadList();
+		this.validateComponentState();
+	}
+
+	@FXML
+	private void doSimulerEmprunt() {
+		this.cmDialogController.simuEmprunt();
 		this.validateComponentState();
 	}
 
@@ -146,23 +215,30 @@ public class ComptesManagementViewController {
 	}
 
 	private void validateComponentState() {
-		// 	// Non implémenté => désactivé
-		this.btnModifierCompte.setDisable(true);
-		this.btnSupprCompte.setDisable(true);
+        //  // Non implémenté => désactivé
+        this.btnModifierCompte.setDisable(true);
+        this.btnCloturerCompte.setDisable(true);
+        this.btnSupprimerCompte.setDisable(true);
 
-		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+        int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 
-		if (selectedIndice >= 0) {
-			this.btnVoirOpes.setDisable(false);
-			this.btnModifierCompte.setDisable(false);
-			this.btnSupprCompte.setDisable(false);
-			CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
-				if(ConstantesIHM.estCloture(compte)) {
-					this.btnSupprCompte.setDisable(true);
-					this.btnModifierCompte.setDisable(true);
-				}
-		} else {
-			this.btnVoirOpes.setDisable(true);
-		}
-	}
+        if (selectedIndice >= 0) {
+            this.btnVoirOpes.setDisable(false);
+            this.btnModifierCompte.setDisable(false);
+            this.btnCloturerCompte.setDisable(false);
+            CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
+            if (ConstantesIHM.estCloture(compte)) {
+                this.btnCloturerCompte.setDisable(true);
+                this.btnModifierCompte.setDisable(true);
+                this.btnSupprimerCompte.setDisable(false);
+            }
+            if (this.dailyBankState.isChefDAgence()) {
+                this.btnSimulerEmprunt.setDisable(false);
+            } else {
+                this.btnSimulerEmprunt.setDisable(true);
+            }
+        } else {
+            this.btnVoirOpes.setDisable(true);
+        }
+    }
 }
