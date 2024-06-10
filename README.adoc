@@ -1,3 +1,15 @@
+= Retours
+
+Retour - André Péninou - 10/06/2024
+
+*	Pensez à la javadoc du code
+*	Code : attention aux noms de variables
++
+Ex : public class EmployeManagement {
++	private EmployeManagementViewController cmViewController; // emViewController serait mieux non ?
+
+
+
 = DailyBank
 
 == Présentation de l'équipe et rôles respectifs
