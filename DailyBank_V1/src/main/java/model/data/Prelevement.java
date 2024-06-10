@@ -57,6 +57,6 @@ public class Prelevement {
 	 */
 	@Override
 	public String toString() {
-		return "[" + this.idPrelevement + "] Du compte n°" + this.idNumCompte + " à " + this.beneficiaire + " - " + montant + " € le " + this.date;
+		return "[" + this.idPrelevement + "] | Béneficiaire : " + this.beneficiaire + " | Montant : " + montant + " € | prélèvement  le " + this.date + " du mois.";
 	}
 }

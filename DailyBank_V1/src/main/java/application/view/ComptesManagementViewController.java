@@ -89,6 +89,8 @@ public class ComptesManagementViewController {
 	@FXML
 	private Button btnVoirOpes;
 	@FXML
+	private Button btnVoirPrlv;
+	@FXML
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnCloturerCompte;
@@ -109,6 +111,17 @@ public class ComptesManagementViewController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			this.cmDialogController.gererOperationsDUnCompte(cpt);
+		}
+		this.loadList();
+		this.validateComponentState();
+	}
+
+	@FXML
+	private void doVoirPrelevement() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			this.cmDialogController.gererPrelevementDUnCompte(cpt);
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -224,6 +237,7 @@ public class ComptesManagementViewController {
 
         if (selectedIndice >= 0) {
             this.btnVoirOpes.setDisable(false);
+			this.btnVoirPrlv.setDisable(false);
             this.btnModifierCompte.setDisable(false);
             this.btnCloturerCompte.setDisable(false);
             CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
@@ -239,6 +253,7 @@ public class ComptesManagementViewController {
             }
         } else {
             this.btnVoirOpes.setDisable(true);
+			this.btnVoirPrlv.setDisable(true);
         }
     }
 }

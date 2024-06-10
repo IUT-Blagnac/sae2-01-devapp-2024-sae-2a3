@@ -41,17 +41,12 @@ public class Access_BD_Prelevement {
 
 		try {
 			Connection con = LogToDatabase.getConnexion();
-			String query = "SELECT PrelevementAutomatique.idPrelev, PrelevementAutomatique.montant, PrelevementAutomatique.dateRecurrente, PrelevementAutomatique.beneficiaire, PrelevementAutomatique.idNumCompte FROM PrelevementAutomatique, CompteCourant, Client WHERE PrelevementAutomatique.idNumCompte = CompteCourant.idNumCompte AND CompteCourant.idNumCli = Client.idNumCli AND Client.idAg = ?";
-			if (idNumCompte != -1) {
-				query += " AND PrelevementAutomatique.idNumCompte = ?";
-			}
+			String query = "SELECT PrelevementAutomatique.idPrelev, PrelevementAutomatique.montant, PrelevementAutomatique.dateRecurrente, PrelevementAutomatique.beneficiaire, PrelevementAutomatique.idNumCompte FROM PrelevementAutomatique, CompteCourant, Client WHERE PrelevementAutomatique.idNumCompte = CompteCourant.idNumCompte AND CompteCourant.idNumCli = Client.idNumCli AND Client.idAg = ? AND PrelevementAutomatique.idNumCompte = ?";
 			query += " ORDER BY PrelevementAutomatique.dateRecurrente";
 
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, idAg);
-			if (idNumCompte != -1) {
-				pst.setInt(2, idNumCompte);
-			}
+			pst.setInt(2, idNumCompte);
 
 			ResultSet rs = pst.executeQuery();
 

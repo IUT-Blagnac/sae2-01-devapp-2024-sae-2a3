@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.CompteCourant;
 import model.data.Prelevement;
 import model.orm.Access_BD_Prelevement;
 import model.orm.exception.ApplicationException;
@@ -29,6 +30,7 @@ public class PrelevementManagement {
 	private Stage cmStage;
 	private DailyBankState dailyBankState;
 	private PrelevementManagementController pmcViewController;
+	private CompteCourant compteConcerne;
 
 	/**
 	 * Constructeur de la classe PrelevementsMangement.
@@ -36,8 +38,9 @@ public class PrelevementManagement {
 	 * @param _parentStage Fenêtre parente
 	 * @param _dbstate     État courant de l'application
 	 */
-	public PrelevementManagement(Stage _parentStage, DailyBankState _dbstate) {
+	public PrelevementManagement(Stage _parentStage, DailyBankState _dbstate, CompteCourant cc) {
 		this.dailyBankState = _dbstate;
+		this.compteConcerne = cc;
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					PrelevementManagementController.class.getResource("prelevementManagement.fxml"));
@@ -51,11 +54,11 @@ public class PrelevementManagement {
 			this.cmStage.initOwner(_parentStage);
 			StageManagement.manageCenteringStage(_parentStage, this.cmStage);
 			this.cmStage.setScene(scene);
-			this.cmStage.setTitle("Gestion des clients");
+			this.cmStage.setTitle("Gestion des prélèvements");
 			this.cmStage.setResizable(false);
 
 			this.pmcViewController = loader.getController();
-			this.pmcViewController.initContext(this.cmStage, this, _dbstate);
+			this.pmcViewController.initContext(this.cmStage, this, _dbstate, this.compteConcerne);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,7 +81,7 @@ public class PrelevementManagement {
 	public Prelevement nouveauPrelevement() {
 		Prelevement pm;
 		PrelevementEditorPane pep = new PrelevementEditorPane(this.cmStage, this.dailyBankState);
-		pm = pep.doPrelevementEditorDialog(null, EditionMode.CREATION);
+		pm = pep.doPrelevementEditorDialog(null, EditionMode.CREATION, compteConcerne);
 		if (pm != null) {
 			try {
 				Access_BD_Prelevement ap = new Access_BD_Prelevement();
@@ -106,7 +109,7 @@ public class PrelevementManagement {
 	public Prelevement modifierPrelevement(Prelevement pr) {
 		Prelevement pm;
 		PrelevementEditorPane pep = new PrelevementEditorPane(this.cmStage, this.dailyBankState);
-		pm = pep.doPrelevementEditorDialog(pr, EditionMode.MODIFICATION);
+		pm = pep.doPrelevementEditorDialog(pr, EditionMode.MODIFICATION, compteConcerne);
 		if (pm != null) {
 			try {
 				Access_BD_Prelevement ap = new Access_BD_Prelevement();
@@ -154,14 +157,14 @@ public class PrelevementManagement {
 	 * @param _debutPrenom Le début du prénom du client
 	 * @return La liste des clients correspondant aux critères de recherche
 	 */
-	public ArrayList<Prelevement> getPrelevements(int _numCompte) {
+	public ArrayList<Prelevement> getPrelevements(int idCompte) {
 		ArrayList<Prelevement> listePre = new ArrayList<>();
 		try {
 			// numCompte != -1 => recherche sur numCompte
 			// numCompte == -1 => recherche sur l'agence
 
 			Access_BD_Prelevement ac = new Access_BD_Prelevement();
-			listePre = ac.getPrelevements(this.dailyBankState.getEmployeActuel().idAg, _numCompte);
+			listePre = ac.getPrelevements(this.dailyBankState.getEmployeActuel().idAg, idCompte);
 
 		} catch (DatabaseConnexionException e) {
 			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);

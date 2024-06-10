@@ -68,6 +68,11 @@ public class ComptesManagement {
 		om.doOperationsManagementDialog();
 	}
 
+	public void gererPrelevementDUnCompte(CompteCourant cpt) {
+		PrelevementManagement pm = new PrelevementManagement(this.cmStage, this.dailyBankState, cpt);
+		pm.doPrelevementManagementDialog();
+	}
+
 	public CompteCourant creerNouveauCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.cmStage, this.dailyBankState);

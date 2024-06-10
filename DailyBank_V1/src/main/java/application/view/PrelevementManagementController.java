@@ -1,6 +1,7 @@
 package application.view;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import application.DailyBankState;
 import application.control.PrelevementManagement;
@@ -9,12 +10,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import model.data.CompteCourant;
 import model.data.Prelevement;
 
 /**
@@ -31,10 +34,12 @@ public class PrelevementManagementController {
 	private PrelevementManagement pmDialogController;
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
-	private Stage cmStage;
+	private Stage pmStage;
 
 	// Données de la fenêtre
 	private ObservableList<Prelevement> oListPrelevements;
+
+	private CompteCourant compteConcerne;
 
 	/**
 	 * Initialise le contexte du contrôleur.
@@ -43,10 +48,11 @@ public class PrelevementManagementController {
 	 * @param _pm              Le contrôleur de dialogue associé
 	 * @param _dbstate         L'état courant de l'application
 	 */
-	public void initContext(Stage _containingStage, PrelevementManagement _pm, DailyBankState _dbstate) {
+	public void initContext(Stage _containingStage, PrelevementManagement _pm, DailyBankState _dbstate, CompteCourant cc) {
 		this.pmDialogController = _pm;
-		this.cmStage = _containingStage;
+		this.pmStage = _containingStage;
 		this.dailyBankState = _dbstate;
+		this.compteConcerne = cc;
 		this.configure();
 	}
 
@@ -55,7 +61,7 @@ public class PrelevementManagementController {
 	 * 
 	 */
 	private void configure() {
-		this.cmStage.setOnCloseRequest(e -> this.closeWindow(e));
+		this.pmStage.setOnCloseRequest(e -> this.closeWindow(e));
 
 		this.oListPrelevements = FXCollections.observableArrayList();
 
@@ -72,7 +78,7 @@ public class PrelevementManagementController {
 	 * 
 	 */
 	public void displayDialog() {
-		this.cmStage.showAndWait();
+		this.pmStage.showAndWait();
 	}
 
 	// Gestion du stage
@@ -90,9 +96,8 @@ public class PrelevementManagementController {
 	}
 
 	// Attributs de la scène + actions
-
 	@FXML
-	private TextField txtNum;
+	private Label lblInfosCompte;
 	@FXML
 	private ListView<Prelevement> lvPrelevements;
 	@FXML
@@ -106,7 +111,7 @@ public class PrelevementManagementController {
 	 */
 	@FXML
 	private void doCancel() {
-		this.cmStage.close();
+		this.pmStage.close();
 	}
 
 	/**
@@ -115,25 +120,9 @@ public class PrelevementManagementController {
 	 */
 	@FXML
 	private void doRechercher() {
-		int numCompte;
-		try {
-			String nc = this.txtNum.getText();
-			if (nc.equals("")) {
-				numCompte = -1;
-			} else {
-				numCompte = Integer.parseInt(nc);
-				if (numCompte < 0) {
-					this.txtNum.setText("");
-					numCompte = -1;
-				}
-			}
-		} catch (NumberFormatException nfe) {
-			this.txtNum.setText("");
-			numCompte = -1;
-		}
 		
 		ArrayList<Prelevement> listePre;
-		listePre = this.pmDialogController.getPrelevements(numCompte);
+		listePre = this.pmDialogController.getPrelevements(this.compteConcerne.idNumCompte);
 
 		this.oListPrelevements.clear();
 		this.oListPrelevements.addAll(listePre);
@@ -181,7 +170,7 @@ public class PrelevementManagementController {
 		int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			Prelevement preMod = this.oListPrelevements.get(selectedIndice);
-			if (!AlertUtilities.confirmYesCancel(this.cmStage, "Supprimer prélévement automatique",
+			if (!AlertUtilities.confirmYesCancel(this.pmStage, "Supprimer prélévement automatique",
 					"Êtes-vous sûr de vouloir supprimer ce prélévement automatique ?",
 					"Il ne sera pas possible de restaurer ce prélévement, cependant, vous pourrez le recréer.\n\nPrélévement automatique :\nID : "
 							+ preMod.idPrelevement + "\nMontant : " + preMod.montant + "\nDate : " + preMod.date + "\nBénéficiaire : " + preMod.beneficiaire + "\nCompte : " + preMod.idNumCompte, AlertType.CONFIRMATION)) return;
@@ -196,6 +185,11 @@ public class PrelevementManagementController {
 	 * 
 	 */
 	private void validateComponentState() {
+		String info = "Cpt. : " + this.compteConcerne.idNumCompte + "  "
+				+ String.format(Locale.ENGLISH, "%12.02f", this.compteConcerne.solde) + "  /  "
+				+ String.format(Locale.ENGLISH, "%8d", this.compteConcerne.debitAutorise);
+		this.lblInfosCompte.setText(info);
+
 		int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			this.btnModifPrelevement.setDisable(false);

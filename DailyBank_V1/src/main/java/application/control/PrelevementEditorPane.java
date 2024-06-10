@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.CompteCourant;
 import model.data.Prelevement;
 
 /**
@@ -21,7 +22,7 @@ import model.data.Prelevement;
  */
 public class PrelevementEditorPane {
 
-	private Stage cmStage;
+	private Stage pepStage;
 	private PrelevementEditorController cepViewController;
 	private DailyBankState dailyBankState;
 
@@ -41,16 +42,16 @@ public class PrelevementEditorPane {
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
-			this.cmStage = new Stage();
-			this.cmStage.initModality(Modality.WINDOW_MODAL);
-			this.cmStage.initOwner(_parentStage);
-			StageManagement.manageCenteringStage(_parentStage, this.cmStage);
-			this.cmStage.setScene(scene);
-			this.cmStage.setTitle("Gestion d'un prélèvement");
-			this.cmStage.setResizable(false);
+			this.pepStage = new Stage();
+			this.pepStage.initModality(Modality.WINDOW_MODAL);
+			this.pepStage.initOwner(_parentStage);
+			StageManagement.manageCenteringStage(_parentStage, this.pepStage);
+			this.pepStage.setScene(scene);
+			this.pepStage.setTitle("Gestion d'un prélèvement");
+			this.pepStage.setResizable(false);
 
 			this.cepViewController = loader.getController();
-			this.cepViewController.initContext(this.cmStage, this.dailyBankState);
+			this.cepViewController.initContext(this.pepStage, this.dailyBankState);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,7 +65,7 @@ public class PrelevementEditorPane {
 	 * @param em Le mode d'édition (ajout ou modification)
 	 * @return Le prélèvement modifié
 	 */
-	public Prelevement doPrelevementEditorDialog(Prelevement pm, EditionMode em) {
-		return this.cepViewController.displayDialog(pm, em);
+	public Prelevement doPrelevementEditorDialog(Prelevement pm, EditionMode em, CompteCourant cc) {
+		return this.cepViewController.displayDialog(pm, em, cc);
 	}
 }

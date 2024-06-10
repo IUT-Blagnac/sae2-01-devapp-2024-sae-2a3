@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import model.data.CompteCourant;
 import model.data.Prelevement;
 
 /**
@@ -29,6 +30,7 @@ public class PrelevementEditorController {
 	private Prelevement prelevementEdite;
 	private EditionMode editionMode;
 	private Prelevement prelevementResultat;
+	private CompteCourant compteEdite;
 
 	// Manipulation de la fenêtre
 
@@ -73,8 +75,8 @@ public class PrelevementEditorController {
 	 * @param mode Le mode d'édition (ajout ou modification)
 	 * @return Le prélèvement édité ou null si l'opération a été annulée
 	 */
-	public Prelevement displayDialog(Prelevement pm, EditionMode mode) {
-
+	public Prelevement displayDialog(Prelevement pm, EditionMode mode, CompteCourant cpte) {
+		this.compteEdite = cpte;
 		this.editionMode = mode;
 		if (pm == null) {
 			this.prelevementEdite = new Prelevement(0, 0, 0, "", 0);
@@ -88,9 +90,8 @@ public class PrelevementEditorController {
 				this.txtmontant.setDisable(false);
 				this.txtdate.setDisable(false);
 				this.txtbeneficiaire.setDisable(false);
-				this.txtIdCompte.setDisable(false);
 
-				this.lblMessage.setText("Informations sur le nouveau prélevement");
+				this.lblMessage.setText("Informations sur le nouveau prélèvement");
 				this.butOk.setText("Ajouter");
 				this.butCancel.setText("Annuler");
 				break;
@@ -103,11 +104,9 @@ public class PrelevementEditorController {
 				this.txtdate.setText("" + pm.date);
 				this.txtbeneficiaire.setDisable(false);
 				this.txtbeneficiaire.setText("" + pm.beneficiaire);
-				this.txtIdCompte.setDisable(true);
-				this.txtIdCompte.setText("" + pm.idNumCompte);
 
 
-				this.lblMessage.setText("Informations sur le prélevement");
+				this.lblMessage.setText("Informations sur le prélèvement");
 				this.butOk.setText("Modifier");
 				this.butCancel.setText("Annuler");
 				break;
@@ -125,6 +124,21 @@ public class PrelevementEditorController {
 		this.cmStage.showAndWait();
 		return this.prelevementResultat;
 	}
+
+	@FXML
+	private Label lblMessage;
+	@FXML
+	private TextField txtIdpre;
+	@FXML
+	private TextField txtmontant;
+	@FXML
+	private TextField txtdate;
+	@FXML
+	private TextField txtbeneficiaire;
+	@FXML
+	private Button butOk;
+	@FXML
+	private Button butCancel;
 
 	/**
 	 * Gestion du clic sur le bouton Annuler (FXML).
@@ -157,17 +171,17 @@ public class PrelevementEditorController {
 	 * @return true si la saisie est valide, false sinon
 	 */
 	private boolean isSaisieValide() {
+		while (this.txtbeneficiaire.getText().isEmpty() || this.txtmontant.getText().isEmpty() || this.txtdate.getText().isEmpty()) {
+			AlertUtilities.showAlert(this.cmStage, "Erreur saisie", "Champs non remplis",
+					"Veuillez remplir tous les champs", AlertType.ERROR);
+			return false;
+		}
+
 		this.prelevementEdite.montant = Integer.parseInt(this.txtmontant.getText().trim());
 		this.prelevementEdite.date = Integer.parseInt(this.txtdate.getText().trim());
 		this.prelevementEdite.beneficiaire = this.txtbeneficiaire.getText().trim();
-		this.prelevementEdite.idNumCompte = Integer.parseInt(this.txtIdCompte.getText().trim());
+		this.prelevementEdite.idNumCompte = this.compteEdite.idNumCompte;
 
-		if (this.txtbeneficiaire.getText().isEmpty()) {
-			AlertUtilities.showAlert(this.cmStage, "Erreur saisie", "Bénéficiaire n'est pas rempli",
-					"Veuillez remplir le champ", AlertType.ERROR);
-			this.txtbeneficiaire.requestFocus();
-			return false;
-		}
 		if (this.prelevementEdite.date < 1 || this.prelevementEdite.date > 28) {
 			AlertUtilities.showAlert(this.cmStage, "Erreur date", "La date n'est pas valide",
 					"Veuillez rentrer une date entre 1 et 28", AlertType.ERROR);
@@ -184,20 +198,5 @@ public class PrelevementEditorController {
 		return true;
 	}
 
-	@FXML
-	private Label lblMessage;
-	@FXML
-	private TextField txtIdpre;
-	@FXML
-	private TextField txtmontant;
-	@FXML
-	private TextField txtdate;
-	@FXML
-	private TextField txtbeneficiaire;
-	@FXML
-	private TextField txtIdCompte;
-	@FXML
-	private Button butOk;
-	@FXML
-	private Button butCancel;
+	
 }

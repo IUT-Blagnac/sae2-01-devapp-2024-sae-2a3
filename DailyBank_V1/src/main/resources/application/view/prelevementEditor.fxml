@@ -61,16 +61,11 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="21.0" layoutY="224.0" maxWidth="1.7976931348623157E308" text="Num Compte" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets right="20.0" />
-               </GridPane.margin>
-            </Label>
+
             <TextField fx:id="txtIdpre" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtmontant" layoutX="171.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtdate" layoutX="171.0" layoutY="58.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtbeneficiaire" layoutX="171.0" layoutY="93.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtIdCompte" layoutX="171.0" layoutY="128.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </center>
