@@ -67,11 +67,24 @@ public class OperationsManagement {
 
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
 		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.DEBIT);
+		System.out.println("Solde: " + compteConcerne.solde);
+		System.out.println("Montant: " + op.montant);
+		System.out.println("Débit autorisé: " + compteConcerne.debitAutorise);
+		System.out.println("Est chef d'agence: " + this.dailyBankState.isChefDAgence());
+
 		if (op != null) {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
+				ao.insertDebitExceptionnel(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
 
-				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				/*if ((compteConcerne.solde - op.montant) < compteConcerne.debitAutorise  && this.dailyBankState.isChefDAgence()){
+					ao.insertDebitExceptionnel(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				}else {
+					ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+					System.out.println("operation fait");
+					//ao.insertDebitExceptionnel(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+
+				}			*/	
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.omStage, this.dailyBankState, e);
