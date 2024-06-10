@@ -76,16 +76,12 @@ public class Access_BD_Prelevement {
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
 	 */
-	public void insertPrelevement(Prelevement pre)
-			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+	public void insertPrelevement(Prelevement pre) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
 		try {
-
 			Connection con = LogToDatabase.getConnexion();
 
-			String query = "INSERT INTO PRELEVEMENTAUTOMATIQUE VALUES (" + "seq_id_prelevauto.NEXTVAL" + ", " + "?"
-					+ ", " + "?" + ", "
-					+ "?" + ", " + "?" + ")";
-			PreparedStatement pst = con.prepareStatement(query);
+			String query = "INSERT INTO PRELEVEMENTAUTOMATIQUE (idPrelev, montant, dateRecurrente, beneficiaire, idNumCompte) VALUES (seq_id_prelevauto.NEXTVAL, ?, ?, ?, ?)";
+			PreparedStatement pst = con.prepareStatement(query, new String[] { "idPrelev" });
 			pst.setInt(1, pre.montant);
 			pst.setInt(2, pre.date);
 			pst.setString(3, pre.beneficiaire);
@@ -94,7 +90,6 @@ public class Access_BD_Prelevement {
 			System.err.println(query);
 
 			int result = pst.executeUpdate();
-			pst.close();
 
 			if (result != 1) {
 				con.rollback();
@@ -102,24 +97,23 @@ public class Access_BD_Prelevement {
 						"Insert anormal (insert de moins ou plus d'une ligne)", null, result);
 			}
 
-			query = "SELECT seq_id_prelevauto.CURRVAL from DUAL";
-
-			System.err.println(query);
-			PreparedStatement pst2 = con.prepareStatement(query);
-
-			ResultSet rs = pst2.executeQuery();
-			rs.next();
-			// int numCliBase = rs.getInt(1);
+			ResultSet generatedKeys = pst.getGeneratedKeys();
+			if (generatedKeys.next()) {
+				int idPrelevement = generatedKeys.getInt(1);
+				pre.idPrelevement = idPrelevement;
+			} else {
+				con.rollback();
+				throw new SQLException("Creating prelevement failed, no ID obtained.");
+			}
 
 			con.commit();
-			rs.close();
-			pst2.close();
-
-			// client.idNumCli = numCliBase;
+			pst.close();
+			generatedKeys.close();
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.PrelevementAutomatique, Order.INSERT, "Erreur accès", e);
 		}
 	}
+
 
 	/**
 	 * Mise à jour d'un prélévement automatique.
