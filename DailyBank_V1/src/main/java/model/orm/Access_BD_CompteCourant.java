@@ -139,12 +139,10 @@ public class Access_BD_CompteCourant {
 	public void updateCompteCourant(CompteCourant cc) throws RowNotFoundOrTooManyRowsException, DataAccessException,
 			DatabaseConnexionException, ManagementRuleViolation {
 		try {
-
-			CompteCourant cAvant = this.getCompteCourant(cc.idNumCompte);
 			if (cc.debitAutorise > 0) {
 				cc.debitAutorise = -cc.debitAutorise;
 			}
-			if (cAvant.solde < cc.debitAutorise) {
+			if (cc.solde < cc.debitAutorise) {
 				throw new ManagementRuleViolation(Table.CompteCourant, Order.UPDATE,
 						"Erreur de règle de gestion : sole à découvert", null);
 			}

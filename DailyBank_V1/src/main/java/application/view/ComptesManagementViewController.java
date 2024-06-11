@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Employe;
 import model.data.Operation;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.Access_BD_Operation;
@@ -129,6 +130,10 @@ public class ComptesManagementViewController {
 
 	@FXML
 	private void doModifierCompte() {
+		CompteCourant compte;
+		compte = this.cmDialogController.modifierCompte();
+		this.loadList();
+		this.validateComponentState();
 	}
 
 	@FXML

@@ -160,4 +160,27 @@ public class ComptesManagement {
 		EmpruntEditorPane em = new EmpruntEditorPane(this.cmStage, this.dailyBankState);
 		em.doEmpruntSimulationDialog();
 	}
+
+	public CompteCourant modifierCompte() {
+		CompteCourant compte;
+		CompteEditorPane cep = new CompteEditorPane(this.cmStage, this.dailyBankState);
+		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.MODIFICATION);
+		if (compte != null) {
+			try {
+				Access_BD_CompteCourant acc = new Access_BD_CompteCourant(); 
+				acc.updateCompteCourant(compte);
+
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.cmStage.close();
+				compte = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				compte = null;
+			}
+		}
+		return compte;
+	}
 }

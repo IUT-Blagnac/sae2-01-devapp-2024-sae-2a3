@@ -153,11 +153,11 @@ public class EmpruntEditorPaneViewController {
         if (isEmprunt) {
             this.lblMontant.setText("Montant de l'emprunt :");
             this.lblTaux.setText("Taux d'intérêt annuel (%) :");
-            this.lblDuree.setText("Durée de l'emprunt (mois) :");
+            this.lblDuree.setText("Durée de l'emprunt (année) :");
         } else if (isAssurance) {
             this.lblMontant.setText("Montant du prêt :");
             this.lblTaux.setText("Taux d’assurance (%) :");
-            this.lblDuree.setText("Durée du crédit (mois) :");
+            this.lblDuree.setText("Durée du crédit (année) :");
         }
     }
 }
