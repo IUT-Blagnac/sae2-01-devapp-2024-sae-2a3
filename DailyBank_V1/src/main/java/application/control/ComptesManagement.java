@@ -24,6 +24,14 @@ import model.orm.exception.ManagementRuleViolation;
 import model.orm.exception.Order;
 import model.orm.exception.Table;
 
+/**
+ * Classe responsable de la gestion de la fenêtre de gestion des comptes dans
+ * l'application DailyBank.
+ * 
+ * @see ComptesManagementViewController
+ * @see Access_BD_CompteCourant
+ * @author IUT Blagnac
+ */
 public class ComptesManagement {
 
 	private Stage cmStage;
@@ -31,6 +39,14 @@ public class ComptesManagement {
 	private DailyBankState dailyBankState;
 	private Client clientDesComptes;
 
+	/**
+	 * Constructeur de la classe ComptesManagement.
+	 *
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate     État courant de l'application
+	 * @param client       Client associé aux comptes
+	 * @author IUT Blagnac
+	 */
 	public ComptesManagement(Stage _parentStage, DailyBankState _dbstate, Client client) {
 
 		this.clientDesComptes = client;
@@ -58,21 +74,44 @@ public class ComptesManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des comptes.
+	 * 
+	 * @author IUT Blagnac
+	 */
     public void doComptesManagementDialog() {
 		this.cmViewController.displayDialog();
 	}
 
+	/**
+	 * Gère les opérations d'un compte spécifique.
+	 *
+	 * @param cpt Compte courant à gérer
+	 * @author IUT Blagnac
+	 */
 	public void gererOperationsDUnCompte(CompteCourant cpt) {
 		OperationsManagement om = new OperationsManagement(this.cmStage, this.dailyBankState,
 				this.clientDesComptes, cpt);
 		om.doOperationsManagementDialog();
 	}
 
+	/**
+	 * Gère les prélevements d'un compte 
+	 * 
+	 * @param cpt Compte courant à gérer 
+	 */
 	public void gererPrelevementDUnCompte(CompteCourant cpt) {
 		PrelevementManagement pm = new PrelevementManagement(this.cmStage, this.dailyBankState, cpt);
 		pm.doPrelevementManagementDialog();
 	}
 
+
+	/**
+	 * Crée un nouveau compte.
+	 *
+	 * @return Le compte courant créé
+	 * @author Mialisoa 
+	 */
 	public CompteCourant creerNouveauCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.cmStage, this.dailyBankState);
@@ -97,6 +136,13 @@ public class ComptesManagement {
 		return compte;
 	}
 
+
+	/**
+	 * Récupère les comptes d'un client.
+	 *
+	 * @return La liste des comptes courants du client
+	 * @author IUT Blagnac
+	 */
 	public ArrayList<CompteCourant> getComptesDunClient() {
 		ArrayList<CompteCourant> listeCpt = new ArrayList<>();
 
@@ -116,6 +162,14 @@ public class ComptesManagement {
 		return listeCpt;
 	}
 
+
+
+	/**
+	 * Cloture un compte.
+	 *
+	 * @param compte Le compte à cloturer
+	 * @author SHULHINA Daria
+	 */
 	public void cloturerCompte(CompteCourant compte) {
 		if(compte!=null) {
 			try {

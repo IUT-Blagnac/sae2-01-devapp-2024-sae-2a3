@@ -13,6 +13,7 @@ import model.orm.exception.DatabaseConnexionException;
 
 /**
  * Classe de controleur de Dialogue de la fenêtre principale.
+ * @see DailyBankMainFrameViewController
  *
  */
 
@@ -122,6 +123,9 @@ public class DailyBankMainFrame extends Application {
 		cm.doClientManagementDialog();
 	}
 
+	/**
+	 * DailyBankMainFrameViewController
+	 */
 	public void gestionEmployes() {
 		EmployesManagement cm = new EmployesManagement(this.dbmfStage, this.dailyBankState);
 		cm.doEmployeManagementDialog();
