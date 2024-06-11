@@ -13,8 +13,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Employe;
 
+/**
+ * Classe responsable de la gestion de la fenêtre d'édition d'un employé dans
+ * l'application DailyBank.
+ * 
+ * @see EmployeEditorPaneViewController
+ */
 public class EmployeEditorPane {
 
+	/**
+	 * Constructeur de la classe EmployeEditorPane.
+	 *
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate     État courant de l'application
+	 * @author AMERI Mohammed
+	 */
 	private Stage cepStage;
 	private EmployeEditorPaneViewController cepViewController;
 	private DailyBankState dailyBankState;
@@ -44,6 +57,14 @@ public class EmployeEditorPane {
 		}
 	}
 
+	/**
+	 * Affiche la boîte de dialogue d'édition du employé.
+	 *
+	 * @param employe L'employé à éditer
+	 * @param em      Le mode d'édition (ajout ou modification)
+	 * @return L'employé édité
+	 * @author AMERI Mohammed
+	 */
 	public Employe doEmployeEditorDialog(Employe employe, EditionMode em) {
 		return this.cepViewController.displayDialog(employe, em);
 	}

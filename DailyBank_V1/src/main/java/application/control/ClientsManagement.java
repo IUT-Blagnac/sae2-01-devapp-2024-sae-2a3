@@ -17,12 +17,27 @@ import model.orm.Access_BD_Client;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
+/**
+ * Classe responsable de la gestion de la fenêtre de gestion des clients dans
+ * l'application DailyBank.
+ * 
+ * @see ClientsManagementViewController
+ * @see Access_BD_Client
+ * @author IUT Blagnac
+ */
 public class ClientsManagement {
 
 	private Stage cmStage;
 	private DailyBankState dailyBankState;
 	private ClientsManagementViewController cmViewController;
 
+	/**
+	 * Constructeur de la classe ClientsManagement.
+	 *
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate     État courant de l'application
+	 * @author IUT Blagnac
+	 */
 	public ClientsManagement(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
@@ -48,10 +63,22 @@ public class ClientsManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des clients.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	public void doClientManagementDialog() {
 		this.cmViewController.displayDialog();
 	}
 
+	/**
+	 * Modifie un client existant.
+	 *
+	 * @param c Le client à modifier
+	 * @return Le client modifié
+	 * @author IUT Blagnac
+	 */
 	public Client modifierClient(Client c) {
 		ClientEditorPane cep = new ClientEditorPane(this.cmStage, this.dailyBankState);
 		Client result = cep.doClientEditorDialog(c, EditionMode.MODIFICATION);
@@ -72,7 +99,14 @@ public class ClientsManagement {
 		}
 		return result;
 	}
+	
 
+	/**
+	 * Crée un nouveau client.
+	 *
+	 * @return Le nouveau client créé
+	 * @author IUT Blagnac
+	 */
 	public Client nouveauClient() {
 		Client client;
 		ClientEditorPane cep = new ClientEditorPane(this.cmStage, this.dailyBankState);
@@ -96,11 +130,27 @@ public class ClientsManagement {
 		return client;
 	}
 
+	/**
+	 * Gère les comptes d'un client.
+	 *
+	 * @param c Le client dont les comptes doivent être gérés
+	 * @author IUT Blagnac
+	 */
 	public void gererComptesClient(Client c) {
 		ComptesManagement cm = new ComptesManagement(this.cmStage, this.dailyBankState, c);
 		cm.doComptesManagementDialog();
 	}
 
+
+	/**
+	 * Obtient la liste des clients en fonction des critères de recherche.
+	 *
+	 * @param _numCompte   Le numéro de compte (ou -1 pour tous les clients)
+	 * @param _debutNom    Le début du nom du client
+	 * @param _debutPrenom Le début du prénom du client
+	 * @return La liste des clients correspondant aux critères de recherche
+	 * @author IUT Blagnac
+	 */
 	public ArrayList<Client> getlisteComptes(int _numCompte, String _debutNom, String _debutPrenom) {
 		ArrayList<Client> listeCli = new ArrayList<>();
 		try {

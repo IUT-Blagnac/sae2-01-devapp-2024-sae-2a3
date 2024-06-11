@@ -13,11 +13,25 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * Classe responsable de la gestion de la fenêtre d'édition des comptes dans
+ * l'application DailyBank.
+ * 
+ * @see CompteEditorPaneViewController
+ * @author IUT Blagnac
+ */
 public class CompteEditorPane {
 
 	private Stage cepStage;
 	private CompteEditorPaneViewController cepViewController;
 
+	/**
+	 * Classe responsable de la gestion de la fenêtre d'édition des comptes dans
+	 * l'application DailyBank.
+	 * 
+	 * @see CompteEditorPaneViewController
+	 * @author IUT Blagnac
+	 */
 	public CompteEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 
 		try {
@@ -43,6 +57,16 @@ public class CompteEditorPane {
 		}
 	}
 
+
+	/**
+	 * Affiche la fenêtre d'édition d'un compte.
+	 *
+	 * @param client Le client associé au compte
+	 * @param cpte   Le compte à éditer
+	 * @param em     Le mode d'édition du compte
+	 * @return Le compte courant modifié
+	 * @author IUT Blagnac
+	 */
 	public CompteCourant doCompteEditorDialog(Client client, CompteCourant cpte, EditionMode em) {
 		return this.cepViewController.displayDialog(client, cpte, em);
 	}
