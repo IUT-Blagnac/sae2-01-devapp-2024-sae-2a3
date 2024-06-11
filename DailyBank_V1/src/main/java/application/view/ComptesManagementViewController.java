@@ -245,6 +245,7 @@ public class ComptesManagementViewController {
                 this.btnCloturerCompte.setDisable(true);
                 this.btnModifierCompte.setDisable(true);
                 this.btnSupprimerCompte.setDisable(false);
+				this.btnVoirPrlv.setDisable(true);
             }
             if (this.dailyBankState.isChefDAgence()) {
                 this.btnSimulerEmprunt.setDisable(false);
