@@ -299,7 +299,10 @@ BEGIN
 	ELSE
 		retour := -1;
 	END IF;
-	
+EXCEPTION
+    WHEN OTHERS THEN
+        retour := -1; -- En cas d'erreur, retourner un code d'erreur
+        ROLLBACK;
 END;
 /
 

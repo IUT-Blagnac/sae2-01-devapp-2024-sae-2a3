@@ -82,6 +82,8 @@ public class OperationsManagementViewController {
 	private Button btnCredit;
 	@FXML
 	private Button btnVirement;
+	@FXML
+	private Button btnDebitExep;
 
 
 	@FXML
@@ -91,7 +93,6 @@ public class OperationsManagementViewController {
 
 	@FXML
 	private void doDebit() {
-
 		Operation op = this.omDialogController.enregistrerDebit();
 		if (op != null) {
 			this.updateInfoCompteClient();
@@ -111,6 +112,15 @@ public class OperationsManagementViewController {
 	@FXML
 	private void doVirement() {
 		Operation op = this.omDialogController.enregistrerVirement();
+		if (op != null) {
+			this.updateInfoCompteClient();
+			this.validateComponentState();
+		}
+	}
+	
+	@FXML
+	private void doDebitExeptionnel() {
+		Operation op = this.omDialogController.enregistrerDebitExeptionnel();
 		if (op != null) {
 			this.updateInfoCompteClient();
 			this.validateComponentState();
