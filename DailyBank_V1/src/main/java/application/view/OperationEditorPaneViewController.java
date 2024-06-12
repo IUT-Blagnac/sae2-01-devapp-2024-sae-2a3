@@ -3,6 +3,7 @@ package application.view;
 import java.util.Locale;
 
 import application.DailyBankState;
+import application.control.ClientEditorPane;
 import application.tools.CategorieOperation;
 import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
@@ -21,6 +22,12 @@ import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.ManagementRuleViolation;
 
+/**
+ * Contrôleur pour l'édition des informations client dans une fenêtre.
+ * 
+ * @see ClientEditorPane
+ * @author IUT Blagnac
+ */
 public class OperationEditorPaneViewController {
 
 	// Etat courant de l'application
@@ -35,16 +42,33 @@ public class OperationEditorPaneViewController {
 	private Operation operationResultat;
 
 	// Manipulation de la fenêtre
+	/**
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _dbstate         L'état courant de l'application
+	 * @author IUT Blagnac
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.containingStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configure les composants de la fenêtre.
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
+	/**
+	 * Configure les composants de la fenêtre.
+	 * 
+	 * @param cpte Le compte courant concerné
+	 * @param mode Le mode de transaction (débit ou crédit)
+	 * @author IUT Blagnac
+	 */
 	public Operation displayDialog(CompteCourant cpte, CategorieOperation mode) {
 		this.categorieOperation = mode;
 		this.compteEdite = cpte;
@@ -121,6 +145,13 @@ public class OperationEditorPaneViewController {
 	}
 
 	// Gestion du stage
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+	 * @author IUT Blagnac
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -148,12 +179,22 @@ public class OperationEditorPaneViewController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * Méthode appelée lors de l'appui sur le bouton "Annuler" (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doCancel() {
 		this.operationResultat = null;
 		this.containingStage.close();
 	}
 
+	/**
+	 * Méthode appelée lors de l'appui sur le bouton "Ajouter" (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.categorieOperation) {
