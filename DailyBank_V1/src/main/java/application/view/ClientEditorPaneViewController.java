@@ -21,6 +21,12 @@ import model.orm.exception.ApplicationException;
 import model.orm.exception.Order;
 import model.orm.exception.Table;
 
+/**
+ * Contrôleur pour l'édition des informations client dans une fenêtre.
+ * 
+ * @see ClientEditorPane
+ * @author IUT Blagnac
+ */
 public class ClientEditorPaneViewController {
 
 	// Etat courant de l'application
@@ -37,16 +43,37 @@ public class ClientEditorPaneViewController {
 
 	// Manipulation de la fenêtre
 
+	/**
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _dbstate         L'état courant de l'application
+	 * @author IUT Blagnac
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.containingStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configure les composants de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
+	/**
+	 * Affiche la boîte de dialogue d'édition des informations client.
+	 * 
+	 * @param client Le client à éditer (null pour une création)
+	 * @param mode   Le mode d'édition (création, modification, suppression)
+	 * @return Le client résultat après l'édition, ou null si aucune édition n'a été
+	 *         effectuée
+	 * @author IUT Blagnac
+	 */
 	public Client displayDialog(Client client, EditionMode mode) {
 
 		this.editionMode = mode;
@@ -131,6 +158,13 @@ public class ClientEditorPaneViewController {
 	}
 
 	// Gestion du stage
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+	 * @author IUT Blagnac
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -164,12 +198,23 @@ public class ClientEditorPaneViewController {
 	@FXML
 	private Button butCancel;
 
+	/**
+	 * Action associée au bouton Annuler (FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doCancel() {
 		this.clientResultat = null;
 		this.containingStage.close();
 	}
 
+
+	/**
+	 * Action associée au bouton Ajouter/Modifier/Supprimer (FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.editionMode) {
@@ -193,6 +238,16 @@ public class ClientEditorPaneViewController {
 
 	}
 
+	/**
+	 * Vérifie la validité de la saisie des informations client :
+	 * - Le nom ne doit pas être vide
+	 * - Le prénom ne doit pas être vide
+	 * - Le téléphone doit être un numéro de téléphone valide
+	 * - Le mail doit être un mail valide
+	 * 
+	 * @return true si la saisie est valide, false sinon
+	 * @author IUT Blagnac
+	 */
 	private boolean isSaisieValide() {
 		this.clientEdite.nom = this.txtNom.getText().trim();
 		this.clientEdite.prenom = this.txtPrenom.getText().trim();

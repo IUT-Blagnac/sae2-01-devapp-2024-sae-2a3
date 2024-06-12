@@ -21,6 +21,11 @@ import model.orm.exception.ApplicationException;
 import model.orm.exception.Order;
 import model.orm.exception.Table;
 
+/**
+ * Contrôleur pour l'édition des informations employé dans une fenêtre.
+ * 
+ * @see EmployeEditorPane
+ */
 public class EmployeEditorPaneViewController {
 
 	// Etat courant de l'application
@@ -36,7 +41,13 @@ public class EmployeEditorPaneViewController {
 	private Employe employeResultat;
 
 	// Manipulation de la fenêtre
-
+	/**
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _em              Le contrôleur de dialogue associé
+	 * @param _dbstate         L'état courant de l'application
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.containingStage = _containingStage;
 		this.dailyBankState = _dbstate;
@@ -46,7 +57,13 @@ public class EmployeEditorPaneViewController {
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
-
+	 /**
+	  * Affiche la boîte de dialogue d'édition des informations employé.
+	  * @param employe L'employé à éditer (null pour une création)
+	  * @param mode Le mode d'édition (création, modification, suppression)
+	  * @return L'employé résultat après l'édition, ou null si aucune édition n'a été
+	 *         effectuée
+	  */
 	public Employe displayDialog(Employe employe, EditionMode mode) {
 
 		this.editionMode = mode;
@@ -101,6 +118,12 @@ public class EmployeEditorPaneViewController {
 	}
 
 	// Gestion du stage
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e
+	 * @return Object null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -128,12 +151,18 @@ public class EmployeEditorPaneViewController {
 	@FXML
 	private Button butCancel;
 
+	/**
+	 * Action associée au bouton Annuler (FXML).
+	 * 
+	 */
 	@FXML
 	private void doCancel() {
 		this.employeResultat = null;
 		this.containingStage.close();
 	}
-
+	/**
+	 * Action associée au bouton Ajouter/Modifier/Supprimer (FXML).
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.editionMode) {
@@ -156,7 +185,16 @@ public class EmployeEditorPaneViewController {
 		}
 
 	}
-
+	/**
+	 * érifie la validité de la saisie des informations employé.
+	 * - Vérifie que les champs ne sont pas vides
+	 * - Vérifie que le login et le mot de passe sont valides
+	 * - Vérifie que le login n'est pas déjà utilisé
+	 * - Vérifie que le mot de passe est assez fort
+	 * 
+	 * @return true si la saisie est valide, false sinon
+	 * 
+	 */
 	private boolean isSaisieValide() {
 		this.employeEdite.nom = this.txtNom.getText().trim();
 		this.employeEdite.prenom = this.txtPrenom.getText().trim();

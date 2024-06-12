@@ -15,6 +15,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 
+/**
+ * Contrôleur pour la fenêtre de gestion des Clients.
+ * 
+ * @see ClientsManagement
+ * @author IUT Blagnac
+ */
 public class ClientsManagementViewController {
 
 	// Etat courant de l'application
@@ -30,6 +36,14 @@ public class ClientsManagementViewController {
 	private ObservableList<Client> oListClients;
 
 	// Manipulation de la fenêtre
+	/**
+	 * Initialise la fenêtre de gestion des Clients
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _cm              Le contrôleur de dialogue associé
+	 * @param _dbstate         L'état courant de l'application
+	 * @author IUT Blagnac
+	 */
 	public void initContext(Stage _containingStage, ClientsManagement _cm, DailyBankState _dbstate) {
 		this.cmDialogController = _cm;
 		this.containingStage = _containingStage;
@@ -37,6 +51,11 @@ public class ClientsManagementViewController {
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre de gestion des Clients
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -48,11 +67,24 @@ public class ClientsManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Affiche la boîte de dialogue de gestion des Clients.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	public void displayDialog() {
 		this.containingStage.showAndWait();
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+	 * @author IUT Blagnac
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -76,11 +108,21 @@ public class ClientsManagementViewController {
 	@FXML
 	private Button btnComptesClient;
 
+	/**
+	 * Ferme la fenêtre de gestion des Clients (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doCancel() {
 		this.containingStage.close();
 	}
 
+	/**
+	 * Recherche les clients en fonction des critères de recherche (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doRechercher() {
 		int numCompte;
@@ -124,6 +166,11 @@ public class ClientsManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Ouvre la fenêtre de gestion des comptes du client sélectionné (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doComptesClient() {
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
@@ -133,6 +180,11 @@ public class ClientsManagementViewController {
 		}
 	}
 
+	/**
+	 * Ouvre la fenêtre de modification du client sélectionné (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doModifierClient() {
 
@@ -146,10 +198,22 @@ public class ClientsManagementViewController {
 		}
 	}
 
+	/**
+	 * Désactive le client sélectionné (bouton FXML).
+	 * - Vérifie que l'employé est bien un chef d'agence
+	 * - Vérifie que le client n'a pas de compte ouvert
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doDesactiverClient() {
 	}
 
+	/**
+	 * Ouvre la fenêtre de création d'un nouveau client (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doNouveauClient() {
 		Client client;
@@ -159,6 +223,12 @@ public class ClientsManagementViewController {
 		}
 	}
 
+	/**
+	 * Actualise l'état des composants de la fenêtre en fonction de l'état du client
+	 * sélectionné
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnDesactClient.setDisable(true);
