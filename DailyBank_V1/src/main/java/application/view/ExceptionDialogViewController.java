@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import application.DailyBankState;
+import application.control.ExceptionDialog;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -12,6 +13,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.orm.exception.ApplicationException;
 
+/**
+ * Contrôleur pour la boîte de dialogue des exceptions.
+ * 
+ * @see ExceptionDialog
+ * @author IUT Blagnac
+ */
 public class ExceptionDialogViewController {
 
 	// Etat courant de l'application
@@ -25,6 +32,14 @@ public class ExceptionDialogViewController {
 
 	// Manipulation de la fenêtre
 
+	/**
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage Le stage contenant la scène
+	 * @param _dbstate         L'état courant de l'application
+	 * @param _ae              L'exception applicative
+	 * @author IUT Blagnac
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate, ApplicationException _ae) {
 		this.containingStage = _containingStage;
 		this.dailyBankState = _dbstate;
@@ -32,6 +47,12 @@ public class ExceptionDialogViewController {
 		this.configure();
 	}
 
+	
+	/**
+	 * Configure les composants de la fenêtre.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 		this.lblTitre.setText(this.aException.getMessage());
@@ -44,11 +65,23 @@ public class ExceptionDialogViewController {
 		this.txtDetails.setText(sw.toString());
 	}
 
+	/**
+	 * Affiche la boîte de dialogue des exceptions.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	public void displayDialog() {
 		this.containingStage.showAndWait();
 	}
 
 	// Gestion du stage
+	/**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e L'événement de fermeture
+	 * @return Object null
+	 * @author IUT Blagnac
+	 */
 	private Object closeWindow(WindowEvent e) {
 		return null;
 	}
@@ -66,6 +99,11 @@ public class ExceptionDialogViewController {
 	@FXML
 	private TextArea txtDetails;
 
+	/**
+	 * Gère la fermeture de la fenêtre (bouton FXML).
+	 * 
+	 * @author IUT Blagnac
+	 */
 	@FXML
 	private void doOK() {
 		this.containingStage.close();

@@ -117,6 +117,7 @@ public class PrelevementManagementController {
 	/**
 	 * Recherche les prélévements automatiques en fonction des critères de recherche (bouton FXML).
 	 * 
+	 * @author AMERI Mohammed
 	 */
 	@FXML
 	private void doRechercher() {
@@ -132,6 +133,7 @@ public class PrelevementManagementController {
 	/**
 	 * Ouvre la fenêtre de création d'un prélèvement (bouton FXML).
 	 * 
+	 * @author Rudy
 	 */
 	@FXML
 	private void doNouveauPrelevement() {
@@ -146,6 +148,7 @@ public class PrelevementManagementController {
 	/**
 	 * Ouvre la fenêtre d'édition d'un prélèvement (bouton FXML).
 	 * 
+	 * @author RAZAFINIRINA Mialisoa
 	 */
 	@FXML
 	private void doModifierPrelevement() {
@@ -164,6 +167,7 @@ public class PrelevementManagementController {
 	/**
 	 * Supprime le prélévement selectionné (bouton FXML).
 	 * 
+	 * @author Daria
 	 */
 	@FXML
 	private void doSupprimerPrelevement() {
