@@ -99,6 +99,7 @@ public class ComptesManagement {
 	 * Gère les prélevements d'un compte 
 	 * 
 	 * @param cpt Compte courant à gérer 
+	 * @author Mohammed
 	 */
 	public void gererPrelevementDUnCompte(CompteCourant cpt) {
 		PrelevementManagement pm = new PrelevementManagement(this.cmStage, this.dailyBankState, cpt);
@@ -188,7 +189,12 @@ public class ComptesManagement {
 			}	
 		}
 	}
-
+	/**
+	 * Cloture un compte.
+	 *
+	 * @param compte Le compte à cloturer
+	 * @author SHULHINA Daria
+	 */
 	public void supprimerCompte(CompteCourant compte) {
         if (compte != null) {
             try {
@@ -210,11 +216,23 @@ public class ComptesManagement {
         }
     }
 	
+	/**
+	 * Simuler un emprunt 
+	 * 
+	 * @author Mohammed
+	 */
 	public void simuEmprunt() {
 		EmpruntEditorPane em = new EmpruntEditorPane(this.cmStage, this.dailyBankState);
 		em.doEmpruntSimulationDialog();
 	}
 
+	/**
+	 * Modifie un compte.
+	 *
+	 * @param cpt Le compte à modifier
+	 * @return Le compte modifié
+	 * @author SHULHINA Daria
+	 */
 	public CompteCourant modifierCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.cmStage, this.dailyBankState);

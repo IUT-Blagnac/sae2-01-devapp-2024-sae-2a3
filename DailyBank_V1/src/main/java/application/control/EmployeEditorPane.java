@@ -21,6 +21,11 @@ import model.data.Employe;
  */
 public class EmployeEditorPane {
 
+	
+	private Stage cepStage;
+	private EmployeEditorPaneViewController cepViewController;
+	private DailyBankState dailyBankState;
+
 	/**
 	 * Constructeur de la classe EmployeEditorPane.
 	 *
@@ -28,10 +33,6 @@ public class EmployeEditorPane {
 	 * @param _dbstate     État courant de l'application
 	 * @author AMERI Mohammed
 	 */
-	private Stage cepStage;
-	private EmployeEditorPaneViewController cepViewController;
-	private DailyBankState dailyBankState;
-
 	public EmployeEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {

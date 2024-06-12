@@ -15,9 +15,11 @@ import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
 /**
- * Classe de contrôleur de Dialogue de la fenêtre de login.
- *
- */
+	 * Affiche la boîte de dialogue des exceptions.
+	 * 
+	 * @see LoginDialofViewController
+	 * @author IUT Blagnac
+	 */
 
 public class LoginDialog {
 
@@ -75,6 +77,7 @@ public class LoginDialog {
 	 * @param login    Login recherché
 	 * @param password Mot de passe recherché
 	 * @return Employe trouvé, null si n'existe pas
+	 * @author Rudy
 	 */
 	public Employe chercherEmployeParLogin(String login, String password) {
 		Employe employe = null;

@@ -11,11 +11,25 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.orm.exception.ApplicationException;
 
+/**
+ * Classe de contrôleur pour la boîte de dialogue des exceptions.
+ * 
+ * @see ExceptionDialogViewController
+ * @author IUT Blagnac
+ */
 public class ExceptionDialog {
 
 	private Stage edStage;
 	private ExceptionDialogViewController edViewController;
 
+	/**
+	 * Constructeur de la classe ExceptionDialog.
+	 * 
+	 * @param _parentStage Le stage parent
+	 * @param _dbstate     L'état courant de l'application
+	 * @param ae           L'exception applicative
+	 * @author IUT Blagnac
+	 */
 	public ExceptionDialog(Stage _parentStage, DailyBankState _dbstate, ApplicationException ae) {
 
 		try {
@@ -41,6 +55,11 @@ public class ExceptionDialog {
 		}
 	}
 
+	/**
+	 * Affiche la boîte de dialogue des exceptions.
+	 * 
+	 * @author IUT Blagnac
+	 */
 	public void doExceptionDialog() {
 		this.edViewController.displayDialog();
 	}

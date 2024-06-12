@@ -16,10 +16,22 @@ import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * Classe responsable de la gestion de la fenêtre d'emprunt 
+ * 
+ * @see EmpruntEditorPaneViewController 
+ */
 public class EmpruntEditorPane {
     private Stage empStage;
 	private EmpruntEditorPaneViewController empViewController;
 
+    /**
+     * Constructeur de la classe EmpruntEditorPane 
+     * 
+     * @param _parentStage Fenêtre parent
+     * @param _dbstate Etat courant de l'application 
+     * @author AMERI Mohammed
+     */
 	public EmpruntEditorPane(Stage _parentStage, DailyBankState _dbstate) {
         try {
 			FXMLLoader loader = new FXMLLoader(OperationEditorPaneViewController.class.getResource("emprunteditorpane.fxml"));
@@ -41,6 +53,11 @@ public class EmpruntEditorPane {
         }
     }
 
+    /**
+     * Affiche la boîte de dialogue d'édition des emprunts
+     * 
+     * @author AMERI Mohammed
+     */
     public void doEmpruntSimulationDialog() {
         this.empStage.showAndWait();
     }

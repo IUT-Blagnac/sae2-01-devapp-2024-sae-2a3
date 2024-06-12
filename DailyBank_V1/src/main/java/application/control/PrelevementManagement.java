@@ -77,6 +77,7 @@ public class PrelevementManagement {
 	 * Crée un nouveau prélèvement.
 	 *
 	 * @return Le prélèvement créé
+	 * @author Rudy
 	 */
 	public Prelevement nouveauPrelevement() {
 		Prelevement pm;
@@ -105,6 +106,7 @@ public class PrelevementManagement {
 	 *
 	 * @param pr Le prélèvement à modifier
 	 * @return Le prélèvement modifié
+	 * @author RAZAFINIRINA Mialisoa
 	 */
 	public Prelevement modifierPrelevement(Prelevement pr) {
 		Prelevement pm;
@@ -131,7 +133,8 @@ public class PrelevementManagement {
 	/**
 	 * Supprime un prélèvement.
 	 *
-	 * @param pr Le prélèvement à modifier
+	 * @param pr Le prélèvement à supprimer
+	 * @author Daria
 	 */
 	public void supprimerPrelevement(Prelevement pr) {
 		if (pr != null) {
@@ -156,6 +159,7 @@ public class PrelevementManagement {
 	 * @param _debutNom    Le début du nom du client
 	 * @param _debutPrenom Le début du prénom du client
 	 * @return La liste des clients correspondant aux critères de recherche
+	 * @author AMERI Mohammed
 	 */
 	public ArrayList<Prelevement> getPrelevements(int idCompte) {
 		ArrayList<Prelevement> listePre = new ArrayList<>();
