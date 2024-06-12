@@ -178,8 +178,14 @@ public class ComptesManagementViewController {
 	 */
 	@FXML
 	private void doModifierCompte() {
-		CompteCourant compte;
-		compte = this.cmDialogController.modifierCompte();
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cptMod = this.oListCompteCourant.get(selectedIndice);
+			CompteCourant result = this.cmDialogController.modifierCompte(cptMod);
+			if (result != null) {
+				this.oListCompteCourant.set(selectedIndice, result);
+			}
+		}
 		this.loadList();
 		this.validateComponentState();
 	}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.DailyBankApp;
 import application.DailyBankState;
+import application.tools.ConstantesIHM;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.ClientsManagementViewController;
@@ -100,6 +101,57 @@ public class ClientsManagement {
 		return result;
 	}
 	
+	/**
+	 * Vérifie si les comptes d'un client sont tous clôturés
+	 *
+	 * @param c Le client sur lequel effectuer la vérification
+	 * @return Le nombre de comptes ouverts du client, -1 en cas d'erreur
+	 * @author KRILL Maxence
+	 */
+	public int verifierCloturer(Client c) {
+		int comptesOuverts = -1;
+		if (c != null) {
+			try {
+				Access_BD_Client ac = new Access_BD_Client();
+				comptesOuverts = ac.verifierCloturer(c.idNumCli);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+			}
+		}
+		return comptesOuverts;
+	}
+
+	/**
+	 * Désactive un client.
+	 *
+	 * @param cliMod Le client à désactiver.
+	 * @return Le client désactivé.
+	 * @author SHULHINA Daria
+	 */
+	public Client clientInactif(Client cliMod) {
+		cliMod.estInactif = ConstantesIHM.CLIENT_INACTIF;
+		if (cliMod != null) {
+			try {
+				Access_BD_Client ac = new Access_BD_Client();
+				ac.updateClient(cliMod);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				cliMod = null;
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				cliMod = null;
+			}
+		}
+		return cliMod;
+	}
 
 	/**
 	 * Crée un nouveau client.

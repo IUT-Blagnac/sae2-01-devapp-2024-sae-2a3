@@ -163,7 +163,33 @@ public class ComptesManagement {
 		return listeCpt;
 	}
 
-
+	/**
+	 * Modifie un compte.
+	 *
+	 * @param cpt Le compte à modifier
+	 * @return Le compte modifié
+	 * @author SHULHINA Daria
+	 */
+	public CompteCourant modifierCompte(CompteCourant cpt) {
+		CompteEditorPane cep = new CompteEditorPane(this.cmStage, this.dailyBankState);
+		CompteCourant result = cep.doCompteEditorDialog(clientDesComptes, cpt, EditionMode.MODIFICATION);
+		if (result != null) {
+			try {
+				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				ac.updateCompteCourant(result);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				result = null;
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				result = null;
+			}
+		}
+		return result;
+	}
 
 	/**
 	 * Cloture un compte.

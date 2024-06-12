@@ -264,4 +264,51 @@ public class Access_BD_Client {
 			throw new DataAccessException(Table.Client, Order.UPDATE, "Erreur accès", e);
 		}
 	}
+
+		/**
+	 * Permet de vérifier si un client peut être rendu inactif (tout ses comptes
+	 * sont clotûrés)
+	 *
+	 * @return -1 en cas d'erreur, sinon le nombre de comptes ouverts
+	 * @param idCli id du client à vérifier (clé primaire)
+	 * @throws RowNotFoundOrTooManyRowsException La requête renvoie plus de 1 ligne
+	 * @throws DataAccessException               Erreur d'accès aux données (requête
+	 *                                           mal formée ou autre)
+	 * @throws DatabaseConnexionException        Erreur de connexion
+	 * @author SHULHINA Daria
+	 */
+	public int verifierCloturer(int idCli)
+			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			String query = "SELECT COUNT(*) AS cloture FROM CompteCourant WHERE idNumCli = ? AND estCloture <> 'O'";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, idCli);
+			ResultSet rs = pst.executeQuery();
+
+			int compteOuvert;
+			if (rs.next()) {
+				compteOuvert = rs.getInt("cloture");
+			} else {
+				// Non trouvé ...
+				rs.close();
+				pst.close();
+				return -1;
+			}
+
+			if (rs.next()) {
+				// Plus de 2 ? Bizarre ...
+				rs.close();
+				pst.close();
+				throw new RowNotFoundOrTooManyRowsException(Table.Client, Order.SELECT,
+						"Recherche anormale (en trouve au moins 2)", null, 2);
+			}
+			rs.close();
+			pst.close();
+			return compteOuvert;
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Client, Order.SELECT, "Erreur accès", e);
+		}
+	}
 }
