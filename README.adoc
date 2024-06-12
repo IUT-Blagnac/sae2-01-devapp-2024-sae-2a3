@@ -42,8 +42,6 @@ https://github.com/madblurryface[SHULHINA Daria] : Développeuse informatique
 | 2       | Guichetier    | CRUD Prélèvement          | R                     | F        |       |          | 
 | 2       | Guichetier    | CRUD Prélèvement          | U                     |          |       | F        | 
 | 2       | Guichetier    | CRUD Prélèvement          | D                     |          |       |          | F
-| 2       | Batch         | Prélèvements automatiques |                       |          |       |          |  
-| 2       | Batch         | Reléves mensuels          |                       |          |       |          | 
 |===
 
 
