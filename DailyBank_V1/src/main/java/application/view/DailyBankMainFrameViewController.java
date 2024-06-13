@@ -2,10 +2,12 @@ package application.view;
 
 import java.time.LocalDate;
 
+import application.DailyBankApp;
 import application.DailyBankState;
 import application.control.DailyBankMainFrame;
 import application.tools.AlertUtilities;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.AgenceBancaire;
 import model.data.Employe;
+import model.data.Theme;
 
 /**
  * Controller JavaFX de la view dailybankmainframe.
@@ -105,6 +108,15 @@ public class DailyBankMainFrameViewController {
 	private Button btnConn;
 	@FXML
 	private Button btnDeconn;
+
+	@FXML
+	private MenuItem mitemClair;
+    @FXML
+	private MenuItem mitemSombre;
+    @FXML
+	private MenuItem mitemVert;
+    @FXML
+	private MenuItem mitemRose;
 
 	// Actions
 
@@ -219,4 +231,39 @@ public class DailyBankMainFrameViewController {
 	private void quitterBD() {
 		this.dbmfDialogController.deconnexionEmploye();
 	}
+	
+	/**
+	 * Mettre le theme choisi
+	 */
+	@FXML
+	private void doMettreTheme(Theme theme) {
+		this.dailyBankState.setThemeActuel(theme);
+
+		// Charger le fichier CSS correspondant au thème choisi
+		String cssFile = theme.getCssFile();
+		String cssPath = DailyBankApp.class.getResource(cssFile).toExternalForm();
+		Scene scene = this.containingStage.getScene();
+		scene.getStylesheets().clear();
+		scene.getStylesheets().add(cssPath);
+
+		dailyBankState.setThemeActuel(theme);
+	}
+
+	/**
+	 * choisir un theme
+	 */
+	@FXML
+    private void handleMenuItemAction(javafx.event.ActionEvent event) {
+        MenuItem menuItem = (MenuItem) event.getSource();
+
+        if (menuItem == mitemClair) {
+            doMettreTheme(Theme.CLAIR);
+        } else if (menuItem == mitemSombre) {
+            doMettreTheme(Theme.SOMBRE);
+        } else if (menuItem == mitemVert) {
+            doMettreTheme(Theme.VERT);
+        } else if (menuItem == mitemRose) {
+            doMettreTheme(Theme.ROSE);
+        }
+    }
 }

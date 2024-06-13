@@ -38,7 +38,7 @@ public class OperationEditorPane {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, 520, 350);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(_dbstate.getThemeActuel().getCssFile()).toExternalForm());
 
 			this.oepStage = new Stage();
 			this.oepStage.initModality(Modality.WINDOW_MODAL);

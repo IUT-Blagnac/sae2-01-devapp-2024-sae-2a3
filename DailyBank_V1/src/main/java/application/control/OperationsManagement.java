@@ -58,7 +58,7 @@ public class OperationsManagement {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, 900 + 20, 350 + 10);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(dailyBankState.getThemeActuel().getCssFile()).toExternalForm());
 
 			this.omStage = new Stage();
 			this.omStage.initModality(Modality.WINDOW_MODAL);

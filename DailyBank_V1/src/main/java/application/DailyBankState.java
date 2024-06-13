@@ -4,6 +4,7 @@ import application.control.ExceptionDialog;
 import application.tools.ConstantesIHM;
 import model.data.AgenceBancaire;
 import model.data.Employe;
+import model.data.Theme;
 import model.orm.Access_BD_AgenceBancaire;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
@@ -17,6 +18,7 @@ import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 public class DailyBankState {
 	private Employe empAct;
+	private Theme theme;
 	private AgenceBancaire agAct;
 	private boolean isChefDAgence;
 
@@ -93,5 +95,23 @@ public class DailyBankState {
 			ca = true;
 		}
 		return ca;
+	}
+
+	/**
+	 * Theme choisi.
+	 *
+	 * @return le theme d'affichage
+	 */
+	public Theme getThemeActuel() {
+		return this.theme;
+	}
+
+	/**
+	 * choisir Theme .
+	 *
+	 * @return le theme d'affichage
+	 */
+	public void setThemeActuel(Theme pfTheme) {
+		this.theme = pfTheme;
 	}
 }

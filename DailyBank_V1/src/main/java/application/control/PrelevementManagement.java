@@ -47,7 +47,7 @@ public class PrelevementManagement {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(dailyBankState.getThemeActuel().getCssFile()).toExternalForm());
 
 			this.pmStage = new Stage();
 			this.pmStage.initModality(Modality.WINDOW_MODAL);

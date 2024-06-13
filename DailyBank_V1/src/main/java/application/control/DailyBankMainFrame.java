@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.data.Theme;
 import model.orm.LogToDatabase;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -38,6 +39,7 @@ public class DailyBankMainFrame extends Application {
 			// Création de l'état courant de l'application
 			this.dailyBankState = new DailyBankState();
 			this.dailyBankState.setEmployeActuel(null);
+			this.dailyBankState.setThemeActuel(Theme.CLAIR);
 
 			// Chargement du source fxml
 			FXMLLoader loader = new FXMLLoader(
@@ -46,7 +48,7 @@ public class DailyBankMainFrame extends Application {
 
 			// Paramétrage du Stage : feuille de style, titre
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource("clair.css").toExternalForm());
 
 			this.dbmfStage.setScene(scene);
 			this.dbmfStage.setTitle("Fenêtre Principale");

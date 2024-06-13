@@ -40,7 +40,7 @@ public class ClientEditorPane {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(dailyBankState.getThemeActuel().getCssFile()).toExternalForm());
 
 			this.cepStage = new Stage();
 			this.cepStage.initModality(Modality.WINDOW_MODAL);

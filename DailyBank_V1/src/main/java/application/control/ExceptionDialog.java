@@ -37,7 +37,7 @@ public class ExceptionDialog {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, 700 + 20, 400 + 10);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(_dbstate.getThemeActuel().getCssFile()).toExternalForm());
 
 			this.edStage = new Stage();
 			this.edStage.initModality(Modality.WINDOW_MODAL);

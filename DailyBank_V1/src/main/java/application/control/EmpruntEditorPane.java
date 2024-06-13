@@ -36,7 +36,7 @@ public class EmpruntEditorPane {
         try {
 			FXMLLoader loader = new FXMLLoader(OperationEditorPaneViewController.class.getResource("emprunteditorpane.fxml"));
 			Scene scene = new Scene(loader.load());
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(_dbstate.getThemeActuel().getCssFile()).toExternalForm());
 
             this.eepStage = new Stage();
             this.eepStage.initModality(Modality.WINDOW_MODAL);

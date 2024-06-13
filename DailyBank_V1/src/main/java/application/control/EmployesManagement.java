@@ -46,7 +46,7 @@ public class EmployesManagement {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(dailyBankState.getThemeActuel().getCssFile()).toExternalForm());
 
 			this.emStage = new Stage();
 			this.emStage.initModality(Modality.WINDOW_MODAL);

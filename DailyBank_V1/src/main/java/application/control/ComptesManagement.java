@@ -56,7 +56,7 @@ public class ComptesManagement {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(DailyBankApp.class.getResource(dailyBankState.getThemeActuel().getCssFile()).toExternalForm());
 
 			this.cmStage = new Stage();
 			this.cmStage.initModality(Modality.WINDOW_MODAL);

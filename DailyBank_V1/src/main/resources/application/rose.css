@@ -1,8 +1,8 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* JavaFX CSS - Leave this comment until you have at least created one rule which uses -fx-Property */
 
 .root {
     -fx-font-size: 12pt;
-    -fx-background-color: rgb(208, 231, 210); /* Couleur de fond principale */
+    -fx-background-color: rgb(255, 229, 229); /* Couleur de fond principale */
 }
 
 .bold {
@@ -18,7 +18,7 @@
 }
 
 .borderred {
-    -fx-text-fill: rgb(97, 130, 100); /* Couleur de texte rouge */
+    -fx-text-fill: rgb(93, 18, 210); /* Couleur de texte rouge */
 }
 
 #Text {
@@ -27,7 +27,7 @@
 }
 
 .button {
-    -fx-background-color: rgb(121, 172, 120); /* Couleur de fond des boutons */
+    -fx-background-color: rgb(185, 49, 252); /* Couleur de fond des boutons */
     -fx-text-fill: white; /* Couleur du texte */
     -fx-font-size: 13pt;
     -fx-border-radius: 5px; /* Rayon de la bordure */
@@ -35,14 +35,14 @@
 }
 
 .button:hover {
-    -fx-background-color: rgb(176, 217, 177); /* Couleur de fond au survol */
+    -fx-background-color: rgb(255, 106, 194); /* Couleur de fond au survol */
     -fx-text-fill: black; /* Couleur du texte au survol */
 }
 
 /* Style pour la MenuBar */
 .menu-bar {
     -fx-padding: 5px; /* Espacement interne */
-    -fx-background-color: rgb(208, 231, 210); /* Couleur de fond de la MenuBar */
+    -fx-background-color: rgb(255, 229, 229); /* Couleur de fond de la MenuBar */
 }
 
 /* Style pour les Menu */
@@ -54,7 +54,7 @@
 }
 
 .menu:hover {
-    -fx-background-color: rgb(176, 217, 177); /* Couleur de fond au survol */
+    -fx-background-color: rgb(255, 106, 194); /* Couleur de fond au survol */
     -fx-text-fill: black; /* Couleur du texte au survol */
 }
 
@@ -68,6 +68,6 @@
 }
 
 .menu-item:hover {
-    -fx-background-color: rgb(97, 130, 100); /* Couleur de fond au survol (transparent pour éviter le blanc) */
-    -fx-text-fill: black; /* Couleur du texte au survol */
+    -fx-background-color: rgb(93, 18, 210); /* Couleur de fond au survol (transparent pour éviter le blanc) */
+    -fx-text-fill: white; /* Couleur du texte au survol */
 }

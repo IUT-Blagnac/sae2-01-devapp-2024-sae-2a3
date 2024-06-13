@@ -7,7 +7,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,6 +14,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="350.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.DailyBankMainFrameViewController">
    <top>
@@ -32,11 +32,18 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Gestion">
                   <items>
-                    <MenuItem fx:id="mitemClient" disable="true" mnemonicParsing="false" onAction="#doClientOption" text="Clients" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="mitemEmploye" disable="true" mnemonicParsing="false" onAction="#doEmployeOption" text="Employés" />
+                     <MenuItem fx:id="mitemClient" disable="true" mnemonicParsing="false" onAction="#doClientOption" text="Clients" />
+                     <MenuItem fx:id="mitemEmploye" disable="true" mnemonicParsing="false" onAction="#doEmployeOption" text="Employés" />
                   </items>
                 </Menu>
+                <Menu mnemonicParsing="false" text="Thème">
+                     <items>
+                        <MenuItem fx:id="mitemClair" mnemonicParsing="false" onAction="#handleMenuItemAction" text="Clair" />
+                        <MenuItem fx:id="mitemSombre" mnemonicParsing="false" onAction="#handleMenuItemAction" text="Sombre" />
+                        <MenuItem fx:id="mitemVert" mnemonicParsing="false" onAction="#handleMenuItemAction" text="Vert" />
+                        <MenuItem fx:id="mitemRose" mnemonicParsing="false" onAction="#handleMenuItemAction" text="Rose" />
+                     </items>
+                  </Menu>
                 <Menu mnemonicParsing="false" text="?">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#doActionAide" text="Aide" />
@@ -57,30 +64,24 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TitledPane animated="false" collapsible="false" text="Agence">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="lblAg" layoutX="29.0" layoutY="24.0" styleClass="bold" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <Label fx:id="lblAdrAg" layoutX="29.0" layoutY="56.0" prefHeight="21.0" prefWidth="390.0" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
-                     </children>
-                  </AnchorPane>
-               </content>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </TitledPane>
-            <TitledPane animated="false" collapsible="false" text="Employé" GridPane.rowIndex="1">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="lblEmpNom" layoutX="27.0" layoutY="16.0" styleClass="bold" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <Label fx:id="lblEmpPrenom" layoutX="38.0" layoutY="51.0" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </TitledPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text fx:id="Text" strokeType="OUTSIDE" strokeWidth="0.0" text="Agence" />
+                  <Label fx:id="lblAg" layoutX="29.0" layoutY="24.0" styleClass="bold" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Label fx:id="lblAdrAg" layoutX="29.0" layoutY="56.0" prefHeight="21.0" prefWidth="390.0" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Text fx:id="Text" strokeType="OUTSIDE" strokeWidth="0.0" text="Employé" />
+                  <Label fx:id="lblEmpNom" layoutX="27.0" layoutY="16.0" styleClass="bold" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Label fx:id="lblEmpPrenom" layoutX="38.0" layoutY="51.0" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
+               </children>
+            </AnchorPane>
          </children>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" top="40.0" />
+         </BorderPane.margin>
       </GridPane>
    </center>
    <bottom>
