@@ -66,6 +66,9 @@
                      </children>
                   </AnchorPane>
                </content>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
             </TitledPane>
             <TitledPane animated="false" collapsible="false" text="Employé" GridPane.rowIndex="1">
               <content>

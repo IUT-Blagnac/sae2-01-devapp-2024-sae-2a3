@@ -2,6 +2,8 @@
 
 .root {
 	-fx-font-size:12pt;
+	-fx-background-color:#E1AFD1;
+
 }
 
 .bold {
@@ -10,6 +12,7 @@
 
 .borderlight {
 	-fx-border-color:black;
+	-fx-background-color:#E1AFD1;
 }
 
 .courrierNew {
@@ -18,4 +21,55 @@
 
 .borderred {
 	-fx-text-fill: red;
+}
+
+.button {
+    -fx-background-color: #7469B6;
+    -fx-text-fill: white;
+    -fx-font-size: 13pt;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #7469B6;
+}
+
+/* Style pour la MenuBar */
+.menu-bar {
+    -fx-background-color: #E1AFD1; /* Couleur de fond de la MenuBar */
+    -fx-padding: 5px; /* Espacement interne */
+}
+
+/* Style pour les Menu */
+.menu {
+    -fx-text-fill: white; /* Couleur du texte des menus */
+    -fx-font-size: 14pt; /* Taille de la police */
+}
+
+.menu:hover {
+    -fx-background-color: #E1AFD1; /* Couleur de fond au survol */
+}
+
+/* Style pour les MenuItem */
+.menu-item {
+    -fx-text-fill: #E1AFD1; /* Couleur du texte des éléments de menu */
+    -fx-font-size: 12pt; /* Taille de la police */
+    -fx-padding: 5px 10px; /* Espacement interne */
+}
+
+.menu-item:hover {
+    -fx-background-color: #cccccc; /* Couleur de fond au survol */
+}
+
+/* TitledPane styling */
+.titled-pane > .title {
+    -fx-background-color: #E1AFD1;
+    -fx-text-fill: white;
+    -fx-font-size: 16pt;
+}
+
+.titled-pane > .content {
+    -fx-background-color: #FFE6E6;
+    -fx-padding: -10px;
 }

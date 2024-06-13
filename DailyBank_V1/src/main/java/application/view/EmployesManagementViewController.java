@@ -210,7 +210,11 @@ public class EmployesManagementViewController {
 			this.oListEmployes.add(employe);
 		}
 	}
-
+	/**
+	 * Active/Désactie les boutons en fonction de l'état du compte selectionné
+	 * 
+	 * @author AMERI Mohammed
+	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnSupprEmploye.setDisable(false);

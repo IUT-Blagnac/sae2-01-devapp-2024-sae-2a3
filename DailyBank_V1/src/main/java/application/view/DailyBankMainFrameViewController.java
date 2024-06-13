@@ -59,7 +59,7 @@ public class DailyBankMainFrameViewController {
 		this.btnConn.requestFocus();
 	}
 
-	/*
+	/**
 	 * Configuration de DailyBankMainFrameController. Fermeture par la croix,
 	 * bindings des boutons connexion/déconnexion.
 	 */
@@ -69,7 +69,7 @@ public class DailyBankMainFrameViewController {
 		this.btnDeconn.managedProperty().bind(this.btnDeconn.visibleProperty());
 	}
 
-	/*
+	/**
 	 * Méthode de fermeture de la fenêtre par la croix.
 	 *
 	 * @param e Evénement associé (inutilisé pour le moment)
@@ -108,7 +108,7 @@ public class DailyBankMainFrameViewController {
 
 	// Actions
 
-	/*
+	/**
 	 * Action menu quitter. Demander une confirmation puis fermer la fenêtre (donc
 	 * l'application car fenêtre principale).
 	 */
@@ -122,17 +122,17 @@ public class DailyBankMainFrameViewController {
 		}
 	}
 
-	/*
+	/**
 	 * Action menu aide. Affichage d'une alerte simplement avec information.
 	 */
 	@FXML
 	private void doActionAide() {
-		String contenu = "DailyBank v1.01\nSAE 2.01 Développement\nIUT-Blagnac";
+		String contenu = "DailyBank V2\nSAE 2.01 Développement\nIUT-Blagnac\nDéveloppeurs :\nAMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria";
 		AlertUtilities.showAlert(this.containingStage, "Aide", null, contenu, AlertType.INFORMATION);
 		this.btnConn.requestFocus();
 	}
 
-	/*
+	/**
 	 * Action login. Demande au contrôleur de dialogue de lancer le login puis maj
 	 * de la fenêtre.
 	 */
@@ -143,7 +143,7 @@ public class DailyBankMainFrameViewController {
 		this.validateComponentState();
 	}
 
-	/*
+	/**
 	 * Action déconnexion. Demande au contrôleur de dialogue de réaliser la
 	 * déconnexion puis maj de la fenêtre.
 	 */
@@ -154,7 +154,7 @@ public class DailyBankMainFrameViewController {
 		this.btnConn.requestFocus();
 	}
 
-	/*
+	/**
 	 * Mise à jour de la fenêtre Les champs d'affichage de la banque et de l'employé
 	 * sont mis à jour. Les boutons de connexion/déconnexion et les menus sont mis à
 	 * jour. Si un employé est connecté : les champs sont remplis et les
@@ -194,7 +194,7 @@ public class DailyBankMainFrameViewController {
 		}
 	}
 
-	/*
+	/**
 	 * Action menu client. Demande au contrôleur de dialogue de lancer la gestion
 	 * client
 	 */
@@ -203,7 +203,7 @@ public class DailyBankMainFrameViewController {
 		this.dbmfDialogController.gestionClients();
 	}
 
-	/*
+	/**
 	 * Action menu Employé. Not Yet Implemented. Pour le moment : une alerte
 	 * d'information
 	 */
@@ -212,7 +212,7 @@ public class DailyBankMainFrameViewController {
 		this.dbmfDialogController.gestionEmployes();
 	}
 
-	/*
+	/**
 	 * Se déconnecter de la bd oracle. Demande au contrôleur de dialogue de se
 	 * déconnecter.
 	 */

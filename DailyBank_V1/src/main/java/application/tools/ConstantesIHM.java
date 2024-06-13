@@ -96,10 +96,22 @@ public class ConstantesIHM {
 		return c.estInactif.equals(ConstantesIHM.CLIENT_ACTIF);
 	}
 
+	/**
+	 * Teste si un compte est ouvert.
+	 *
+	 * @param cc CompteCourant à tester
+	 * @return true si le compte est actif, false sinon
+	 */
 	public static boolean estOuvert(CompteCourant cc) {
 		return cc.estCloture.equals(ConstantesIHM.COMPTE_ACTIF);
 	}
 
+	/**
+	 * Teste si un compte est cloturé.
+	 *
+	 * @param cc CompteCourant à tester
+	 * @return true si le compte est cloturé, false sinon
+	 */
 	public static boolean estCloture(CompteCourant cc) {
 		return cc.estCloture.equals(ConstantesIHM.COMPTE_INACTIF);
 	}

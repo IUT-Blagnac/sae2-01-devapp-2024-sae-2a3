@@ -74,6 +74,8 @@ public class PrelevementEditorController {
 	 * @param pm   Le prélèvement à éditer
 	 * @param mode Le mode d'édition (ajout ou modification)
 	 * @return Le prélèvement édité ou null si l'opération a été annulée
+	 * 
+	 * @author SHULHINA Daria
 	 */
 	public Prelevement displayDialog(Prelevement pm, EditionMode mode, CompteCourant cpte) {
 		this.compteEdite = cpte;

@@ -3,6 +3,7 @@ package application.view;
 import java.util.regex.Pattern;
 
 import application.DailyBankState;
+import application.control.EmployeEditorPane;
 import application.control.ExceptionDialog;
 import application.tools.AlertUtilities;
 import application.tools.ConstantesIHM;
@@ -54,16 +55,21 @@ public class EmployeEditorPaneViewController {
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre d'édition des Employers
+	 * 
+	 * @author IUT Blagnac
+	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
-	 /**
-	  * Affiche la boîte de dialogue d'édition des informations employé.
-	  * @param employe L'employé à éditer (null pour une création)
-	  * @param mode Le mode d'édition (création, modification, suppression)
-	  * @return L'employé résultat après l'édition, ou null si aucune édition n'a été
-	 *         effectuée
-	  */
+	/**
+	 * Affiche la boîte de dialogue d'édition des informations employé.
+	* @param employe L'employé à éditer (null pour une création)
+	* @param mode Le mode d'édition (création, modification, suppression)
+	* @return L'employé résultat après l'édition, ou null si aucune édition n'a été
+	*         effectuée
+	*/
 	public Employe displayDialog(Employe employe, EditionMode mode) {
 
 		this.editionMode = mode;
@@ -186,7 +192,7 @@ public class EmployeEditorPaneViewController {
 
 	}
 	/**
-	 * érifie la validité de la saisie des informations employé.
+	 * - vérifie la validité de la saisie des informations employé.
 	 * - Vérifie que les champs ne sont pas vides
 	 * - Vérifie que le login et le mot de passe sont valides
 	 * - Vérifie que le login n'est pas déjà utilisé

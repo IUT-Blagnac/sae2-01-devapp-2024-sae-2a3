@@ -190,6 +190,11 @@ public class ComptesManagementViewController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Ouvre la fenêtre de confirmation cloturation de comptes (bouton FXML).
+	 * 
+	 * @author SHULHINA Daria
+	 */
 	@FXML
 	private void doCloturerCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();

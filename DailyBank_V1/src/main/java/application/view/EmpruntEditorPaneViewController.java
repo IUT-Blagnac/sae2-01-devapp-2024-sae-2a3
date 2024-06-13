@@ -30,7 +30,11 @@ public class EmpruntEditorPaneViewController {
         this.dailyBankState = _dbstate;
         this.configure();
     }
-
+    /**
+	 * Configure la fenêtre de simulation des Emprunts/Assurance.
+	 * 
+	 * @author AMERI Mohammed
+	 */
     private void configure() {
         this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
         this.cmbTypeSimulation.setItems(FXCollections.observableArrayList("Emprunt", "Assurance"));
@@ -38,11 +42,24 @@ public class EmpruntEditorPaneViewController {
         this.updateLabels();
     }
 
+    /**
+	  * Affiche la boîte de dialogue de simulation des Emprunts/Assurances.
+      *
+      * @author AMERI Mohammed
+	  */
     public void displayDialog() {
         this.containingStage.showAndWait();
     }
 
     // Gestion du stage
+    /**
+	 * Ferme la fenêtre.
+	 * 
+	 * @param e
+	 * @return Object null
+     * 
+     * @author AMERI Mohammed
+	 */
     private Object closeWindow(WindowEvent e) {
         this.doCancel();
         e.consume();
@@ -72,11 +89,21 @@ public class EmpruntEditorPaneViewController {
     @FXML
     private Button btnCancel;
 
+    /**
+	 * Action associée au bouton Annuler (FXML).
+	 * 
+     * @author AMERI Mohammed
+	 */
     @FXML
     private void doCancel() {
         this.containingStage.close();
     }
 
+    /**
+	 * Action associée à la simulation d'emprunt/assurance (FXML).
+     * 
+     * @author AMERI Mohammed
+	 */
     @FXML
     private void doSimuler() {
         if (this.isSaisieValide()) {
@@ -100,6 +127,11 @@ public class EmpruntEditorPaneViewController {
         }
     }
 
+    /**
+	 * Action associée au bouton d'affichage de l'emprunt/assurance(FXML).
+     * 
+     * @author AMERI Mohammed
+	 */
     private void afficherNotification(String titre, String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(titre);
@@ -113,6 +145,15 @@ public class EmpruntEditorPaneViewController {
         alert.showAndWait();
     }
 
+    /**
+	 * - vérifie la validité de la saisie des informations pour la simulation.
+	 * - Vérifie que les champs ne sont pas vides
+	 * - Vérifie que les valeurs soit positives et numériques
+	 * 
+	 * @return true si la saisie est valide, false sinon
+     * 
+     * @author AMERI Mohammed
+	 */
     private boolean isSaisieValide() {
         if (this.txtMontant.getText().isEmpty() || this.txtTaux.getText().isEmpty() || this.txtDuree.getText().isEmpty()) {
             AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Veuillez remplir tous les champs.", AlertType.WARNING);
@@ -136,6 +177,11 @@ public class EmpruntEditorPaneViewController {
         return true;
     }
 
+    /**
+	 * change le label des cases à remplir emprunt/assurance.
+     * 
+     * @author AMERI Mohammed
+	 */
     private void updateLabels() {
         String selection = this.cmbTypeSimulation.getValue();
         boolean isEmprunt = "Emprunt".equals(selection);

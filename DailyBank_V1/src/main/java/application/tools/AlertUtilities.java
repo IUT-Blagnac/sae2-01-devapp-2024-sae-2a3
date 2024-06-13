@@ -71,6 +71,15 @@ public class AlertUtilities {
 		alert.showAndWait();
 	}
 
+	/**
+	 * Affiche une message de confirmation d'un message avec boutons Ok/Annuler.
+	 *
+	 * @param _fen     Fenêtre (Stage) sur laquelle le dialogue se centre et est
+	 *                 modal.
+	 * @param _title   Titre du dialogue
+	 * @param _message Message à confirmer
+	 * @return true si dialogue confirmé, false sinon
+	 */
 	public static boolean showAlertConfirmation(Stage owner, String title, String message) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(owner);

@@ -53,7 +53,7 @@ public class CompteEditorPaneViewController {
 
 
 	/**
-	 * Configure la fenêtre de gestion des Clients
+	 * Configure la fenêtre d'édition des Clients
 	 * 
 	 * @author IUT Blagnac
 	 */

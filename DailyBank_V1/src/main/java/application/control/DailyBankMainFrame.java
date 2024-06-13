@@ -51,29 +51,6 @@ public class DailyBankMainFrame extends Application {
 			this.dbmfStage.setScene(scene);
 			this.dbmfStage.setTitle("Fenêtre Principale");
 
-			/*
-			 * // En mise au point : // Forcer une connexion existante pour rentrer dans
-			 * l'appli en mode connecté
-			 * 
-			 * try { Employe e; Access_BD_Employe ae = new Access_BD_Employe();
-			 * 
-			 * e = ae.getEmploye("Tuff", "Lejeune");
-			 * 
-			 * if (e == null) { System.out.println("\n\nPB DE CONNEXION\n\n"); } else {
-			 * this.dailyBankState.setEmployeActuel(e); } } catch
-			 * (DatabaseConnexionException e) { ExceptionDialog ed = new
-			 * ExceptionDialog(this.dbmfStage, this.dailyBankState, e);
-			 * ed.doExceptionDialog(); this.dailyBankState.setEmployeActuel(null); } catch
-			 * (ApplicationException ae) { ExceptionDialog ed = new
-			 * ExceptionDialog(this.dbmfStage, this.dailyBankState, ae);
-			 * ed.doExceptionDialog(); this.dailyBankState.setEmployeActuel(null); }
-			 * 
-			 * if (this.dailyBankState.getEmployeActuel() != null) {
-			 * this.dailyBankState.setEmployeActuel(this.dailyBankState.getEmployeActuel());
-			 * }
-			 * 
-			 */
-
 			// Récupération du contrôleur et initialisation (stage, contrôleur de dialogue,
 			// état courant)
 			DailyBankMainFrameViewController dbmfViewController = loader.getController();
