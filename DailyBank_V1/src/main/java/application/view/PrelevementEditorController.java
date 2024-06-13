@@ -23,7 +23,7 @@ public class PrelevementEditorController {
 	private DailyBankState dailyBankState;
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
-	private Stage cmStage;
+	private Stage peStage;
 
 	// Données de la fenêtre
 
@@ -41,7 +41,7 @@ public class PrelevementEditorController {
 	 * @param _dbstate         L'état courant de l'application
 	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
-		this.cmStage = _containingStage;
+		this.peStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
@@ -51,7 +51,7 @@ public class PrelevementEditorController {
 	 * 
 	 */
 	private void configure() {
-		this.cmStage.setOnCloseRequest(e -> this.closeWindow(e));
+		this.peStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
 	// Gestion du stage
@@ -123,7 +123,7 @@ public class PrelevementEditorController {
 
 		this.prelevementResultat = null;
 
-		this.cmStage.showAndWait();
+		this.peStage.showAndWait();
 		return this.prelevementResultat;
 	}
 
@@ -149,7 +149,7 @@ public class PrelevementEditorController {
 	@FXML
 	private void doCancel() {
 		this.prelevementResultat = null;
-		this.cmStage.close();
+		this.peStage.close();
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class PrelevementEditorController {
 	private void doAjouter() {
 		if (this.isSaisieValide()) {
 			this.prelevementResultat = this.prelevementEdite;
-			this.cmStage.close();
+			this.peStage.close();
 		}
 	}
 
@@ -174,7 +174,7 @@ public class PrelevementEditorController {
 	 */
 	private boolean isSaisieValide() {
 		while (this.txtbeneficiaire.getText().isEmpty() || this.txtmontant.getText().isEmpty() || this.txtdate.getText().isEmpty()) {
-			AlertUtilities.showAlert(this.cmStage, "Erreur saisie", "Champs non remplis",
+			AlertUtilities.showAlert(this.peStage, "Erreur saisie", "Champs non remplis",
 					"Veuillez remplir tous les champs", AlertType.ERROR);
 			return false;
 		}
@@ -185,13 +185,13 @@ public class PrelevementEditorController {
 		this.prelevementEdite.idNumCompte = this.compteEdite.idNumCompte;
 
 		if (this.prelevementEdite.date < 1 || this.prelevementEdite.date > 28) {
-			AlertUtilities.showAlert(this.cmStage, "Erreur date", "La date n'est pas valide",
+			AlertUtilities.showAlert(this.peStage, "Erreur date", "La date n'est pas valide",
 					"Veuillez rentrer une date entre 1 et 28", AlertType.ERROR);
 			this.txtdate.requestFocus();
 			return false;
 		}
 		if (this.prelevementEdite.montant <= 0) {
-			AlertUtilities.showAlert(this.cmStage, "Erreur montant", "Le montant n'est pas valide",
+			AlertUtilities.showAlert(this.peStage, "Erreur montant", "Le montant n'est pas valide",
 					"Veuillez entrez un montant positif", AlertType.ERROR);
 			this.txtmontant.requestFocus();
 			return false;

@@ -29,9 +29,9 @@ import model.orm.exception.DatabaseConnexionException;
 
 public class EmployesManagement {
 
-	private Stage cmStage;
+	private Stage emStage;
 	private DailyBankState dailyBankState;
-	private EmployesManagementViewController cmViewController;
+	private EmployesManagementViewController emViewController;
 
 	/**
 	 * Constructeur de la classe EmployesManagement.
@@ -48,16 +48,16 @@ public class EmployesManagement {
 			Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
-			this.cmStage = new Stage();
-			this.cmStage.initModality(Modality.WINDOW_MODAL);
-			this.cmStage.initOwner(_parentStage);
-			StageManagement.manageCenteringStage(_parentStage, this.cmStage);
-			this.cmStage.setScene(scene);
-			this.cmStage.setTitle("Gestion des employes");
-			this.cmStage.setResizable(false);
+			this.emStage = new Stage();
+			this.emStage.initModality(Modality.WINDOW_MODAL);
+			this.emStage.initOwner(_parentStage);
+			StageManagement.manageCenteringStage(_parentStage, this.emStage);
+			this.emStage.setScene(scene);
+			this.emStage.setTitle("Gestion des employes");
+			this.emStage.setResizable(false);
 
-			this.cmViewController = loader.getController();
-			this.cmViewController.initContext(this.cmStage, this, _dbstate);
+			this.emViewController = loader.getController();
+			this.emViewController.initContext(this.emStage, this, _dbstate);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,7 +71,7 @@ public class EmployesManagement {
 	 * @author AMERI Mohammed 
 	 */
 	public void doEmployeManagementDialog() {
-		this.cmViewController.displayDialog();
+		this.emViewController.displayDialog();
 	}
 
 
@@ -83,19 +83,19 @@ public class EmployesManagement {
 	 * @author RAZAFINIRINA Mialisoa 
 	 */
 	public Employe modifierEmploye(Employe c) {
-		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
+		EmployeEditorPane cep = new EmployeEditorPane(this.emStage, this.dailyBankState);
 		Employe result = cep.doEmployeEditorDialog(c, EditionMode.MODIFICATION);
 		if (result != null) {
 			try {
 				Access_BD_Employe ac = new Access_BD_Employe();
 				ac.updateEmploye(result);
 			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
 				result = null;
-				this.cmStage.close();
+				this.emStage.close();
 			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, ae);
 				ed.doExceptionDialog();
 				result = null;
 			}
@@ -112,7 +112,7 @@ public class EmployesManagement {
 	 */
 	public Employe nouveauEmploye() {
 		Employe employe;
-		EmployeEditorPane cep = new EmployeEditorPane(this.cmStage, this.dailyBankState);
+		EmployeEditorPane cep = new EmployeEditorPane(this.emStage, this.dailyBankState);
 		employe = cep.doEmployeEditorDialog(null, EditionMode.CREATION);
 		if (employe != null) {
 			try {
@@ -120,12 +120,12 @@ public class EmployesManagement {
 
 				ac.insertEmploye(employe);
 			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
-				this.cmStage.close();
+				this.emStage.close();
 				employe = null;
 			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, ae);
 				ed.doExceptionDialog();
 				employe = null;
 			}
@@ -144,12 +144,12 @@ public class EmployesManagement {
 			Access_BD_Employe ac = new Access_BD_Employe();
 			ac.deleteEmploye(c);
 		} catch (DatabaseConnexionException e) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+			ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, e);
 			ed.doExceptionDialog();
 			c = null;
-			this.cmStage.close();
+			this.emStage.close();
 		} catch (ApplicationException ae) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+			ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, ae);
 			ed.doExceptionDialog();
 			c = null;
 		}
@@ -173,12 +173,12 @@ public class EmployesManagement {
 			listeEmp = ac.getEmployes(this.dailyBankState.getEmployeActuel().idAg, _idEmploye, _debutNom, _debutPrenom);
 
 		} catch (DatabaseConnexionException e) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+			ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, e);
 			ed.doExceptionDialog();
-			this.cmStage.close();
+			this.emStage.close();
 			listeEmp = new ArrayList<>();
 		} catch (ApplicationException ae) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+			ExceptionDialog ed = new ExceptionDialog(this.emStage, this.dailyBankState, ae);
 			ed.doExceptionDialog();
 			listeEmp = new ArrayList<>();
 		}

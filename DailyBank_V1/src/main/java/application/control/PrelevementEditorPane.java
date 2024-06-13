@@ -23,7 +23,7 @@ import model.data.Prelevement;
 public class PrelevementEditorPane {
 
 	private Stage pepStage;
-	private PrelevementEditorController cepViewController;
+	private PrelevementEditorController pepViewController;
 	private DailyBankState dailyBankState;
 
 	/**
@@ -50,8 +50,8 @@ public class PrelevementEditorPane {
 			this.pepStage.setTitle("Gestion d'un prélèvement");
 			this.pepStage.setResizable(false);
 
-			this.cepViewController = loader.getController();
-			this.cepViewController.initContext(this.pepStage, this.dailyBankState);
+			this.pepViewController = loader.getController();
+			this.pepViewController.initContext(this.pepStage, this.dailyBankState);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,6 +66,6 @@ public class PrelevementEditorPane {
 	 * @return Le prélèvement modifié
 	 */
 	public Prelevement doPrelevementEditorDialog(Prelevement pm, EditionMode em, CompteCourant cc) {
-		return this.cepViewController.displayDialog(pm, em, cc);
+		return this.pepViewController.displayDialog(pm, em, cc);
 	}
 }

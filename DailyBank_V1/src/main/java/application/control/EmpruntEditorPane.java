@@ -22,8 +22,8 @@ import model.data.Operation;
  * @see EmpruntEditorPaneViewController 
  */
 public class EmpruntEditorPane {
-    private Stage empStage;
-	private EmpruntEditorPaneViewController empViewController;
+    private Stage eepStage;
+	private EmpruntEditorPaneViewController eepViewController;
 
     /**
      * Constructeur de la classe EmpruntEditorPane 
@@ -38,15 +38,15 @@ public class EmpruntEditorPane {
 			Scene scene = new Scene(loader.load());
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
-            this.empStage = new Stage();
-            this.empStage.initModality(Modality.WINDOW_MODAL);
-            this.empStage.initOwner(_parentStage);
-            this.empStage.setScene(scene);
-            this.empStage.setTitle("Simulation d'emprunt/assurance");
-            this.empStage.setResizable(false);
+            this.eepStage = new Stage();
+            this.eepStage.initModality(Modality.WINDOW_MODAL);
+            this.eepStage.initOwner(_parentStage);
+            this.eepStage.setScene(scene);
+            this.eepStage.setTitle("Simulation d'emprunt/assurance");
+            this.eepStage.setResizable(false);
 
-            this.empViewController = loader.getController();
-            this.empViewController.initContext(this.empStage, _dbstate);
+            this.eepViewController = loader.getController();
+            this.eepViewController.initContext(this.eepStage, _dbstate);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,6 +59,6 @@ public class EmpruntEditorPane {
      * @author AMERI Mohammed
      */
     public void doEmpruntSimulationDialog() {
-        this.empStage.showAndWait();
+        this.eepStage.showAndWait();
     }
 }

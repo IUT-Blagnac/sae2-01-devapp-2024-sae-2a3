@@ -22,8 +22,8 @@ import model.data.Employe;
 public class EmployeEditorPane {
 
 	
-	private Stage cepStage;
-	private EmployeEditorPaneViewController cepViewController;
+	private Stage eepStage;
+	private EmployeEditorPaneViewController eepViewController;
 	private DailyBankState dailyBankState;
 
 	/**
@@ -42,16 +42,16 @@ public class EmployeEditorPane {
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
-			this.cepStage = new Stage();
-			this.cepStage.initModality(Modality.WINDOW_MODAL);
-			this.cepStage.initOwner(_parentStage);
-			StageManagement.manageCenteringStage(_parentStage, this.cepStage);
-			this.cepStage.setScene(scene);
-			this.cepStage.setTitle("Gestion d'un employe");
-			this.cepStage.setResizable(false);
+			this.eepStage = new Stage();
+			this.eepStage.initModality(Modality.WINDOW_MODAL);
+			this.eepStage.initOwner(_parentStage);
+			StageManagement.manageCenteringStage(_parentStage, this.eepStage);
+			this.eepStage.setScene(scene);
+			this.eepStage.setTitle("Gestion d'un employe");
+			this.eepStage.setResizable(false);
 
-			this.cepViewController = loader.getController();
-			this.cepViewController.initContext(this.cepStage, this.dailyBankState);
+			this.eepViewController = loader.getController();
+			this.eepViewController.initContext(this.eepStage, this.dailyBankState);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,6 +67,6 @@ public class EmployeEditorPane {
 	 * @author AMERI Mohammed
 	 */
 	public Employe doEmployeEditorDialog(Employe employe, EditionMode em) {
-		return this.cepViewController.displayDialog(employe, em);
+		return this.eepViewController.displayDialog(employe, em);
 	}
 }

@@ -27,7 +27,7 @@ import model.orm.exception.DatabaseConnexionException;
  */
 public class PrelevementManagement {
 
-	private Stage cmStage;
+	private Stage pmStage;
 	private DailyBankState dailyBankState;
 	private PrelevementManagementController pmcViewController;
 	private CompteCourant compteConcerne;
@@ -49,16 +49,16 @@ public class PrelevementManagement {
 			Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
-			this.cmStage = new Stage();
-			this.cmStage.initModality(Modality.WINDOW_MODAL);
-			this.cmStage.initOwner(_parentStage);
-			StageManagement.manageCenteringStage(_parentStage, this.cmStage);
-			this.cmStage.setScene(scene);
-			this.cmStage.setTitle("Gestion des prélèvements");
-			this.cmStage.setResizable(false);
+			this.pmStage = new Stage();
+			this.pmStage.initModality(Modality.WINDOW_MODAL);
+			this.pmStage.initOwner(_parentStage);
+			StageManagement.manageCenteringStage(_parentStage, this.pmStage);
+			this.pmStage.setScene(scene);
+			this.pmStage.setTitle("Gestion des prélèvements");
+			this.pmStage.setResizable(false);
 
 			this.pmcViewController = loader.getController();
-			this.pmcViewController.initContext(this.cmStage, this, _dbstate, this.compteConcerne);
+			this.pmcViewController.initContext(this.pmStage, this, _dbstate, this.compteConcerne);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,19 +81,19 @@ public class PrelevementManagement {
 	 */
 	public Prelevement nouveauPrelevement() {
 		Prelevement pm;
-		PrelevementEditorPane pep = new PrelevementEditorPane(this.cmStage, this.dailyBankState);
+		PrelevementEditorPane pep = new PrelevementEditorPane(this.pmStage, this.dailyBankState);
 		pm = pep.doPrelevementEditorDialog(null, EditionMode.CREATION, compteConcerne);
 		if (pm != null) {
 			try {
 				Access_BD_Prelevement ap = new Access_BD_Prelevement();
 				ap.insertPrelevement(pm);
 			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
-				this.cmStage.close();
+				this.pmStage.close();
 				pm = null;
 			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, ae);
 				ed.doExceptionDialog();
 				pm = null;
 			}
@@ -110,19 +110,19 @@ public class PrelevementManagement {
 	 */
 	public Prelevement modifierPrelevement(Prelevement pr) {
 		Prelevement pm;
-		PrelevementEditorPane pep = new PrelevementEditorPane(this.cmStage, this.dailyBankState);
+		PrelevementEditorPane pep = new PrelevementEditorPane(this.pmStage, this.dailyBankState);
 		pm = pep.doPrelevementEditorDialog(pr, EditionMode.MODIFICATION, compteConcerne);
 		if (pm != null) {
 			try {
 				Access_BD_Prelevement ap = new Access_BD_Prelevement();
 				ap.modifierPrelevement(pm);
 			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
-				this.cmStage.close();
+				this.pmStage.close();
 				pm = null;
 			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, ae);
 				ed.doExceptionDialog();
 				pm = null;
 			}
@@ -142,11 +142,11 @@ public class PrelevementManagement {
 				Access_BD_Prelevement ap = new Access_BD_Prelevement();
 				ap.supprimerPrelevement(pr);
 			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
-				this.cmStage.close();
+				this.pmStage.close();
 			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, ae);
 				ed.doExceptionDialog();
 			}
 		}
@@ -171,12 +171,12 @@ public class PrelevementManagement {
 			listePre = ac.getPrelevements(this.dailyBankState.getEmployeActuel().idAg, idCompte);
 
 		} catch (DatabaseConnexionException e) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+			ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, e);
 			ed.doExceptionDialog();
-			this.cmStage.close();
+			this.pmStage.close();
 			listePre = new ArrayList<>();
 		} catch (ApplicationException ae) {
-			ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+			ExceptionDialog ed = new ExceptionDialog(this.pmStage, this.dailyBankState, ae);
 			ed.doExceptionDialog();
 			listePre = new ArrayList<>();
 		}
