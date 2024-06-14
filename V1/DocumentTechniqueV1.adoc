@@ -219,13 +219,13 @@ Représente les assurances associées aux emprunts afin de protéger la banque e
 **** tauxAss : taux de l'assurance 
 **** tauxCouv : taux de couverture
 
-**__PrelevementAutomatique__**
+**__Prelevement__**
 
-Représente les prélèvements automatiques effectués sur les comptes courants.
+Représente les prélèvements effectués sur les comptes courants.
 
 *** Attributs : 
 
-**** idPrelevement : identifiant unique pour chaque prélèvelement automatique 
+**** idPrelevement : identifiant unique pour chaque prélèvelement 
 **** montant : montant du prélèvement 
 **** dateRecurrente : date récurrente de prélèvement 
 **** beneficiaire : bénéficiaire du prélèvement
@@ -241,6 +241,6 @@ Représente les prélèvements automatiques effectués sur les comptes courants.
 ** Operation (*) -- 1 TypeOperation (Avoir) : chaque opération correspond à un type d'opération.
 ** Client (1) -- (0..*) Emprunt : un client peut faire plusieurs ou aucun emprunt auprès de la banque.
 ** Emprunt (1) -- (0..1) AssuranceEmprunt (couvrir) : un emprunt peut être couvert ou non par une assurance. 
-CompteCourant () -- () PrevelementAutomatique : les prélèvements automatiques sont effectués sur les comptes des clients. Cependant, cette liaison (par composition) montre que la suppression du compte courant entraîne la suppression de tous les prélèvements automatiques associés.
+CompteCourant () -- () Prevelement : les prélèvements sont effectués sur les comptes des clients. Cependant, cette liaison (par composition) montre que la suppression du compte courant entraîne la suppression de tous les prélèvements associés.
 
 == IV Élément De Codes Significatifs Commentés 
