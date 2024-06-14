@@ -48,7 +48,7 @@ Avant l’installation de l’application, assurez-vous que les ordinateurs rép
 
 === Lancement de l’Application
 . Ouverture de l’Application : Une fois installée, lancez l'application via l'icône créée sur le bureau ou dans le menu Démarrer.
-. Configuration Initiale : Lors du premier lancement, entrez les informations d’identification de l’agence et configurez les paramètres réseau.
+. Configuration Initiale : Lors du premier lancement, entrez les informations d’identification de l’agence.
 . Formation : Les guichetiers et les chefs d’agence doivent suivre une formation sur l’utilisation de l’application. Cette formation comprendra des sessions pratiques pour se familiariser avec les fonctionnalités de gestion des comptes, traitement des transactions, et consultation des historiques de compte.
 
 === Connexion des Clients
