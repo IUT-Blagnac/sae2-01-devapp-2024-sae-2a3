@@ -92,7 +92,7 @@ public class OperationsManagement {
 	 * 
 	 * @return L'opération enregistrée, ou null si aucune opération n'a été
 	 *         enregistrée
-	 * @author AMERI Mohammed 
+	 * @author Rudy 
 	 */
 	public Operation enregistrerDebit() {
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
@@ -121,7 +121,7 @@ public class OperationsManagement {
 	 * 
 	 * @return L'opération enregistrée, ou null si aucune opération n'a été
 	 *         enregistrée
-	 * @author AMERI Mohammed 
+	 * @author Mialisoa 
 	 */
 	public Operation enregistrerDebitExeptionnel() {
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
