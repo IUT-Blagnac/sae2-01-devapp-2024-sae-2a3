@@ -3,8 +3,8 @@
 :toc-title: Sommaire
 :toc: macro
 
-*Version :* 1 +
-*Date :* 07/05/2024 +
+*Version :* 2 +
+*Date :* 14/06/2024 +
 *Créé par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_ +
 *Créé pour :* DailyBank +
 *Projet :* SAE DEV/GPO (S2.01/S2.05)
@@ -389,8 +389,8 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_C.1 ^| ^| ^| ^|OK
-^|All_G_C.2 ^| ^| ^| ^|OK
+^|All_G_C.1 ^|Cliquer sur le bouton "Enregistrer Debit" ^|La fenêtre d'enregistrement d'opération s'ouvre ^| aucune ^|OK
+^|All_G_C.2 ^|Compélter le champ montant ^|Action validée ^|seul un chef d'agence peut effectuer un débit exceptionem ^|OK
 
 |====
 
