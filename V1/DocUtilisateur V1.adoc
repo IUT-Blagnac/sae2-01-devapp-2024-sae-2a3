@@ -4,7 +4,7 @@
 :toc-title: Sommaire
 :toc: macro
 
-*Version :* 1 +
+*Version :* 2 +
 *Date :* 07/05/2024 +
 *Créé par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_ +
 *Créé pour :* DailyBank +
