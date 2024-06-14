@@ -160,7 +160,7 @@ public class ComptesManagementViewController {
 	/**
 	 * Ouvre la fenêtre de recherche de comptes (bouton FXML).
 	 * 
-	 * @author SHULHINA Daria
+	 * @author Mohammed
 	 */
 	@FXML
 	private void doVoirPrelevement() {
