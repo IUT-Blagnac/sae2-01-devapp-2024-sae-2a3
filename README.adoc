@@ -33,7 +33,7 @@ https://github.com/madblurryface[SHULHINA Daria] : Développeuse informatique
 | 1       | Guichetier    | Compte                    | Clôturer              |          |       |          | F 
 | 2       | Guichetier    | Compte                    | Modifier              |          |       |          | F
 | 2       | Guichetier    | Compte                    | Cloturer compte       | F        |       |          | 
-| 2       | Guichetier    | Compte                    | Supprimer compte      | F        |       |          | 
+| 2       | Guichetier    | Compte                    | Supprimer compte      |          |       |          | F
 | 2       | Chef d’Agence | Client                    | Rendre inactif client | F        |       |          |
 | 2       | Chef d’Agence | Client                    | Supprimer client      | F        |       |          |
 | 2       | Chef d’Agence | Compte                    | Débit exceptionnel    |          |       | F        | 
