@@ -1,4 +1,9 @@
+# Ignorer les fichiers .class
 *.class
-**/target/**
-!**/target/**/*.jar
-!**/target/site/apidocs/**
+
+# Ignorer le répertoire target sauf les fichiers .jar
+/target/
+!/target/**/*.jar
+
+# Inclure le répertoire apidocs dans target/site
+!/target/site/apidocs/
