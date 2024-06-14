@@ -1,4 +1,4 @@
 *.class
 **/target/**
-!**/target/**/*.jar
-!**/target/site/apidocs/
+# !**/target/**/*.jar
+!**/target/site/apidocs/**
