@@ -77,7 +77,7 @@ public class LoginDialog {
 	 * @param login    Login recherché
 	 * @param password Mot de passe recherché
 	 * @return Employe trouvé, null si n'existe pas
-	 * @author Rudy
+	 * 
 	 */
 	public Employe chercherEmployeParLogin(String login, String password) {
 		Employe employe = null;
