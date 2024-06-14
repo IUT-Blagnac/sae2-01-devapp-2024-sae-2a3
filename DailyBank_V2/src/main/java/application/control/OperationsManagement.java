@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.CategorieOperation;
+import application.tools.ConstantesIHM;
 import application.tools.PairsOfValue;
 import application.tools.StageManagement;
 import application.view.OperationsManagementViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -36,7 +39,6 @@ public class OperationsManagement {
 	private OperationsManagementViewController omViewController;
 	private Client clientDuCompte;
 	private CompteCourant compteConcerne;
-	private CompteCourant compteVirement;
 
 	/**
 	 * Constructeur de la classe OperationsManagement.
@@ -219,24 +221,34 @@ public class OperationsManagement {
 
 		OperationEditorPane oep = new OperationEditorPane(this.omStage, this.dailyBankState);
 		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
+
 		if (op != null) {
 			try {
-				Access_BD_Operation ao = new Access_BD_Operation();
-
-				// ao.insertVirement(this.compteConcerne.idNumCompte, 1,op.montant, op.idTypeOp);
-				ao.insertVirement(this.compteConcerne.idNumCompte, op.idNumCompteCredit, op.montant, op.idTypeOp);
-
+				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				if(ac.getCompteCourant(op.idNumCompteCredit) != null || !ConstantesIHM.estCloture(ac.getCompteCourant(op.idNumCompteCredit))){
+					Access_BD_Operation ao = new Access_BD_Operation();
+					ao.insertVirement(this.compteConcerne.idNumCompte, op.idNumCompteCredit, op.montant, op.idTypeOp);
+				}else{
+					Alert al = new Alert(AlertType.WARNING);
+					al.setHeaderText("Virement échoué, compte inexistant");
+					al.show();
+					op = null;
+				}
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.omStage, this.dailyBankState, e);
-				ed.doExceptionDialog();
-				this.omStage.close();
+				Alert al = new Alert(AlertType.WARNING);
+				al.setHeaderText("Virement échoué, erreur base de données");
+				al.show();
 				op = null;
 			} catch (ApplicationException ae) {
 				ExceptionDialog ed = new ExceptionDialog(this.omStage, this.dailyBankState, ae);
-				ed.doExceptionDialog();
+				Alert al = new Alert(AlertType.WARNING);
+				al.setHeaderText("Virement échoué, compte inexistant");
+				al.show();
 				op = null;
 			}
 		}
 		return op;
 	}
+
 }

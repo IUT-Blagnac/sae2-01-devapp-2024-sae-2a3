@@ -9,6 +9,8 @@ import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -17,10 +19,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.orm.Access_BD_CompteCourant;
 import model.orm.Access_BD_Operation;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.ManagementRuleViolation;
+import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 /**
  * Contrôleur pour l'édition des informations client dans une fenêtre.
@@ -299,9 +303,25 @@ public class OperationEditorPaneViewController {
 			} catch (NumberFormatException e) {
 				// Gérer le cas où la chaîne de caractères ne peut pas être convertie en un entier
 				System.out.println("Erreur : Numéro de compte destinataire invalide.");
+				Alert al = new Alert(AlertType.WARNING);
+				al.setHeaderText("Virement échoué, compte inexistant");
+				al.show();
 				return;
 			}
-			
+
+			Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				try {
+					if(ConstantesIHM.estCloture(ac.getCompteCourant(idCompteDestinataire))){
+						// Gérer le cas où la chaîne de caractères ne peut pas être convertie en un entier
+						System.out.println("Erreur : Compte clôturé.");
+						Alert al = new Alert(AlertType.WARNING);
+						al.setHeaderText("Virement échoué, Compte clôturé");
+						al.show();
+						return;
+					}
+				} catch (RowNotFoundOrTooManyRowsException | DataAccessException | DatabaseConnexionException e) {
+					return;
+				}
 			// Créer l'objet Operation pour le crédit
 			this.operationResultat = new Operation(-1, montantVirement, null, null, this.compteEdite.idNumCli, idCompteDestinataire, "Virement Compte à Compte");
 			// Fermer la fenêtre de dialogue
