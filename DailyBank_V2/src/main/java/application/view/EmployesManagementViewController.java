@@ -45,8 +45,7 @@ public class EmployesManagementViewController {
 	 * 
 	 * @param _containingStage Le stage contenant la scène
 	 * @param _em              Le contrôleur de dialogue associé
-	 * @param _dbstate         L'état courant de l'application
-	 * @author AMERI Mohammed 
+	 * @param _dbstate         L'état courant de l'application 
 	 */
 	public void initContext(Stage _containingStage, EmployesManagement _cm, DailyBankState _dbstate) {
 		this.emDialogController = _cm;
@@ -58,7 +57,6 @@ public class EmployesManagementViewController {
 	/**
 	 * Configure la fenêtre de gestion des Employés
 	 * 
- 	 * @author SHULHINA Daria
 	 */
 	private void configure() {
 		this.containingStage.setOnCloseRequest(e -> this.closeWindow(e));
@@ -74,7 +72,6 @@ public class EmployesManagementViewController {
 	/**
 	 * Affiche la fenêtre de gestion des Employés
 	 * 
- 	 * @author CIARDI Rudy 
 	 */
 	public void displayDialog() {
 		this.containingStage.showAndWait();
@@ -86,7 +83,6 @@ public class EmployesManagementViewController {
 	 * 
 	 * @param e L'événement de fermeture
 	 * @return Object null
- 	 * @author RAZAFINIRINA Mialisoa 
 	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
