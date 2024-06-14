@@ -17,14 +17,14 @@ toc::[]
 '''
 
 == I Présentation de l'application 
-Dans le cadre de ce SAE 2.01, notre objectif est de développer une application qui permettra au banque de détail à s'orienter vers une expérience utilisateur "digitale". Cette application vise à améliorer et à moderniser plusieurs outils obsolètes et les processus bancaires existants afin d'effectuer correctement tout type d'action en restant sur une stratégie de réseaux physique et en s'assurant de l'efficacité et surtout de la sécurité. 
+Dans le cadre de ce SAE 2.01, notre objectif est de développer une application qui permettra aux banques de détail à s'orienter vers une expérience utilisateur "digitale". Cette application vise à améliorer et à moderniser plusieurs outils obsolètes et les processus bancaires existant afin d'effectuer correctement tout type d'actions en restant sur une stratégie de réseaux physiques et en s'assurant de l'efficacité et surtout de la sécurité. 
 
 === Fonctionnalités : 
 Pour assurer le bon fonctionnement de l'application, elle doit permettre différentes actions en fonction du rôle de l'utilisateur.
 
 Le **chef d’agence**, dans la version V1, pourra créer un employé, consulter et mettre à jour les informations d’un employé, ainsi que supprimer un employé. De plus, il pourra créer un nouveau compte, consulter et mettre à jour les informations des comptes, et clôturer un compte. Dans la version V2, les fonctionnalités s'étendront pour inclure la possibilité d'effectuer un débit exceptionnel sur un compte, de simuler un emprunt et de simuler une assurance.
 
-Le **guichetier**, dans la version V1, pourra créer un compte, créditer et débiter un compte, effectuer un virement, et clôturer un compte, ce qui sont des actions également réalisables par le chef d’agence. Dans la version V2, le guichetier pourra effectuer un prélèvement en format PDF, créer, consulter, mettre à jour et supprimer un prélèvement.
+Le **guichetier**, dans la version V1, pourra créer un compte, créditer et débiter un compte, effectuer un virement, et clôturer un compte, ceux qui sont des actions également réalisables par le chef d’agence. Dans la version V2, le guichetier pourra effectuer un prélèvement en format PDF, créer, consulter, mettre à jour et supprimer un prélèvement.
 
 Le **batch**, quant à lui, sera responsable d'effectuer des prélèvements et de générer des relevés mensuels. Ces fonctionnalités permettent de garantir une gestion fluide et efficace des opérations bancaires au sein de l'application.
 
@@ -163,7 +163,7 @@ Une classe qui représente une agence physique de la banque où les opérations 
 
 **__Employe__**
 
-Cette classe représente les employés travaillant dans l'agence bancaire. Dans une agence bancaire, un employé peut-être chef d'agence ou guichetiers, et c'est eux qui gèrent les opérations de la banque et servent les clients. 
+Cette classe représente les employés travaillant dans l'agence bancaire. Dans une agence bancaire, un employé peut-être chef d'agence ou guichetiers, et ce sont eux qui gèrent les opérations de la banque et servent les clients. 
 
 *** Attributs :
 
@@ -187,7 +187,7 @@ La classe Client représente les clients de la banque et possède un ou des comp
 
 **__CompteCourant__**  
 
-Cette classe représente les comptes courants détenus par les clients. A travers leur compte, les clients peutven gérer leur argent, effectuer des dépôts, retraits, virement et emprunts. 
+Cette classe représente les comptes courants détenus par les clients. A travers leur compte, les clients peuvent gérer leur argent, effectuer des dépôts, retraits, virements et emprunts. 
 
 *** Attributs :
 
@@ -198,7 +198,7 @@ Cette classe représente les comptes courants détenus par les clients. A traver
 
 **__Operation__** 
 
-La classe Operation représente la transactions (débit, retraits, virement,...) effectuées sur les comptes courants.
+La classe Operation représente la transaction (débit, retraits, virement,...) effectuées sur les comptes courants.
 
 *** Attributs :
 
@@ -209,7 +209,7 @@ La classe Operation représente la transactions (débit, retraits, virement,...)
 
 **__TypeOperation__** 
 
-TypeOperation représente les différents types d'opérations possibles (debit, credit, virement)
+TypeOperation représente les différents types d'opérations possibles (débit, credit, virement)
 
 *** Attribut :
 
@@ -228,7 +228,7 @@ Représente les emprunts contractés par les clients.
 
 **__EmpruntAssurance__**
 
-Représente les assurances associées aux emprunts afin de protéger la banque et les clients en cas de défaillance de paiment.
+Représente les assurances associées aux emprunts afin de protéger la banque et les clients en cas de défaillance de paiement.
 
 *** Attibuts : 
 
@@ -253,7 +253,7 @@ Représente les prélèvements effectués sur les comptes courants.
 ** Client (1..*) -- 1 AgenceBancaire (Avoir) : un client peut être associé à une ou plusieurs agences bancaires. 
 ** Client (1) -- (1..*) CompteCourant (Posséder) : un client peut posséder plusieurs comptes dans la banque. 
 ** CompteCourant (*) -- 1 AgenceBancaire (Gérer) : une agence bancaire gère plusieurs comptes.
-** CompteCourant () -- () Operation : un compte peut avoir plusieurs opérations effectuées, et chaque opération est associée à un compte courant. Cependant, cette liaison (par composition) montre que si un compte courant est supprimé, toutes ses operations associés le seront également.
+** CompteCourant () -- () Operation : un compte peut avoir plusieurs opérations effectuées, et chaque opération est associée à un compte courant. Cependant, cette liaison (par composition) montre que si un compte courant est supprimé, toutes ses opérations associées le seront également.
 ** Operation (*) -- 1 TypeOperation (Avoir) : chaque opération correspond à un type d'opération.
 ** Client (1) -- (0..*) Emprunt : un client peut faire plusieurs ou aucun emprunt auprès de la banque.
 ** Emprunt (1) -- (0..1) AssuranceEmprunt (couvrir) : un emprunt peut être couvert ou non par une assurance. 
