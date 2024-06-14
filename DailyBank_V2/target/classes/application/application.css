@@ -1,0 +1,73 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.root {
+    -fx-font-size: 12pt;
+    -fx-background-color: rgb(208, 231, 210); /* Couleur de fond principale */
+}
+
+.bold {
+    -fx-font-weight: bold;
+}
+
+.borderlight {
+    -fx-border-color: black;
+}
+
+.courrierNew {
+    -fx-font-family: "Courier New";
+}
+
+.borderred {
+    -fx-text-fill: rgb(97, 130, 100); /* Couleur de texte rouge */
+}
+
+#Text {
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: rgb(121, 172, 120); /* Couleur de fond des boutons */
+    -fx-text-fill: white; /* Couleur du texte */
+    -fx-font-size: 13pt;
+    -fx-border-radius: 5px; /* Rayon de la bordure */
+    -fx-background-radius: 5px; /* Rayon du fond */
+}
+
+.button:hover {
+    -fx-background-color: rgb(176, 217, 177); /* Couleur de fond au survol */
+    -fx-text-fill: black; /* Couleur du texte au survol */
+}
+
+/* Style pour la MenuBar */
+.menu-bar {
+    -fx-padding: 5px; /* Espacement interne */
+    -fx-background-color: rgb(208, 231, 210); /* Couleur de fond de la MenuBar */
+}
+
+/* Style pour les Menu */
+.menu {
+    -fx-text-fill: black; /* Couleur du texte des menus */
+    -fx-font-size: 14pt; /* Taille de la police */
+    -fx-border-radius: 7px; /* Rayon de la bordure */
+    -fx-background-radius: 7px; /* Rayon du fond */
+}
+
+.menu:hover {
+    -fx-background-color: rgb(176, 217, 177); /* Couleur de fond au survol */
+    -fx-text-fill: black; /* Couleur du texte au survol */
+}
+
+/* Style pour les MenuItem */
+.menu-item {
+    -fx-text-fill: black; /* Couleur du texte des éléments de menu */
+    -fx-font-size: 12pt; /* Taille de la police */
+    -fx-padding: 4px 8px; /* Espacement interne */
+    -fx-background-color: transparent; /* Fond transparent par défaut */
+    -fx-border-radius: 5px; /* Rayon de la bordure */
+}
+
+.menu-item:hover {
+    -fx-background-color: rgb(97, 130, 100); /* Couleur de fond au survol (transparent pour éviter le blanc) */
+    -fx-text-fill: black; /* Couleur du texte au survol */
+}
