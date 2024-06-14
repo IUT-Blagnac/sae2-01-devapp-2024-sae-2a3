@@ -24,7 +24,7 @@ Pour assurer le bon fonctionnement de l'application, elle doit permettre différ
 
 Le **chef d’agence**, dans la version V1, pourra créer un employé, consulter et mettre à jour les informations d’un employé, ainsi que supprimer un employé. De plus, il pourra créer un nouveau compte, consulter et mettre à jour les informations des comptes, et clôturer un compte. Dans la version V2, les fonctionnalités s'étendront pour inclure la possibilité d'effectuer un débit exceptionnel sur un compte, de simuler un emprunt et de simuler une assurance.
 
-Le **guichetier**, dans la version V1, pourra créer un compte, créditer et débiter un compte, effectuer un virement, et clôturer un compte, ce qui sont des actions également réalisables par le chef d’agence. Dans la version V2, le guichetier pourra effectuer un prélèvement en format PDF, créer un prélèvement, consulter un prélèvement, mettre à jour un prélèvement, et supprimer un prélèvement.
+Le **guichetier**, dans la version V1, pourra créer un compte, créditer et débiter un compte, effectuer un virement, et clôturer un compte, ce qui sont des actions également réalisables par le chef d’agence. Dans la version V2, le guichetier pourra effectuer un prélèvement en format PDF, créer, consulter, mettre à jour et supprimer un prélèvement.
 
 Le **batch**, quant à lui, sera responsable d'effectuer des prélèvements et de générer des relevés mensuels. Ces fonctionnalités permettent de garantir une gestion fluide et efficace des opérations bancaires au sein de l'application.
 
@@ -232,7 +232,7 @@ Représente les prélèvements automatiques effectués sur les comptes courants.
 
 ==== b. Les liaisons 
 
-** ChefAgence (0..1) -- 1 AgenreceBancaire : une agence est gérée par un chef d'agence. 
+** ChefAgence (0..1) -- 1 AgenceBancaire : une agence est gérée par un chef d'agence. 
 ** Guichetier (*) -- 1 : une agence peut avoir plusieurs guichetiers. 
 ** Client (1..*) -- 1 AgenceBancaire (Avoir) : un client peut être associé à une ou plusieurs agences bancaires. 
 ** Client (1) -- (1..*) CompteCourant (Posséder) : un client peut posséder plusieurs comptes dans la banque. 
