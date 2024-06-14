@@ -154,10 +154,10 @@ public class ClientsManagement {
 	}
 
 	/**
-	 * Désactive un client.
+	 * active un client.
 	 *
 	 * @param cliMod Le client à désactiver.
-	 * @return Le client désactivé.
+	 * @return Le client activé.
 	 * @author SHULHINA Daria
 	 */
 	public Client clientActif(Client cliMod) {
