@@ -6,6 +6,7 @@ import java.util.Locale;
 import application.DailyBankState;
 import application.control.PrelevementManagement;
 import application.tools.AlertUtilities;
+import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Prelevement;
+import model.data.Client;
 
 /**
  * Contrôleur pour la gestion des prélèvements automatiques.
@@ -38,7 +40,7 @@ public class PrelevementManagementController {
 
 	// Données de la fenêtre
 	private ObservableList<Prelevement> oListPrelevements;
-
+	private Client clientDuCompte;
 	private CompteCourant compteConcerne;
 
 	/**
@@ -48,11 +50,12 @@ public class PrelevementManagementController {
 	 * @param _pm              Le contrôleur de dialogue associé
 	 * @param _dbstate         L'état courant de l'application
 	 */
-	public void initContext(Stage _containingStage, PrelevementManagement _pm, DailyBankState _dbstate, CompteCourant cc) {
+	public void initContext(Stage _containingStage, PrelevementManagement _pm, DailyBankState _dbstate, CompteCourant cc, Client c) {
 		this.pmDialogController = _pm;
 		this.pmStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.compteConcerne = cc;
+		this.clientDuCompte = c;
 		this.configure();
 	}
 
@@ -104,6 +107,8 @@ public class PrelevementManagementController {
 	private Button btnSupprPrelevement;
 	@FXML
 	private Button btnModifPrelevement;
+	@FXML
+	private Button btnNouveauPrelevement;
 
 	/**
 	 * Ferme la fenêtre (bouton FXML).
@@ -202,5 +207,10 @@ public class PrelevementManagementController {
 			this.btnModifPrelevement.setDisable(true);
 			this.btnSupprPrelevement.setDisable(true);
 		}
+		if (!ConstantesIHM.estActif(clientDuCompte)) {
+				this.btnSupprPrelevement.setDisable(true);
+                this.btnModifPrelevement.setDisable(true);
+                this.btnNouveauPrelevement.setDisable(true);
+        }
 	}
 }

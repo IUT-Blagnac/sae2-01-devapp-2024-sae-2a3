@@ -128,6 +128,8 @@ public class ComptesManagementViewController {
 	private Button btnSupprimerCompte;
 	@FXML
 	private Button btnSimulerEmprunt;
+	@FXML
+	private Button btnNouveauCompte;
 
 	/**
 	 * Ferme la fenêtre de gestion des Comptes (bouton FXML).
@@ -324,6 +326,13 @@ public class ComptesManagementViewController {
         this.btnCloturerCompte.setDisable(true);
         this.btnSupprimerCompte.setDisable(true);
 
+		if (!ConstantesIHM.estActif(clientDesComptes)) {
+			this.btnNouveauCompte.setDisable(true);
+			this.btnCloturerCompte.setDisable(true);
+			this.btnModifierCompte.setDisable(true);
+			this.btnSupprimerCompte.setDisable(true);
+        }
+
         int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 
         if (selectedIndice >= 0) {
@@ -343,6 +352,12 @@ public class ComptesManagementViewController {
             } else {
                 this.btnSimulerEmprunt.setDisable(true);
             }
+			if (!ConstantesIHM.estActif(clientDesComptes)) {
+				this.btnNouveauCompte.setDisable(true);
+				this.btnCloturerCompte.setDisable(true);
+				this.btnModifierCompte.setDisable(true);
+				this.btnSupprimerCompte.setDisable(true);
+        	}
         } else {
             this.btnVoirOpes.setDisable(true);
 			this.btnVoirPrlv.setDisable(true);

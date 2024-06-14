@@ -154,6 +154,33 @@ public class ClientsManagement {
 	}
 
 	/**
+	 * Désactive un client.
+	 *
+	 * @param cliMod Le client à désactiver.
+	 * @return Le client désactivé.
+	 * @author SHULHINA Daria
+	 */
+	public Client clientActif(Client cliMod) {
+		cliMod.estInactif = ConstantesIHM.CLIENT_ACTIF;
+		if (cliMod != null) {
+			try {
+				Access_BD_Client ac = new Access_BD_Client();
+				ac.updateClient(cliMod);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				cliMod = null;
+				this.cmStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.cmStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				cliMod = null;
+			}
+		}
+		return cliMod;
+	}
+
+	/**
 	 * Crée un nouveau client.
 	 *
 	 * @return Le nouveau client créé

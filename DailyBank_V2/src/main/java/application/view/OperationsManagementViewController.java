@@ -195,6 +195,12 @@ public class OperationsManagementViewController {
 			this.btnDebit.setDisable(true);
 			this.btnVirement.setDisable(true);
 		}
+		if (!ConstantesIHM.estActif(clientDuCompte)) {
+				this.btnCredit.setDisable(true);
+                this.btnDebit.setDisable(true);
+                this.btnVirement.setDisable(true);
+                this.btnDebitExep.setDisable(true);
+        }
 	}
 	
 	/**

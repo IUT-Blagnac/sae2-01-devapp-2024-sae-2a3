@@ -90,15 +90,6 @@ public class ClientEditorPaneViewController {
 			this.txtPrenom.setDisable(false);
 			this.txtTel.setDisable(false);
 			this.txtMail.setDisable(false);
-			this.rbActif.setSelected(true);
-			this.rbInactif.setSelected(false);
-			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
-				this.rbActif.setDisable(false);
-				this.rbInactif.setDisable(false);
-			} else {
-				this.rbActif.setDisable(true);
-				this.rbInactif.setDisable(true);
-			}
 			this.lblMessage.setText("Informations sur le nouveau client");
 			this.butOk.setText("Ajouter");
 			this.butCancel.setText("Annuler");
@@ -109,23 +100,11 @@ public class ClientEditorPaneViewController {
 			this.txtPrenom.setDisable(false);
 			this.txtTel.setDisable(false);
 			this.txtMail.setDisable(false);
-			this.rbActif.setSelected(true);
-			this.rbInactif.setSelected(false);
-			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
-				this.rbActif.setDisable(false);
-				this.rbInactif.setDisable(false);
-			} else {
-				this.rbActif.setDisable(true);
-				this.rbInactif.setDisable(true);
-			}
 			this.lblMessage.setText("Informations client");
 			this.butOk.setText("Modifier");
 			this.butCancel.setText("Annuler");
 			break;
 		case SUPPRESSION:
-			// ce mode n'est pas utilisé pour les Clients :
-			// la suppression d'un client n'existe pas il faut que le chef d'agence
-			// bascule son état "Actif" à "Inactif"
 			ApplicationException ae = new ApplicationException(Table.NONE, Order.OTHER, "SUPPRESSION CLIENT NON PREVUE",
 					null);
 			ExceptionDialog ed = new ExceptionDialog(this.containingStage, this.dailyBankState, ae);
@@ -144,12 +123,6 @@ public class ClientEditorPaneViewController {
 		this.txtAdr.setText(this.clientEdite.adressePostale);
 		this.txtMail.setText(this.clientEdite.email);
 		this.txtTel.setText(this.clientEdite.telephone);
-
-		if (ConstantesIHM.estInactif(this.clientEdite)) {
-			this.rbInactif.setSelected(true);
-		} else {
-			this.rbInactif.setSelected(false);
-		}
 
 		this.clientResultat = null;
 
@@ -187,12 +160,6 @@ public class ClientEditorPaneViewController {
 	private TextField txtTel;
 	@FXML
 	private TextField txtMail;
-	@FXML
-	private RadioButton rbActif;
-	@FXML
-	private RadioButton rbInactif;
-	@FXML
-	private ToggleGroup actifInactif;
 	@FXML
 	private Button butOk;
 	@FXML
@@ -254,11 +221,7 @@ public class ClientEditorPaneViewController {
 		this.clientEdite.adressePostale = this.txtAdr.getText().trim();
 		this.clientEdite.telephone = this.txtTel.getText().trim();
 		this.clientEdite.email = this.txtMail.getText().trim();
-		if (this.rbActif.isSelected()) {
-			this.clientEdite.estInactif = ConstantesIHM.CLIENT_ACTIF;
-		} else {
-			this.clientEdite.estInactif = ConstantesIHM.CLIENT_INACTIF;
-		}
+		this.clientEdite.estInactif = "Non";
 
 		if (this.clientEdite.nom.isEmpty()) {
 			AlertUtilities.showAlert(this.containingStage, "Erreur de saisie", null, "Le nom ne doit pas être vide",

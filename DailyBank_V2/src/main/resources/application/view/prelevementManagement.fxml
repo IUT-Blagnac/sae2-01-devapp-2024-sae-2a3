@@ -24,7 +24,7 @@
             </Button>
          </top>
          <bottom>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doNouveauPrelevement" text="Nouveau prélèvement" BorderPane.alignment="CENTER">
+            <Button fx:id="btnNouveauPrelevement" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doNouveauPrelevement" text="Nouveau prélèvement" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="10.0" right="10.0" top="10.0" />
                </BorderPane.margin>

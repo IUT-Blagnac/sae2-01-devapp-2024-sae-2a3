@@ -216,8 +216,13 @@ public class ClientsManagementViewController {
 		if (selectedIndice >= 0) {
 			Client cliMod = this.oListClients.get(selectedIndice);
 			if (ConstantesIHM.estInactif(cliMod)) {
-				AlertUtilities.showAlert(this.containingStage, "Client inactif - Erreur", "Une erreur est survenue",
-						"Impossible de rendre inactif un client inactif.", AlertType.WARNING);
+				if (!AlertUtilities.confirmYesCancel(this.containingStage, "Réactiver client",
+					"Êtes-vous sûr de vouloir réactiver ce client ?", null, AlertType.CONFIRMATION))
+				return;
+				Client result = this.cmDialogController.clientActif(cliMod);
+				if (result != null) {
+					this.oListClients.set(selectedIndice, result);
+				}
 				return;
 			}
 			int comptesOuverts = this.cmDialogController.verifierCloturer(cliMod);
@@ -235,7 +240,7 @@ public class ClientsManagementViewController {
 			}
 			if (!AlertUtilities.confirmYesCancel(this.containingStage, "Désactiver client",
 					"Êtes-vous sûr de vouloir désactiver ce client ?",
-					"Tout client désactivé ne peut pas être réactivé.\n\nClient :\nID : " + cliMod.idNumCli + "\nNom : "
+					"\nClient :\nID : " + cliMod.idNumCli + "\nNom : "
 							+ cliMod.nom + "\nPrénom : " + cliMod.prenom + "\nAdresse postale : "
 							+ cliMod.adressePostale + "\nEmail : " + cliMod.email + "\nTéléphone : " + cliMod.telephone,
 					AlertType.CONFIRMATION))
@@ -270,15 +275,24 @@ public class ClientsManagementViewController {
 	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		this.btnDesactClient.setDisable(true);
+		this.btnDesactClient.setDisable(false);
 		
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(false);
+			this.btnDesactClient.setDisable(false);
+
+			Client client = this.oListClients.get(selectedIndice);
+			if (!ConstantesIHM.estActif(client)) {
+				this.btnDesactClient.setText("Réactiver client");
+			} else {
+				this.btnDesactClient.setText("Désactiver client");
+			}
 		} else {
 			this.btnModifClient.setDisable(true);
 			this.btnComptesClient.setDisable(true);
+			this.btnDesactClient.setDisable(true);
 		}
 	}
 }

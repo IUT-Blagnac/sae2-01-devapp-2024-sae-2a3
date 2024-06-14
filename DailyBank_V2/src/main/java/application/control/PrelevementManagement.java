@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Prelevement;
+import model.data.Client;
 import model.orm.Access_BD_Prelevement;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
@@ -31,6 +32,7 @@ public class PrelevementManagement {
 	private DailyBankState dailyBankState;
 	private PrelevementManagementController pmcViewController;
 	private CompteCourant compteConcerne;
+	private Client clientDuCompte;
 
 	/**
 	 * Constructeur de la classe PrelevementsMangement.
@@ -38,9 +40,11 @@ public class PrelevementManagement {
 	 * @param _parentStage Fenêtre parente
 	 * @param _dbstate     État courant de l'application
 	 */
-	public PrelevementManagement(Stage _parentStage, DailyBankState _dbstate, CompteCourant cc) {
+	public PrelevementManagement(Stage _parentStage, DailyBankState _dbstate, CompteCourant cc, Client c) {
 		this.dailyBankState = _dbstate;
 		this.compteConcerne = cc;
+		this.clientDuCompte = c;
+
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					PrelevementManagementController.class.getResource("prelevementManagement.fxml"));
@@ -58,7 +62,7 @@ public class PrelevementManagement {
 			this.pmStage.setResizable(false);
 
 			this.pmcViewController = loader.getController();
-			this.pmcViewController.initContext(this.pmStage, this, _dbstate, this.compteConcerne);
+			this.pmcViewController.initContext(this.pmStage, this, _dbstate, this.compteConcerne, this.clientDuCompte);
 
 		} catch (Exception e) {
 			e.printStackTrace();

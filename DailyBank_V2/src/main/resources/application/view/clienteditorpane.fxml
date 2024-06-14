@@ -75,30 +75,13 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="21.0" layoutY="345.0" maxWidth="1.7976931348623157E308" text="Client Actif ?" GridPane.rowIndex="6">
-               <GridPane.margin>
-                  <Insets right="20.0" />
-               </GridPane.margin>
-            </Label>
+
             <TextField fx:id="txtIdcli" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtNom" layoutX="171.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtPrenom" layoutX="171.0" layoutY="58.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtAdr" layoutX="171.0" layoutY="93.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="txtTel" layoutX="171.0" layoutY="128.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="txtMail" layoutX="171.0" layoutY="163.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <children>
-                  <RadioButton fx:id="rbActif" mnemonicParsing="false" text="Actif">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="actifInactif" />
-                     </toggleGroup>
-                     <padding>
-                        <Insets right="20.0" />
-                     </padding>
-                  </RadioButton>
-                  <RadioButton fx:id="rbInactif" layoutX="131.0" layoutY="17.0" mnemonicParsing="false" text="Inactif" toggleGroup="$actifInactif" />
-               </children>
-            </HBox>
          </children>
       </GridPane>
    </center>

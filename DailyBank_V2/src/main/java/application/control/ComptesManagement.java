@@ -102,7 +102,7 @@ public class ComptesManagement {
 	 * @author Mohammed
 	 */
 	public void gererPrelevementDUnCompte(CompteCourant cpt) {
-		PrelevementManagement pm = new PrelevementManagement(this.cmStage, this.dailyBankState, cpt);
+		PrelevementManagement pm = new PrelevementManagement(this.cmStage, this.dailyBankState, cpt, clientDesComptes);
 		pm.doPrelevementManagementDialog();
 	}
 
