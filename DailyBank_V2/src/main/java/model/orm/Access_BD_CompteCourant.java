@@ -169,7 +169,16 @@ public class Access_BD_CompteCourant {
 		}
 	}
 
-
+	/**
+	 * Clôture d'un CompteCourant.
+	 * 
+	 * @param cc Le compte à clôturer
+	 * @throws RowNotFoundOrTooManyRowsException
+	 * @throws DataAccessException
+	 * @throws DatabaseConnexionException
+	 * @throws ManagementRuleViolation
+	 * @author SHULHINA Daria
+	 */
 	public void cloturerCompte(CompteCourant cc) 
 	throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException, ManagementRuleViolation {
 		try {
@@ -212,7 +221,7 @@ public class Access_BD_CompteCourant {
 	 * @throws DatabaseConnexionException pour l'erreur de connexion à la base de donnees
 	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1 ligne
 	 * @throws ManagementRuleViolation 
-	 * 
+	 * @author Mialisoa
 	 */
 	public void insertCompte(CompteCourant compteC) throws DataAccessException, DatabaseConnexionException, RowNotFoundOrTooManyRowsException, ManagementRuleViolation {
 		try{
@@ -257,7 +266,8 @@ public class Access_BD_CompteCourant {
      * @throws DataAccessException        Erreur d'accès aux données
      * @throws DatabaseConnexionException Erreur de connexion
      * @throws ManagementRuleViolation    Si le compte n'est pas clôturé ou s'il n'y a pas de date de dernière opération
-	 * @throws RowNotFoundOrTooManyRowsException 
+	* @throws RowNotFoundOrTooManyRowsException 
+ 	* @author SHULHINA Daria
      */
     public void supprimerCompte(int idNumCompte) throws DataAccessException, DatabaseConnexionException, ManagementRuleViolation, RowNotFoundOrTooManyRowsException {
         try {
