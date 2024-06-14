@@ -219,6 +219,25 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 
 |====
 
+|====
+
+>|Cas de test 4+|Test-02-01-01=2
+>|Titre 4+|Supprimer un client
+>|Objectif 4+| Vérifier qu'il est possible de supprimer un client
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|C_G_C.1    ^|Sélectionner le bouton "Supprimer" et confirmer. ^|Supprime le client  ^|Un client inactif est sélectionné  ^| OK
+
+5+|
+
+5+|Commentaire : REVOIR AVEC
+ *clôturés*.|
+
+|====
+
+
 ==== 2.2 Gestion des employés
 
 |====
