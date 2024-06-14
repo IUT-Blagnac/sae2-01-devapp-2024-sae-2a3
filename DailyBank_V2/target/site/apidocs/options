@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-controls/17/javafx-controls-17.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-controls/17/javafx-controls-17-win.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-graphics/17/javafx-graphics-17.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-graphics/17/javafx-graphics-17-win.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-fxml/17/javafx-fxml-17.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-fxml/17/javafx-fxml-17-win.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-base/17/javafx-base-17.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-base/17/javafx-base-17-win.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-web/17/javafx-web-17.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-web/17/javafx-web-17-win.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-media/17/javafx-media-17.jar;C:/Users/Etudiant/.m2/repository/org/openjfx/javafx-media/17/javafx-media-17-win.jar;C:/Users/Etudiant/.m2/repository/com/oracle/database/jdbc/ojdbc10/19.18.0.0/ojdbc10-19.18.0.0.jar;C:/Users/Etudiant/.m2/repository/com/itextpdf/itextpdf/5.5.13.3/itextpdf-5.5.13.3.jar'
+-encoding
+'UTF-8'
+-public
+-source
+'17'
+-sourcepath
+'c:/Users/Etudiant/Downloads/sae2-01-devapp-2024-sae-2a3/DailyBank_V2/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'c:/Users/Etudiant/Downloads/sae2-01-devapp-2024-sae-2a3/DailyBank_V2/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'DailyBank App 2.0 API'
+-use
+-version
+-windowtitle
+'DailyBank App 2.0 API'
