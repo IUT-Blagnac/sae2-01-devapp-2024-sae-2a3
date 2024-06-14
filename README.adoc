@@ -73,7 +73,7 @@ GPO: La structure du du GIT est a reprendre, trop desordonnée. Choisissez un ax
 |       | Code V1    |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/tree/main/DailyBank_V1[lien]                   | 
 |       | Recette V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV1.adoc[lien]                      | 
 |       | Gantt V2 prévu | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/4fe8b7097ae01b2377c41310ddbd49ba78448d9d/V1/Gantt_V2_pr%C3%A9vu.pdf[lien]    |  Version moins lisible que la V1 sous project, possible d’améliorer le rendu ?
-| 14/06 | Gantt V2  réalisé    |       | 
+| 14/06 | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/510b4b547c3d0f6f8b52c32925564b1f6c542c35/V1/Gantt%20V2_r%C3%A9alis%C3%A9.pdf[lien]      | 
 |       | Doc. Util. V2 |         |         
 |       | Doc. Tec. V2 |                |     
 |       | Code V2    |                     | 
