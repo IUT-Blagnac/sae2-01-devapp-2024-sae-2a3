@@ -78,5 +78,5 @@ GPO: La structure du du GIT est a reprendre, trop desordonnée. Choisissez un ax
 |       | Doc. Tec. V2 |                |     
 |       | Code V2    |                     | 
 |       | Recette V2 |                      | 
-|       | `jar` projet |    | 
+|       | `jar` projet | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/4ebedfdd9927a577a19e41681bfbd2aab3875869/DailyBank_V2/target/DailyBank-2.0-shaded.jar[lien]    | 
 |===
