@@ -134,6 +134,7 @@ public class Access_BD_Operation {
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
 	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
+  	 * @author Rudy
 	 */
 	public void insertDebit(int idNumCompte, double montant, String typeOp)
 			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
@@ -169,8 +170,6 @@ public class Access_BD_Operation {
 	/**
 	 * Enregistrement d'un débit exceptionnel
 	 *
-	 * Se fait par procédure stockée : - Vérifie que le débitAutorisé n'est pas
-	 * dépassé <BR />
 	 * - Enregistre l'opération <BR />
 	 * - Met à jour le solde du compte. <BR />
 	 *
@@ -180,6 +179,7 @@ public class Access_BD_Operation {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+  	 * @author Mialisoa
 	 */
 	public void insertDebitExceptionnel(int idNumCompte, double montant, String typeOp)
 			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
@@ -238,6 +238,7 @@ public class Access_BD_Operation {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+  	 * @author Rudy
 	 */
 	public void insertCredit(int idNumCompte, double montant, String typeOp)
         	throws DatabaseConnexionException, DataAccessException {
@@ -287,6 +288,7 @@ public class Access_BD_Operation {
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
 	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
+  	 * @author Mohammed
 	 */
 	public void insertVirement(int idNumCompteD, int idNumCompteC, double montant, String typeOp)
         	throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
