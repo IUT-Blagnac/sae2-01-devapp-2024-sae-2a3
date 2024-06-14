@@ -44,6 +44,11 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
+                        <Button fx:id="btnDebitExep" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDebitExeptionnel" text="Débit exeptionnel" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                  </Button>
                      </children>
                   </GridPane>
                </children>
@@ -64,7 +69,7 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnDebitExep" mnemonicParsing="false" onAction="#doDebitExeptionnel" prefHeight="31.0" prefWidth="214.0" text="Débit exeptionnel">
+                  <Button fx:id="btnRelevePDF" mnemonicParsing="false" onAction="#doRelevePDF" prefHeight="31.0" prefWidth="214.0" text="Relevé PDF">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </HBox.margin>

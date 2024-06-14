@@ -5,12 +5,15 @@ import java.util.Locale;
 
 import application.DailyBankState;
 import application.control.OperationsManagement;
+import application.control.RelevePDF;
 import application.tools.NoSelectionModel;
 import application.tools.PairsOfValue;
 import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -117,6 +120,8 @@ public class OperationsManagementViewController {
 	private Button btnVirement;
 	@FXML
 	private Button btnDebitExep;
+	@FXML
+	private Button btnRelevePDF;
 
 	/**
 	 * Ferme la fenêtre (bouton FXML).
@@ -178,6 +183,16 @@ public class OperationsManagementViewController {
 			this.validateComponentState();
 		}
 	}
+
+	/**
+     * Ouvre la fenêtre de création d'un prélèvement (bouton FXML).
+     * 
+     * @author Rudy
+     */
+    @FXML
+    private void doRelevePDF() {
+        RelevePDF.generateReleve(this.compteConcerne.idNumCompte, this.clientDuCompte, this.containingStage);
+    }
 
 	/**
 	 * Valide l'état des composants de la fenêtre.
