@@ -77,6 +77,6 @@ GPO: La structure du du GIT est a reprendre, trop desordonnée. Choisissez un ax
 |       | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V1.adoc[lien]       |         
 |       | Doc. Tec. V2 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocumentTechniqueV1.adoc[lien]                |     
 |       | Code V2    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/tree/main/DailyBank_V2[lien]                     | 
-|       | Recette V2 |   https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV1.adoc[lien]                        | 
+|       | Recette V2 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/24b428aa4ff5e51ae3f6ce0f941e1ad394eef86c/V1/CahierDeRecetteV1.adoc[lien]                        | 
 |       | `jar` projet | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/DailyBank_V2/target/DailyBank-2.0-shaded.jar[lien]    | 
 |===
