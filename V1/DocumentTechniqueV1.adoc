@@ -253,8 +253,8 @@ Représente les prélèvements effectués sur les comptes courants.
 ** Client (1..*) -- 1 AgenceBancaire (Avoir) : un client peut être associé à une ou plusieurs agences bancaires. 
 ** Client (1) -- (1..*) CompteCourant (Posséder) : un client peut posséder plusieurs comptes dans la banque. 
 ** CompteCourant (*) -- 1 AgenceBancaire (Gérer) : une agence bancaire gère plusieurs comptes.
-** CompteCourant () -- () Operation : un compte peut avoir plusieurs opérations effectuées, et chaque opération est associée à un compte courant. Cependant, cette liaison (par composition) montre que si un compte courant est supprimé, toutes ses opérations associées le seront également.
+** CompteCourant <>-- Operation : un compte peut avoir plusieurs opérations effectuées, et chaque opération est associée à un compte courant. Cependant, cette liaison (par composition) montre que si un compte courant est supprimé, toutes ses opérations associées le seront également.
 ** Operation (*) -- 1 TypeOperation (Avoir) : chaque opération correspond à un type d'opération.
 ** Client (1) -- (0..*) Emprunt : un client peut faire plusieurs ou aucun emprunt auprès de la banque.
 ** Emprunt (1) -- (0..1) AssuranceEmprunt (couvrir) : un emprunt peut être couvert ou non par une assurance. 
-CompteCourant () -- () Prevelement : les prélèvements sont effectués sur les comptes des clients. Cependant, cette liaison (par composition) montre que la suppression du compte courant entraîne la suppression de tous les prélèvements associés.
+** CompteCourant <>-- Prevelement : les prélèvements sont effectués sur les comptes des clients. Cependant, cette liaison (par composition) montre que la suppression du compte courant entraîne la suppression de tous les prélèvements associés.
