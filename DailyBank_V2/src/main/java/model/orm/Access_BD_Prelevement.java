@@ -33,6 +33,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
+  	 * @author Mohammed
 	 */
 	public ArrayList<Prelevement> getPrelevements(int idAg, int idNumCompte)
 			throws DataAccessException, DatabaseConnexionException {
@@ -75,6 +76,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+  	 * @author Rudy
 	 */
 	public void insertPrelevement(Prelevement pre) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
 		try {
@@ -128,6 +130,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+  	 * @author Mialisoa
 	 */
 	public void modifierPrelevement(Prelevement pre)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -168,6 +171,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+  	 * @author Daria
 	 */
 	public void supprimerPrelevement(Prelevement pre)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
@@ -206,6 +210,7 @@ public class Access_BD_Prelevement {
 	 * @throws DataAccessException               Erreur d'accès aux données (requête
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
+  	 * @author Mohammed
 	 */
 	public int verifierPrelemevent(int idCpt, int idAg)
 			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
