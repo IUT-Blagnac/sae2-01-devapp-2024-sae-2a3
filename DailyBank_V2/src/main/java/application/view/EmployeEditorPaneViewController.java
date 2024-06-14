@@ -113,7 +113,6 @@ public class EmployeEditorPaneViewController {
 		this.txtIdEmp.setText("" + this.employeEdite.idEmploye);
 		this.txtNom.setText(this.employeEdite.nom);
 		this.txtPrenom.setText(this.employeEdite.prenom);
-		this.txtDroit.setText(this.employeEdite.droitsAccess);
 		this.txtLogin.setText(this.employeEdite.login);
 		this.txtMDP.setText(this.employeEdite.motPasse);
 
@@ -146,8 +145,6 @@ public class EmployeEditorPaneViewController {
 	private TextField txtNom;
 	@FXML
 	private TextField txtPrenom;
-	@FXML
-	private TextField txtDroit;
 	@FXML
 	private TextField txtLogin;
 	@FXML
@@ -204,7 +201,7 @@ public class EmployeEditorPaneViewController {
 	private boolean isSaisieValide() {
 		this.employeEdite.nom = this.txtNom.getText().trim();
 		this.employeEdite.prenom = this.txtPrenom.getText().trim();
-		this.employeEdite.droitsAccess = this.txtDroit.getText().trim();
+		this.employeEdite.droitsAccess = "guichetier";
 		this.employeEdite.login = this.txtLogin.getText().trim();
 		this.employeEdite.motPasse = this.txtMDP.getText().trim();
 

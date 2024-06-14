@@ -185,8 +185,14 @@ public class EmployesManagementViewController {
 	private void doSupprimerEmploye() {
 		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
-			Employe empMod = this.oListEmployes.get(selectedIndice);
-			Employe result = this.emDialogController.supprimerEmploye(empMod);
+			String message = "Confirmez-vous la suppression de l'employé ?";
+			boolean confirmation = AlertUtilities.showAlertConfirmation(this.containingStage, "Suppression de l'employé", message);
+			Employe result = null;
+			if (confirmation) {
+				Employe empMod = this.oListEmployes.get(selectedIndice);
+				result = this.emDialogController.supprimerEmploye(empMod);
+			}
+
 			if (result != null) {
 				this.oListEmployes.set(selectedIndice, result);
 				AlertUtilities.showAlert(this.containingStage, "Manipulation réussite", null, "Employé supprimer avec succès", AlertType.WARNING);
@@ -218,12 +224,16 @@ public class EmployesManagementViewController {
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnSupprEmploye.setDisable(false);
+		this.btnModifEmploye.setDisable(false);
 
 		int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			this.btnModifEmploye.setDisable(false);
+			this.btnSupprEmploye.setDisable(false);
+
 		} else {
 			this.btnModifEmploye.setDisable(true);
+			this.btnSupprEmploye.setDisable(true);
 		}
 	}
 }
