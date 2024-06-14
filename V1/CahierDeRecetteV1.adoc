@@ -194,6 +194,61 @@ autorisé est de -100 euros.
 
 |====
 
+==== 1.4 Gestion des prélèvements :
+|====
+
+>|Cas de test 4+|Test-01-04-01
+>|Titre 4+|Création d'un nouveau prélèvement
+>|Objectif 4+| Vérifier qu'il est possible de créer un nouveau prélèvement
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_C.1 ^|Cliquer sur le bouton "Nouveau prélèvement". ^|La fenêtre de création des prélèvements s'ouvre. ^| aucune ^|OK
+^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau prélèvement est créé. ^|aucune ^|OK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-04-02
+>|Titre 4+|Consulter un prélèvement
+>|Objectif 4+| Vérifier qu'il est possible de consulter un prélèvement
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_CB.1 ^|Cliquer sur le bouton "Rechercher". ^|Les prélèvements s’affiche. ^|aucune ^|OK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-02-02-03
+>|Titre 4+|Mettre à jour un prélèvement
+>|Objectif 4+| Vérifier qu'il est possible de mettre à jour un prélèvement
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_C.1 ^|Cliquer sur le bouton "Modifier prélèvement". ^|La fenêtre de modification des prélèvements s'ouvre. ^| aucune ^|OK
+^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Le prélèvement est modifié. ^|aucune ^|OK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+|Supprimer un prélèvement
+>|Objectif 4+| Vérifier qu'il est possible de supprimer un prélèvement
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_CB.1 ^|Cliquer sur le bouton "Supprimer prélèvement". ^|Le prélèvement est supprimé ^|aucune ^|OK
+
+|====
+
+
 
 === 2. Fonctionnalités des chefs d'agence :
 [.text-justify]
