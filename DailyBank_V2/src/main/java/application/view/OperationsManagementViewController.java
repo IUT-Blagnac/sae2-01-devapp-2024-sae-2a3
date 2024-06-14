@@ -136,7 +136,7 @@ public class OperationsManagementViewController {
 	/**
 	 * Enregistre un débit (bouton FXML).
 	 * 
-	 * @author IUT Blagnac
+	 * @author Rudy
 	 */
 	@FXML
 	private void doDebit() {
@@ -150,7 +150,7 @@ public class OperationsManagementViewController {
 	/**
 	 * Enregistre un crédit (bouton FXML).
 	 * 
-	 * @author IUT Blagnac
+	 * @author Rudy
 	 */
 	@FXML
 	private void doCredit() {
@@ -164,7 +164,7 @@ public class OperationsManagementViewController {
 	/**
 	 * Enregistre un virement (bouton FXML).
 	 * 
-	 * @author IUT Blagnac
+	 * @author Mohammed
 	 */
 	@FXML
 	private void doVirement() {
@@ -174,7 +174,11 @@ public class OperationsManagementViewController {
 			this.validateComponentState();
 		}
 	}
-	
+
+	/**
+ 	* Enregistre un debit exceptionnel 
+  	* @author Mialisoa
+  	*/
 	@FXML
 	private void doDebitExeptionnel() {
 		Operation op = this.omDialogController.enregistrerDebitExeptionnel();
