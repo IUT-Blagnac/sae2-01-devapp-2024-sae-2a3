@@ -315,7 +315,7 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 >|Objectif 4+| Vérifier qu'il est possible de simuler une assurance
 
 5+|
-
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|All_G_C.1 ^|Cliquer sur le bouton "Emprunt/Assurance". ^|La fenêtre de création de simulation s'ouvre. ^| aucune ^|OK
 ^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Le cout d'assurance est affichée. ^|aucune ^|OK
 
