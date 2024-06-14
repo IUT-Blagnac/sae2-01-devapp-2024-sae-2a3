@@ -118,15 +118,31 @@ image::/V0Screens/Use case suprEmployé.jpg[title="Fait par Mohammed"]
 
 * Autre ajout de fonctionnalités au guichetier tel que : 
 ** récupérer le relevé pdf d'un compte, 
-** créer un nouveau prélevement, 
+
+image::/V0Screens/Use case PDF.jpg[title="Fait par Mohammed, Rudy"]
+** créer un nouveau prélevement,
+
+image::/V0Screens/Use case nouvPrélève.jpg[title="Fait par Rudy"]
 ** consulter un prélevement, 
+
+image::/V0Screens/Use case consultPrélève.jpg[title="Fait par Mohammed"]
 ** modifier un prélevement, 
+
+image::/V0Screens/Use case modifPrélève.jpg[title="Fait par Mialisoa"]
 ** supprimer un prélevement.
+
+image::/V0Screens/Use case supprPrélève.jpg[title="Fait par Daria"]
 
 * Autre ajout de fonctionnalité pour le chef d'agence tel que :
 ** débiter exceptionnellement un compte
+
+image::/V0Screens/Use case débitExcep.jpg[title="Fait par Mialisoa"]
 ** simuler un emprunt
+
+image::/V0Screens/Use case simulEmprunt.jpg[title="Fait par Mohammed"]
 ** simuler une assurance
+
+image::/V0Screens/Use case simulAssure.jpg[title="Fait par Daria"]
 
 
 === 2. Diagramme de classes 
