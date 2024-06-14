@@ -26,7 +26,6 @@ Le **chef d’agence**, dans la version V1, pourra créer un employé, consulter
 
 Le **guichetier**, dans la version V1, pourra créer un compte, créditer et débiter un compte, effectuer un virement, et clôturer un compte, ceux qui sont des actions également réalisables par le chef d’agence. Dans la version V2, le guichetier pourra effectuer un prélèvement en format PDF, créer, consulter, mettre à jour et supprimer un prélèvement.
 
-Le **batch**, quant à lui, sera responsable d'effectuer des prélèvements et de générer des relevés mensuels. Ces fonctionnalités permettent de garantir une gestion fluide et efficace des opérations bancaires au sein de l'application.
 
 == II Architecture 
 
