@@ -130,42 +130,117 @@ image::/V0Screens/Use case suprEmployé.jpg[title="Fait par Mohammed"]
 
 
 === 2. Diagramme de classes 
+image::../V1/DC/dc-initial.png[title="Diagramme de classe DailyBank"]
 
-* DC Application : 
+==== a. Les classes 
 
-image::../V1/DC/applicationDC.png[title="Diagramme de classe application"]
-Dans ce diagramme de classes, nous pouvons voir deux classes principales : la classe DailyBankApp et la classe DailyBankState avec ses attributs et ses méthodes.
+**__AgenceBancaire__**  
 
-* DC des classes contrôleurs de dialogue et d'accés aux données : 
+Une classe qui représente une agence physique de la banque où les opérations bancaires se déroulent et où les employes et les clients interagissent, d'où une liaison avec la classe Employe. 
 
-image::../V1/DC/controlDC.png[title="Diagramme de classe control"]
-Dans ce diagramme, nous pouvons voir tous les classes liées à la gestion du dialogue et l'accés au données. Ces classes sont responsable de la communication entre l'utilisateur et de l'interaction avec la BD.
+*** Attributs :
 
-* DC des classes outils 
-
-image::../V1/DC/toolsDC.png[title="Diagramme de classe tools"]
-Ce diagramme nous montre les classes et énumérations qui fournissent des fonctionnalités auxiliaires à l'application. 
-
-* DC des classes controleurs associées aux vues fxml
-
-image::../V1/DC/viewDC.png[title="Diagramme de classe view"]
-Sur ce diagramme, nous pouvons apercevoir tous les classes qui contribuent au contrôle des vues FXML. 
-
-* DC data : 
-
-image::../V1/DC/dataDC.png[title="Diagramme de classe data"]
-Ce diagramme présente tous les classes liées aux tables de la base de donnée (AgenceBancaire, Client, CompteCourant, Employe, Operation et TypeOperation). 
-
-* DC des classes d'accés physique à la BD 
-
-image::../V1/DC/ormDC.png[title="Diagramme de classe orm"]
-Dans ce diagramme, nous avons les classes qui permet d'accéder à la base de données. Chque classe contient plusieurs méthodes pour interagir avec les tables de la base de données. Cela inclut mes méthodes tel que la création, la consultation, les mise à jour et suppression des données. 
-
-* DC des exceptions 
-
-image::../V1/DC/exceptionDC.png[title="Diagramme de classe exception"]
-Ce diagramme nous montre les différents classes d'exception utilisées dans l'application. 
+**** idAg : identifiant unique pour chaque agence 
+**** nomAg : nom de l'agence
+**** adressePostalAg : adresse de l'agence
 
 
+**__Employe__**
+
+Cette classe représente les employés travaillant dans l'agence bancaire. Dans une agence bancaire, un employé peut-être chef d'agence ou guichetiers, et c'est eux qui gèrent les opérations de la banque et servent les clients. 
+
+*** Attributs :
+
+**** idEmploye : identifiant unique pour chaque employé
+**** nom : nom de l'employé
+**** droitAcces : Droit d'accès des employés. Les chefs d'agences et les guichetiers n'ont pas les mêmes droits 
+**** login et mot de passe : nécessaire pour se connecter
+
+**__Client__**
+
+La classe Client représente les clients de la banque et possède un ou des comptes dans la banque. 
+
+*** Attributs :
+
+**** idNumCli : identifiant unique pour chaque client
+**** nom : nom du client 
+**** prenom : prénom du client 
+**** adressePostale : adresse du client 
+**** email et telephone : contacte du client
+**** estInactif : permet de savoir si le client est actif ou inactif. 
+
+**__CompteCourant__**  
+
+Cette classe représente les comptes courants détenus par les clients. A travers leur compte, les clients peutven gérer leur argent, effectuer des dépôts, retraits, virement et emprunts. 
+
+*** Attributs :
+
+**** idNumCompte : identifiant unique pour chaque compte
+**** debitAutorise : debit autorisé pour chaque compte, elle doit être > 0
+**** solde : solde du compte
+**** estCloture : indique si le compte est clôturé.
+
+**__Operation__** 
+
+La classe Operation représente la transactions (débit, retraits, virement,...) effectuées sur les comptes courants.
+
+*** Attributs :
+
+**** idOperation : identifiant unique pour chaque opération 
+**** montant : montant de l'opération (débit, retrait,...)
+**** dateOp : date à laquelle l'opération a été effectuée.
+**** dateValeur : date de valeut de l'opération
+
+**__TypeOperation__** 
+
+TypeOperation représente les différents types d'opérations possibles (debit, credit, virement)
+
+*** Attribut :
+
+**** idTypeOperation : identifiant unique chaque type d'opération
+
+**__Emprunt__** 
+
+Représente les emprunts contractés par les clients.
+
+*** Attibuts :
+
+**** tauxEmp : taux de l'emprunt
+**** capitalEmp : capital emprunté
+**** dureeEmp : durée de l'emprunt
+**** dateDebEmp : date de début de l'emprunt
+
+**__EmpruntAssurance__**
+
+Représente les assurances associées aux emprunts afin de protéger la banque et les clients en cas de défaillance de paiment.
+
+*** Attibuts : 
+
+**** tauxAss : taux de l'assurance 
+**** tauxCouv : taux de couverture
+
+**__PrelevementAutomatique__**
+
+Représente les prélèvements automatiques effectués sur les comptes courants.
+
+*** Attributs : 
+
+**** idPrelevement : identifiant unique pour chaque prélèvelement automatique 
+**** montant : montant du prélèvement 
+**** dateRecurrente : date récurrente de prélèvement 
+**** beneficiaire : bénéficiaire du prélèvement
+
+==== b. Les liaisons 
+
+** ChefAgence (0..1) -- 1 AgenreceBancaire : une agence est gérée par un chef d'agence. 
+** Guichetier (*) -- 1 : une agence peut avoir plusieurs guichetiers. 
+** Client (1..*) -- 1 AgenceBancaire (Avoir) : un client peut être associé à une ou plusieurs agences bancaires. 
+** Client (1) -- (1..*) CompteCourant (Posséder) : un client peut posséder plusieurs comptes dans la banque. 
+** CompteCourant (*) -- 1 AgenceBancaire (Gérer) : une agence bancaire gère plusieurs comptes.
+** CompteCourant () -- () Operation : un compte peut avoir plusieurs opérations effectuées, et chaque opération est associée à un compte courant. Cependant, cette liaison (par composition) montre que si un compte courant est supprimé, toutes ses operations associés le seront également.
+** Operation (*) -- 1 TypeOperation (Avoir) : chaque opération correspond à un type d'opération.
+** Client (1) -- (0..*) Emprunt : un client peut faire plusieurs ou aucun emprunt auprès de la banque.
+** Emprunt (1) -- (0..1) AssuranceEmprunt (couvrir) : un emprunt peut être couvert ou non par une assurance. 
+CompteCourant () -- () PrevelementAutomatique : les prélèvements automatiques sont effectués sur les comptes des clients. Cependant, cette liaison (par composition) montre que la suppression du compte courant entraîne la suppression de tous les prélèvements automatiques associés.
 
 == IV Élément De Codes Significatifs Commentés 
