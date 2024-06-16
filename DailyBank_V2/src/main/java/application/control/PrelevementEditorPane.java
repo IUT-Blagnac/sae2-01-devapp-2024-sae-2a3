@@ -36,7 +36,7 @@ public class PrelevementEditorPane {
 		this.dailyBankState = _dbstate;
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					PrelevementManagementController.class.getResource("prelevementeditor.fxml"));
+					PrelevementManagementController.class.getResource("prelevementEditor.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
