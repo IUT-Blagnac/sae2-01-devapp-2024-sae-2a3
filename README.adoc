@@ -34,7 +34,6 @@ https://github.com/madblurryface[SHULHINA Daria] : Développeuse informatique
 | 2       | Guichetier    | Compte                    | Modifier              |          |       |          | F
 | 2       | Guichetier    | Compte                    | Supprimer             |          |       |          | F
 | 2       | Chef d’Agence | Client                    | Rendre inactif        | F        |       |          |
-| 2       | Chef d’Agence | Client                    | Supprimer             | F        |       |          |
 | 2       | Chef d’Agence | Compte                    | Débit exceptionnel    |          |       | F        | 
 | 2       | Chef d’Agence | Emprunt                   | Simuler emprunt       | F        |       |          | 
 | 2       | Chef d’Agence | Emprunt                   | Simuler assurance     |          |       |          | F
