@@ -106,7 +106,7 @@ public class ClientsManagement {
 	 *
 	 * @param c Le client sur lequel effectuer la vérification
 	 * @return Le nombre de comptes ouverts du client, -1 en cas d'erreur
-	 * @author KRILL Maxence
+	 * @author SHULHINA Daria
 	 */
 	public int verifierCloturer(Client c) {
 		int comptesOuverts = -1;
