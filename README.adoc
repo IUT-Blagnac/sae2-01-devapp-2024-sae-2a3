@@ -73,8 +73,8 @@ GPO: La structure du du GIT est a reprendre, trop desordonnée. Choisissez un ax
 |       | Code V1    |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/tree/main/DailyBank_V1[lien]                   | 
 |       | Recette V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV1.adoc[lien]                      | 
 |       | Gantt V2 prévu | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt_V2_pr%C3%A9vu.pdf[lien]    |  Version moins lisible que la V1 sous project, possible d’améliorer le rendu ?
-| 14/06 | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt%20V2_r%C3%A9alis%C3%A9.pdf[lien]      | 
-|       | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V2.adoc[lien]       |         
+| 14/06 | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt%20V2_r%C3%A9alis%C3%A9.pdf[lien]      |  Il manque les jalons dans le GANTT. le board GIT ne semble pas être en ligne avec avec le GANTT et il manque la majorité des milestones sur les issues. l’arborescence du GIT n’est pas claire. peu de retours semblent pris en compte.12/20
+|       | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V2.adoc[lien]       | La mise en contexte & présentation de l’application est un peu légère. Toues les fonctionnalités ne semblent pas être documentées. Il manque le nom du developpeur qui a fait le travail. La description textuelle des fonctions ainsi que les cas d’erreurs sont trop succinctement abordés. 8,5/20        
 |       | Doc. Tec. V2 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocumentTechniqueV2.adoc[lien]                |     
 |       | Code V2    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/tree/main/DailyBank_V2[lien]                     | 
 |       | Recette V2 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV2.adoc[lien]                        | 
