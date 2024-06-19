@@ -1,0 +1,127 @@
+= Document Technique - DailyBankApp
+:toc-title: Sommaire
+:toc: macro
+
+*Version :* 0 +
+*Date :* 07/05/2024 +
+*Créé par :* Équipe 2A3 : _AMERI Mohammed, CIARDI Rudy, RAZAFINIRINA Mialisoa, SHULHINA Daria_ +
+*Créé pour :* DailyBank +
+*Projet :* SAE DEV/GPO (S2.01/S2.05)
+
+'''
+
+toc::[]
+
+'''
+
+== I Présentation de l'application 
+Dans le cadre de ce SAE 2.01, notre objectif est de développer une application qui permettra au banque de détail à s'orienter vers une expérience utilisateur "digitale". Cette application vise à améliorer et à moderniser plusieurs outils obsolètes et les processus bancaires existants afin d'effectuer correctement tout type d'action en restant sur une stratégie de réseaux physique et en s'assurant de l'efficacité et surtout de la sécurité. 
+
+=== Fonctionnalités principales : 
+Pour permettre le bon fonctionnement de l'application, elle devra permettre au guichetier au chef d'agence de réaliser des actions tel que : 
+
+* Créer un nouveau compte
+* Effectuer des débits 
+* Effectuer des accréditations par virement de compte à compte ou par une personne physique
+* Consulter et mettre à jour les informations sur les comptes (adresse, téléphone,...)
+* Clôturer un compte
+
+En plus de ces actions, l'application Daily Bank devra fournir au chef d'agence la possibilité de gérer des comptes, effectuer un débit exceptionnel et simuler un emprunt et une assurance d'emprunt.
+
+=== Fonctionnalités supplémentaires : 
+Sachant que l'application est une application dédiée au banque de détail, elle devra générer un relevé mensuel d'un compte en PDF et gérer des prélèvements automatiques.  
+
+== II Architecture 
+
+*Les packages : dans src/main/java :*
+
+* appliction
+** DailyBank :main() de départ
+
+* appliction.control
+** Contrôleurs de dialogue et accès aux données : gestion des fonctions de l’application. Deux rôles majeurs :
+*** Réalise les actions concrètes : accès BD, faire un calcul complexe, générer un fichier, …
+*** Ouvre les autres fenêtres nécessaires : gestion du dialogue.
+
+* appliction.view
+** Contrôleurs associés aux vues fxml.
+*** Gestion de la vue affichée : contrôle des saisies réalisées, messages d’erreurs pour les contrôles de surface, appel du contrôleur de 
+    dialogue pour réaliser les actions concrètes.
+
+* Application.tools
+** Utilitaires pour application.view et application.control
+
+* model.data
+** Classes java mappant les table de la BD. Une table →  1 classe. On peut ajouter  		(classes pour jointures, …)
+
+* model.orm
+** Classes d’accès physiques à la BD. Une table → 1 classe offrant différentes méthodes 		pour accéder à la table : select, insert, 
+   delete, update, appel de procédure stockée 		(elles sont données). On peut en ajouter.
+
+* Model.exception
+** Classes des exceptions spécifiques d’accè à la BD, levées parles classes de model.orm
+
+*Les views fxml : dans src/main/ressources.*
+
+* Application.view
+** Vues de l’application : fichier fxml
+** Fichier css
+		
+
+== III Présentation Et Explication Des Diagrammes
+=== 1. Use Case
+
+image::/V0/UseCaseV2DailyBank.png[title="Use Case DailyBank"]
+
+*Version V0 :* 
+
+* Création d'un guichetier qui peut :
+** créer un nouveau client, 
+** consutlter un compte d'un client, 
+** modifier les infos d'un client,
+** débiter un compte.
+
+* Création d'un chef d'agence qui peut :
+** faire pareil q'un guichetier,
+** rendre un client inactif.
+
+*Version V1 :* 
+
+* Ajout de fonctionnalités au guichetier tel que 
+** créditer un compte, 
+** réaliser un virement d'un compte à un autre,
+** clôturer un compte.
+
+* Ajout de fontionnalités au chef d'agence tel que :
+** toujours faire pareil q'un guichetier,
+** créer un nouveau employé, 
+** consulter un employer, 
+** mettre à jour un employé,
+** supprimer un employé.
+
+*Version V2 :*
+
+* Autre ajout de fonctionnalités au guichetier tel que : 
+** récupérer le relevé pdf d'un compte, 
+** créer un nouveau prélevement, 
+** consulter un prélevement, 
+** modifier un prélevement, 
+** supprimer un prélevement.
+
+* Autre ajout de fonctionnalité pour le chef d'agence tel que :
+** toujours faire pareil q'un guichetier,
+** débiter exceptionnellement un compte
+** simuler un emprunt
+** simuler une assurance
+
+
+=== 2. Diagramme de classes 
+
+image::../V0/DC.JPG[title="Diagramme de classe probable"]
+
+* AgenceBancaire : représente une agence et détient des attributs tels que : le nom de l'agence, son adresse (localisation), un chef d'agence et une liste d'employés travaillant dans cette agence.
+* Employé : il s'agit d'une classe représentant les employés d'une banque. Ces employés peuvent être soit des guichetiers, soit un chef d'Agence.
+* Client : est une classe qui contient toutes les informations relatives à un client de la banque. 
+* Compte : représente un compte détenu par un client de la banque.
+
+== IV Élément De Codes Significatifs Commentés 

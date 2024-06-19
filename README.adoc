@@ -1,0 +1,82 @@
+= Retours
+
+Retour - André Péninou - 10/06/2024
+
+*	Pensez à la javadoc du code
+*	Code : attention aux noms de variables
++
+Ex : public class EmployeManagement {
++	private EmployeManagementViewController cmViewController; // emViewController serait mieux non ?
+
+
+
+= DailyBank
+
+== Présentation de l'équipe et rôles respectifs
+
+https://github.com/ZIAK-AKIMBO[AMERI Mohammed] : Chef de projet et Développeur informatique +
+https://github.com/Darulo13[CIARDI Rudy] : Développeur informatique +
+https://github.com/Mialiso[RAZAFINIRINA Mialisoa] : Développeuse informatique +
+https://github.com/madblurryface[SHULHINA Daria] : Développeuse informatique
+
+== Répartition des tâches et état d'avancement
+[options="header,footer"]
+|===
+| Version | Rôle          | Use Case                  | Cas                   | Mohammed | Rudy  | Mialisoa | Daria
+| 1       | Chef d’Agence | CRUD employé              | C                     |          |       |          | F
+| 1       | Chef d’Agence | CRUD employé              | R                     |          | F     |          | 
+| 1       | Chef d’Agence | CRUD employé              | U                     |          |       | F        | 
+| 1       | Chef d’Agence | CRUD employé              | D                     | F        |       |          | 
+| 1       | Guichetier    | Compte                    | Créer                 |          |       | F        | 
+| 1       | Guichetier    | Compte                    | Créditer/Débiter      |          | F     |          | 
+| 1       | Guichetier    | Compte                    | Effectuer un virement | F        |       |          | 
+| 1       | Guichetier    | Compte                    | Clôturer              |          |       |          | F 
+| 2       | Guichetier    | Compte                    | Modifier              |          |       |          | F
+| 2       | Guichetier    | Compte                    | Supprimer             |          |       |          | F
+| 2       | Chef d’Agence | Client                    | Rendre inactif        | F        |       |          |
+| 2       | Chef d’Agence | Compte                    | Débit exceptionnel    |          |       | F        | 
+| 2       | Chef d’Agence | Emprunt                   | Simuler emprunt       | F        |       |          | 
+| 2       | Chef d’Agence | Emprunt                   | Simuler assurance     |          |       |          | F
+| 2       | Guichetier    | Compte                    | Relevé PDF            | F        | F     |          | 
+| 2       | Guichetier    | CRUD Prélèvement          | C                     |          | F     |          | 
+| 2       | Guichetier    | CRUD Prélèvement          | R                     | F        |       |          | 
+| 2       | Guichetier    | CRUD Prélèvement          | U                     |          |       | F        | 
+| 2       | Guichetier    | CRUD Prélèvement          | D                     |          |       |          | F
+| 2       | Guichetier    | Thème                     | Changer couleurs      | F        |       |          | 
+|===
+
+
+Chaque étudiant doit mettre son nom sur une des colonnes étudiant.
+Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a développé en indiquant
+
+*	*F* pour fonctionnel ou
+*	*D* pour encore en Développement
+
+==== Livrables
+
+[cols="1,2,2,5",options=header]
+|===
+| Date  | Nom           |Lien                             | Retour
+| Sem.18| CDC V1        |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CDCU_V1.adoc[lien]|Bel effort pour la présentation de l'existant. Attention dans la définition de la procédure, un seul membre d'équipe n'est pas responsable de toute la doc. Chaque développeur doit réaliser la doc de son dev. Vous décrivez les contraintes mais ne les listez pas alors qu'elles sont identifiables (ex: contrainte technique, quel langugae ?). Retravaillez la mise en contexte pour raffiner le dit contexte, les objectifs, les problématique.    
+|       |Gantt V1 Prévu |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/Gantt%20V1.pdf[lien]|En une seule page, OK. GANTT général du projet, mais maintenant affinez les taches pour la V1 (docuemtnation par partie etc ...). N'oubliez pas les autres taches (tests, gestion etc ...). Attribuez les taches, ce qui semble partiellement fait déjà dans les issues du GIT.
+| 07/05 | CdC V2final   | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CDCU_V2.adoc[lien]                                   |Manque les infos du client (nom, application) sur la page de garde.La reprise des objectifs et pbmatique est un peu légère. Les règles de gestion sont manquantes. Les contraintes sont incomplètes, et vous évoquez une contrainte financière sans la détailler. Il manque le planning de livraison. 11,25/20  
+|       | Doc. Tec. V0  |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentTechniqueV0.adoc[lien]       |    
+|       | Doc User V0   |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/DocumentationUtilisateurV0.adoc[lien]      |Il manque toute la partie pré requis / installatioon / lancement de l'application, avec les credentials nécessaires à la connexion. A reprendre. Assurez vous pour les prochaines versions de respecter la structuration du document ainsi que cette 1ere base qui va dans le bon sens. 
+|       | Recette V0    |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V0/CahierDeRecetteV0.adoc[lien]| 
+| 31/05 | Gantt V1  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt_V1_Realise.pdf[lien]      |  Essayez d’améliorer l’affichage
+|       | Gantt V1  simplifié  | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/gantt%20V1.adoc[lien]      | 
+|       | Doc. Util. V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V1.adoc[lien]         | La date de “release” du document est elle la bonne dans la page de garde ? 
+Présentation générale a etoffer (un utilisateur doit en savoir plus s’il n’a pas eu accès au reste de la doc projet). reprenez le guide d’installation pour faire quelquechose de plus “step by step”. Il y a besoin de configruer le réseau ? bizarre … La description textuelles des fonctiosn est beaucoup trop succinte, il faut rentrer dans le détail. Il manque tous les cas d’erreurs et l’explication de comment en sortir, ainsi que les sécurités / subtilités fonctionnelles que l’utilisateur doti connaitre pour ne pas être surpris par le comportement de l’application.
+GPO: La structure du du GIT est a reprendre, trop desordonnée. Choisissez un axe et restructurer suivant ce dernier. Il y a un clair “delta” entre votre planif GANTT et les issues de GIT qui démontre que le KanBan du GIT n’est pas maintenu à jour. Où est la colonne “to do” ? il doit rester des choses à faire …
+        
+|       | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocumentTechniqueV1.adoc[lien]      |     
+|       | Code V1    |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/tree/main/DailyBank_V1[lien]                   | 
+|       | Recette V1 |https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV1.adoc[lien]                      | 
+|       | Gantt V2 prévu | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt_V2_pr%C3%A9vu.pdf[lien]    |  Version moins lisible que la V1 sous project, possible d’améliorer le rendu ?
+| 14/06 | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/Gantt%20V2_r%C3%A9alis%C3%A9.pdf[lien]      |  Il manque les jalons dans le GANTT. le board GIT ne semble pas être en ligne avec avec le GANTT et il manque la majorité des milestones sur les issues. l’arborescence du GIT n’est pas claire. peu de retours semblent pris en compte.12/20
+|       | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocUtilisateur%20V2.adoc[lien]       | La mise en contexte & présentation de l’application est un peu légère. Toues les fonctionnalités ne semblent pas être documentées. Il manque le nom du developpeur qui a fait le travail. La description textuelle des fonctions ainsi que les cas d’erreurs sont trop succinctement abordés. 8,5/20        
+|       | Doc. Tec. V2 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/DocumentTechniqueV2.adoc[lien]                |     
+|       | Code V2    | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/tree/main/DailyBank_V2[lien]                     | 
+|       | Recette V2 | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/V1/CahierDeRecetteV2.adoc[lien]                        | 
+|       | `jar` projet | https://github.com/IUT-Blagnac/sae2-01-devapp-2024-sae-2a3/blob/main/DailyBank_V2/target/DailyBank-2.0-shaded.jar[lien]    | 
+|===

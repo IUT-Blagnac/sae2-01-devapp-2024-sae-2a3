@@ -1,0 +1,74 @@
+/* JavaFX CSS - Leave this comment until you have at least created one rule which uses -fx-Property */
+
+.root {
+    -fx-font-size: 12pt;
+    -fx-background-color: rgb(7, 15, 43); /* Couleur de fond */
+    -fx-text-fill: rgb(146, 144, 195); /* Couleur du texte */
+
+}
+
+.bold {
+    -fx-font-weight: bold;
+}
+
+.borderlight {
+    -fx-border-color: black;
+}
+
+#Text {
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+    -fx-fill: rgb(146, 144, 195); /* Couleur du texte */
+}
+
+.courrierNew {
+    -fx-font-family: "Courier New";
+}
+
+.borderred {
+    -fx-text-fill: red;
+}
+
+.button {
+    -fx-background-color: rgb(27, 26, 85); /* Couleur de fond */
+    -fx-text-fill: rgb(146, 144, 195); /* Couleur du texte */
+    -fx-font-size: 13pt;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: rgb(83, 92, 145); /* Couleur de fond au survol */
+    -fx-text-fill: white; /* Couleur du texte au survol */
+}
+
+/* Style pour la MenuBar */
+.menu-bar {
+    -fx-padding: 5px; /* Espacement interne */
+    -fx-background-color: rgb(7, 15, 43); /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur du texte des menus */
+    -fx-fill: white; /* Couleur du texte des menus */
+}
+
+/* Style pour les Menu */
+.menu {
+    -fx-text-fill: white; /* Couleur du texte des menus */
+    -fx-fill: white; /* Couleur du texte des menus */
+    -fx-font-size: 14pt; /* Taille de la police */
+}
+
+.menu:hover {
+    -fx-background-color: rgb(27, 26, 85); /* Couleur de fond au survol */
+}
+
+/* Style pour les MenuItem */
+.menu-item {
+    -fx-text-fill: white; /* Couleur du texte des éléments de menu */
+    -fx-font-size: 12pt; /* Taille de la police */
+    -fx-padding: 5px 10px; /* Espacement interne */
+}
+
+.menu-item:hover {
+    -fx-background-color: rgb(83, 92, 145); /* Couleur de fond au survol */
+    -fx-text-fill: white; /* Couleur du texte au survol */
+}
